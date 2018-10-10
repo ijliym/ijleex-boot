@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="me.ijleex.dev.boot.dao.TemplateMapper">
+
+	<!-- 插入 -->
+	<insert id="insert">
+		INSERT INTO t_template (
+			name,
+			type,
+			biz_type,
+			content,
+			status,
+			creator,
+			create_time,
+			modifier,
+			modified_time
+		) VALUES (
+			#{name},
+			#{type},
+			#{bizType},
+			#{content},
+			#{status},
+			#{creator},
+			NOW()
+		)
+	</insert>
+
+	<!-- 批量插入 -->
+	<insert id="insertBatch" parameterType="java.util.List">
+		INSERT INTO t_template (
+			name,
+			type,
+			biz_type,
+			content,
+			status,
+			creator,
+			create_time
+		) VALUES
+		<foreach item="e" collection="list" index="idx" open="(" separator="),(" close=")">
+			#{e.name},
+			#{e.type},
+			#{e.bizType},
+			#{e.content},
+			#{e.status},
+			#{e.creator},
+			NOW()
+		</foreach>
+	</insert>
+
+	<!-- 删除 -->
+	<delete id="delete" parameterType="java.util.List">
+		DELETE FROM t_template
+		WHERE id IN
+		<foreach item="id" collection="list" index="idx" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+	<!-- 更新 -->
+	<update id="update">
+		UPDATE t_template
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="name != null">name = #{name},</if>
+			<if test="type != null">type = #{type},</if>
+			<if test="bizType != null">biz_type = #{bizType},</if>
+			<if test="content != null">content = #{content},</if>
+			<if test="status != null">status = #{status},</if>
+			<if test="modifier != null">modifier = #{modifier},</if>
+			modified_time = NOW()
+		</trim>
+		WHERE id = #{id}
+	</update>
+
+	<!-- 根据条件查询 -->
+	<select id="select" resultType="me.ijleex.dev.boot.modules.sys.entity.TemplateEntity">
+		SELECT id,
+			name,
+			type,
+			biz_type,
+			content,
+			status,
+			creator,
+			create_time,
+			modifier,
+			modified_time
+		FROM t_template
+		<trim prefix="WHERE" prefixOverrides="AND | OR">
+			<if test="name != null and name.trim() != ''">
+				AND name LIKE concat('%',#{name},'%')
+			</if>
+			<if test="type != null and type.trim() != '-1'">
+				AND type = #{type}
+			</if>
+			<if test="bizType != null and bizType.trim() != ''">
+				AND biz_type LIKE concat('%',#{bizType},'%')
+			</if>
+			<if test="status != null and status.trim() != '-1'">
+				AND status = #{status}
+			</if>
+		</trim>
+		ORDER BY id DESC
+	</select>
+
+	<!-- 根据id查询 -->
+	<select id="selectById" resultType="me.ijleex.dev.boot.modules.sys.entity.TemplateEntity">
+		SELECT id,
+			name,
+			type,
+			biz_type,
+			content,
+			status,
+			creator,
+			create_time,
+			modifier,
+			modified_time
+		FROM t_template
+		WHERE id = #{id}
+	</select>
+
+</mapper>

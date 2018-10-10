@@ -1,0 +1,17 @@
+[user]
+	name = liym@com
+	email = ijliym@163.com
+[core]
+	whitespace = cr-at-eol
+	autocrlf = input
+	safecrlf = warn
+[push]
+	default = simple
+[i18n]
+	commitencoding = utf-8
+[svn]
+	pathnameencoding = utf-8
+[gui]
+	encoding = utf-8
+[log]
+	date = iso-local

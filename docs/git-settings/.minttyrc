@@ -1,0 +1,40 @@
+#
+# http://www.cnblogs.com/phang/p/5862495.html
+# https://github.com/mavnn/mintty-colors-solarized.git
+#
+
+ForegroundColour =   0,   0,   0
+BackgroundColour = 216, 230, 206
+CursorColour     = 255,   0,   0
+
+Black            =   0,   0,   0
+BoldBlack        =   0,   0,   0
+Red              = 130,  68,   6
+BoldRed          = 246, 155,  64
+Green            =   6, 130,  68
+BoldGreen        =  64, 246, 155
+Yellow           =  68, 130,   6
+BoldYellow       = 155, 246,  64
+Blue             =  68,   6, 130
+BoldBlue         = 155,  64, 246
+Magenta          = 130,   6,  68
+BoldMagenta      = 246,  64, 155
+Cyan             =   6,  68, 130
+BoldCyan         =  64, 155, 246
+White            = 255, 255, 255
+BoldWhite        = 255, 255, 255
+
+### ####################################
+BoldAsFont=-1
+Columns=100
+Rows=25
+
+Term=xterm
+Locale=zh_CN
+Language=zh_CN
+Charset=UTF-8
+
+Font=InputMono
+FontHeight=11
+CursorType=underscore
+

@@ -1,0 +1,26 @@
+INPUT™
+Fonts for code from DJR & Font Bureau
+
+http://input.fontbureau.com/
+http://input.fontbureau.com/download/
+
+                                                2017-09-14 11:25:52
+
+
+Google Font: Noto Serif CJK SC
+https://www.google.com/get/noto/
+
+Super OpenType/CFF Collection (Super OTC)
+https://www.google.com/get/noto/help/cjk/
+
+https://noto-website.storage.googleapis.com/pkgs/NotoSerifCJK.ttc.zip
+https://noto-website.storage.googleapis.com/pkgs/NotoSansCJK.ttc.zip
+https://noto-website.storage.googleapis.com/pkgs/NotoSerifCJKsc-hinted.zip
+
+                                            2017-09-21 13:53:43
+
+Google Adblock Plus
+https://chrome.google.com/webstore/detail/adblock-plus/cfhdojbkjhnklbpkdaibdccddilifddb?utm_source=chrome-ntp-icon
+
+
+

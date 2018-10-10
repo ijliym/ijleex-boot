@@ -1,0 +1,22 @@
+# github.com
+Host github.com
+	HostName github.com
+	PreferredAuthentications publickey
+	IdentityFile ~/.ssh/id_rsa
+	User ijliym@163.com
+
+# gitee.com	(2017-10-08 16:39:06)
+Host gitee.com
+	HostName gitee.com
+	PreferredAuthentications publickey
+	IdentityFile ~/.ssh/id_rsa
+	User ijliym@163.com
+
+# bitbucket.org
+Host bitbucket.org
+	HostName bitbucket.org
+	PreferredAuthentications publickey
+	IdentityFile ~/.ssh/id_rsa
+	User ijliym@163.com
+
+

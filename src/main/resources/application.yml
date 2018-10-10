@@ -1,0 +1,64 @@
+
+## #####################################################################
+## Spring Boot Server configuration ( http://localhost:8090/ij-boot/ )
+server:
+    port: 8089
+    servlet:
+        application-display-name: ijleex-boot
+        context-path: /           # ij-boot
+        path: /
+    tomcat:
+        uri-encoding: UTF-8
+        max-threads: 1000
+        min-spare-threads: 30
+        accesslog:
+            enabled: true
+    undertow:    # configure Undertow 2018-01-30 11:10:17
+        max-http-post-size: 10485760
+        buffer-size: 1024
+        io-threads: 4
+        worker-threads: 25
+        # 是否分配直接内存
+        direct-buffers: true
+        accesslog:
+            enabled: true
+
+spring:
+    application:
+        name: ijleex-boot
+        admin:
+            enabled: true
+            jmx-name: org.springframework.boot:type=Admin,name=SpringApplication
+    # 运行环境：dev-开发环境、test-测试环境、prod-生成环境
+    #profiles:
+        #active: dev
+        #include: redis
+    jackson:
+        time-zone: GMT+8
+        date-format: yyyy-MM-dd HH:mm:ss
+        locale: zh_CN
+    http:
+        encoding:
+            charset: UTF-8
+            enabled: true
+            force: true
+    # Thymeleaf 模板引擎
+    thymeleaf:
+        cache: false
+        prefix: classpath:/templates/
+        suffix: .html
+        mode: HTML    #org.thymeleaf.templatemode.TemplateMode
+        encoding: UTF-8
+        servlet:
+            content-type: text/html
+    resources: #指定静态资源的路径
+        static-locations: classpath:/static/,classpath:/templates/
+    mvc:
+        favicon:
+            enabled: false
+    jmx:
+        enabled: true
+        default-domain: org.springframework.boot
+    beaninfo:
+        ignore: false
+

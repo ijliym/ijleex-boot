@@ -1,0 +1,32 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+/target/
+/classes/
+
+# Eclipse project configuration files
+/.settings/
+/.classpath
+/.project
+
+# IDEA workspace/project configuration files
+/*.iml
+/.idea/*.xml
+/.idea/artifacts/
+/.idea/codeStyles/
+/.idea/dictionaries/
+/.idea/dataSources/
+/.idea/inspectionProfiles/
+/.idea/libraries/
+
+# Visual Studio Code configuration files
+/.vscode
+
+# Other files
+/doc/
+/logs/
+/*_IS_UNDEFINED/
+/out/
