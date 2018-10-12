@@ -128,7 +128,7 @@ under the License.
         <!-- Maven deploy 时，Repository 的类型必须是 hosted，
             且 Configuration -> Deployment Policy 的值是 Allow Redeploy，否则会出现 400 错误。-->
         <server>
-            <id>nexus-server</id>
+            <id>maven-server</id>
             <username>admin</username>
             <password>admin123</password>
         </server>
