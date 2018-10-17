@@ -38,7 +38,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <spring-boot.version>2.0.5.RELEASE</spring-boot.version>
 
-        <servlet.version>4.0.1</servlet.version>
+        <servlet-api.version>4.0.1</servlet-api.version>
 
         <druid.version>1.1.10</druid.version>
         <mysql.version>8.0.12</mysql.version>
@@ -148,7 +148,6 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
@@ -170,7 +169,6 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
@@ -214,13 +212,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>3.0.0</version>
             </plugin>
             <plugin>
                 <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
                 <executions>
                     <execution>
                         <id>compile</id>
@@ -247,7 +243,6 @@
                 <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.20.1</version>
                 <configuration>
                     <!-- Skipping Tests 2018-02-01 16:00:42 -->
                     <skipTests>true</skipTests>
@@ -257,7 +252,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
-                <version>3.7.1</version>
             </plugin>
             <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-project-info-reports-plugin -->
             <plugin>
