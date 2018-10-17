@@ -31,7 +31,7 @@ https://download.jetbrains.com/idea/ideaIU-2017.1.6.win.zip
 https://download.jetbrains.com/idea/ideaIU-2017.2.7.win.zip
 https://download.jetbrains.com/idea/ideaIU-2017.3.5.win.zip
 https://download.jetbrains.com/idea/ideaIU-2018.1.6.win.zip
-https://download.jetbrains.com/idea/ideaIU-2018.2.4.win.zip
+https://download.jetbrains.com/idea/ideaIU-2018.2.5.win.zip
 --------------------------------------------------------------------------------
 https://www.jetbrains.com/idea/download/previous.html
 
