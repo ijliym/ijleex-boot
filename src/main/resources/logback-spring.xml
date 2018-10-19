@@ -3,11 +3,15 @@
 
     <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss" scope="CONTEXT"/>
 
+    <!--
+        Logback Pattern: https://logback.qos.ch/manual/layouts.html#conversionWord
+        -->
+
     <!-- org/springframework/boot/logging/logback/console-appender.xml -->
-    <property name="CONSOLE_LOG_PATTERN" value="%d{HH:mm:ss.SSS} %-5p [%c] %m%n"/>
+    <property name="CONSOLE_LOG_PATTERN" value="%d{HH:mm:ss.SSS} %-5p [%c{0}] %m%n"/>
 
     <!-- org/springframework/boot/logging/logback/file-appender.xml -->
-    <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%c] %m%n"/>
+    <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%c{0}] %m%n"/>
     <property name="LOG_FILE" value="logs/ijleex-boot.log/"/>
     <property name="LOG_FILE_MAX_SIZE" value="10MB"/>
     <property name="LOG_FILE_MAX_HISTORY" value="10"/>
