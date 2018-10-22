@@ -55,7 +55,8 @@
         <!-- International Component for Unicode for Java (ICU4J) -->
         <icu4j.version>62.1</icu4j.version>
 
-        <junit5.version>5.2.0</junit5.version>
+        <junit.version>4.12</junit.version>
+        <junit-jupiter.version>5.2.0</junit-jupiter.version>
     </properties>
 
     <!-- 配置子模块 -->
@@ -182,7 +183,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit5.version}</version>
+            <version>${junit-jupiter.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -236,8 +237,8 @@
                     </execution>
                 </executions>
                 <configuration>
-					<source>${maven.compiler.source}</source>
-					<target>${maven.compiler.target}</target>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
