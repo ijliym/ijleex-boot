@@ -51,6 +51,9 @@
     <option name="PRIMARY_KEY_NAME_TEMPLATE" value="pk_{table}_{columns}" />
     <option name="FOREIGN_KEY_NAME_TEMPLATE" value="fk_{table}_{ref_table}_{ref_columns}" />
   </SqlCodeStyleSettings>
+  <XML>
+    <option name="XML_KEEP_BLANK_LINES" value="1" />
+  </XML>
   <codeStyleSettings language="HTML">
     <option name="RIGHT_MARGIN" value="135" />
   </codeStyleSettings>
