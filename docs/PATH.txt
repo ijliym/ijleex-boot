@@ -1,11 +1,11 @@
 
 JAVA_HOME
-D:\ProgramFiles\Java\jdk1.8.0_191
+D:\ProgramFiles\Java\jdk1.8.0_192
 
-CLASSPATH   D:\ProgramFiles\Java\jdk1.8.0_191\jre\lib\rt.jar;
+CLASSPATH   D:\ProgramFiles\Java\jdk1.8.0_192\jre\lib\rt.jar;
 %JAVA_HOME%\jre\lib\rt.jar;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
 
-PATH        D:\ProgramFiles\Java\jdk1.8.0_191\bin;
+PATH        D:\ProgramFiles\Java\jdk1.8.0_192\bin;
 %JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;
 
 ----------------------------------------------------------------------
@@ -36,8 +36,8 @@ GRADLE_USER_HOME=%USERPROFILE%\.gradle\repository
 
 Red Hat Enterprise Linux 7.5 Java PATH
 /etc/profile
-JAVA_HOME=/opt/Java/jdk1.8.0_191
-IDEA_JDK=/opt/Java/jdk1.8.0_191
+JAVA_HOME=/opt/Java/jdk1.8.0_192
+IDEA_JDK=/opt/Java/jdk1.8.0_192
 CLASSPATH=$JAVA_HOME/lib/
 PATH=$PATH:$JAVA_HOME/bin
 export PATH JAVA_HOME CLASSPATH
