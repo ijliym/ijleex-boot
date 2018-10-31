@@ -5,7 +5,6 @@ server:
   servlet:
     application-display-name: ijleex-boot
     context-path: /           # ij-boot
-    path: /
   tomcat:
     uri-encoding: UTF-8
     max-threads: 1000
@@ -19,6 +18,7 @@ server:
     worker-threads: 25
     # 是否分配直接内存
     direct-buffers: true
+    eager-filter-init: true
     accesslog:
       enabled: true
 
@@ -28,8 +28,8 @@ spring:
     admin:
       enabled: true
       jmx-name: org.springframework.boot:type=Admin,name=SpringApplication
-    # 运行环境：dev-开发环境、test-测试环境、prod-生成环境
-    #profiles:
+  # 运行环境：dev-开发环境、test-测试环境、prod-生成环境
+  #profiles:
     #active: dev
     #include: redis
   jackson:
