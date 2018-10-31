@@ -14,6 +14,7 @@
 
 # IDEA workspace/project configuration files
 /*.iml
+/.idea/*.iml
 /.idea/*.xml
 /.idea/artifacts/
 /.idea/codeStyles/
