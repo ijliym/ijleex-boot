@@ -53,7 +53,7 @@
         <servlet-api.version>4.0.1</servlet-api.version>
 
         <druid.version>1.1.10</druid.version>
-        <mysql.version>8.0.12</mysql.version>
+        <mysql.version>8.0.13</mysql.version>
 
         <!-- International Component for Unicode for Java (ICU4J) -->
         <icu4j.version>62.1</icu4j.version>
@@ -153,13 +153,14 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
         <dependency>
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
-            <version>3.22.0-GA</version>
+            <version>3.23.1-GA</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.ibm.icu/icu4j -->
