@@ -45,7 +45,7 @@ import org.junit.jupiter.api.Test;
  */
 class CJKUnifiedIdeographsTest {
 
-    private static final String PATH = "D:/ProgramFiles/MySQL/mysql-commercial-8.0.12-winx64/tmp/";
+    private static final String PATH = "D:/ProgramFiles/MySQL/mysql-8.0.13-winx64/run/";
 
     /**
      * CJK Unified Ideographs (中日韩统一表意文字)
