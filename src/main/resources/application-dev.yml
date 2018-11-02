@@ -1,37 +1,17 @@
 spring:
   datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driverClassName: com.mysql.cj.jdbc.Driver
-    druid:
-      default:
-        url: jdbc:mysql://localhost:3306/db_boot?useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=true&verifyServerCertificate=false&serverTimezone=UTC
-        username: dev
-        password: temp01
-      initial-size: 10
-      max-active: 100
-      min-idle: 10
-      max-wait: 60000
-      pool-prepared-statements: true
-      max-pool-prepared-statement-per-connection-size: 20
-      time-between-eviction-runs-millis: 60000
-      min-evictable-idle-time-millis: 300000
-      validation-query: SELECT 1
-      test-while-idle: true
-      test-on-borrow: false
-      test-on-return: false
-      stat-view-servlet:
-        enabled: true
-        url-pattern: /druid/*
-        #login-username: admin
-        #login-password: admin
-      filter:
-        stat:
-          log-slow-sql: true
-          slow-sql-millis: 1000
-          merge-sql: true
-        wall:
-          config:
-            multi-statement-allow: true
-
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_boot?useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=true&verifyServerCertificate=false&serverTimezone=Hongkong&allowMultiQueries=true
+    username: dev
+    password: temp01
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:    # Hikari 连接池配置（https://github.com/brettwooldridge/HikariCP）
+      minimum-idle: 5           # 最小空闲连接数量
+      idle-timeout: 180000      # 空闲连接存活最大时间，默认600000（10分钟）
+      maximum-pool-size: 10     # 连接池最大连接数，默认是10
+      auto-commit: true         # 是否自动提交
+      max-lifetime: 1800000     # 连接的最长生命周期，值0表示无限生命周期，默认1800000，即30分钟
+      connection-timeout: 30000 # 数据库连接超时时间，默认30秒，即30000
+      connection-test-query: SELECT NOW()
 
 
