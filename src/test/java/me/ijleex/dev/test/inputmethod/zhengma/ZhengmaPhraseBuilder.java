@@ -29,8 +29,8 @@ import me.ijleex.dev.test.inputmethod.FormatType;
 import me.ijleex.dev.test.inputmethod.ImeDictAnalyzer;
 import me.ijleex.dev.test.inputmethod.Utils;
 import me.ijleex.dev.test.inputmethod.entry.ImeEntry;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 /**
  * 郑码构词 工具类
@@ -38,7 +38,7 @@ import org.junit.jupiter.api.Test;
  * @author ijymLee
  * @since 2018-06-06 09:13:20 新建
  */
-class ZhengmaPhraseBuilder {
+public class ZhengmaPhraseBuilder {
 
     /**
      * 输出格式
@@ -71,8 +71,8 @@ class ZhengmaPhraseBuilder {
      * @throws java.io.IOException 读/写文件错误
      * @since 2018-03-21 13:44:48
      */
-    @BeforeAll
-    static void initSetup() throws IOException {
+    @BeforeClass
+    public static void initSetup() throws IOException {
         String userHome = System.getProperty("user.home");
 
         // 加载构词码
@@ -110,7 +110,7 @@ class ZhengmaPhraseBuilder {
      * @since 2018-06-06 09:18:14
      */
     @Test
-    void buildZhengmaPhrase01() throws IOException {
+    public void buildZhengmaPhrase01() throws IOException {
         List<ImeEntry> outList = new ArrayList<>(60);
 
         for (String text : CTOR_SRC_PHRASES) {

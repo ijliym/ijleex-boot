@@ -22,8 +22,8 @@ import java.util.Set;
 import me.ijleex.dev.test.inputmethod.ImeDictAnalyzer;
 import me.ijleex.dev.test.inputmethod.entry.DDImeEntry;
 import me.ijleex.dev.test.inputmethod.entry.ImeEntry;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 /**
  * 将多多输入法原始码表文件处理成可以使用 MySQL “LOAD DATA INFILE” 语法加载数据到数据库的文件
@@ -39,7 +39,7 @@ import org.junit.jupiter.api.Test;
  * @version 2018-05-17 21:09 extends ImeDictAnalyzer
  * @since 2017-08-06 20:55 新建
  */
-class Test01 extends ImeDictAnalyzer {
+public class Test01 extends ImeDictAnalyzer {
 
     /**
      * 初始设置
@@ -48,8 +48,8 @@ class Test01 extends ImeDictAnalyzer {
      * @version 2018-03-14 11:17:16 使用 System.getProperty("user.home") 获取用户目录
      * @since 2017-08-09 10:13
      */
-    @BeforeAll
-    static void initSetup() {
+    @BeforeClass
+    public static void initSetup() {
         dictPath = dictPath + "/[新世纪五笔]/原始码表/";
 
         String userHome = System.getProperty("user.home");
@@ -77,7 +77,7 @@ class Test01 extends ImeDictAnalyzer {
      * @since 2017-08-06 21:00
      */
     @Test
-    void testWubi() throws IOException {
+    public void testWubi() throws IOException {
         Set<String> fileSet = FILE_TYPE.keySet();
         fileSet.remove("07.五笔-辅码-拼音.txt");
 
@@ -92,7 +92,7 @@ class Test01 extends ImeDictAnalyzer {
      * @since 2017-08-07 18:08 新建
      */
     @Test
-    void testPinyin() throws IOException {
+    public void testPinyin() throws IOException {
         String[] files = {"07.五笔-辅码-拼音.txt"};
         analyzeDict(files, 355457 + 10, "2.t_ime_dict_py.txt");
     }
@@ -122,7 +122,7 @@ class Test01 extends ImeDictAnalyzer {
      * @since 2017-08-09 16:30
      */
     @Test
-    void testRearrange() throws IOException {
+    public void testRearrange() throws IOException {
         String srcFilename = "07.五笔-辅码-拼音.txt"; // 要处理的文件
         reArrangeDict(srcFilename, true, "4096");
     }

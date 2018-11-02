@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * 系统 “环境变量”
@@ -28,7 +28,7 @@ import org.junit.jupiter.api.Test;
  * @author liym
  * @since 2018-09-26 11:20 新建
  */
-class SystemPropsTest {
+public class SystemPropsTest {
 
     /**
      * 打印系统环境变量
@@ -36,7 +36,7 @@ class SystemPropsTest {
      * @since 2017-08-09 10:09
      */
     @Test
-    void printSysEnv() {
+    public void printSysEnv() {
         Map<String, String> vars = System.getenv();
         Set<Map.Entry<String, String>> entrySet = vars.entrySet();
         for (Map.Entry<String, String> entry : entrySet) {
@@ -52,7 +52,7 @@ class SystemPropsTest {
      * @since 2018-03-08 10:05
      */
     @Test
-    void printSysProps() {
+    public void printSysProps() {
         Properties props = System.getProperties();
         Set<Map.Entry<Object, Object>> entrySet = props.entrySet();
         for (Map.Entry<Object, Object> entry : entrySet) {

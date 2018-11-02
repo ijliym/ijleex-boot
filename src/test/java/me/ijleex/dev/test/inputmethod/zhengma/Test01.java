@@ -27,8 +27,8 @@ import java.util.Set;
 
 import me.ijleex.dev.test.inputmethod.ImeDictAnalyzer;
 import me.ijleex.dev.test.inputmethod.entry.ImeEntry;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 /**
  * Test01
@@ -37,15 +37,15 @@ import org.junit.jupiter.api.Test;
  * @version 2018-05-17 21:58 extends ImeDictAnalyzer
  * @since 2018-04-21 17:05 新建
  */
-class Test01 extends ImeDictAnalyzer {
+public class Test01 extends ImeDictAnalyzer {
 
     /**
      * 初始设置
      *
      * @since 2018-04-21 18:08:20
      */
-    @BeforeAll
-    static void initSetup() {
+    @BeforeClass
+    public static void initSetup() {
         dictPath = dictPath + "/[超集郑码]/原始码表/";
 
         String userHome = System.getProperty("user.home");
@@ -73,7 +73,7 @@ class Test01 extends ImeDictAnalyzer {
      * @since 2018-04-21 17:21:35s
      */
     @Test
-    void testZhengma() throws IOException {
+    public void testZhengma() throws IOException {
         Set<String> fileSet = FILE_TYPE.keySet();
         fileSet.remove("07.郑码-辅码-拼音.txt");
 
@@ -88,7 +88,7 @@ class Test01 extends ImeDictAnalyzer {
      * @since 2018-05-17 22:02:15 新建
      */
     @Test
-    void testPinyin() throws IOException {
+    public void testPinyin() throws IOException {
         String[] files = {"07.郑码-辅码-拼音.txt"};
         analyzeDict(files, 355457 + 10, "2.t_ime_dict_py.txt");
     }
@@ -101,7 +101,7 @@ class Test01 extends ImeDictAnalyzer {
      * @since 2018-05-17 22:04
      */
     @Test
-    void testRearrange() throws IOException {
+    public void testRearrange() throws IOException {
         reArrangeDict("01.郑码-主码-常用字.txt", false, "50");
         reArrangeDict("02.郑码-主码-词组.txt", false, "45");
         reArrangeDict("05.郑码-次显-生僻字.txt", false, "10");
@@ -114,7 +114,7 @@ class Test01 extends ImeDictAnalyzer {
      * @since 2018-08-27 18:05
      */
     @Test
-    void testDiff() throws IOException {
+    public void testDiff() throws IOException {
         Path path1 = Paths.get(dictPath, "05.郑码-次显-生僻字.txt");
         Path path2 = Paths.get(dictPath, "../05.郑码-次显-生僻字_删除的编码.txt");
 

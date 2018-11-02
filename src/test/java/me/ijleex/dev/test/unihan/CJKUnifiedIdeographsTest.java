@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ibm.icu.text.UnicodeSet;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * CJK Unified Ideographs (https://en.wikipedia.org/wiki/CJK_Unified_Ideographs).
@@ -43,7 +43,7 @@ import org.junit.jupiter.api.Test;
  * @author ijymLee
  * @since 2017-09-07 10:06 新建
  */
-class CJKUnifiedIdeographsTest {
+public class CJKUnifiedIdeographsTest {
 
     private static final String PATH = "D:/ProgramFiles/MySQL/mysql-8.0.13-winx64/run/";
 
@@ -57,7 +57,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-09-07 10:07
      */
     @Test
-    void test01() throws IOException {
+    public void test01() throws IOException {
         UnicodeSet unicodeSet = new UnicodeSet(0x4E00, 0x9FEF);
 
         int size = unicodeSet.size();
@@ -131,7 +131,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-09-07 19:34
      */
     @Test
-    void test02() throws IOException {
+    public void test02() throws IOException {
         UnicodeSet unicodeSet = new UnicodeSet(0x3400, 0x4DB5);
 
         int size = unicodeSet.size();
@@ -155,7 +155,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-09-07 19:36
      */
     @Test
-    void test03() throws IOException {
+    public void test03() throws IOException {
         UnicodeSet unicodeSet = new UnicodeSet(0x20000, 0x2A6D6);
 
         int size = unicodeSet.size();
@@ -177,7 +177,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-09-07 19:38
      */
     @Test
-    void test04() throws IOException {
+    public void test04() throws IOException {
         UnicodeSet unicodeSet = new UnicodeSet(0x2A700, 0x2B734);
 
         int size = unicodeSet.size();
@@ -199,7 +199,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-09-07 19:39
      */
     @Test
-    void test05() throws IOException {
+    public void test05() throws IOException {
         UnicodeSet unicodeSet = new UnicodeSet(0x2B740, 0x2B81D);
 
         int size = unicodeSet.size();
@@ -221,7 +221,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-09-07 19:40
      */
     @Test
-    void test06() throws IOException {
+    public void test06() throws IOException {
         UnicodeSet unicodeSet = new UnicodeSet(0x2B820, 0x2CEA1);
 
         int size = unicodeSet.size();
@@ -244,7 +244,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-09-07 19:41
      */
     @Test
-    void test07() throws IOException {
+    public void test07() throws IOException {
         UnicodeSet unicodeSet = new UnicodeSet(0x2CEB0, 0x2EBE0);
 
         int size = unicodeSet.size();
@@ -268,7 +268,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-09-07 19:42
      */
     @Test
-    void test08() throws IOException {
+    public void test08() throws IOException {
         UnicodeSet unicodeSet = new UnicodeSet();
         unicodeSet.add(0xFA0E);
         unicodeSet.add(0xFA0F);
@@ -303,7 +303,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-10-15 17:22
      */
     @Test
-    void test09() throws IOException {
+    public void test09() throws IOException {
         UnicodeSet unicodeSet = new UnicodeSet(0x2E80, 0x2EF3); // 0x2EFF
         unicodeSet.remove(0x2E9A); // 空闲 2018-05-06 17:03:27
 
@@ -327,7 +327,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-10-15 17:39
      */
     @Test
-    void test10() throws IOException {
+    public void test10() throws IOException {
         UnicodeSet unicodeSet = new UnicodeSet(0x31C0, 0x31E3); // 0x31EF
 
         int size = unicodeSet.size();
@@ -349,7 +349,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-10-15 17:42
      */
     @Test
-    void test11() throws IOException {
+    public void test11() throws IOException {
         UnicodeSet unicodeSet = new UnicodeSet(0x3000, 0x303F);
 
         int size = unicodeSet.size();
@@ -374,7 +374,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-10-15 17:47
      */
     @Test
-    void test12() throws IOException {
+    public void test12() throws IOException {
         UnicodeSet unicodeSet = new UnicodeSet(0x2FF0, 0x2FFB); // 0x2FFF
 
         int size = unicodeSet.size();
@@ -396,7 +396,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-10-15 17:53
      */
     @Test
-    void test13() throws IOException {
+    public void test13() throws IOException {
         UnicodeSet unicodeSet = new UnicodeSet(0x3300, 0x33FF);
 
         int size = unicodeSet.size();
@@ -417,7 +417,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-10-15 17:55
      */
     @Test
-    void test14() throws IOException {
+    public void test14() throws IOException {
         UnicodeSet unicodeSet = new UnicodeSet(0xFE30, 0xFE4F);
 
         int size = unicodeSet.size();
@@ -445,7 +445,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-09-14 13:18
      */
     @Test
-    void test15() throws IOException {
+    public void test15() throws IOException {
         UnicodeSet unicodeSet = new UnicodeSet(0x2F800, 0x2FA1D); // 0x2FA1F
 
         int size = unicodeSet.size();
@@ -472,7 +472,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-10-15 18:07
      */
     @Test
-    void test16() throws IOException {
+    public void test16() throws IOException {
         UnicodeSet unicodeSet = new UnicodeSet(0x3200, 0x32FF); // 0x2FA1F
         unicodeSet.remove(0x321E); // Reserved (保留)
         unicodeSet.remove(0x32FF); // Reserved
@@ -500,7 +500,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-10-15 18:11
      */
     @Test
-    void test17() throws IOException {
+    public void test17() throws IOException {
         UnicodeSet unicodeSet = new UnicodeSet(); // 0x1F200, 0x2FA1F
         unicodeSet.add(0x1F200);          // Squared hiragana from ARIB STD B24
         unicodeSet.add(0x1F201, 0x1F202); // Squared katakana
@@ -542,7 +542,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-10-15 18:20
      */
     @Test
-    void test18() throws IOException {
+    public void test18() throws IOException {
         UnicodeSet unicodeSet = new UnicodeSet(0x2F00, 0x2FD5); //  0x2FDF
 
         int size = unicodeSet.size();
@@ -558,7 +558,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-09-15 17:25
      */
     @Test
-    void test19() {
+    public void test19() {
         UnicodeSet unicodeSet = new UnicodeSet();
         unicodeSet.add(0x1F22E);
 
@@ -574,7 +574,7 @@ class CJKUnifiedIdeographsTest {
      * @since 2017-09-21 16:29:41
      */
     @Test
-    void test20() {
+    public void test20() {
         System.out.println(CodePointUtil.isCJKUnifiedIdeographicChar("火"));
         System.out.println(CodePointUtil.isCJKUnifiedIdeographicChar("𤳳"));
         System.out.println(CodePointUtil.isCJKUnifiedIdeographicChar("©"));

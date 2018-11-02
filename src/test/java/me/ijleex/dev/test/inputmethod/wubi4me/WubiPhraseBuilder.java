@@ -28,8 +28,8 @@ import java.util.Map;
 import me.ijleex.dev.test.inputmethod.FormatType;
 import me.ijleex.dev.test.inputmethod.ImeDictAnalyzer;
 import me.ijleex.dev.test.inputmethod.entry.ImeEntry;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 /**
  * 五笔构词 工具类
@@ -37,7 +37,7 @@ import org.junit.jupiter.api.Test;
  * @author ijymLee
  * @since 2018-03-21 13:22 新建
  */
-class WubiPhraseBuilder {
+public class WubiPhraseBuilder {
 
     /**
      * 输出格式
@@ -72,8 +72,8 @@ class WubiPhraseBuilder {
      * @throws java.io.IOException 读/写文件错误
      * @since 2018-03-21 13:44:48
      */
-    @BeforeAll
-    static void initSetup() throws IOException {
+    @BeforeClass
+    public static void initSetup() throws IOException {
         String userHome = System.getProperty("user.home");
 
         // 构词码表，不含一级简码 2018-06-25 15:59:11
@@ -113,7 +113,7 @@ class WubiPhraseBuilder {
      * @since 2018-03-21 13:25:36
      */
     @Test
-    void buildWubiPhrase01() throws IOException {
+    public void buildWubiPhrase01() throws IOException {
         List<ImeEntry> outList = new ArrayList<>(60);
 
         for (String text : CTOR_SRC_PHRASES) {
