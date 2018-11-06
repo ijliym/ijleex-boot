@@ -32,12 +32,12 @@ public class MeApplicationStarter {
      * 启动
      *
      * @param args 参数
+     * @version 2018-11-06 15:03 删除属性值：spring.liveBeansView.mbeanDomain，添加：spring.devtools.restart.enabled=false
      * @see SpringApplication#run(Class, String...)
-     * @see org.springframework.context.support.LiveBeansView
      */
     public static void main(String[] args) {
-        // 与 spring.jmx.default-domain 的值相同：org.springframework.boot 2018-04-19 10:26:25
-        System.setProperty("spring.liveBeansView.mbeanDomain", "org.springframework.boot");
+        // 禁用重新启动（RestartClassLoader）2016-11-06 15:03
+        System.setProperty("spring.devtools.restart.enabled", "false");
 
         SpringApplication app = new SpringApplication(MeApplicationStarter.class);
         app.run(args);
