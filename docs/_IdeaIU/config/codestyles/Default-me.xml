@@ -26,6 +26,9 @@
     <option name="JD_ALIGN_EXCEPTION_COMMENTS" value="false" />
     <option name="JD_DO_NOT_WRAP_ONE_LINE_COMMENTS" value="true" />
   </JavaCodeStyleSettings>
+  <Properties>
+    <option name="KEEP_BLANK_LINES" value="true" />
+  </Properties>
   <Python>
     <option name="BLANK_LINES_BEFORE_FIRST_METHOD" value="1" />
   </Python>
@@ -50,6 +53,8 @@
     <option name="BLANK_LINES_AFTER_CLASS_HEADER" value="1" />
     <option name="BLANK_LINES_BEFORE_CLASS_END" value="1" />
     <option name="SPACE_BEFORE_CATCH_KEYWORD" value="false" />
+    <option name="EXTENDS_KEYWORD_WRAP" value="1" />
+    <option name="THROWS_KEYWORD_WRAP" value="1" />
     <option name="KEEP_SIMPLE_METHODS_IN_ONE_LINE" value="true" />
     <option name="KEEP_SIMPLE_LAMBDAS_IN_ONE_LINE" value="true" />
     <option name="KEEP_SIMPLE_CLASSES_IN_ONE_LINE" value="true" />
