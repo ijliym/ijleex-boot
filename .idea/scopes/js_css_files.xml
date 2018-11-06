@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="js-css-files" pattern="file:*.js&amp;&amp;!file:*.min.*||file:*.css&amp;&amp;!file:*.min.*" />
+</component>
