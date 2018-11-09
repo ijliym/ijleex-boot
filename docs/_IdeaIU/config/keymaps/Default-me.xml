@@ -1,7 +1,7 @@
 <keymap version="1" name="Default-me" parent="$default">
   <action id="ActivateGradleToolWindow">
-    <!-- Alt+; （分号 semicolon） -->
-    <keyboard-shortcut first-keystroke="alt semicolon" />
+    <!-- Alt+\ （反斜杠 back_slash） -->
+    <keyboard-shortcut first-keystroke="alt back_slash" />
   </action>
   <action id="ActivateMavenProjectsToolWindow">
     <!-- Alt+' （引号 quote） -->
@@ -21,12 +21,10 @@
   <action id="CodeCompletion">
     <keyboard-shortcut first-keystroke="alt slash" />
   </action>
-  <action id="CopyElement" />
   <action id="HideAllWindows">
     <keyboard-shortcut first-keystroke="shift ctrl f12" />
     <keyboard-shortcut first-keystroke="alt m" />
   </action>
-  <action id="HippieCompletion" />
   <action id="SwitchApply">
     <keyboard-shortcut first-keystroke="shift alt enter" />
   </action>
