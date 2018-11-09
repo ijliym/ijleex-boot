@@ -33,6 +33,7 @@
     <option name="BLANK_LINES_BEFORE_FIRST_METHOD" value="1" />
   </Python>
   <SqlCodeStyleSettings>
+    <option name="KEYWORD_CASE" value="0" />
     <option name="INDEX_NAME_TEMPLATE" value="idx_{table}_{columns}_{unique?u:}" />
     <option name="PRIMARY_KEY_NAME_TEMPLATE" value="pk_{table}_{columns}" />
     <option name="FOREIGN_KEY_NAME_TEMPLATE" value="fk_{table}_{ref_table}_{ref_columns}" />
@@ -48,6 +49,10 @@
     <option name="LINE_COMMENT_ADD_SPACE" value="true" />
     <option name="KEEP_LINE_BREAKS" value="false" />
     <option name="KEEP_FIRST_COLUMN_COMMENT" value="false" />
+    <option name="KEEP_BLANK_LINES_IN_DECLARATIONS" value="1" />
+    <option name="KEEP_BLANK_LINES_IN_CODE" value="1" />
+    <option name="KEEP_BLANK_LINES_BETWEEN_PACKAGE_DECLARATION_AND_HEADER" value="1" />
+    <option name="KEEP_BLANK_LINES_BEFORE_RBRACE" value="0" />
     <option name="BLANK_LINES_AFTER_CLASS_HEADER" value="1" />
     <option name="BLANK_LINES_BEFORE_CLASS_END" value="1" />
     <option name="EXTENDS_KEYWORD_WRAP" value="1" />
