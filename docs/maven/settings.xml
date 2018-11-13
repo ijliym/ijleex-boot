@@ -124,9 +124,16 @@ under the License.
         </server>
         -->
 
-        <!-- pom.xml distributionManagement/repository/id: nexus-server -->
+        <!-- pom.xml distributionManagement/repository/id: maven-server -->
         <!-- Maven deploy 时，Repository 的类型必须是 hosted，
             且 Configuration -> Deployment Policy 的值是 Allow Redeploy，否则会出现 400 错误。-->
+        <!--
+            Maven Deploy sample:
+            mvn deploy:deploy-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.4 -Dpackaging=jar
+                -Dfile=/path/to/ojdbc6.jar
+                -Durl=http://192.168.39.9:8000/nexus/content/repositories/thirdparty/
+                -DrepositoryId=maven-server
+            -->
         <server>
             <id>maven-server</id>
             <username>admin</username>
