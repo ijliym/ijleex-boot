@@ -7,10 +7,11 @@
 /target/
 /classes/
 
-# Eclipse project configuration files
+# Eclipse (STS) project configuration files
 /.settings/
 /.classpath
 /.project
+/.factorypath
 
 # IDEA workspace/project configuration files
 /*.iml
