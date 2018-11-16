@@ -44,5 +44,6 @@ https://www.jetbrains.com/idea/download/
 @version 2018-10-17 09:10:23 IdeaIU-2018.2.5 (182.4892.20; October 16, 2018): 1.8.0_152-release-1248-b19 amd64
 @version 2018-10-26 20:32:26 IdeaIU-2018.3 EAP (Beta; 183.3975.18; October 24, 2018): 1.8.0_152-release-1343-b12 amd64
 @date 2018-11-14 11:12 IdeaIU-2018.2.6 (182.5107.16; November 13, 2018): 1.8.0_152-release-1248-b22 amd64
+@date 2018-11-16 20:36:26 IdeaIU-2018.3 RC2 (183.4284.118; November 16, 2018): 1.8.0_152-release-1343-b15 amd64
 
 vim: ft=changelog
