@@ -31,6 +31,8 @@ import org.junit.Test;
  * Java 8 中 Date 与 LocalDateTime、LocalDate、LocalTime 互转
  *
  * @author liym
+ * @see java.util.Date#from(Instant)
+ * @see java.util.Date#toInstant()
  * @since 2018-11-19 11:17 新建
  */
 public class Jdk8DateTimeTest {
