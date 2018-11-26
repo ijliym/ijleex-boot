@@ -24,13 +24,13 @@ ssh/config 是 SSH 密钥配置文件，路径为 ~/.ssh/config。
 
 ### 生成密钥
 
-```batch
+```shell
 ssh-keygen -t rsa -b 4096 -C "liym@git-key" -f ~/.ssh/id_rsa
 ```
 
 将密钥添加到ssh-agent的高速缓存中
 ---
-```batch
+```shell
 ssh-agent bash --login -i
 ssh-add ~/.ssh/id_rsa
 
@@ -45,7 +45,7 @@ ssh-add -D
 
 测试
 ----
-```batch
+```shell
 ssh -T git@github.com
 ssh -T git@gitee.com
 ssh -T git@git.oschina.net
