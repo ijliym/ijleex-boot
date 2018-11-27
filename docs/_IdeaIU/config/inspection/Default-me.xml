@@ -1,7 +1,7 @@
 <profile version="1.0">
   <option name="myName" value="Default-me" />
   <inspection_tool class="BooleanMethodNameMustStartWithQuestion" enabled="true" level="WARNING" enabled_by_default="true">
-    <option name="ignoreBooleanMethods" value="false" />
+    <option name="ignoreBooleanMethods" value="true" />
     <option name="ignoreInAnnotationInterface" value="true" />
     <option name="onlyWarnOnBaseMethods" value="true" />
     <option name="questionString" value="add,are,can,check,contains,could,endsWith,equals,has,is,matches,must,put,remove,shall,should,startsWith,was,were,will,would" />
