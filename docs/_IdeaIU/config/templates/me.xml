@@ -45,12 +45,13 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
-  <template name="log" value="private final Logger logger = LoggerFactory.getLogger(this.getClass());" description="org.slf4j.Logger" toReformat="false" toShortenFQNames="true">
+  <template name="log1" value="private final Logger logger = LoggerFactory.getLogger(this.getClass());" description="final org.slf4j.Logger" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
-  <template name="logger" value="private final Logger logger = LoggerFactory.getLogger(this.getClass());" description="org.slf4j.Logger" toReformat="false" toShortenFQNames="true">
+  <template name="log2" value="private static final Logger LOGGER = LoggerFactory.getLogger($NAME$.class);" description="static final org.slf4j.Logger" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="className()" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="true" />
     </context>
