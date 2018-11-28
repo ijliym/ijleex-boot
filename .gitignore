@@ -7,28 +7,25 @@
 /target/
 /classes/
 
-# Eclipse (STS) project configuration files
-/.settings/
-/.classpath
-/.project
-/.factorypath
+### Eclipse (STS) ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
-# IDEA workspace/project configuration files
-/*.iml
-/.idea/*.iml
-/.idea/*.xml
-/.idea/artifacts/
-/.idea/codeStyles/
-/.idea/dictionaries/
-/.idea/dataSources/
-/.idea/inspectionProfiles/
-/.idea/libraries/
-/.idea/httpRequests/
+### IntelliJ IDEA ###
+*.iml
+/.idea/*
+!/.idea/copyright
+!/.idea/scopes
 
-# Visual Studio Code configuration files
+# Visual Studio Code
 /.vscode
 
-# Other files
+# Other Files
 /doc/
 /logs/
 /*_IS_UNDEFINED/
