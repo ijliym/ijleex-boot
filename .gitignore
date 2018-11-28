@@ -23,6 +23,7 @@
 /.idea/dataSources/
 /.idea/inspectionProfiles/
 /.idea/libraries/
+/.idea/httpRequests/
 
 # Visual Studio Code configuration files
 /.vscode
