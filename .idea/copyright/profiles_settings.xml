@@ -1,5 +1,5 @@
 <component name="CopyrightManager">
-  <settings>
+  <settings default="default-lic">
     <module2copyright>
       <element module="com.honeybees" copyright="apache-v2-license" />
       <element module="me.ijleex" copyright="apache-v2-license" />
