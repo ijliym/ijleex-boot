@@ -21,7 +21,7 @@ package me.ijleex.dev.test.inputmethod.entry;
  *
  * <p>通过 {@link #toString()} 方法输出为符合 MySQL “LOAD DATA INFILE” 语法格式的字符串 </p>
  *
- * @author ijymLee
+ * @author liym
  * @since 2018-04-18 14:43 新建
  */
 public class MySQLLoadEntry extends ImeEntry {

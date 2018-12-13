@@ -35,7 +35,7 @@ import org.junit.Test;
  * </pre>
  * 使用 TAB 分隔。
  *
- * @author ijymLee
+ * @author liym
  * @version 2018-05-17 21:09 extends ImeDictAnalyzer
  * @since 2017-08-06 20:55 新建
  */

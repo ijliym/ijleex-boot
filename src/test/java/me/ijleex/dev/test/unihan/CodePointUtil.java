@@ -25,7 +25,7 @@ import com.ibm.icu.text.UnicodeSet;
  * 计算字符的 Unicode 编码
  * <p>代码点（Code Point）是指Unicode中为字符分配的编号，一个字符只占一个代码点。</p>
  *
- * @author ijymLee
+ * @author liym
  * @since 2017-09-07 11:07 新建
  */
 public final class CodePointUtil {

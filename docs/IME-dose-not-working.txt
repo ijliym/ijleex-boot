@@ -11,7 +11,7 @@ IDE: IdeaIU-172.3317.53
 ------------------------------------------------------------
 IntelliJ IDEA 2017.2
 Build #IU-172.3317.53, built on July 12, 2017
-Licensed to ijymLee
+Licensed to liym
 
 JRE: 1.8.0_152-release-915-b5 amd64
 JVM: OpenJDK 64-Bit Server VM by JetBrains s.r.o

@@ -17,7 +17,7 @@
 /**
  * 输入法词条实体类
  *
- * @author ijymLee
+ * @author liym
  * @since 2018-04-18 14:00 新建：将五笔词条实体从 duouoime.wubi4me 包移到这里，并改名为 “ImeEntry”
  */
 package me.ijleex.dev.test.inputmethod.entry;

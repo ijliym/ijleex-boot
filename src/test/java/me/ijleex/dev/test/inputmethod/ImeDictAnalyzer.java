@@ -38,7 +38,7 @@ import me.ijleex.dev.test.inputmethod.entry.SQLUpdateEntry;
 /**
  * 输入法词库解析
  *
- * @author ijymLee
+ * @author liym
  * @since 2018-05-16 10:51 新建
  */
 public class ImeDictAnalyzer {

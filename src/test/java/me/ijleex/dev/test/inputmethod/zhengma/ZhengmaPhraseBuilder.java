@@ -35,7 +35,7 @@ import org.junit.Test;
 /**
  * 郑码构词 工具类
  *
- * @author ijymLee
+ * @author liym
  * @since 2018-06-06 09:13:20 新建
  */
 public class ZhengmaPhraseBuilder {

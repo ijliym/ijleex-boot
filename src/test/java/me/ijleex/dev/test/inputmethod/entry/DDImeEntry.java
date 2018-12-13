@@ -21,7 +21,7 @@ package me.ijleex.dev.test.inputmethod.entry;
  *
  * <p>通过 {@link #toString()} 方法输出为与 “[新世纪五笔]/原始码表/” 中的词条相同格式的字符串。</p>
  *
- * @author ijymLee
+ * @author liym
  * @since 2017-08-09 22:34 新建
  */
 public class DDImeEntry extends ImeEntry {

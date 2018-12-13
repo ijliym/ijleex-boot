@@ -34,7 +34,7 @@ import org.junit.Test;
 /**
  * 五笔构词 工具类
  *
- * @author ijymLee
+ * @author liym
  * @since 2018-03-21 13:22 新建
  */
 public class WubiPhraseBuilder {

@@ -31,7 +31,7 @@ import org.junit.jupiter.api.Test;
  *
  * <p>https://github.com/lettuce-io/lettuce-core</p>
  *
- * @author ijymLee
+ * @author liym
  * @since 2018-04-17 15:39 新建
  */
 class LettuceClusterFactory {

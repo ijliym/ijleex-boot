@@ -17,7 +17,7 @@
 /**
  * 准备用来处理 <b>“郑码”</b> 词库
  *
- * @author ijymLee
+ * @author liym
  * @since 2018-04-18 23:21 新建
  */
 package me.ijleex.dev.test.inputmethod.zhengma;

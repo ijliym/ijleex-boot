@@ -17,7 +17,7 @@
 /**
  * Spring-Boot 2.x 开始，不用 jedis 了，改用 lettuce。
  *
- * @author ijymLee
+ * @author liym
  * @since 2018-04-17 15:38 新建
  */
 package me.ijleex.dev.test.redis.lettuce;

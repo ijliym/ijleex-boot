@@ -19,7 +19,7 @@ package me.ijleex.dev.test.inputmethod;
 /**
  * 处理的词条输出的格式
  *
- * @author ijymLee
+ * @author liym
  * @since 2018-04-18 14:05 新建
  */
 public enum FormatType {

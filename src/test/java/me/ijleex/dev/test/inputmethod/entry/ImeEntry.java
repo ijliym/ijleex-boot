@@ -23,7 +23,7 @@ import java.util.Objects;
  *
  * <p>通过 {@link #toString()} 方法输出为符合 MySQL “LOAD DATA INFILE” 语法格式的字符串 </p>
  *
- * @author ijymLee
+ * @author liym
  * @version 2018-03-20 14:25:26 实现 CharSequence，以便用 Files 中的方法读取、写入文件
  * @since 2017-08-07 15:04 新建
  */

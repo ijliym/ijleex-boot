@@ -19,7 +19,7 @@ package me.ijleex.dev.test.inputmethod.entry;
 /**
  * 输入法词条 Rime格式（http://rime.im/）
  *
- * @author ijymLee
+ * @author liym
  * @since 2018-04-18 14:18 新建
  */
 public class RimeEntry extends ImeEntry {

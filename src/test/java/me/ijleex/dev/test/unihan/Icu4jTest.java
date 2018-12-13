@@ -21,7 +21,7 @@ import com.ibm.icu.text.UnicodeSet;
 /**
  * 简单测试
  *
- * @author ijymLee
+ * @author liym
  * @since 2017-09-07 09:12 新建
  */
 final class Icu4jTest {

@@ -40,7 +40,7 @@ import org.junit.Test;
  * <p>Historically, Vietnam used Chinese ideographs too, so sometimes the abbreviation "CJKV" is used.
  * This system was replaced by the Latin-based Vietnamese alphabet in the 1920s.</p>
  *
- * @author ijymLee
+ * @author liym
  * @since 2017-09-07 10:06 新建
  */
 public class CJKUnifiedIdeographsTest {

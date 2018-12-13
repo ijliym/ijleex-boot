@@ -22,7 +22,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Spring-Boot 启动程序
  *
- * @author ijymLee
+ * @author liym
  * @since 2018-04-10 18:14 新建
  */
 @SpringBootApplication

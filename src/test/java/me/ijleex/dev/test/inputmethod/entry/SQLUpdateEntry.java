@@ -19,7 +19,7 @@ package me.ijleex.dev.test.inputmethod.entry;
 /**
  * SQLUpdateEntry
  *
- * @author ijymLee
+ * @author liym
  * @since 2018-05-08 16:04 新建
  */
 public class SQLUpdateEntry extends ImeEntry {

@@ -30,7 +30,7 @@
  *
  * <p><a href="http://www.aihanyu.org/cncorpus/resources.aspx">语料库 研究资源下载</a></p>
  *
- * @author ijymLee
+ * @author liym
  * @since 2018-04-18 13:22 新建：想学习郑码
  */
 package me.ijleex.dev.test.inputmethod;

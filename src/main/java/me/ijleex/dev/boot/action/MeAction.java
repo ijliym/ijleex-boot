@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Sample action
  *
- * @author ijymLee
+ * @author liym
  * @since 2018-04-11 17:00 新建
  */
 @RestController

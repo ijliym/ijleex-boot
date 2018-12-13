@@ -21,7 +21,7 @@ package me.ijleex.dev.test.inputmethod.entry;
  *
  * <p>通过 {@link #toString()} 方法输出为 SQL 插入语句</p>
  *
- * @author ijymLee
+ * @author liym
  * @since 2018-03-21 17:14 新建
  */
 public class SQLInsertEntry extends ImeEntry {

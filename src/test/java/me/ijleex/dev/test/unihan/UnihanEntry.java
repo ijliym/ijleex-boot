@@ -21,7 +21,7 @@ import java.util.Objects;
 /**
  * 汉字条目
  *
- * @author ijymLee
+ * @author liym
  * @version 2018-03-20 14:58:15 实现 CharSequence，因为 {@link java.nio.file.Files#write}
  * @since 2017-09-07 11:12 新建
  */
