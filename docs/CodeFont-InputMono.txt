@@ -4,23 +4,20 @@ Fonts for code from DJR & Font Bureau
 http://input.fontbureau.com/
 http://input.fontbureau.com/download/
 
-                                                2017-09-14 11:25:52
+                                2017-09-14 11:25:52
+
+IDEA 设置中出现的字体 `Monospaced` 为逻辑字体，是一个字体类别。可能通过修改 JDK 的
+fontconfig.properties （$JAVA_HOME/jre/lib/fontconfig.properties）
+文件调整逻辑字体 Monospaced 引用的字体。
+参考：http://willerce.com/post/intellij-ide-fontconfig/
+
+昨天安装 Windows10 Enterprise LTSC 2019 后，忘记先安装 InputMono 字体，直接打开
+IDEA，导致字体变成了 Monospaced，再安装 InputMono，也不能选择 InputMono，所以有这些
+研究。今天再重装了几次 InputMono 后，设置里又有 InputMono 了，就还是用 InputMono 字体。
+不修改 fontconfig.properties 文件了。
+Monospaced Fonts  - 等宽字体
+Proportional font - 比例字体
 
 
-Google Font: Noto Serif CJK SC
-https://www.google.com/get/noto/
-
-Super OpenType/CFF Collection (Super OTC)
-https://www.google.com/get/noto/help/cjk/
-
-https://noto-website.storage.googleapis.com/pkgs/NotoSerifCJK.ttc.zip
-https://noto-website.storage.googleapis.com/pkgs/NotoSansCJK.ttc.zip
-https://noto-website.storage.googleapis.com/pkgs/NotoSerifCJKsc-hinted.zip
-
-                                            2017-09-21 13:53:43
-
-Google Adblock Plus
-https://chrome.google.com/webstore/detail/adblock-plus/cfhdojbkjhnklbpkdaibdccddilifddb?utm_source=chrome-ntp-icon
-
-
+                                2018-12-13 12:20
 
