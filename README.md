@@ -39,3 +39,9 @@ git -c core.quotepath=false -c log.showSignature=false checkout HEAD -- .idea/co
 ```
                                         2018-04-19 09:25:32
 
+## License
+
+Copyright (c) ijym-lee. All rights reserved.
+
+Licensed under the [Apache License 2.0](LICENSE).
+
