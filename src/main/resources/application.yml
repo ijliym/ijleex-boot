@@ -1,5 +1,5 @@
-## #####################################################################
-## Spring Boot Server configuration ( http://localhost:8090/ij-boot/ )
+debug: true
+
 server:
   port: 8089
   servlet:
