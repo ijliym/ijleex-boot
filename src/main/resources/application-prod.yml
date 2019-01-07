@@ -37,5 +37,3 @@ spring:
           config:
             multi-statement-allow: true
 
-
-
