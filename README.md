@@ -43,5 +43,5 @@ git -c core.quotepath=false -c log.showSignature=false checkout HEAD -- .idea/co
 
 Copyright (c) ijym-lee. All rights reserved.
 
-Licensed under the [Apache License 2.0](LICENSE).
+Licensed under the [Apache License, Version 2.0](LICENSE).
 

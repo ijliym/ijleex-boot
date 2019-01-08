@@ -1,7 +1,7 @@
 <component name="CopyrightManager">
   <copyright>
     <option name="allowReplaceRegexp" value="the original author or authors" />
-    <option name="notice" value="Copyright 2008-&amp;#36;today.year the original author or authors.&#10;&#10;Licensed under the Apache License 2.0.&#10;See `LICENSE` in the project root for license information." />
+    <option name="notice" value="Copyright 2008-&amp;#36;today.year the original author or authors.&#10;&#10;Licensed under the Apache License, Version 2.0.&#10;See `LICENSE` in the project root for license information." />
     <option name="myName" value="default-lic" />
   </copyright>
 </component>
