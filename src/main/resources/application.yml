@@ -28,12 +28,12 @@ spring:
     admin:
       enabled: true
       jmx-name: org.springframework.boot:type=Admin,name=SpringApplication
-  # 运行环境：dev-开发环境、test-测试环境、prod-生成环境
-  #profiles:
+    # 运行环境：dev-开发环境、test-测试环境、prod-生成环境
+    #profiles:
     #active: dev
     #include: redis
   jackson:
-    time-zone: GMT+8
+    time-zone: Asia/Shanghai    # 使用 GMT+8 需要更多地解析
     date-format: yyyy-MM-dd HH:mm:ss
     locale: zh_CN
   http:
