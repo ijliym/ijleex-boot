@@ -28,8 +28,8 @@ spring:
     admin:
       enabled: true
       jmx-name: org.springframework.boot:type=Admin,name=SpringApplication
-  # 运行环境：dev-开发环境、test-测试环境、prod-生成环境
-  #profiles:
+    # 运行环境：dev-开发环境、test-测试环境、prod-生成环境
+    #profiles:
     #active: dev
     #include: redis
   jackson:
