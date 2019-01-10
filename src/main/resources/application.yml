@@ -33,7 +33,7 @@ spring:
     #active: dev
     #include: redis
   jackson:
-    time-zone: GMT+8
+    time-zone: Asia/Shanghai    # 使用 GMT+8 需要更多地解析
     date-format: yyyy-MM-dd HH:mm:ss
     locale: zh_CN
   http:
