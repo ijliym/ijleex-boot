@@ -1,4 +1,7 @@
 # ~/.ssh/config
+# 
+# Support Git push via 'https'
+#
 
 # github.com
 Host github.com
