@@ -50,5 +50,6 @@ https://www.jetbrains.com/idea/download/
 @date 2019-12-19 16:10:39 IdeaIU-2018.3.2 (183.4886.37; December 18, 2018): 1.8.0_152-release-1343-b26 amd64
 @date 2019-01-14 09:58:37 IdeaIU-2018.3.3 (183.5153.38; January 10, 2019): 1.8.0_152-release-1343-b26 amd64
 @date 2019-01-28 22:14 IdeaIU-2019.1 EAP (191.4212.41; January 24, 2019): 1.8.0_152-release-1402-b1 amd64
+@date 2019-02-12 09:33 IdeaIU-2019.1 Snapshot (EAP; 191.5109.14; February 6, 2019): JRE 11-ea+96 amd64
 
 vim: ft=changelog
