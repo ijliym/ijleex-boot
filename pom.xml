@@ -207,7 +207,6 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                     <debug>true</debug>
-                    <optimize>true</optimize>
                     <showDeprecation>true</showDeprecation>
                     <showWarnings>true</showWarnings>
                     <compilerArgs>
