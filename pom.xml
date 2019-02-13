@@ -198,6 +198,28 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
+                <!-- http://maven.apache.org/plugins/maven-compiler-plugin/index.html -->
+                <configuration>
+                    <compilerVersion>${java.version}</compilerVersion>
+                    <fork>true</fork>
+                    <executable>${env.JAVA_HOME}/bin/javac</executable>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <debug>true</debug>
+                    <optimize>true</optimize>
+                    <showDeprecation>true</showDeprecation>
+                    <showWarnings>true</showWarnings>
+                    <compilerArgs>
+                        <!-- javac -help -X -->
+                        <arg>-Xlint:all,-options,-path</arg>
+                    </compilerArgs>
+                    <meminitial>256m</meminitial>
+                    <maxmem>1024m</maxmem>
+                    <excludes>
+                        <exclude>**/package-info.java</exclude>
+                    </excludes>
+                </configuration>
                 <executions>
                     <execution>
                         <id>compile</id>
@@ -214,11 +236,6 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
             </plugin>
             <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
             <plugin>
