@@ -10,7 +10,7 @@ PATH        D:\ProgramFiles\Java\jdk1.8.0_202\bin;
 
 ----------------------------------------------------------------------
 MYSQL_HOME
-D:/ProgramFiles/MySQL/mysql-8.0.14-winx64
+D:/ProgramFiles/MySQL/mysql-8.0.15-winx64
 (MySQL Community Server: https://mirrors.huaweicloud.com/mysql/Downloads/MySQL-8.0/)
 
 RUBY_HOME   (Ruby: ruby --version)
