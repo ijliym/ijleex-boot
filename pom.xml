@@ -53,7 +53,7 @@
         <servlet-api.version>4.0.1</servlet-api.version>
 
         <druid.version>1.1.10</druid.version>
-        <mysql.version>8.0.14</mysql.version>
+        <mysql.version>8.0.15</mysql.version>
 
         <javassist.version>3.23.1-GA</javassist.version>
 
@@ -132,11 +132,11 @@
         <!--</dependency>-->
 
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-        <!--<dependency>-->
-        <!--<groupId>mysql</groupId>-->
-        <!--<artifactId>mysql-connector-java</artifactId>-->
-        <!--<version>${mysql.version}</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
         <dependency>
