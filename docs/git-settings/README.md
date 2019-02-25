@@ -55,3 +55,8 @@ ssh -T git@git.oschina.net
  - https://my.oschina.net/stefanzhlg/blog/529403
  - http://blog.csdn.net/windzhu0514/article/details/54140084
 
+---
+
+解决 MSYS2 下的中文乱码问题：http://kc123kc.github.io/2015/12/24/How-To-Solve-Gibberish-Problem-Under-MSYS2/
+
+
