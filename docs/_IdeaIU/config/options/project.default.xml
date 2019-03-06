@@ -1,7 +1,7 @@
 <application>
   <component name="ProjectManager">
     <defaultProject>
-      <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8" addBOMForNewFiles="with NO BOM">
+      <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
         <file url="PROJECT" charset="UTF-8" />
       </component>
       <component name="MavenImportPreferences">
