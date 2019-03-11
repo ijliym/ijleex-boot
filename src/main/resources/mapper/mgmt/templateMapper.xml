@@ -12,9 +12,7 @@
 			content,
 			status,
 			creator,
-			create_time,
-			modifier,
-			modified_time
+			create_time
 		) VALUES (
 			#{name},
 			#{type},

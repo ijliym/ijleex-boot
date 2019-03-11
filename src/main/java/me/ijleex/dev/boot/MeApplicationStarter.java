@@ -39,8 +39,7 @@ public class MeApplicationStarter {
         // 禁用重新启动（RestartClassLoader）2016-11-06 15:03
         System.setProperty("spring.devtools.restart.enabled", "false");
 
-        SpringApplication app = new SpringApplication(MeApplicationStarter.class);
-        app.run(args);
+        SpringApplication.run(MeApplicationStarter.class, args);
     }
 
 }

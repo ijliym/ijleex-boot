@@ -39,15 +39,14 @@ spring:
   http:
     encoding:
       charset: UTF-8
-      enabled: true
       force: true
   # Thymeleaf 模板引擎
   thymeleaf:
-    cache: false
     prefix: classpath:/templates/
     suffix: .html
     mode: HTML    #org.thymeleaf.templatemode.TemplateMode
     encoding: UTF-8
+    cache: false
     servlet:
       content-type: text/html
   resources: #指定静态资源的路径
