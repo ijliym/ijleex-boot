@@ -42,6 +42,8 @@
     <option name="ALIAS_CASE" value="4" />
     <option name="KEYWORD_CASE" value="0" />
     <option name="TYPE_CASE" value="3" />
+    <option name="POST_OPT_WRAP_2" value="false" />
+    <option name="POST_OPT_ALIGN" value="false" />
     <option name="INDEX_NAME_TEMPLATE" value="idx_{table}_{columns}_{unique?u:}" />
     <option name="PRIMARY_KEY_NAME_TEMPLATE" value="pk_{table}_{columns}" />
     <option name="FOREIGN_KEY_NAME_TEMPLATE" value="fk_{table}_{ref_table}_{ref_columns}" />
