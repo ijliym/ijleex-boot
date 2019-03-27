@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright 2008-2019 the original author or authors.
+  ~
+  ~ Licensed under the Apache License, Version 2.0.
+  ~ See `LICENSE` in the project root for license information.
+  -->
+
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
+    <!--
+        org.apache.ibatis.builder.xml.XMLConfigBuilder
+        -->
 
     <properties>
     </properties>
@@ -34,7 +45,7 @@
         <setting name="autoMappingBehavior" value="PARTIAL"/>
 
         <!-- 配置默认的执行器。SIMPLE 就是普通的执行器；REUSE 执行器会重用预处理语句（prepared statements）；BATCH 执行器将重用语句并执行批量更新。 -->
-        <!-- <setting name="defaultExecutorType" value="BATCH" /> -->
+        <setting name="defaultExecutorType" value="REUSE"/>
 
         <!-- 设置超时时间，它决定驱动等待数据库响应的秒数。 -->
         <!-- <setting name="defaultStatementTimeout" value="25000" /> -->
@@ -53,6 +64,9 @@
         <!-- 当没有为参数提供特定的 JDBC 类型时，为空值指定 JDBC 类型。
             某些驱动需要指定列的 JDBC 类型，多数情况直接用一般类型即可，比如 NULL、VARCHAR 或 OTHER。 -->
         <setting name="jdbcTypeForNull" value="OTHER"/>
+
+        <!-- 指定 MyBatis 所用日志的具体实现，未指定时将自动查找。 -->
+        <setting name="logImpl" value="SLF4J"/>
     </settings>
 
     <!-- 配置拦截器，如分页查询拦截器等。 -->
