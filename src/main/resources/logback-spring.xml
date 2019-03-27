@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2008-2019 the original author or authors.
+  ~
+  ~ Licensed under the Apache License, Version 2.0.
+  ~ See `LICENSE` in the project root for license information.
+  -->
+
 <configuration scan="true" scanPeriod="10 seconds" debug="false">
 
     <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss" scope="CONTEXT"/>
@@ -7,15 +14,12 @@
         Logback Pattern: https://logback.qos.ch/manual/layouts.html#conversionWord
         -->
 
-    <!-- org/springframework/boot/logging/logback/console-appender.xml -->
-    <property name="CONSOLE_LOG_PATTERN" value="%d{HH:mm:ss.SSS} %-5p [%c{0}] %m%n"/>
-
-    <!-- org/springframework/boot/logging/logback/file-appender.xml -->
-    <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%c{0}] %m%n"/>
     <property name="LOG_FILE" value="logs/ijleex-boot.log/"/>
     <property name="LOG_FILE_MAX_SIZE" value="10MB"/>
     <property name="LOG_FILE_MAX_HISTORY" value="10"/>
     <property name="LOG_TOTAL_SIZE_CAP" value="3GB"/>
+
+    <include resource="logback-defaults.xml"/>
 
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
@@ -24,7 +28,6 @@
         <logger name="org.apache.ibatis" level="DEBUG"/>
         <logger name="org.mybatis" level="DEBUG"/>
         <logger name="org.springframework" level="DEBUG"/>
-        <logger name="me.ijleex" level="DEBUG"/>
     </springProfile>
 
     <!-- 生产环境 -->
@@ -32,11 +35,6 @@
         <logger name="org.apache.ibatis" level="ERROR"/>
         <logger name="org.mybatis" level="ERROR"/>
         <logger name="org.springframework" level="ERROR"/>
-        <logger name="me.ijleex" level="DEBUG"/>
     </springProfile>
-
-    <logger name="sun.rmi.transport.tcp" level="ERROR"/>
-    <logger name="sun.rmi.loader" level="ERROR"/>
-    <logger name="sun.rmi.server.call" level="ERROR"/>
 
 </configuration>
