@@ -6,12 +6,12 @@
   ~ See `LICENSE` in the project root for license information.
   -->
 
-<configuration scan="true" scanPeriod="10 seconds" debug="false">
+<configuration scan="false" scanPeriod="10 seconds" debug="false">
 
     <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss" scope="CONTEXT"/>
 
     <!--
-        Logback Pattern: https://logback.qos.ch/manual/layouts.html#conversionWord
+        org.springframework.boot.logging.AbstractLoggingSystem#initialize
         -->
 
     <property name="LOG_FILE" value="logs/ijleex-boot.log/"/>
@@ -32,9 +32,15 @@
 
     <!-- 生产环境 -->
     <springProfile name="prod">
-        <logger name="org.apache.ibatis" level="ERROR"/>
-        <logger name="org.mybatis" level="ERROR"/>
-        <logger name="org.springframework" level="ERROR"/>
+        <logger name="org.apache.ibatis" level="WARN"/>
+        <logger name="org.mybatis" level="WARN"/>
+        <logger name="org.springframework" level="WARN"/>
     </springProfile>
+
+    <!-- root logger 默认级别是 DEBUG -->
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
 
 </configuration>
