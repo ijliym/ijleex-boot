@@ -35,7 +35,7 @@ GRADLE_USER_HOME=%USERPROFILE%\.gradle\repository
 
 										2018-06-13 11:19:42
 
-Red Hat Enterprise Linux 7.5 Java PATH
+Red Hat Enterprise Linux 7.5 (or WSL/Debian) Java PATH
 vi /etc/profile
 JAVA_HOME=/opt/Java/jdk1.8.0_202
 JRE_HOME=$JAVA_HOME/jre
