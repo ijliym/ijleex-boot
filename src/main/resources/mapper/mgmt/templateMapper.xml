@@ -64,8 +64,8 @@
 			<if test="bizType != null">biz_type = #{bizType},</if>
 			<if test="content != null">content = #{content},</if>
 			<if test="status != null">status = #{status},</if>
-			<if test="modifier != null">modifier = #{modifier},</if>
-			modified_time = NOW()
+			<if test="updater != null">updater = #{updater},</if>
+            update_time = NOW()
 		</trim>
 		WHERE id = #{id}
 	</update>
@@ -80,8 +80,8 @@
 			status,
 			creator,
 			create_time,
-			modifier,
-			modified_time
+			updater,
+			update_time
 		FROM t_template
 		<trim prefix="WHERE" prefixOverrides="AND | OR">
 			<if test="name != null and name.trim() != ''">
@@ -110,8 +110,8 @@
 			status,
 			creator,
 			create_time,
-			modifier,
-			modified_time
+			updater,
+			update_time
 		FROM t_template
 		WHERE id = #{id}
 	</select>
