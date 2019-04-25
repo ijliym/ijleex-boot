@@ -49,7 +49,7 @@
 
         <javassist.version>3.23.1-GA</javassist.version>
         <!-- https://mvnrepository.com/artifact/com.ibm.icu/icu4j/63.1 -->
-        <icu4j.version>63.1</icu4j.version>
+        <icu4j.version>64.2</icu4j.version>
     </properties>
 
     <!-- 配置子模块 -->
