@@ -23,8 +23,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ibm.icu.text.UnicodeSet;
 import org.junit.Test;
+
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.VersionInfo;
 
 /**
  * CJK Unified Ideographs (https://en.wikipedia.org/wiki/CJK_Unified_Ideographs).
@@ -579,6 +581,16 @@ public class CJKUnifiedIdeographsTest {
         System.out.println(CodePointUtil.isCJKUnifiedIdeographicChar("𤳳"));
         System.out.println(CodePointUtil.isCJKUnifiedIdeographicChar("©"));
         System.out.println(CodePointUtil.isCJKUnifiedIdeographicChar("〇"));
+    }
+
+    /**
+     * 打印 ICU4J 的版本信息
+     *
+     * @since 2019-04-25 10:48
+     */
+    @Test
+    public void test21() {
+        VersionInfo.main(new String[0]);
     }
 
 }
