@@ -24,6 +24,7 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 
 import org.junit.Test;
 
@@ -37,14 +38,16 @@ import org.junit.Test;
  */
 public class Jdk8DateTimeTest {
 
+    private static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
     /**
      * Pattern: 2018-11-19T11:39:21.371
      *
      * @see DateTimeFormatter#ofPattern(String, java.util.Locale)
      */
-    private DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_TIME_FORMAT, Locale.CHINA);
 
-    private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private SimpleDateFormat format = new SimpleDateFormat(DATE_TIME_FORMAT);
 
     /**
      * 01. java.util.Date --> java.time.LocalDateTime
