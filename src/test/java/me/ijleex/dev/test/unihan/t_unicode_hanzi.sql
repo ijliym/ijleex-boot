@@ -15,7 +15,7 @@ CREATE TABLE t_unicode_hanzi (
 	CONSTRAINT uk_unicode_hanzi_hex UNIQUE KEY(code_point_hex)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Unicode Hàn (漢) Database (Unihan)';
 
-LOAD DATA INFILE 'D:/ProgramFiles/MySQL/mysql-8.0.15-winx64/run/cjk-unified-ideographs.txt'
+LOAD DATA INFILE 'D:/ProgramFiles/MySQL/mysql-8.0.16-winx64/run/cjk-unified-ideographs.txt'
 INTO TABLE t_unicode_hanzi
 FIELDS TERMINATED BY '\t' ENCLOSED BY '' ESCAPED BY '\\'
 LINES  STARTING BY '' TERMINATED BY '\n'
@@ -33,7 +33,7 @@ CREATE TABLE t_unihan_variants (
 	CONSTRAINT uk_unihan_variants UNIQUE KEY(code1,code2)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='简体字与繁体字对照表';
 
-LOAD DATA INFILE 'D:/ProgramFiles/MySQL/mysql-8.0.15-winx64/run/s-t.txt'
+LOAD DATA INFILE 'D:/ProgramFiles/MySQL/mysql-8.0.16-winx64/run/s-t.txt'
 INTO TABLE t_unihan_variants
 FIELDS TERMINATED BY '\t' ENCLOSED BY '' ESCAPED BY '\\'
 LINES  STARTING BY '' TERMINATED BY '\n'

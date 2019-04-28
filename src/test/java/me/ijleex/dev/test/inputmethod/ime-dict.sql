@@ -42,7 +42,7 @@ CREATE UNIQUE INDEX idx_ime_dict_py ON t_ime_dict_py(code,text);
 -- ----------------------------------------------------------
 -- 统计每个编码的词条数（数据好多，不要在命令行中执行）
 SELECT COUNT(*) FROM t_ime_dict_py GROUP BY code
-INTO OUTFILE 'D:/ProgramFiles/MySQL/mysql-8.0.15-winx64/run/count-out.txt'
+INTO OUTFILE 'D:/ProgramFiles/MySQL/mysql-8.0.16-winx64/run/count-out.txt'
 FIELDS TERMINATED BY '\t' ENCLOSED BY '' ESCAPED BY '\\'
 LINES  STARTING BY '' TERMINATED BY '\n';
 
@@ -56,7 +56,7 @@ SELECT
 FROM t_ime_dict
 GROUP BY letter
 ORDER BY letter
-INTO OUTFILE 'D:/ProgramFiles/MySQL/mysql-8.0.15-winx64/run/dict-out.txt'
+INTO OUTFILE 'D:/ProgramFiles/MySQL/mysql-8.0.16-winx64/run/dict-out.txt'
 FIELDS TERMINATED BY '\t' ENCLOSED BY '' ESCAPED BY '\\'
 LINES  STARTING BY '' TERMINATED BY '\n';
 
