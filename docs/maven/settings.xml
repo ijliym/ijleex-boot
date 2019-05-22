@@ -131,7 +131,7 @@ under the License.
             Maven Deploy sample:
             mvn deploy:deploy-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.4 -Dpackaging=jar
                 -Dfile=/path/to/ojdbc6.jar
-                -Durl=http://192.168.39.9:8000/nexus/content/repositories/thirdparty/
+                -Durl=http://192.168.210.32:8000/nexus/content/repositories/thirdparty/
                 -DrepositoryId=maven-server
             -->
         <server>
@@ -179,7 +179,7 @@ under the License.
             <id>maven-internal</id>
             <mirrorOf>central</mirrorOf>
             <name>公司内部 Maven 仓库</name>
-            <url>http://192.168.39.9:8000/nexus/content/groups/public/</url>
+            <url>http://192.168.210.32:8000/nexus/content/groups/public/</url>
         </mirror>
         <!--
         <mirror>
@@ -261,7 +261,7 @@ under the License.
                 <repository>
                     <id>maven-internal</id>
                     <name>公司内部 Maven 仓库</name>
-                    <url>http://192.168.39.9:8000/nexus/content/groups/public/</url>
+                    <url>http://192.168.210.32:8000/nexus/content/groups/public/</url>
                     <layout>default</layout>
                     <releases>
                         <enabled>true</enabled>
@@ -276,7 +276,7 @@ under the License.
                 <pluginRepository>
                     <id>maven-internal</id>
                     <name>公司内部 Maven 私服仓库</name>
-                    <url>http://192.168.39.9:8000/nexus/content/groups/public/</url>
+                    <url>http://192.168.210.32:8000/nexus/content/groups/public/</url>
                     <layout>default</layout>
                     <releases>
                         <enabled>true</enabled>
