@@ -1,7 +1,7 @@
 <keymap version="1" name="Default-me" parent="$default">
   <action id="ActivateGradleToolWindow">
-    <!-- Alt+; （分号 semicolon；适用于 ThinkPad T470p） -->
-    <keyboard-shortcut first-keystroke="alt semicolon" />
+    <!-- Alt+' （引号 quote） -->
+    <keyboard-shortcut first-keystroke="alt quote" />
   </action>
   <action id="ActivateMavenProjectsToolWindow">
     <!-- Alt+' （引号 quote） -->
