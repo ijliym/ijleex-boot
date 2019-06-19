@@ -39,4 +39,4 @@ Columns=105
 Rows=25
 Language=zh_CN
 
-Term=xterm
+Term=xterm-256color
