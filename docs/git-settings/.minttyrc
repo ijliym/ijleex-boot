@@ -1,5 +1,6 @@
+# Mintty terminal configuration
 #
-# http://www.cnblogs.com/phang/p/5862495.html
+# https://www.cnblogs.com/phang/p/5862495.html
 # https://github.com/mavnn/mintty-colors-solarized.git
 #
 
@@ -25,16 +26,17 @@ White            = 255, 255, 255
 BoldWhite        = 255, 255, 255
 
 ### ####################################
-BoldAsFont=-1
-Columns=100
-Rows=25
-
-Term=xterm
-Locale=zh_CN
-Language=zh_CN
-Charset=UTF-8
+CursorType=underscore
 
 Font=InputMono
 FontHeight=11
-CursorType=underscore
+BoldAsFont=-1
+BoldAsColour=no
+Locale=zh_CN
+Charset=UTF-8
 
+Columns=105
+Rows=25
+Language=zh_CN
+
+Term=xterm-256color

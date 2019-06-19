@@ -32,7 +32,7 @@ under the License.
  |  2. Global Level. This settings.xml file provides configuration for all Maven
  |                 users on a machine (assuming they're all using the same Maven
  |                 installation). It's normally provided in
- |                 ${maven.home}/conf/settings.xml.
+ |                 ${maven.conf}/settings.xml.
  |
  |                 NOTE: This location can be overridden with the CLI option:
  |
@@ -51,7 +51,6 @@ under the License.
      |
      | Default: ${user.home}/.m2/repository
     <localRepository>/path/to/local/repo</localRepository>
-    <localRepository>E:/mavenRepository</localRepository>
     -->
 
     <!-- interactiveMode
@@ -126,10 +125,10 @@ under the License.
 
         <!-- pom.xml distributionManagement/repository/id: maven-server -->
         <!-- Maven deploy 时，Repository 的类型必须是 hosted，
-            且 Configuration -> Deployment Policy 的值是 Allow Redeploy，否则会出现 400 错误。-->
+            且 Configuration / Deployment Policy 的值是 Allow Redeploy，否则会出现 400 错误。-->
         <!--
             Maven Deploy sample:
-            mvn deploy:deploy-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.4 -Dpackaging=jar
+            mvn deploy:deploy-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.4.0 -Dpackaging=jar
                 -Dfile=/path/to/ojdbc6.jar
                 -Durl=http://192.168.210.32:8000/nexus/content/repositories/thirdparty/
                 -DrepositoryId=maven-server
@@ -167,28 +166,20 @@ under the License.
          | for inheritance and direct lookup purposes, and must be unique across the set of mirrors.
          |
         <mirror>
-          <id>mirrorId</id>
-          <mirrorOf>repositoryId</mirrorOf>
-          <name>Human Readable Name for this Mirror.</name>
-          <url>http://my.repository.com/repo/path</url>
+          <id>nexus-sonatype</id>
+          <mirrorOf>central</mirrorOf>
+          <name>Sonatype Public Repository Group</name>
+          <url>https://oss.sonatype.org/content/groups/public/</url>
         </mirror>
          -->
-        <!-- mirror相当于一个拦截器，它会拦截maven对remote repository的请求，
-            把请求里的remote repository地址，重定向到mirror的url地址。-->
+        <!-- mirror 相当于一个拦截器，它会拦截 maven 对远程 repository 的请求，
+            把请求里的远程 repository 地址，重定向到 mirror 的 url 地址。-->
         <mirror>
             <id>maven-internal</id>
             <mirrorOf>central</mirrorOf>
             <name>公司内部 Maven 仓库</name>
             <url>http://192.168.210.32:8000/nexus/content/groups/public/</url>
         </mirror>
-        <!--
-        <mirror>
-            <id>nexus-sonatype</id>
-            <mirrorOf>central</mirrorOf>
-            <name>Sonatype Public Repository Group</name>
-            <url>https://oss.sonatype.org/content/groups/public/</url>
-        </mirror>
-        -->
     </mirrors>
 
     <!-- profiles
@@ -275,7 +266,7 @@ under the License.
             <pluginRepositories>
                 <pluginRepository>
                     <id>maven-internal</id>
-                    <name>公司内部 Maven 私服仓库</name>
+                    <name>公司内部 Maven 仓库</name>
                     <url>http://192.168.210.32:8000/nexus/content/groups/public/</url>
                     <layout>default</layout>
                     <releases>
