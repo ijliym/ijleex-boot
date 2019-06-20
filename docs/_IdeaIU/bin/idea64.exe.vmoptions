@@ -1,7 +1,7 @@
 -Xms128m
 -Xmx750m
 -XX:ReservedCodeCacheSize=240m
--XX:+UseConcMarkSweepGC
+-XX:+UseG1GC
 -XX:SoftRefLRUPolicyMSPerMB=50
 -ea
 -Dsun.io.useCanonPrefixCache=false
