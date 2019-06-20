@@ -6,7 +6,7 @@ Git 客户端的配置文件位于用户根目录下，包括 `.gitconfig`（Git
 
 `~/.gitconfig` 的配置命令如下：
 
-```
+```bash
 git config --global user.name liym@com         公司
 git config --global user.name liym@home        家里
 git config --global user.email ijliym@163.com
