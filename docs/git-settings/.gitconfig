@@ -6,6 +6,8 @@
 	safecrlf = warn
 	whitespace = cr-at-eol
 	longpaths = true
+	quotepath = false
+	ignorecase = false
 [i18n]
 	commitencoding = utf-8
 [push]

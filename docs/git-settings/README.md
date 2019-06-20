@@ -15,6 +15,8 @@ git config --global core.autocrlf input
 git config --global core.safecrlf warn
 git config --global core.whitespace cr-at-eol
 git config --global core.longpaths true
+git config --global core.quotepath false
+git config --global core.ignorecase false
 
 git config --global i18n.commitencoding utf-8
 git config --global push.default simple
