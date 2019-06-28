@@ -1,5 +1,5 @@
 -Xms128m
--Xmx750m
+-Xmx1024m
 -XX:ReservedCodeCacheSize=240m
 -XX:+UseG1GC
 -XX:SoftRefLRUPolicyMSPerMB=50
@@ -10,3 +10,5 @@
 -Dfile.encoding=UTF-8
 -XX:+HeapDumpOnOutOfMemoryError
 -XX:-OmitStackTraceInFastThrow
+-Djdk.attach.allowAttachSelf
+-XX:MaxJavaStackTraceDepth=10000
