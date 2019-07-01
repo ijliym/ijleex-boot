@@ -28,6 +28,7 @@ github.global.ssl.fastly.net
 在文件的末尾添加上面三个域名与IP地址的映射并保存。（需管理员权限，注意IP地址与域名间需留有空格）
 
 ```
+# 加快 GitHub 国内访问速度 2019-07-01
 192.30.253.112	github.com
 192.30.253.113	github.com
 185.199.108.153	assets-cdn.github.com
