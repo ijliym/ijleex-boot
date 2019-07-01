@@ -1,4 +1,4 @@
-# 加快国内 GitHub 访问速度
+# 加快 GitHub 国内访问速度
 
 修改系统 hosts 文件，绕过国内 DNS 解析，直接访问 GitHub 的 CDN 节点，从而达到加速的目的。
 
