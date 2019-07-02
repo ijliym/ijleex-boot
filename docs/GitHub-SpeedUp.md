@@ -36,6 +36,7 @@ github.global.ssl.fastly.net
 185.199.110.153	assets-cdn.github.com
 185.199.111.153	assets-cdn.github.com
 151.101.185.194	github.global.ssl.fastly.net
+35.231.145.151	gitlab.com
 ```
 
 ## 3. 刷新系统 DNS 缓存
