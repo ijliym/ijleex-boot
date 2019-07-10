@@ -62,7 +62,7 @@ ssh-add -D
 ```bash
 ssh -T git@github.com
 ssh -T git@gitee.com
-ssh -T git@git.oschina.net
+ssh -T git@gitlab.com
 ```
 
 ---
@@ -75,5 +75,32 @@ ssh -T git@git.oschina.net
 
 ---
 
-解决 MSYS2 下的中文乱码问题：http://kc123kc.github.io/2015/12/24/How-To-Solve-Gibberish-Problem-Under-MSYS2/
+### 解决 Git 客户端 mintty 的中文乱码问题
+
+解决 Git Bash 运行 MS-Windows 命令（如 ping、ipconfig 等）时的中文乱码问题。
+在 Git 安装目录下创建下面兩个文件：
+
+ * `/usr/bin/win`
+ 
+```bash
+#!/bin/bash
+$@ |iconv -f gbk -t utf-8
+```
+
+ * `/etc/profile.d/alias.sh`
+ 
+```bash
+alias ls="/bin/ls --color=tty --show-control-chars"
+alias grep="/bin/grep --color"
+alias ll="/bin/ls --color=tty --show-control-chars -l"
+ 
+alias ping="/bin/win ping"
+alias netstat="/bin/win netstat"
+alias nslookup="/bin/win nslookup"
+alias ipconfig="/bin/win ipconfig"
+```
+
+参考 `如何解决MSYS2下的中文乱码问题`：
+
+ - https://kc123kc.github.io/2015/12/24/How-To-Solve-Gibberish-Problem-Under-MSYS2/
 
