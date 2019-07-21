@@ -1,6 +1,6 @@
 
 JAVA_HOME
-D:\ProgramFiles\Java\jdk1.8.0_212
+D:\ProgramFiles\Java\jdk1.8.0_221
 
 CLASSPATH
 %JAVA_HOME%\jre\lib\rt.jar;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
@@ -8,7 +8,7 @@ CLASSPATH
 PATH
 %JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;
 
-----------------------------------------------------------------------
+---
 MYSQL_HOME
 D:/ProgramFiles/MySQL/mysql-8.0.16-winx64
 (MySQL Community Server: https://mirrors.huaweicloud.com/mysql/Downloads/MySQL-8.0/)
@@ -19,7 +19,7 @@ D:\ProgramFiles\Ruby\Ruby-2.5.1-2-x64
 ---
 PATH        (echo %PATH%)
 %JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;%MYSQL_HOME%\bin;%RUBY_HOME%\bin;
-----------------------------------------------------------------------
+---
 
 ORACLE_HOME
 E:\Oracle\app\product\11.2.0\dbhome_1
@@ -37,7 +37,7 @@ GRADLE_USER_HOME=%USERPROFILE%\.gradle\repository
 
 Red Hat Enterprise Linux 7.5 (or WSL/Debian) Java PATH
 vi /etc/profile
-JAVA_HOME=/opt/Java/jdk1.8.0_212
+JAVA_HOME=/opt/Java/jdk1.8.0_221
 JRE_HOME=$JAVA_HOME/jre
 PATH=$PATH:$JAVA_HOME/bin
 CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
@@ -54,5 +54,4 @@ PATH=;%GOROOT%\bin;
 https://studygolang.com/dl/golang/go1.10.3.windows-amd64.zip
 
                                         2018-08-11 21:30
-
 
