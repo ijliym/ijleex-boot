@@ -4,27 +4,7 @@ License Key
 	name: 	IDEA
 	 key:	61156-YRN2M-5MNCN-NZ8D2-7B4EW-U12L4
 
---------------------------------------------------------------------------------
-IntelliJ IDEA 2016.3.4 build IU-163.12024.16
-License server
-http://jetbrains.tech/
-									亲测可用
-									2017-02-26 18:58:33
-
-http://jetbrains.tech/ 已过期，使用下面的地址：
-http://idea.iteblog.com/key.php
-									IdeaIU-2017.1.4
-									2017-06-08 19:52:12
-http://xidea.online/
-									2017-06-10 19:07:00
-http://idea.imsxm.com/
-									2017-09-07 08:45:53
-http://intellij.mandroid.cn/
-                                    2017-12-09 12:30:51
-                                    Idea 2017.2.7 可用，2017.3.0 不可用（悲催）
-
-http://blog.csdn.net/mingjie1212/article/details/54945882
---------------------------------------------------------------------------------
+---
 https://www.jetbrains.com/idea/download/
 https://download.jetbrains.com/idea/ideaIU-14.1.7.zip
 https://download.jetbrains.com/idea/ideaIU-2017.1.6.win.zip
@@ -35,20 +15,9 @@ https://download.jetbrains.com/idea/ideaIU-2018.2.6.win.zip
 https://download.jetbrains.com/idea/ideaIU-2018.3.5.win.zip
 https://download.jetbrains.com/idea/ideaIU-2019.1.2.win.zip
 https://download.jetbrains.com/python/pycharm-professional-2018.3.7.zip
-https://download.jetbrains.com/idea/ideaIU-192.5728.74.win.zip
---------------------------------------------------------------------------------
+https://download.jetbrains.8686c.com/idea/ideaIU-2019.2.win.zip
+https://download.jetbrains.8686c.com/go/goland-2019.2.win.zip
+https://download.jetbrains.8686c.com/python/pycharm-professional-2019.2.exe
+---
 https://www.jetbrains.com/idea/download/previous.html
-
---------------------------------------------------------------------------------
-First Name:	Lee
-Last  Name:	ij
-Email:		ijLee89@163.com
-
-User Name: ijLee
-Password:  asdfghjkl009
-
-https://www.jetbrains.com
-
-				2016-06-29 09:08
-
 
