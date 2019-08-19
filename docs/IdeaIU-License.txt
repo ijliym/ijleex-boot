@@ -19,5 +19,5 @@ https://download.jetbrains.8686c.com/idea/ideaIU-2019.2.win.zip
 https://download.jetbrains.8686c.com/go/goland-2019.2.win.zip
 https://download.jetbrains.8686c.com/python/pycharm-professional-2019.2.exe
 ---
-https://www.jetbrains.com/idea/download/previous.html
+https://www.jetbrains.com/idea/download/other.html
 
