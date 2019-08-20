@@ -73,10 +73,9 @@ public final class CodePointUtil {
     }
 
     /**
-     * 判断一个字符是否属于 CJK 统一汉字
+     * 判断一个字符是否属于<b>中日韩统一表意文字</b>
      *
-     * <a href="https://en.wikipedia.org/wiki/CJK_Unified_Ideographs_(Unicode_block)#References">
-     * CJK ideographs in Unicode</a>
+     * <a href="https://en.wikipedia.org/wiki/Template:CJK_ideographs_in_Unicode">CJK ideographs in Unicode</a>
      *
      * @param ch 字符
      * @return 字符是 CJK 统一汉字，返回 true，否则，返回 false
@@ -126,16 +125,14 @@ public final class CodePointUtil {
         unicodeSet.add(0xFA29);
 
         // int size = unicodeSet.size(); // 87,887
-        // System.out.println("CJK Unified Ideographs Count: " + size);
+        // System.out.println("中日韩统一表意文字 字数：" + size);
 
         return unicodeSet.contains(codePoint);
     }
 
     public static void main(String[] args) {
-        int codePoint = getCodePoint("𤳳");
-        System.out.println(codePoint);
-        String hex = intAsHex(codePoint);
-        System.out.println(hex);
+        System.out.println(getCodePoint("𤳳"));
+        System.out.println(isCJKUnifiedIdeographicChar("𤳳"));
     }
 
 }
