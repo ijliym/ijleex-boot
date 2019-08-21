@@ -62,5 +62,6 @@ https://www.jetbrains.com/idea/download/
 @date 2019-05-09 14:44:48 IdeaIU-2019.1.2 (191.7141.44; May 8, 2019): 1.8.0_202-release-1483-b49 amd64
 @date 2019-07-19 08:43:44 IdeaIU-2019.2 RC (192.5728.74; July 18, 2019 GMT; 11.0.3+12-b304.10 amd64)
 @date 2019-07-26 09:25:47 IdeaIU-2019.2 (192.5728.98; July 24, 2019; 11.0.3+12-b304.10 amd64)
+@date 2019-08-21 22:31:55 IdeaIU-2019.2.1 (192.6262.58; August 21, 2019; 11.0.3+12-b304.39 amd64)
 
 vim: ft=changelog
