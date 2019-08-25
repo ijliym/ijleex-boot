@@ -563,6 +563,7 @@ public class CJKUnifiedIdeographsTest {
     public void test19() {
         UnicodeSet unicodeSet = new UnicodeSet();
         unicodeSet.add(0x1F22E);
+        unicodeSet.add(0x32FF); // The new character added to Version 12.1
 
         int size = unicodeSet.size();
         System.out.println("字数：" + size);
