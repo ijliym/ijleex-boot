@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2018 ijym-lee
+ * Copyright 2011-2019 ijym-lee
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -87,6 +87,21 @@ public final class CodePointUtil {
             return false;
         }
 
+        UnicodeSet unicodeSet = buildCJKUnifiedIdeographsSet();
+
+        // int size = unicodeSet.size(); // 87,887
+        // System.out.println("中日韩统一表意文字 字数：" + size);
+
+        return unicodeSet.contains(codePoint);
+    }
+
+    /**
+     * 构造中日韩统一表意文字集合
+     *
+     * @return {@link UnicodeSet}
+     * @since 2019-08-25 20:54
+     */
+    public static UnicodeSet buildCJKUnifiedIdeographsSet() {
         UnicodeSet unicodeSet = new UnicodeSet();
 
         // CJK Unified Ideographs (中日韩统一表意文字)
@@ -124,10 +139,7 @@ public final class CodePointUtil {
         unicodeSet.add(0xFA28);
         unicodeSet.add(0xFA29);
 
-        // int size = unicodeSet.size(); // 87,887
-        // System.out.println("中日韩统一表意文字 字数：" + size);
-
-        return unicodeSet.contains(codePoint);
+        return unicodeSet;
     }
 
     public static void main(String[] args) {
