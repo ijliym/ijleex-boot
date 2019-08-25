@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2018 ijym-lee
+ * Copyright 2011-2019 ijym-lee
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,11 +32,11 @@ public class ImeEntry implements CharSequence {
     /**
      * 编码
      */
-    private String code;
+    private final String code;
     /**
      * 词条（即要输出的内容）
      */
-    private String text;
+    private final String text;
     /**
      * 词频（权重），用于词条排序
      */
@@ -44,11 +44,11 @@ public class ImeEntry implements CharSequence {
     /**
      * 类型（用于多多输入法，如 #类1、#类2、#次、#用 等）
      */
-    private String type;
+    private final String type;
     /**
      * 构词码（用于Rime输入法）
      */
-    private String stem;
+    private final String stem;
 
     /**
      * 构建词条
@@ -57,8 +57,7 @@ public class ImeEntry implements CharSequence {
      * @param text 词条，不能为空
      */
     public ImeEntry(String code, String text) {
-        this.code = code;
-        this.text = text;
+        this(code, text, null, null, null);
     }
 
     /**
@@ -71,30 +70,23 @@ public class ImeEntry implements CharSequence {
      * @param stem 构词码（用于Rime输入法）
      */
     ImeEntry(String code, String text, String weight, String type, String stem) {
-        this(code, text);
+        this.code = code;
+        this.text = text;
         this.weight = weight;
         this.type = type;
         this.stem = stem;
     }
 
     public String getCode() {
-        return code;
+        return this.code;
     }
-
-    // public void setCode(String code) {
-    //     this.code = code;
-    // }
 
     public String getText() {
-        return text;
+        return this.text;
     }
 
-    // public void setText(String text) {
-    //     this.text = text;
-    // }
-
     public String getWeight() {
-        return weight;
+        return this.weight;
     }
 
     public void setWeight(String weight) {
@@ -102,24 +94,16 @@ public class ImeEntry implements CharSequence {
     }
 
     public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+        return this.type;
     }
 
     public String getStem() {
-        return stem;
-    }
-
-    public void setStem(String stem) {
-        this.stem = stem;
+        return this.stem;
     }
 
     @Override
     public int length() {
-        return code.length();
+        return this.code.length();
     }
 
     @Override
@@ -151,8 +135,8 @@ public class ImeEntry implements CharSequence {
         // 两个词条是否相同，仅判断 编码与汉字 是否相同
         if (anObject instanceof ImeEntry) {
             ImeEntry anotherEntry = (ImeEntry) anObject;
-            boolean eq1 = Objects.equals(code, anotherEntry.code);
-            boolean eq2 = Objects.equals(text, anotherEntry.text);
+            boolean eq1 = Objects.equals(this.code, anotherEntry.code);
+            boolean eq2 = Objects.equals(this.text, anotherEntry.text);
             return eq1 && eq2;
         }
         return false;
@@ -168,8 +152,8 @@ public class ImeEntry implements CharSequence {
     @Override
     public int hashCode() {
         // code、text 不能等于空（空字符串与NULL）
-        int x = code.hashCode();
-        int y = text.hashCode();
+        int x = this.code.hashCode();
+        int y = this.text.hashCode();
         // 乘以质数，以避免直接相加产生的偶然相等
         return x * 17 + y * 19;
     }
@@ -181,7 +165,7 @@ public class ImeEntry implements CharSequence {
      */
     @Override
     public String toString() {
-        return text + '\t' + code;
+        return this.text + '\t' + this.code;
     }
 
 }
