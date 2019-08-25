@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2018 ijym-lee
+ * Copyright 2011-2019 ijym-lee
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -63,7 +63,7 @@ public class ImeDictAnalyzer {
     /**
      * 加载输入法词条数据（使用 多多输入法原始码表格式 保存）
      *
-     * <p><b>一个词条的格式为：一 a#序2830000000</b> （Tab 分隔） </p>
+     * <p><b>一个词条的格式为：的 d#序744863</b> （Tab 分隔） </p>
      *
      * <p>可以输出为用于 MySQL “LOAD DATA INFILE” 命令加载的文件的数据；<br/>
      * 或者输出为多多输入法原始格式数据。</p>
@@ -387,7 +387,7 @@ public class ImeDictAnalyzer {
         Path filePath = Paths.get(dictPath, "../../汉字相关/词频-语料库.txt");
         List<String> list = Files.readAllLines(filePath);
 
-        for (String line : list) { // a	一	2830000000
+        for (String line : list) { // 的	744863
             String[] arr = line.split("\t");
             String text = arr[0];
             String weight = arr[1];
