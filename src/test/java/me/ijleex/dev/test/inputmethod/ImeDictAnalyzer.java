@@ -51,7 +51,7 @@ public class ImeDictAnalyzer {
      */
     protected static String dictPath = "/Documents/InputMethod";
     /**
-     * 设置码表文件中的词条的类型
+     * 设置码表文件中的词条的类型，可用的类型有 <b>类1、类2、类3、次、用、辅</b> 等，用于多多输入法
      */
     protected static final Map<String, String> FILE_TYPE = new LinkedHashMap<>(7);
 
