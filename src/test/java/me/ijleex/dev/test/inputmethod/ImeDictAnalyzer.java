@@ -412,8 +412,8 @@ public class ImeDictAnalyzer {
             String text = entry.getText();
 
             // 从 词频列表 中获取词条的词频；不存在的词条，设置词频为10 2018-05-28 18:17:09
-            // 使用 语料库词频，最小词频为51，故设置常用字的默认词频为50，词组45，
-            // 生僻字（CJK-A,B,C,D）10，E,F及兼容区为0 2018-05-30 20:58:17
+            // 使用 语料库词频：该词频中，最小词频为 51，故设置常用字的默认词频为 50，词组 45，
+            // 生僻字（CJK-A,B,C,D）10，E、F及兼容区为 0，不是 JCK-Unified 的字为 -1 2019-08-25 22:41:40
             String weight = weightMap.getOrDefault(text, defaultWeight);
             entry.setWeight(weight);
         }
