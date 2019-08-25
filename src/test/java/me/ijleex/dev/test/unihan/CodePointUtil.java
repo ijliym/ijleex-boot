@@ -75,8 +75,6 @@ public final class CodePointUtil {
     /**
      * 判断一个字符是否属于<b>中日韩统一表意文字</b>
      *
-     * <a href="https://en.wikipedia.org/wiki/Template:CJK_ideographs_in_Unicode">CJK ideographs in Unicode</a>
-     *
      * @param ch 字符
      * @return 字符是 CJK 统一汉字，返回 true，否则，返回 false
      * @since 2017-09-21 16:34:18
@@ -97,6 +95,7 @@ public final class CodePointUtil {
 
     /**
      * 构造中日韩统一表意文字集合
+     * <a href="https://en.wikipedia.org/wiki/Template:CJK_ideographs_in_Unicode">CJK ideographs in Unicode</a>
      *
      * @return {@link UnicodeSet}
      * @since 2019-08-25 20:54
