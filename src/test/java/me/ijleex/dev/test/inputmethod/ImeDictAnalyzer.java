@@ -28,12 +28,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import com.ibm.icu.text.UnicodeSet;
+
 import me.ijleex.dev.test.inputmethod.entry.DDImeEntry;
 import me.ijleex.dev.test.inputmethod.entry.ImeEntry;
 import me.ijleex.dev.test.inputmethod.entry.MySQLLoadEntry;
 import me.ijleex.dev.test.inputmethod.entry.RimeEntry;
 import me.ijleex.dev.test.inputmethod.entry.SQLInsertEntry;
 import me.ijleex.dev.test.inputmethod.entry.SQLUpdateEntry;
+import me.ijleex.dev.test.unihan.CodePointUtil;
 
 /**
  * 输入法词库解析
@@ -54,6 +57,13 @@ public class ImeDictAnalyzer {
      * 设置码表文件中的词条的类型，可用的类型有 <b>类1、类2、类3、次、用、辅</b> 等，用于多多输入法
      */
     protected static final Map<String, String> FILE_TYPE = new LinkedHashMap<>(7);
+
+    /**
+     * CJK E、F及兼容区字
+     *
+     * @since 2019-08-26 17:21
+     */
+    private static final UnicodeSet CJK_E_F_COMP = new UnicodeSet();
 
     /**
      * @since 2018-03-20 14:09:40 MySQL 临时目录
@@ -397,7 +407,7 @@ public class ImeDictAnalyzer {
     }
 
     /**
-     * 设置 {@link ImeEntry#weight}
+     * 设置 {@link ImeEntry#weight 词频}
      *
      * @param list List
      * @param weightMap 词频列表
@@ -412,11 +422,49 @@ public class ImeDictAnalyzer {
             String text = entry.getText();
 
             // 从 词频列表 中获取词条的词频；不存在的词条，设置词频为10 2018-05-28 18:17:09
-            // 使用 语料库词频：该词频中，最小词频为 51，故设置常用字的默认词频为 50，词组 45，
+            // 使用 语料库词频：该词频中，最小词频为 51；不存在的字使用默认词频，常用字的默认词频为 50，词组 45，
             // 生僻字（CJK-A,B,C,D）10，E、F及兼容区为 0，不是 JCK-Unified 的字为 -1 2019-08-25 22:41:40
-            String weight = weightMap.getOrDefault(text, defaultWeight);
+            String weight = weightMap.get(text);
+            if (weight == null) {
+                // 如果词频表中不存在这个字，先判断该字是不是 JCK-Unified 字，如果是，则使用 defaultWeight，否则 -1
+                weight = CodePointUtil.isCJKUnifiedIdeographicChar(text) ? defaultWeight : "-1";
+                if (isCJKEFCompChar(text)) {
+                    weight = "0";
+                }
+            }
             entry.setWeight(weight);
         }
+    }
+
+    /**
+     * 是否是 CJK E、F及兼容区字
+     *
+     * @since 2019-08-26 17:08
+     */
+    private boolean isCJKEFCompChar(String ch) {
+        if (CJK_E_F_COMP.isEmpty()) {
+            // CJK Unified Ideographs Extension E
+            CJK_E_F_COMP.add(0x2B820, 0x2CEA1); // 5,762
+
+            // CJK Unified Ideographs Extension F
+            CJK_E_F_COMP.add(0x2CEB0, 0x2EBE0); // 7,473
+
+            // CJK Compatibility Ideographs (中日韩兼容表意文字)
+            CJK_E_F_COMP.add(0xFA0E); // 12 Unified
+            CJK_E_F_COMP.add(0xFA0F);
+            CJK_E_F_COMP.add(0xFA11);
+            CJK_E_F_COMP.add(0xFA13);
+            CJK_E_F_COMP.add(0xFA14);
+            CJK_E_F_COMP.add(0xFA1F);
+            CJK_E_F_COMP.add(0xFA21);
+            CJK_E_F_COMP.add(0xFA23);
+            CJK_E_F_COMP.add(0xFA24);
+            CJK_E_F_COMP.add(0xFA27);
+            CJK_E_F_COMP.add(0xFA28);
+            CJK_E_F_COMP.add(0xFA29);
+        }
+
+        return CJK_E_F_COMP.contains(ch);
     }
 
     /**

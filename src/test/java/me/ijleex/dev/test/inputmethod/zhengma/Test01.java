@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2018 ijym-lee
+ * Copyright 2011-2019 ijym-lee
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,10 +25,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import me.ijleex.dev.test.inputmethod.ImeDictAnalyzer;
-import me.ijleex.dev.test.inputmethod.entry.ImeEntry;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import me.ijleex.dev.test.inputmethod.ImeDictAnalyzer;
+import me.ijleex.dev.test.inputmethod.entry.ImeEntry;
 
 /**
  * Test01
