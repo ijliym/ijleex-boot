@@ -423,10 +423,10 @@ public class ImeDictAnalyzer {
 
             // 从 词频列表 中获取词条的词频；不存在的词条，设置词频为10 2018-05-28 18:17:09
             // 使用 语料库词频：该词频中，最小词频为 51；不存在的字使用默认词频，常用字的默认词频为 50，词组 45，
-            // 生僻字（CJK-A,B,C,D）10，E、F及兼容区为 0，不是 JCK-Unified 的字为 -1 2019-08-25 22:41:40
+            // 生僻字（CJK-A,B,C,D）10，E、F及兼容区为 0，不是 CJK-Unified 的字为 -1 2019-08-25 22:41:40
             String weight = weightMap.get(text);
             if (weight == null) {
-                // 如果词频表中不存在这个字，先判断该字是不是 JCK-Unified 字，如果是，则使用 defaultWeight，否则 -1
+                // 如果词频表中不存在这个字，先判断该字是不是 CJK-Unified 字，如果是，则使用 defaultWeight，否则 -1
                 weight = CodePointUtil.isCJKUnifiedIdeographicChar(text) ? defaultWeight : "-1";
                 if (isCJKEFCompChar(text)) {
                     weight = "0";
