@@ -1,9 +1,10 @@
 -Xms128m
 -Xmx1024m
 -XX:ReservedCodeCacheSize=240m
--XX:+UseG1GC
+-XX:+UseConcMarkSweepGC
 -XX:SoftRefLRUPolicyMSPerMB=50
 -ea
+-XX:CICompilerCount=2
 -Dsun.io.useCanonPrefixCache=false
 -Djava.net.preferIPv4Stack=true
 -Djdk.http.auth.tunneling.disabledSchemes=""
@@ -11,4 +12,4 @@
 -XX:+HeapDumpOnOutOfMemoryError
 -XX:-OmitStackTraceInFastThrow
 -Djdk.attach.allowAttachSelf
--XX:MaxJavaStackTraceDepth=10000
+-Dkotlinx.coroutines.debug=off
