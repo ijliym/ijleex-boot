@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2018 ijym-lee
+ * Copyright 2011-2019 ijym-lee
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,60 +27,43 @@ import java.util.Objects;
  */
 public class UnihanEntry implements CharSequence {
 
-    private String hanChar;
+    private final String hanChar;
 
-    private int codePoint;
-    private String codePointHex;
+    private final int codePoint;
+    private final String codePointHex;
 
-    private String unicodeBlock;
+    private final String unicodeBlock;
 
     /**
      * 构建
      *
      * @param hanChar 汉字
-     * @since 2018-04-25 09:21
+     * @param codePoint 代码点，即 Unicode 代码值
+     * @param codePointHex 代码点十六进制值
+     * @param unicodeBlock 所属的 Unicode 分块
+     * @since 2019-09-18 13:36
      */
-    public UnihanEntry(String hanChar) {
-        this.hanChar = hanChar;
-    }
-
     public UnihanEntry(String hanChar, int codePoint, String codePointHex, String unicodeBlock) {
-        this(hanChar);
+        this.hanChar = hanChar;
         this.codePoint = codePoint;
         this.codePointHex = codePointHex;
         this.unicodeBlock = unicodeBlock;
     }
 
     public String getHanChar() {
-        return hanChar;
-    }
-
-    public void setHanChar(String hanChar) {
-        this.hanChar = hanChar;
+        return this.hanChar;
     }
 
     public int getCodePoint() {
-        return codePoint;
-    }
-
-    public void setCodePoint(int codePoint) {
-        this.codePoint = codePoint;
+        return this.codePoint;
     }
 
     public String getCodePointHex() {
-        return codePointHex;
-    }
-
-    public void setCodePointHex(String codePointHex) {
-        this.codePointHex = codePointHex;
+        return this.codePointHex;
     }
 
     public String getUnicodeBlock() {
-        return unicodeBlock;
-    }
-
-    public void setUnicodeBlock(String unicodeBlock) {
-        this.unicodeBlock = unicodeBlock;
+        return this.unicodeBlock;
     }
 
     @Override
@@ -112,8 +95,8 @@ public class UnihanEntry implements CharSequence {
         }
         if (anObject instanceof UnihanEntry) {
             UnihanEntry anotherEntry = (UnihanEntry) anObject;
-            boolean eq1 = Objects.equals(hanChar, anotherEntry.hanChar);
-            boolean eq2 = (codePoint == anotherEntry.codePoint);
+            boolean eq1 = Objects.equals(this.hanChar, anotherEntry.hanChar);
+            boolean eq2 = (this.codePoint == anotherEntry.codePoint);
             return eq1 && eq2;
         }
         return false;
@@ -128,8 +111,8 @@ public class UnihanEntry implements CharSequence {
     @Override
     public int hashCode() {
         // hanChar 不能等于空（空字符串与NULL）
-        int hash = hanChar.hashCode();
-        return hash * 17 + codePoint * 19;
+        int hash = this.hanChar.hashCode();
+        return hash * 17 + this.codePoint * 19;
     }
 
     /**
@@ -139,7 +122,7 @@ public class UnihanEntry implements CharSequence {
      */
     @Override
     public String toString() {
-        return hanChar + "\t" + codePoint + "\t" + codePointHex + '\t' + unicodeBlock;
+        return this.hanChar + '\t' + this.codePoint + '\t' + this.codePointHex + '\t' + this.unicodeBlock;
     }
 
 }
