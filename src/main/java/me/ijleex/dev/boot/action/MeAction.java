@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2018 ijym-lee
+ * Copyright 2011-2019 ijym-lee
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringBootVersion;
 import org.springframework.core.env.Environment;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -34,8 +34,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @author liym
  * @since 2018-04-11 17:00 新建
  */
-@RestController
 @RequestMapping("/me")
+@RestController
 public class MeAction {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -55,7 +55,7 @@ public class MeAction {
      * @param request 当前请求
      * @return msg
      */
-    @RequestMapping(path = "/hello", method = RequestMethod.GET)
+    @GetMapping(path = "/hello")
     public String hello(HttpServletRequest request) {
         this.logger.debug("hello request: {}", request);
         String version = SpringBootVersion.getVersion();
@@ -80,7 +80,7 @@ public class MeAction {
      * @return application.yml 中 spring.profiles.active 对应的值，没有设置，则返回 default
      * @since 2018-04-12 12:36
      */
-    @RequestMapping(path = "/profiles", method = RequestMethod.GET)
+    @GetMapping(path = "/profiles")
     public String getProfiles(HttpServletRequest request) {
         /// this.logger.debug("getProfile by Environment: {}", env);
         String myProfile = "default";
