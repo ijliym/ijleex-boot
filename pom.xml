@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2008-2019 the original author or authors.
+  ~
+  ~ Licensed under the Apache License, Version 2.0.
+  ~ See `LICENSE` in the project root for license information.
+  -->
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -43,12 +50,12 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot -->
-        <spring-boot.version>2.1.8.RELEASE</spring-boot.version>
+        <spring-boot.version>2.2.0.RELEASE</spring-boot.version>
 
         <!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
-        <javassist.version>3.25.0-GA</javassist.version>
+        <javassist.version>3.26.0-GA</javassist.version>
         <!-- https://mvnrepository.com/artifact/com.ibm.icu/icu4j -->
-        <icu4j.version>64.2</icu4j.version>
+        <icu4j.version>65.1</icu4j.version>
     </properties>
 
     <!-- 配置子模块 -->
