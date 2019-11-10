@@ -4,7 +4,7 @@ spring:
     generate-unique-name: false
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/db_boot?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&verifyServerCertificate=false&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    url: jdbc:mysql://localhost:3306/db_boot?allowMultiQueries=true&allowPublicKeyRetrieval=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&sslMode=PREFERRED&verifyServerCertificate=false&serverTimezone=Asia/Shanghai
     username: dev
     password: temp01
     hikari: # Hikari 连接池配置（https://github.com/brettwooldridge/HikariCP#configuration-knobs-baby）
