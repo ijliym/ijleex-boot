@@ -40,7 +40,8 @@ ssh/config 是 SSH 密钥配置文件，路径为 ~/.ssh/config。
 ### 生成密钥
 
 ```bash
-ssh-keygen -t ecdsa -b 384 -C "liym@git-key" -f ~/.ssh/id_ecdsa
+ssh-keygen -t ecdsa -b 384 -C "git-key@com"  -f ~/.ssh/id_ecdsa
+ssh-keygen -t ecdsa -b 384 -C "git-key@home" -f ~/.ssh/id_ecdsa
 ```
 
 ### 将私钥添加到 ssh-agent 高速缓存中
@@ -81,19 +82,19 @@ ssh -T git@gitlab.com
 在 Git 安装目录下创建下面兩个文件：
 
  * `/usr/bin/win`
- 
+
 ```bash
 #!/bin/bash
 $@ |iconv -f gbk -t utf-8
 ```
 
  * `/etc/profile.d/alias.sh`
- 
+
 ```bash
 alias ls="/bin/ls --color=tty --show-control-chars"
 alias grep="/bin/grep --color"
 alias ll="/bin/ls --color=tty --show-control-chars -l"
- 
+
 alias ping="/bin/win ping"
 alias netstat="/bin/win netstat"
 alias nslookup="/bin/win nslookup"
