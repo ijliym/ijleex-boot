@@ -40,20 +40,20 @@ ssh/config 是 SSH 密钥配置文件，路径为 ~/.ssh/config。
 ### 生成密钥
 
 ```bash
-ssh-keygen -t rsa -b 4096 -C "liym@git-key" -f ~/.ssh/id_rsa
+ssh-keygen -t ecdsa -b 384 -C "liym@git-key" -f ~/.ssh/id_ecdsa
 ```
 
-### 将密钥添加到ssh-agent的高速缓存中
+### 将私钥添加到 ssh-agent 高速缓存中
 
 ```bash
-ssh-agent bash --login -i
-ssh-add ~/.ssh/id_rsa
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/id_ecdsa
 
 ssh-add -l
 ssh-add -D
 ```
 
-### 将 ~/.ssh/id_rsa.pub 的内容添加到 `Git 服务器`
+### 将公钥（~/.ssh/id_ecdsa.pub）添加到 `Git 服务器`
  - https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
  - https://gitee.com/help/articles/4181
 

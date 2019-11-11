@@ -1,5 +1,5 @@
 # ~/.ssh/config
-# 
+#
 # Support Git push via 'https'
 #
 
@@ -7,21 +7,21 @@
 Host github.com
 	HostName github.com
 	PreferredAuthentications publickey
-	IdentityFile ~/.ssh/id_rsa
+	IdentityFile ~/.ssh/id_ecdsa
 	User ijliym@163.com
 
-# gitee.com	(2017-10-08 16:39:06)
+# gitee.com
 Host gitee.com
 	HostName gitee.com
 	PreferredAuthentications publickey
-	IdentityFile ~/.ssh/id_rsa
+	IdentityFile ~/.ssh/id_ecdsa
 	User ijliym@163.com
 
 # bitbucket.org
 Host bitbucket.org
 	HostName bitbucket.org
 	PreferredAuthentications publickey
-	IdentityFile ~/.ssh/id_rsa
+	IdentityFile ~/.ssh/id_ecdsa
 	User ijliym@163.com
 
 
