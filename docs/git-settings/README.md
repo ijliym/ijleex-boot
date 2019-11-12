@@ -55,6 +55,11 @@ ssh-add -D
 ```
 
 ### 将公钥（~/.ssh/id_ecdsa.pub）添加到 `Git 服务器`
+
+```bash
+clip < ~/.ssh/id_ecdsa.pub
+```
+
  - https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
  - https://gitee.com/help/articles/4181
 
