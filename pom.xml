@@ -35,7 +35,8 @@
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <!-- 项目发布的主要方式：repo-可以从Maven库下载，manual-用户必须手动下载和安装依赖 -->
             <distribution>repo</distribution>
             <comments>A business-friendly OSS license</comments>
         </license>
@@ -50,7 +51,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot -->
-        <spring-boot.version>2.2.0.RELEASE</spring-boot.version>
+        <spring-boot.version>2.2.1.RELEASE</spring-boot.version>
 
         <!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
         <javassist.version>3.26.0-GA</javassist.version>
@@ -256,7 +257,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.1.2</version>
+                <version>3.2.0</version>
             </plugin>
             <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-site-plugin -->
             <plugin>
