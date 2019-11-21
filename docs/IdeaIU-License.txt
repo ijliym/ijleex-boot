@@ -14,7 +14,7 @@ https://download.jetbrains.com/idea/ideaIU-2018.1.6.win.zip
 https://download.jetbrains.com/idea/ideaIU-2018.2.6.win.zip
 https://download.jetbrains.com/idea/ideaIU-2018.3.5.win.zip
 https://download.jetbrains.com/idea/ideaIU-2019.1.2.win.zip
-https://download.jetbrains.8686c.com/idea/ideaIU-193.5096.12.win.zip
+https://download.jetbrains.8686c.com/idea/ideaIU-193.5233.57.win.zip
 https://download.jetbrains.8686c.com/go/goland-193.4932.20.win.zip
 https://download.jetbrains.8686c.com/python/pycharm-professional-2019.2.3.exe
 https://download.jetbrains.8686c.com/python/pycharm-professional-2018.3.7.zip
