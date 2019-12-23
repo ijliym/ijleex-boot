@@ -9,7 +9,7 @@
                                         2018-04-10 19:52:30
 
 
-## 使用 Git 进行版本管理项目
+## 使用 Git 进行项目版本管理
 
 更多帮助，请参考：[Git Book](https://git-scm.com/book/zh/v2)。
 
@@ -33,7 +33,8 @@ git remote show origin
 
                                         2018-04-16 17:31:26
 
-### Git Revert Changes
+### Git 回滚更改
+
 ```bash
 git -c core.quotepath=false -c log.showSignature=false checkout HEAD -- .idea/copyright/apache_v2_license.xml .idea/copyright/company_lic.xml .idea/copyright/default_lic.xml .idea/copyright/mit_license.xml .idea/copyright/profiles_settings.xml .idea/scopes/com_honeybees.xml .idea/scopes/company.xml .idea/scopes/html_files.xml .idea/scopes/js_css_files.xml .idea/scopes/me_ijleex.xml .idea/scopes/mybatis.xml .idea/scopes/org_springframework.xml
 ```
