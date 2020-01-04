@@ -1,12 +1,13 @@
+Java SE 11.0.5 (LTS)
 
 JAVA_HOME
-D:\ProgramFiles\Java\jdk1.8.0_231
-
-CLASSPATH
-%JAVA_HOME%\jre\lib\rt.jar;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
+D:\ProgramFiles\Java\jdk-11.0.5
 
 PATH
-%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;
+%JAVA_HOME%\bin;
+
+JDK-11 生成 JRE：
+bin\jlink.exe --module-path jmods --add-modules java.desktop --output jre
 
 ---
 MYSQL_HOME
@@ -18,11 +19,11 @@ D:\ProgramFiles\Ruby\Ruby-2.5.1-2-x64
 
 ---
 PATH        (echo %PATH%)
-%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;%MYSQL_HOME%\bin;%RUBY_HOME%\bin;
+%JAVA_HOME%\bin;%MYSQL_HOME%\bin;%RUBY_HOME%\bin;
 ---
 
 ORACLE_HOME
-E:\Oracle\app\product\11.2.0\dbhome_1
+D:\ProgramFiles\Oracle\app\product\11.2.0\dbhome_1
 
 NLS_LANG
 SIMPLIFIED CHINESE_CHINA.ZHS16GBK
