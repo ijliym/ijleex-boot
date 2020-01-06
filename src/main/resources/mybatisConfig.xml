@@ -62,8 +62,13 @@
     </settings>
 
     <!-- 配置拦截器，如分页查询拦截器等。 -->
-    <plugins>
-        <plugin interceptor="me.ijleex...mybatis.interceptor.PaginationInterceptor"/>
-    </plugins>
+    <!--    <plugins>-->
+    <!--    </plugins>-->
+
+    <databaseIdProvider type="DB_VENDOR">
+        <property name="MySQL" value="mysql"/>
+        <property name="Oracle" value="oracle"/>
+        <property name="DB2" value="db2"/>
+    </databaseIdProvider>
 
 </configuration>

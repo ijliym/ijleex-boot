@@ -42,7 +42,7 @@ spring:
       force: true
   # Thymeleaf 模板引擎
   thymeleaf:
-    prefix: classpath:/templates/
+    prefix: classpath:/html/
     suffix: .html
     mode: HTML    #org.thymeleaf.templatemode.TemplateMode
     encoding: UTF-8
