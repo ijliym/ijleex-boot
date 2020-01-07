@@ -45,9 +45,13 @@ public class Jdk8DateTimeTest {
      *
      * @see DateTimeFormatter#ofPattern(String, java.util.Locale)
      */
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_TIME_FORMAT, Locale.CHINA);
+    private final DateTimeFormatter formatter;
+    private final SimpleDateFormat format;
 
-    private SimpleDateFormat format = new SimpleDateFormat(DATE_TIME_FORMAT);
+    public Jdk8DateTimeTest() {
+        this.formatter = DateTimeFormatter.ofPattern(DATE_TIME_FORMAT, Locale.CHINA);
+        this.format = new SimpleDateFormat(DATE_TIME_FORMAT);
+    }
 
     /**
      * 01. java.util.Date --> java.time.LocalDateTime
@@ -61,7 +65,7 @@ public class Jdk8DateTimeTest {
         ZoneId zone = ZoneId.systemDefault();
 
         LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, zone);
-        System.out.println(formatter.format(localDateTime));
+        System.out.println(this.formatter.format(localDateTime));
     }
 
     /**
@@ -108,7 +112,7 @@ public class Jdk8DateTimeTest {
         Instant instant = localDateTime.atZone(zone).toInstant();
 
         Date date = Date.from(instant);
-        System.out.println(format.format(date));
+        System.out.println(this.format.format(date));
     }
 
     /**
@@ -123,7 +127,7 @@ public class Jdk8DateTimeTest {
         Instant instant = localDate.atStartOfDay().atZone(zone).toInstant();
 
         Date date = Date.from(instant);
-        System.out.println(format.format(date));
+        System.out.println(this.format.format(date));
     }
 
     /**
@@ -141,7 +145,7 @@ public class Jdk8DateTimeTest {
         Instant instant = localDateTime.atZone(zone).toInstant();
 
         Date date = Date.from(instant);
-        System.out.println(format.format(date));
+        System.out.println(this.format.format(date));
     }
 
     /**
@@ -156,7 +160,7 @@ public class Jdk8DateTimeTest {
         ZoneId zone = ZoneId.systemDefault();
 
         LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, zone);
-        System.out.println(formatter.format(localDateTime));
+        System.out.println(this.formatter.format(localDateTime));
     }
 
 }
