@@ -1,0 +1,50 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+    accesslog:
+      enabled: true
+  undertow:    # configure Undertow 2018-01-30 11:10:17
+    max-http-post-size: 1MB        # 1MB
+    buffer-size: 1KB               # 1KB
+    io-threads: 4
+    worker-threads: 25
+    # 是否分配直接内存（NIO直接分配的堆外内存）
+    direct-buffers: true
+    eager-filter-init: true
+    accesslog:
+      enabled: true
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai    # 使用 GMT+8 需要更多地解析
+    locale: zh_CN
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+  # 设置上传文件大小 MultipartProperties
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 2MB
+      max-request-size: 20MB
+  # Thymeleaf 模板引擎
+  thymeleaf:
+    prefix: classpath:/html/
+    suffix: .html
+    mode: HTML    #org.thymeleaf.templatemode.TemplateMode
+    encoding: UTF-8
+    cache: false
+    servlet:
+      content-type: text/html
+  resources: #指定静态资源的路径
+    static-locations: classpath:/static/,classpath:/html/
+  jmx:
+    enabled: true
+    default-domain: org.springframework.boot
+  beaninfo:
+    ignore: false
+

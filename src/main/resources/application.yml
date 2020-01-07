@@ -1,26 +1,10 @@
 debug: true
 
 server:
-  port: 8089
+  port: 8080
   servlet:
     application-display-name: ijleex-boot
     context-path: /           # ij-boot
-  tomcat:
-    uri-encoding: UTF-8
-    max-threads: 1000
-    min-spare-threads: 30
-    accesslog:
-      enabled: true
-  undertow:    # configure Undertow 2018-01-30 11:10:17
-    max-http-post-size: 10485760
-    buffer-size: 1024
-    io-threads: 4
-    worker-threads: 25
-    # 是否分配直接内存
-    direct-buffers: true
-    eager-filter-init: true
-    accesslog:
-      enabled: true
 
 spring:
   application:
@@ -28,35 +12,8 @@ spring:
     admin:
       enabled: true
       jmx-name: org.springframework.boot:type=Admin,name=SpringApplication
-    # 运行环境：dev-开发环境、test-测试环境、prod-生成环境
-    #profiles:
+  # 运行环境：dev-开发环境、sit-集成测试、prod-生成环境
+  profiles:
     #active: dev
-    #include: redis
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: Asia/Shanghai    # 使用 GMT+8 需要更多地解析
-    locale: zh_CN
-  http:
-    encoding:
-      charset: UTF-8
-      force: true
-  # Thymeleaf 模板引擎
-  thymeleaf:
-    prefix: classpath:/html/
-    suffix: .html
-    mode: HTML    #org.thymeleaf.templatemode.TemplateMode
-    encoding: UTF-8
-    cache: false
-    servlet:
-      content-type: text/html
-  resources: #指定静态资源的路径
-    static-locations: classpath:/static/,classpath:/templates/
-  mvc:
-    favicon:
-      enabled: false
-  jmx:
-    enabled: true
-    default-domain: org.springframework.boot
-  beaninfo:
-    ignore: false
+    include: core
 

@@ -17,7 +17,6 @@
 package me.ijleex.dev.boot.action;
 
 import java.util.Arrays;
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -46,8 +45,11 @@ public class MeAction {
      * @see org.springframework.web.context.support.StandardServletEnvironment
      * @since 2018-04-12 12:39
      */
-    @Resource
-    private Environment env;
+    private final Environment env;
+
+    public MeAction(Environment env) {
+        this.env = env;
+    }
 
     /**
      * Hello Spring-Boot
@@ -82,13 +84,13 @@ public class MeAction {
      */
     @GetMapping(path = "/profiles")
     public String getProfiles(HttpServletRequest request) {
-        /// this.logger.debug("getProfile by Environment: {}", env);
+        /// this.logger.debug("getProfiles via Environment: {}", env);
         String myProfile = "default";
         String[] activeProfiles = this.env.getActiveProfiles();
         if (activeProfiles.length > 0) {
             myProfile = Arrays.toString(activeProfiles);
         }
-        this.logger.debug("getProfile profile: {}", myProfile);
+        this.logger.debug("getProfiles: {}", myProfile);
         return myProfile;
     }
 
