@@ -11,5 +11,6 @@
 -Dfile.encoding=UTF-8
 -XX:+HeapDumpOnOutOfMemoryError
 -XX:-OmitStackTraceInFastThrow
--Djdk.attach.allowAttachSelf
+-Djdk.attach.allowAttachSelf=true
 -Dkotlinx.coroutines.debug=off
+-Djdk.module.illegalAccess.silent=true
