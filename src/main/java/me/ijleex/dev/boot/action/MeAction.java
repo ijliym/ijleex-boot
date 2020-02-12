@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2019 ijym-lee
+ * Copyright 2011-2020 ijym-lee
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MeAction {
 
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /**
      * 用于获取当前 Spring-Boot 环境的配置信息
