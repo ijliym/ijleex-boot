@@ -1,4 +1,4 @@
-# 基于 Spring-Boot 2.x 框架的项目模板
+# 基于 Spring-Boot 2.x 框架的模板项目
 
 * 作为 IntelliJ IDEA 开发的根项目（相当于 Eclipse 的 Workspace）
 * 基于 Spring-Boot 2.x 框架 [Spring Boot Reference Guide](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
