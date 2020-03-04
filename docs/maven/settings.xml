@@ -127,8 +127,8 @@ under the License.
     <!-- Maven deploy 时，Repository 的类型必须是 hosted，
        且 Configuration / Deployment Policy 的值是 Allow Redeploy，否则会出现 400 错误。-->
     <!-- Maven Deploy sample:
-       mvn deploy:deploy-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.4 -Dpackaging=jar
-        -Dfile=/path/to/ojdbc6.jar
+       mvn deploy:deploy-file -DgroupId=com.oracle.ojdbc -DartifactId=ojdbc8 -Dversion=19.3.0.0 -Dpackaging=jar
+        -Dfile=/path/to/ojdbc8.jar
         -Durl=http://192.168.210.32:8000/nexus/content/repositories/thirdparty/
         -DrepositoryId=maven-server
     -->
