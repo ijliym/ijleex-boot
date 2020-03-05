@@ -68,7 +68,7 @@ public class ImeDictAnalyzer {
     /**
      * @since 2018-03-20 14:09:40 MySQL 临时目录
      */
-    private static final String OUT_PATH = "D:/ProgramFiles/MySQL/mysql-8.0.18-winx64/run/";
+    private static final String OUT_PATH = "D:/ProgramFiles/MySQL/mysql-8.0.19-winx64/docs/";
 
     /**
      * 加载输入法词条数据（使用 多多输入法原始码表格式 保存）

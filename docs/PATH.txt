@@ -11,7 +11,7 @@ bin\jlink.exe --module-path jmods --add-modules java.desktop --output jre
 
 ---
 MYSQL_HOME
-D:/ProgramFiles/MySQL/mysql-8.0.18-winx64
+D:/ProgramFiles/MySQL/mysql-8.0.19-winx64
 (MySQL Community Server: https://mirrors.huaweicloud.com/mysql/Downloads/MySQL-8.0/)
 
 RUBY_HOME   (Ruby: ruby --version)

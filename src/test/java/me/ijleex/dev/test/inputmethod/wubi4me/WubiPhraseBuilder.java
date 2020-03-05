@@ -64,7 +64,7 @@ public class WubiPhraseBuilder {
     /**
      * @since 2018-03-21 16:50 输出词条
      */
-    private static final String OUT_FILE = "D:/ProgramFiles/MySQL/mysql-8.0.18-winx64/run/ctor-result.txt";
+    private static final String OUT_FILE = "D:/ProgramFiles/MySQL/mysql-8.0.19-winx64/docs/ctor-result.txt";
 
     /**
      * 初始化
