@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2018 ijym-lee
+ * Copyright 2011-2020 ijym-lee
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ public class SQLUpdateEntry extends ImeEntry {
     /**
      * 输出格式
      */
-    private static final String OUT_FORMAT = "UPDATE t_ime_dict SET weight=%s,type=\'%s\',stem=\'%s\' WHERE code=\'%s\' AND text=\'%s\';";
+    private static final String OUT_FORMAT = "UPDATE t_ime_dict SET weight=%s,type='%s',stem='%s' WHERE code='%s' AND text='%s';";
 
     /**
      * 构建输出格式为 {@value OUT_FORMAT} 的词条
@@ -80,7 +80,7 @@ public class SQLUpdateEntry extends ImeEntry {
         if (sql.length() == 22) { // "UPDATE t_ime_dict SET " 的长度为 22
             return "没有可更新的属性：" + super.toString();
         } else {
-            String whereFormat = "WHERE code=\'%s\' AND text=\'%s\';";
+            String whereFormat = "WHERE code='%s' AND text='%s';";
             String where = String.format(whereFormat, code, text);
             sql.append(where);
         }
@@ -96,7 +96,7 @@ public class SQLUpdateEntry extends ImeEntry {
     }
 
     /**
-     * @see Integer#Integer(java.lang.String)
+     * @see Integer#parseInt(java.lang.String)
      */
     private static boolean isInteger(final String s) {
         if (isEmpty(s)) {

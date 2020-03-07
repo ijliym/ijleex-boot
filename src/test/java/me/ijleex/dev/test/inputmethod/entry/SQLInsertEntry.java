@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2018 ijym-lee
+ * Copyright 2011-2020 ijym-lee
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ public class SQLInsertEntry extends ImeEntry {
     /**
      * 输出格式
      */
-    private static final String OUT_FORMAT = "INSERT INTO t_wubi_ime_wb(code,text,weight,type) VALUES(\'%s\', \'%s\', \'%s\', \'%s\');";
+    private static final String OUT_FORMAT = "INSERT INTO t_wubi_ime_wb(code,text,weight,type) VALUES('%s', '%s', '%s', '%s');";
 
     /**
      * 构建输出格式为 {@value OUT_FORMAT} 的词条
