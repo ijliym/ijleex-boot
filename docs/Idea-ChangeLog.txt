@@ -72,5 +72,6 @@ https://www.jetbrains.com/idea/download/
 @date 2020-03-12 22:34:32 IdeaIU-2020.1 EAP (201.6251.22; March 12, 2020; 11.0.6+8-b765.15 amd64)
 @date 2020-03-19 14:17:34 IdeaIU-2020.1 Beta (201.6487.11; March 18, 2020; 11.0.6+8-b765.15 amd64)
 @date 2020-03-26 15:56:42 IdeaIU-2020.1 Beta (201.6668.13; March 25, 2020; 11.0.6+8-b765.17 amd64)
+@date 2020-04-02 10:36:45 IdeaIU-2020.1 RC (201.6668.60; April 1, 2020; 11.0.6+8-b765.25 amd64)
 
 vim: ft=changelog
