@@ -35,7 +35,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RequestMapping("/me")
 @RestController
-public class MeAction {
+public final class MeAction {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -59,7 +59,7 @@ public class MeAction {
      */
     @GetMapping(path = "/hello")
     public String hello(HttpServletRequest request) {
-        this.logger.debug("hello request: {}", request);
+        this.logger.debug("Hello request: {}", request);
         String version = SpringBootVersion.getVersion();
         return "Hello Spring-Boot v" + version;
     }
@@ -73,7 +73,7 @@ public class MeAction {
      * <p>
      * 也可以使用如下方式获取：
      * <pre>
-     * &#64;Value("spring.profiles.active")
+     * &#64;Value("${spring.profiles.active}")
      * private String profile;
      * </pre>
      * </p>
