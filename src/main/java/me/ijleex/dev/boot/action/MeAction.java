@@ -84,7 +84,7 @@ public final class MeAction {
      */
     @GetMapping(path = "/profiles")
     public String getProfiles(HttpServletRequest request) {
-        /// this.logger.debug("getProfiles via Environment: {}", env);
+         /// this.logger.debug("getProfiles via Environment: {}", this.env);
         String myProfile = "default";
         String[] activeProfiles = this.env.getActiveProfiles();
         if (activeProfiles.length > 0) {
