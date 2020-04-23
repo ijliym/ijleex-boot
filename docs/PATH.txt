@@ -1,7 +1,7 @@
-Java SE 11.0.6 (LTS)
+Java SE 11.0.7 (LTS)
 
 JAVA_HOME
-D:\ProgramFiles\Java\jdk-11.0.6
+D:\ProgramFiles\Java\jdk-11.0.7
 
 PATH
 %JAVA_HOME%\bin;
