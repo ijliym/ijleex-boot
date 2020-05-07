@@ -8,7 +8,7 @@ License Key
 https://www.jetbrains.com/idea/download/
 https://download.jetbrains.com/idea/ideaIU-14.1.7.zip
 https://download.jetbrains.8686c.com/idea/ideaIU-2020.1.1.win.zip
-https://download.jetbrains.8686c.com/go/goland-2020.1.1.win.zip
+https://download.jetbrains.8686c.com/go/goland-2020.1.2.win.zip
 https://download.jetbrains.8686c.com/webstorm/WebStorm-2020.1.1.win.zip
 https://download.jetbrains.8686c.com/python/pycharm-professional-2020.1.1.exe
 ---
