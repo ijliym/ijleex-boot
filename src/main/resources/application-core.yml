@@ -38,7 +38,7 @@ spring:
   thymeleaf:
     prefix: classpath:/html/
     suffix: .html
-    mode: HTML    #org.thymeleaf.templatemode.TemplateMode
+    mode: HTML    # org.thymeleaf.templatemode.TemplateMode
     encoding: UTF-8
     cache: false
     servlet:
