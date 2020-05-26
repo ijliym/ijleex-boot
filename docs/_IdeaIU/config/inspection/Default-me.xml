@@ -4,7 +4,7 @@
     <option name="ignoreBooleanMethods" value="true" />
     <option name="ignoreInAnnotationInterface" value="true" />
     <option name="onlyWarnOnBaseMethods" value="true" />
-    <option name="questionString" value="add,are,can,check,contains,could,endsWith,equals,has,is,matches,must,put,remove,shall,should,startsWith,was,were,will,would" />
+    <option name="questionString" value="add,are,can,check,contains,could,endsWith,equals,has,is,matches,must,put,remove,shall,should,startsWith,try,was,were,will,would" />
   </inspection_tool>
   <inspection_tool class="ClassWithMultipleLoggers" enabled="true" level="WARNING" enabled_by_default="true">
     <option name="loggerNamesString" value="java.util.logging.Logger,org.slf4j.Logger,org.apache.commons.logging.Log,org.apache.log4j.Logger" />
