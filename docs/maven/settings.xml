@@ -176,7 +176,7 @@ under the License.
     <mirror>
       <id>maven-internal</id>
       <mirrorOf>central</mirrorOf>
-      <name>公司内部 Maven 仓库</name>
+      <name>公司内部 Maven 仓库地址</name>
       <url>http://192.168.210.32:8000/nexus/content/groups/public/</url>
     </mirror>
   </mirrors>
@@ -250,7 +250,7 @@ under the License.
       <repositories>
         <repository>
           <id>maven-internal</id>
-          <name>公司内部 Maven 私服仓库</name>
+          <name>公司内部 Maven 仓库地址</name>
           <url>http://192.168.210.32:8000/nexus/content/groups/public/</url>
           <layout>default</layout>
           <releases>
@@ -265,7 +265,7 @@ under the License.
       <pluginRepositories>
         <pluginRepository>
           <id>maven-internal</id>
-          <name>公司内部 Maven 私服仓库</name>
+          <name>公司内部 Maven 仓库地址</name>
           <url>http://192.168.210.32:8000/nexus/content/groups/public/</url>
           <layout>default</layout>
           <releases>
@@ -296,8 +296,8 @@ under the License.
       <repositories>
         <repository>
           <id>maven-aliyun</id>
-          <name>阿里云 Maven 私服仓库</name>
-          <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+          <name>阿里云 Maven 仓库地址</name>
+          <url>https://maven.aliyun.com/nexus/content/groups/public/</url>
           <layout>default</layout>
           <releases>
             <enabled>true</enabled>
@@ -311,8 +311,8 @@ under the License.
       <pluginRepositories>
         <pluginRepository>
           <id>maven-aliyun</id>
-          <name>阿里云 Maven 私服仓库</name>
-          <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+          <name>阿里云 Maven 仓库地址</name>
+          <url>https://maven.aliyun.com/nexus/content/groups/public/</url>
           <layout>default</layout>
           <releases>
             <enabled>true</enabled>
