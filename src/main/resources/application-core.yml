@@ -22,6 +22,7 @@ server:
     threads:
       io: 4
       worker: 25
+  shutdown: graceful  # 支持优雅停止服务（kill -2 <pid>）
 
 spring:
   jackson:
@@ -34,6 +35,8 @@ spring:
       enabled: true
       max-file-size: 2MB
       max-request-size: 20MB
+  lifecycle:
+    timeout-per-shutdown-phase: 30s  # 停止服务等待时间
   # Thymeleaf 模板引擎
   thymeleaf:
     prefix: classpath:/html/
