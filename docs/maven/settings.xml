@@ -172,7 +172,8 @@ under the License.
     </mirror>
     -->
     <!-- mirror 相当于一个拦截器，它会拦截 maven 对远程 repository 的请求，
-      把请求里的远程 repository 地址，重定向到 mirror 的 url 地址。-->
+    把请求里的远程 repository 地址，重定向到 mirror 的 url 地址。
+    -->
     <mirror>
       <id>maven-internal</id>
       <mirrorOf>central</mirrorOf>
