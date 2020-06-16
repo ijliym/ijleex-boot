@@ -164,22 +164,22 @@ under the License.
      | this mirror serves has an ID that matches the mirrorOf element of this mirror. IDs are used
      | for inheritance and direct lookup purposes, and must be unique across the set of mirrors.
      |
+    -->
     <mirror>
       <id>nexus-sonatype</id>
       <mirrorOf>central</mirrorOf>
       <name>Sonatype Public Repository Group</name>
       <url>https://oss.sonatype.org/content/groups/public/</url>
     </mirror>
-    -->
     <!-- mirror 相当于一个拦截器，它会拦截 maven 对远程 repository 的请求，
        把请求里的远程 repository 地址，重定向到 mirror 的 url 地址。
-    -->
     <mirror>
       <id>maven-internal</id>
       <mirrorOf>central</mirrorOf>
       <name>公司内部 Maven 仓库地址</name>
       <url>http://192.168.0.0:8000/nexus/content/groups/public/</url>
     </mirror>
+    -->
   </mirrors>
 
   <!-- profiles
