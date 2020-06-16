@@ -36,7 +36,7 @@ git remote show origin
 ### Git 回滚更改
 
 ```bash
-git -c core.quotepath=false -c log.showSignature=false checkout HEAD -- .idea/copyright/apache_v2_license.xml .idea/copyright/company_lic.xml .idea/copyright/default_lic.xml .idea/copyright/mit_license.xml .idea/copyright/profiles_settings.xml .idea/scopes/com_honeybees.xml .idea/scopes/company.xml .idea/scopes/html_files.xml .idea/scopes/js_css_files.xml .idea/scopes/me_ijleex.xml .idea/scopes/mybatis.xml .idea/scopes/org_springframework.xml .idea/misc.xml
+git -c core.quotepath=false -c log.showSignature=false checkout HEAD -- .idea/copyright/apache_v2_license.xml .idea/copyright/company_lic.xml .idea/copyright/default_lic.xml .idea/copyright/mit_license.xml .idea/copyright/profiles_settings.xml .idea/scopes/com_honeybees.xml .idea/scopes/company.xml .idea/scopes/html_files.xml .idea/scopes/js_css_files.xml .idea/scopes/me_ijleex.xml .idea/scopes/mybatis.xml .idea/scopes/org_springframework.xml
 ```
                                         2018-04-19 09:25:32
 
