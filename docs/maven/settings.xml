@@ -127,9 +127,9 @@ under the License.
     <!-- Maven deploy 时，Repository 的类型必须是 hosted，
        且 Configuration / Deployment Policy 的值是 Allow Redeploy，否则会出现 400 错误。-->
     <!-- Maven Deploy sample:
-       mvn deploy:deploy-file -DgroupId=com.oracle.ojdbc -DartifactId=ojdbc8 -Dversion=19.3.0.0 -Dpackaging=jar
-        -Dfile=/path/to/ojdbc8.jar
-        -Durl=http://192.168.210.32:8000/nexus/content/repositories/thirdparty/
+       mvn deploy:deploy-file -DgroupId=com.oracle.database.jdbc -DartifactId=ojdbc10 -Dversion=19.6.0.0 -Dpackaging=jar
+        -Dfile=/path/to/ojdbc10.jar
+        -Durl=http://192.168.0.0:8000/nexus/content/repositories/thirdparty/
         -DrepositoryId=maven-server
     -->
     <server>
@@ -178,7 +178,7 @@ under the License.
       <id>maven-internal</id>
       <mirrorOf>central</mirrorOf>
       <name>公司内部 Maven 仓库地址</name>
-      <url>http://192.168.210.32:8000/nexus/content/groups/public/</url>
+      <url>http://192.168.0.0:8000/nexus/content/groups/public/</url>
     </mirror>
   </mirrors>
 
@@ -252,7 +252,7 @@ under the License.
         <repository>
           <id>maven-internal</id>
           <name>公司内部 Maven 仓库地址</name>
-          <url>http://192.168.210.32:8000/nexus/content/groups/public/</url>
+          <url>http://192.168.0.0:8000/nexus/content/groups/public/</url>
           <layout>default</layout>
           <releases>
             <enabled>true</enabled>
@@ -267,7 +267,7 @@ under the License.
         <pluginRepository>
           <id>maven-internal</id>
           <name>公司内部 Maven 仓库地址</name>
-          <url>http://192.168.210.32:8000/nexus/content/groups/public/</url>
+          <url>http://192.168.0.0:8000/nexus/content/groups/public/</url>
           <layout>default</layout>
           <releases>
             <enabled>true</enabled>
