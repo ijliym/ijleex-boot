@@ -69,6 +69,7 @@ clip < ~/.ssh/id_ecdsa.pub
 ssh -T git@github.com
 ssh -T git@gitee.com
 ssh -T git@gitlab.com
+ssh -T ssh://git@192.168.0.0:8022
 ```
 
 ---
