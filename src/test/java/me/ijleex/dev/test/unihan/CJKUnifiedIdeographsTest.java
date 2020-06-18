@@ -47,7 +47,7 @@ import com.ibm.icu.util.VersionInfo;
  */
 public class CJKUnifiedIdeographsTest {
 
-    private static final String PATH = "D:/ProgramFiles/MySQL/mysql-8.0.19-winx64/docs/";
+    private static final String PATH = "D:/ProgramFiles/MySQL/mysql-8.0.20-winx64/docs/";
 
     /**
      * CJK Unified Ideographs (中日韩统一表意文字)
