@@ -12,5 +12,4 @@
 -Djdk.attach.allowAttachSelf=true
 -Dkotlinx.coroutines.debug=off
 -Djdk.module.illegalAccess.silent=true
--XX:MaxJavaStackTraceDepth=10000
 -Dfile.encoding=UTF-8
