@@ -166,7 +166,7 @@ under the License.
      |
     -->
     <mirror>
-      <id>nexus-sonatype</id>
+      <id>maven-sonatype</id>
       <mirrorOf>central</mirrorOf>
       <name>Sonatype Public Repository Group</name>
       <url>https://oss.sonatype.org/content/groups/public/</url>
