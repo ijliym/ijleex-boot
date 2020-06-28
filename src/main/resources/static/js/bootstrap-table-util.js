@@ -52,20 +52,20 @@ function deleteTableRow(uri, tableId, row) {
             },
             callback: function(result) {
                 if (result) {
-                    $.ajax({
-                        type: 'POST',
+                    $.ajax(uri, {
+                        async: true,
                         cache: false,
-                        url: uri,
                         data: row,
-                        dataType: 'JSON'
-                    }).done(function(data) {
+                        dataType: 'json',
+                        method: 'POST'
+                    }).done(function(result, textStatus, xhr) {
                         // alert(data.state);
-                        if (data.code === '000000') {
+                        if (result.code === '000000') {
                             refreshTable(tableId);
                             Alert.succ('删除成功。');
                         } else {
-                            var msg = data.message;
-                            if (msg !== undefined && '操作失败' === msg) {
+                            let msg = result.message;
+                            if (!msg || '操作失败' === msg) {
                                 Alert.error('删除表格数据失败！');
                             } else {
                                 if (msg.indexOf("Exception") > -1) {
@@ -74,8 +74,10 @@ function deleteTableRow(uri, tableId, row) {
                                 Alert.error(msg);
                             }
                         }
-                    }).fail(function(err) {
-                        console.log("失败回调");
+                    }).fail(function(xhr, textStatus, errorThrown) {
+                        console.error('error');
+                    }).always(function(result, textStatus, xhr) {
+                        console.info(`result ${result}, textStatus ${textStatus}, xhr ${xhr}`);
                     });
                 } else {
                     // alert('点击取消按钮了');
