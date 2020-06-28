@@ -59,8 +59,7 @@ function deleteTableRow(uri, tableId, row) {
                         dataType: 'json',
                         method: 'POST'
                     }).done(function(result, textStatus, xhr) {
-                        // alert(data.state);
-                        if (result.code === '000000') {
+                        if (result.code === 0) {
                             refreshTable(tableId);
                             Alert.succ('删除成功。');
                         } else {
