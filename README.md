@@ -1,12 +1,10 @@
 # 基于 Spring-Boot 2.x 框架的模板项目
 
-* 作为 IntelliJ IDEA 开发的根项目（相当于 Eclipse 的 Workspace）
-* 基于 Spring-Boot 2.x 框架 [Spring Boot Reference Guide](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
-* 相关技术：Spring-Boot、MyBatis、Thymeleaf、jQuery、Bootstrap、Vue.js 等
+ - 作为 IntelliJ IDEA 开发的根项目（相当于 Eclipse 的 Workspace）
+ - 基于 Spring-Boot 2.x 框架 [Spring Boot Reference Guide](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
+ - 相关技术：Spring-Boot、MyBatis、jQuery、Bootstrap、Vue.js、ElementUI 等
 
-* 保存 IDEA 设置：`docs/_IdeaIU/bin`、`docs/_IdeaIU/config`
-
-                                        2018-04-10 19:52:30
+                                        2020-07-04 21:08:17
 
 
 ## 使用 Git 进行项目版本管理
