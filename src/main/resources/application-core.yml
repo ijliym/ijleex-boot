@@ -10,10 +10,11 @@ server:
     threads:
       max: 1000
       min-spare: 30
+    max-http-form-post-size: 2MB
     uri-encoding: UTF-8
   undertow:    # configure Undertow 2018-01-30 11:10:17
-    max-http-post-size: 1MB        # 1MB
-    buffer-size: 1KB               # 1KB
+    max-http-post-size: 2MB
+    buffer-size: 10KB
     # 是否分配直接内存（NIO直接分配的堆外内存）
     direct-buffers: true
     eager-filter-init: true
@@ -21,12 +22,25 @@ server:
       enabled: true
     threads:
       io: 4
-      worker: 25
+      worker: 32
   shutdown: graceful  # 支持优雅停止服务（kill -2 <pid>）
 
 spring:
+  lifecycle:
+    timeout-per-shutdown-phase: 30s  # 停止服务等待时间
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
+    property-naming-strategy: LOWER_CAMEL_CASE  # SNAKE_CASE
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: true
+      FAIL_ON_EMPTY_BEANS: true
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+    mapper:
+      USE_GETTERS_AS_SETTERS: true
+    parser:
+      ALLOW_SINGLE_QUOTES: true
+    default-property-inclusion: NON_NULL
     time-zone: Asia/Shanghai    # 使用 GMT+8 需要更多地解析
     locale: zh_CN
   # 设置上传文件大小 MultipartProperties
@@ -35,19 +49,6 @@ spring:
       enabled: true
       max-file-size: 2MB
       max-request-size: 20MB
-  lifecycle:
-    timeout-per-shutdown-phase: 30s  # 停止服务等待时间
-  # Thymeleaf 模板引擎
-  thymeleaf:
-    prefix: classpath:/html/
-    suffix: .html
-    mode: HTML    # org.thymeleaf.templatemode.TemplateMode
-    encoding: UTF-8
-    cache: false
-    servlet:
-      content-type: text/html
-  resources: #指定静态资源的路径
-    static-locations: classpath:/static/,classpath:/html/
   jmx:
     enabled: true
     default-domain: org.springframework.boot
