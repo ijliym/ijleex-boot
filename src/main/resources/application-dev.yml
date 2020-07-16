@@ -1,6 +1,6 @@
 spring:
   datasource:
-    name: DataSource
+    name: dataSource
     generate-unique-name: false
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -10,10 +10,20 @@ spring:
     hikari: # Hikari 连接池配置（https://github.com/brettwooldridge/HikariCP#configuration-knobs-baby）
       auto-commit: true           # 自动提交从池中返回的连接
       connection-timeout: 30000   # 等待来自池中的连接的最大毫秒数，默认 30000，即30秒
-      idle-timeout: 180000        # 连接允许在池中空闲的最长时间，默认 600000（10分钟）
+      idle-timeout: 600000        # 连接允许在池中空闲的最长时间，默认 600000（10分钟）
       max-lifetime: 1800000       # 池中连接最长生命周期，0表示无限生命周期，默认 1800000，即30分钟
-      #connection-test-query: SELECT NOW()
-      minimum-idle: 5             # 池中维护的最小空闲连接数
-      maximum-pool-size: 10       # 池中维护的最大连接数，包括空闲和使用中的连接，默认是10
-      pool-name: HikariCP         # org.spring...DataSourceConfiguration.Hikari#dataSource
+      minimum-idle: 10            # 池中维护的最小空闲连接数
+      maximum-pool-size: 50       # 池中维护的最大连接数，包括空闲和使用中的连接，默认是10
+      pool-name: hikariCP         # org.spring...DataSourceConfiguration.Hikari#dataSource
+      data-source-properties:     # 数据源属性（用于MySQL）
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+        useLocalSessionState: true
+        rewriteBatchedStatements: true
+        cacheResultSetMetadata: true
+        cacheServerConfiguration: true
+        elideSetAutoCommits: true
+        maintainTimeStats: true
 
