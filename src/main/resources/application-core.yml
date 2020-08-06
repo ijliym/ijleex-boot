@@ -8,10 +8,14 @@ server:
     accesslog:
       enabled: true
     threads:
-      max: 1000
-      min-spare: 30
-    max-http-form-post-size: 2MB
+      max: 1500
+      min-spare: 200
+    max-http-form-post-size: 5MB
     uri-encoding: UTF-8
+    max-connections: 8192
+    accept-count: 1000
+    processor-cache: 2000
+    connection-timeout: 20s
   undertow:    # configure Undertow 2018-01-30 11:10:17
     max-http-post-size: 2MB
     buffer-size: 10KB
