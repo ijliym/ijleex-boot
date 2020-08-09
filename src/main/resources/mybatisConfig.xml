@@ -45,7 +45,7 @@
         <!-- 是否允许在嵌套语句中使用分页（RowBounds） -->
         <setting name="safeRowBoundsEnabled" value="false"/>
 
-        <!-- 是否启用下划线与驼峰式命名规则的映射（如：user_name => userName）  -->
+        <!-- 是否启用下划线与驼峰式命名规则的映射（如：mobile_no => mobileNo）  -->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
 
         <!-- MyBatis 利用本地缓存机制（Local Cache）防止循环引用（circular references）和加速重复嵌套查询。
