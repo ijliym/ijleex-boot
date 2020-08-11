@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2018 ijym-lee
+ * Copyright 2011-2020 ijym-lee
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,8 @@
 
 package me.ijleex.dev.boot;
 
+import java.io.File;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -27,6 +29,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class MeApplicationStarter {
+
+    static {
+        // 指定日志路径
+        String path = MeApplicationStarter.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+        File file = new File(path);
+        System.setProperty("app.path", file.getParent());
+    }
+
+    public MeApplicationStarter() {}
 
     /**
      * 启动

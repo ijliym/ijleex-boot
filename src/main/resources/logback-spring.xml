@@ -14,7 +14,8 @@
         org.springframework.boot.logging.AbstractLoggingSystem#initialize
         -->
 
-    <property name="LOG_FILE" value="logs/ijleex-boot.log"/>
+    <property name="LOG_PATH" value="${app.path}/logs:-/var/logs/ijleex-boot"/>
+    <property name="LOG_FILE" value="${LOG_PATH}/ijleex-boot.log"/>
     <property name="LOG_FILE_MAX_SIZE" value="10MB"/>
     <property name="LOG_FILE_MAX_HISTORY" value="10"/>
     <property name="LOG_TOTAL_SIZE_CAP" value="3GB"/>
