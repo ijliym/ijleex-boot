@@ -1,17 +1,17 @@
 <application>
   <component name="AppserversManager">
-    <ServerDK NAME="Tomcat 8.5.56">
+    <ServerDK NAME="Tomcat 8.5.57">
       <option name="SOURCE_INTEGRATION_NAME" value="Tomcat Server" />
       <DATA>
-        <option name="CATALINA_HOME" value="D:/Workspace/JetBrains/apache-tomcat-8.5.56" />
+        <option name="CATALINA_HOME" value="D:/Workspace/JetBrains/apache-tomcat-8.5.57" />
         <option name="CATALINA_BASE" value="" />
       </DATA>
     </ServerDK>
     <LibraryTable>
-      <library name="Tomcat 8.5.56">
+      <library name="Tomcat 8.5.57">
         <CLASSES>
-          <root url="jar://D:/Workspace/JetBrains/apache-tomcat-8.5.56/lib/jsp-api.jar!/" />
-          <root url="jar://D:/Workspace/JetBrains/apache-tomcat-8.5.56/lib/servlet-api.jar!/" />
+          <root url="jar://D:/Workspace/JetBrains/apache-tomcat-8.5.57/lib/jsp-api.jar!/" />
+          <root url="jar://D:/Workspace/JetBrains/apache-tomcat-8.5.57/lib/servlet-api.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
