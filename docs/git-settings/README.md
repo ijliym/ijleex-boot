@@ -62,6 +62,8 @@ ssh-add -l
 ssh-add -D
 ```
 
+如果生成密钥时，设置了 passphrase，请按要求输入 passphrase。
+
 ### 将公钥（~/.ssh/id_ecdsa.pub）添加到 `Git 服务器`
 
 ```bash
