@@ -5,23 +5,27 @@
 
 # github.com
 Host github.com
-	HostName github.com
-	PreferredAuthentications publickey
-	IdentityFile ~/.ssh/id_ecdsa
-	User ijliym@163.com
+  HostName github.com
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/id_ed25519
+  User ijliym@163.com
 
 # gitee.com
 Host gitee.com
-	HostName gitee.com
-	PreferredAuthentications publickey
-	IdentityFile ~/.ssh/id_ecdsa
-	User ijliym@163.com
+  HostName gitee.com
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/id_ed25519
+  User ijliym@163.com
 
 # bitbucket.org
 Host bitbucket.org
-	HostName bitbucket.org
-	PreferredAuthentications publickey
-	IdentityFile ~/.ssh/id_ecdsa
-	User ijliym@163.com
+  HostName bitbucket.org
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/id_ed25519
+  User ijliym@163.com
 
+# Company GitLab instance
+Host 192.168.0.0:8022
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/id_ed25519
 

@@ -40,15 +40,23 @@ ssh/config 是 SSH 密钥配置文件，路径为 ~/.ssh/config。
 ### 生成密钥
 
 ```bash
-ssh-keygen -t ecdsa -b 384 -C "git-key@com"  -f ~/.ssh/id_ecdsa
-ssh-keygen -t ecdsa -b 384 -C "git-key@home" -f ~/.ssh/id_ecdsa
+ssh-keygen -t ed25519 -C "git-key@com"  -f ~/.ssh/id_ed25519
+ssh-keygen -t ed25519 -C "git-key@home" -f ~/.ssh/id_ed25519
 ```
+
+生成密钥类型为 `Ed25519` 的密钥对，Ed25519 算法不需要指定密钥长度。
+
+请注意：必须设置 passphrase！passphrase 为私钥的密码，如果私钥文件遗失，没有 passphrase 也无法解锁（只能暴力破解）。
+
+`-sk` 结尾的密钥类型，如 `ecdsa-sk`、`ed25519-sk`，用于生成实现双因素验证的密钥对。
+
+ - https://ubuntu.com/server/docs/service-openssh
 
 ### 将私钥添加到 ssh-agent 高速缓存中
 
 ```bash
 eval $(ssh-agent -s)
-ssh-add ~/.ssh/id_ecdsa
+ssh-add ~/.ssh/id_ed25519
 
 ssh-add -l
 ssh-add -D
@@ -57,17 +65,18 @@ ssh-add -D
 ### 将公钥（~/.ssh/id_ecdsa.pub）添加到 `Git 服务器`
 
 ```bash
-clip < ~/.ssh/id_ecdsa.pub
+clip < ~/.ssh/id_ed25519.pub
+cat ~/.ssh/id_ed25519.pub | clip
 ```
 
- - https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
- - https://gitee.com/help/articles/4181
+ - https://gitlab.com/help/ssh/README
 
 ### 测试
 
 ```bash
 ssh -T git@github.com
 ssh -T git@gitee.com
+ssh -Tvvv git@gitee.com
 ssh -T git@gitlab.com
 ssh -T ssh://git@192.168.0.0:8022
 ```
@@ -76,6 +85,8 @@ ssh -T ssh://git@192.168.0.0:8022
 
 更多帮助，请参考：
 
+ - https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
+ - https://gitee.com/help/articles/4181
  - https://gitee.com/help/categories/38
  - https://my.oschina.net/stefanzhlg/blog/529403
  - http://blog.csdn.net/windzhu0514/article/details/54140084
