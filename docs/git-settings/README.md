@@ -46,7 +46,7 @@ ssh-keygen -t ed25519 -C "git-key@home" -f ~/.ssh/id_ed25519
 
 生成密钥类型为 `Ed25519` 的密钥对，Ed25519 算法不需要指定密钥长度。
 
-请注意：必须设置 passphrase！passphrase 为私钥的密码，如果私钥文件遗失，没有 passphrase 也无法解锁（只能暴力破解）。
+请注意：可以设置密钥的密码（passphrase），密钥的密码为私钥的密码，如果设置了密码，即使私钥遗失，没有密码也无法解锁（只能暴力破解）。
 
 `-sk` 结尾的密钥类型，如 `ecdsa-sk`、`ed25519-sk`，用于生成实现双因素验证的密钥对。
 
@@ -62,7 +62,7 @@ ssh-add -l
 ssh-add -D
 ```
 
-如果生成密钥时，设置了 passphrase，请按要求输入 passphrase。
+如果生成密钥时，设置了密码（passphrase），请按要求输入密码。
 
 ### 将公钥（~/.ssh/id_ecdsa.pub）添加到 `Git 服务器`
 
