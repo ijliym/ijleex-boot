@@ -124,3 +124,46 @@ alias ipconfig="/bin/win ipconfig"
 
  - https://kc123kc.github.io/2015/12/24/How-To-Solve-Gibberish-Problem-Under-MSYS2/
 
+---
+
+## 配置 SSH 免密登录
+
+可以配置 SSH 密码，实现服务器1（192.168.0.1）免密登录服务器2 (192.168.0.2)。
+
+ - 使用 `ssh-copy-id` 命令将服务器1通过 `ssh-keygen` 生成的公钥复制到服务器2：
+
+```shell script
+ssh-copy-id username@hostname
+ssh-copy-id root@192.168.0.2
+ssh-copy-id -i ~/.ssh/id_ed25519.pub -p 22 root@192.168.0.2
+```
+
+ - 在服务器1上免密登录服务器2:
+ 
+ ```shell script
+ssh root@192.168.0.2
+```
+
+### 设置文件权限
+
+分别为普通用户和 root 用户对密钥文件设置权限。
+
+ - 将公钥添加到 `authorized_keys` 文件：
+
+```shell script
+cd ~/.ssh
+cat id_ed25519.pub >> authorized_keys
+```
+
+ - 设置权限 - 普通用户
+
+```shell script
+chmod 600 authorized_keys id_ed25519 id_ed25519.pub
+```
+
+ - 设置权限 - root
+
+```shell script
+chmod 644 authorized_keys id_ed25519 id_ed25519.pub
+```
+
