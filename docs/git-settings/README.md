@@ -164,12 +164,14 @@ cat id_ed25519.pub >> authorized_keys
  - 设置权限 - 普通用户
 
 ```shell script
+cd ~/.ssh
 chmod 600 authorized_keys id_ed25519 id_ed25519.pub
 ```
 
  - 设置权限 - root
 
 ```shell script
+cd /root/.ssh
 chmod 644 authorized_keys id_ed25519 id_ed25519.pub
 ```
 
