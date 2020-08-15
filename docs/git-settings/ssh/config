@@ -1,31 +1,31 @@
-# ~/.ssh/config
+# SSH configuration file
 #
-# Support Git push via 'https'
+# ~/.ssh/config | /etc/ssh/ssh_config
+#
+# https://linux.die.net/man/5/ssh_config
 #
 
-# github.com
-Host github.com
-  HostName github.com
-  PreferredAuthentications publickey
-  IdentityFile ~/.ssh/id_ed25519
-  User ijliym@163.com
+# SSH Keys with passphrase settings
+AddKeysToAgent yes
+Compression yes
+ControlMaster no
+ControlPath /tmp/ssh-%r@%h#%p.sock
+ControlPersist 8h
+ServerAliveCountMax 20
+ServerAliveInterval 6
 
-# gitee.com
-Host gitee.com
-  HostName gitee.com
+# github.com / gitee.com / gitlab.com / bitbucket.org
+Host *
   PreferredAuthentications publickey
   IdentityFile ~/.ssh/id_ed25519
-  User ijliym@163.com
-
-# bitbucket.org
-Host bitbucket.org
-  HostName bitbucket.org
-  PreferredAuthentications publickey
-  IdentityFile ~/.ssh/id_ed25519
+  IdentitiesOnly no
   User ijliym@163.com
 
 # Company GitLab instance
-Host 192.168.0.0:8022
+Host 192.168.0.0
+  HostName 192.168.0.0
+  Port 8022
   PreferredAuthentications publickey
   IdentityFile ~/.ssh/id_ed25519
+  IdentitiesOnly no
 
