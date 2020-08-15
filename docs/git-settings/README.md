@@ -39,12 +39,16 @@ ssh/config 是 SSH 密钥配置文件，路径为 ~/.ssh/config。
 
 ### 生成密钥
 
+[ssh-keygen](https://jlk.fjfi.cvut.cz/arch/manpages/man/ssh-keygen.1.en)
+
 ```bash
-ssh-keygen -t ed25519 -C "git-key@com"  -f ~/.ssh/id_ed25519
-ssh-keygen -t ed25519 -C "git-key@home" -f ~/.ssh/id_ed25519
+ssh-keygen -o -a 256 -t ed25519 -C "git-key@$(hostname)"  -f ~/.ssh/id_ed25519
 ```
 
-生成密钥类型为 `Ed25519` 的密钥对，Ed25519 算法不需要指定密钥长度。
+生成密钥类型为 `Ed25519` 的密钥对，`Ed25519` 算法不需要指定密钥长度。
+
+ - https://cryptsus.com/blog/how-to-secure-your-ssh-server-with-public-key-elliptic-curve-ed25519-crypto.html
+ - https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54
 
 请注意：可以设置密钥的密码（passphrase），密钥的密码为私钥的密码，如果设置了密码，即使私钥遗失，没有密码也无法解锁（只能暴力破解）。
 
@@ -55,6 +59,7 @@ ssh-keygen -t ed25519 -C "git-key@home" -f ~/.ssh/id_ed25519
 ### 将私钥添加到 ssh-agent 高速缓存中
 
 ```bash
+# start the ssh-agent in the background
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_ed25519
 
@@ -78,7 +83,7 @@ cat ~/.ssh/id_ed25519.pub | clip
 ```bash
 ssh -T git@github.com
 ssh -T git@gitee.com
-ssh -Tvvv git@gitee.com
+ssh -Tv git@gitee.com
 ssh -T git@gitlab.com
 ssh -T ssh://git@192.168.0.0:8022
 ```
