@@ -42,7 +42,8 @@ ssh/config 是 SSH 密钥配置文件，路径为 ~/.ssh/config。
 [ssh-keygen](https://jlk.fjfi.cvut.cz/arch/manpages/man/ssh-keygen.1.en)
 
 ```bash
-ssh-keygen -o -a 256 -t ed25519 -C "git-key@$(hostname)"  -f ~/.ssh/id_ed25519
+ssh-keygen -o -t ed25519 -a 256  -C "Ed25519-Key@$(hostname)"  -f ~/.ssh/id_ed25519
+ssh-keygen -o -t rsa     -b 4096 -C "RSA-Key@$(hostname)"      -f ~/.ssh/id_rsa
 ```
 
 生成密钥类型为 `Ed25519` 的密钥对，`Ed25519` 算法不需要指定密钥长度。
