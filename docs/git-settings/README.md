@@ -1,4 +1,4 @@
-# Git 配置
+# Git/SSH 配置
 
 ## Git 客户端配置
 
@@ -48,7 +48,7 @@ ssh-keygen -t ed25519 -C "git-key@home" -f ~/.ssh/id_ed25519
 
 请注意：可以设置密钥的密码（passphrase），密钥的密码为私钥的密码，如果设置了密码，即使私钥遗失，没有密码也无法解锁（只能暴力破解）。
 
-`-sk` 结尾的密钥类型，如 `ecdsa-sk`、`ed25519-sk`，用于生成实现双因素验证的密钥对。
+`-sk` 结尾的密钥类型，如 `ecdsa-sk`、`ed25519-sk`，用于生成用于`双因素认证`的密钥对。
 
  - https://ubuntu.com/server/docs/service-openssh
 
