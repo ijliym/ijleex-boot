@@ -24,8 +24,8 @@
 
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
-    <!-- 开发、测试环境 -->
-    <springProfile name="default,dev,test">
+    <!-- 开发、集成测试、验收测试 -->
+    <springProfile name="default,dev,sit,uat">
         <logger name="org.apache.ibatis" level="DEBUG"/>
         <logger name="org.mybatis" level="DEBUG"/>
         <logger name="org.springframework" level="DEBUG"/>
