@@ -70,7 +70,7 @@ ssh-add -D
 
 如果生成密钥时设置了密码（passphrase），请按要求输入密码。
 
-### 将公钥（`id_ecdsa.pub`）添加到 `Git 服务器`
+### 将公钥（`id_ed25519.pub`）添加到 `Git 服务器`
 
 ```bash
 clip < ~/.ssh/id_ed25519.pub
