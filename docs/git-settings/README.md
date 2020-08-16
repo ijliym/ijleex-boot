@@ -43,7 +43,7 @@ ssh/config 是 SSH 密钥配置文件，路径为 ~/.ssh/config。
 
 ```bash
 ssh-keygen -o -t ed25519 -a 256  -f ~/.ssh/id_ed25519 -C "Ed25519-Key@$(hostname)"
-ssh-keygen -o -t rsa     -b 4096 -f ~/.ssh/id_rsa     -C "RSA-Key@$(hostname)"      
+ssh-keygen -o -t rsa     -b 4096 -f ~/.ssh/id_rsa     -C "RSA-Key@$(hostname)"
 ```
 
 生成密钥类型为 `Ed25519` 的密钥对，`Ed25519` 算法不需要指定密钥长度。
@@ -145,7 +145,7 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub -p 22 root@192.168.0.2
 ```
 
  - 在服务器1上免密登录服务器2:
- 
+
  ```shell script
 ssh root@192.168.0.2
 ```
