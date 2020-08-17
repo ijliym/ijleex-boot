@@ -77,7 +77,7 @@ cat ~/.ssh/id_ed25519.pub | clip
 
 ### 修改配置文件
 
-修改 SSH 客户端配置文件：![~/.ssh/config](ssh/config)。
+修改 SSH 客户端配置文件：[~/.ssh/config](ssh/config)。
 
 ### 测试
 
