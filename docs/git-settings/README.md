@@ -35,12 +35,21 @@ git config --global gui.encoding utf-8
 
 ### 生成密钥
 
-[ssh-keygen](https://jlk.fjfi.cvut.cz/arch/manpages/man/ssh-keygen.1.en)
+使用`ssh-keygen`命令生成密钥，`ssh-keygen`命令参数说明请见：[ssh-keygen](https://man.openbsd.org/ssh-keygen.1)。
 
 ```bash
-ssh-keygen -o -t ed25519 -a 256  -f ~/.ssh/id_ed25519 -C "Ed25519-Key@$(hostname)"
+ssh-keygen -o -t ed25519 -a 16   -f ~/.ssh/id_ed25519 -C "Ed25519-Key@$(hostname)"
 ssh-keygen -o -t rsa     -b 4096 -f ~/.ssh/id_rsa     -C "RSA-Key@$(hostname)"
 ```
+
+参数说明：
+
+ - `-o`：使用新格式保存密钥，可不指定，默认为`RFC 4716`；
+ - `-t`：指定生成密钥的类型；
+ - `-a`：指定密钥导出函数（默认为`bcrypt_pbkdf`，Key Derivation Function）的迭代次数，默认为`16`；
+ - `-b`：指定`RSA`（3072）、`DSA`（1024）、`ECDSA`（256）三种密钥的长度；
+ - `-f`：输出文件名称；
+ - `-C`：注释。
 
 生成密钥类型为`Ed25519`的密钥对，`Ed25519`算法不需要指定密钥长度。
 
