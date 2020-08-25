@@ -22,7 +22,7 @@ Host *
   User ijliym@163.com
 
 # Company GitLab instance
-Host 192.168.0.0
+Host com-git.com
   HostName 192.168.0.0
   Port 8022
   PreferredAuthentications publickey
