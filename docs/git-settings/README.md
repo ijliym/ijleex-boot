@@ -6,7 +6,7 @@ Git 客户端的配置文件位于用户根目录下，包括 `.gitconfig`（Git
 
 `~/.gitconfig` 的配置命令如下：
 
-```bash
+```shell script
 git config --global user.name liym@com         公司
 git config --global user.name liym@home        家里
 git config --global user.email ijliym@163.com
@@ -37,7 +37,7 @@ git config --global gui.encoding utf-8
 
 使用`ssh-keygen`命令生成密钥，`ssh-keygen`命令参数说明请见：[ssh-keygen](https://man.openbsd.org/ssh-keygen.1)。
 
-```bash
+```shell script
 ssh-keygen -o -t ed25519 -a 16   -f ~/.ssh/id_ed25519 -C "Ed25519-Key@$(hostname)"
 ssh-keygen -o -t rsa     -b 4096 -f ~/.ssh/id_rsa     -C "RSA-Key@$(hostname)"
 ```
@@ -64,7 +64,7 @@ ssh-keygen -o -t rsa     -b 4096 -f ~/.ssh/id_rsa     -C "RSA-Key@$(hostname)"
 
 ### 将私钥添加到 ssh-agent 高速缓存中
 
-```bash
+```shell script
 # start the ssh-agent in the background
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_ed25519
@@ -77,7 +77,7 @@ ssh-add -D
 
 ### 将公钥（`id_ed25519.pub`）添加到 `Git 服务器`
 
-```bash
+```shell script
 clip < ~/.ssh/id_ed25519.pub
 cat ~/.ssh/id_ed25519.pub | clip
 ```
@@ -90,7 +90,7 @@ cat ~/.ssh/id_ed25519.pub | clip
 
 ### 测试
 
-```bash
+```shell script
 ssh -T git@github.com
 ssh -T git@gitee.com
 ssh -T git@gitlab.com
@@ -117,14 +117,14 @@ ssh -Tv ssh://git@192.168.0.0:8022
 
  * `/usr/bin/win`
 
-```bash
+```shell script
 #!/bin/bash
 $@ |iconv -f gbk -t utf-8
 ```
 
  * `/etc/profile.d/alias.sh`
 
-```bash
+```shell script
 alias ls="/bin/ls --color=tty --show-control-chars"
 alias grep="/bin/grep --color"
 alias ll="/bin/ls --color=tty --show-control-chars -l"
