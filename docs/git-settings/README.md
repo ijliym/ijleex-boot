@@ -94,7 +94,7 @@ cat ~/.ssh/id_ed25519.pub | clip
 ssh -T git@github.com
 ssh -T git@gitee.com
 ssh -T git@gitlab.com
-ssh -T git@com-git.com
+ssh -T git@com-git.me
 ssh -Tv ssh://git@192.168.0.0:8022
 ```
 
