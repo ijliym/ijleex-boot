@@ -4,7 +4,7 @@
 
 Git 客户端的配置文件位于用户根目录下，包括 `.gitconfig`（Git 环境配置） 和 `.minttyrc`（Git 客户端 mintty 配置）两个文件。
 
-`~/.gitconfig` 的配置命令如下：
+[~/.gitconfig](.gitconfig) 的配置命令如下：
 
 ```shell script
 git config --global user.name liym@com         公司
