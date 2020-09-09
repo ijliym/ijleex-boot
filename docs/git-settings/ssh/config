@@ -1,8 +1,8 @@
-# SSH configuration file
+# OpenSSH client configuration file
 #
 # ~/.ssh/config | /etc/ssh/ssh_config
 #
-# https://linux.die.net/man/5/ssh_config
+# https://man.openbsd.org/ssh_config
 #
 
 # SSH Keys with passphrase settings
