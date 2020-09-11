@@ -13,7 +13,7 @@
 
 ### 初始化提交
 
-```bash
+```shell script
 git init
 git add .
 git commit -m 'Initial commit'
@@ -21,7 +21,7 @@ git commit -m 'Initial commit'
 
 ### 推送到远程仓库
 
-```bash
+```shell script
 git remote add origin https://github.com/ijliym/ijleex-boot.git
 git push -u origin master
 
@@ -33,8 +33,22 @@ git remote show origin
 
 ### Git 回滚更改
 
-```bash
-git -c core.quotepath=false -c log.showSignature=false checkout HEAD -- .idea/copyright/apache_v2_license.xml .idea/copyright/company_lic.xml .idea/copyright/default_lic.xml .idea/copyright/mit_license.xml .idea/copyright/profiles_settings.xml .idea/scopes/com_honeybees.xml .idea/scopes/company.xml .idea/scopes/html_files.xml .idea/scopes/js_css_files.xml .idea/scopes/me_ijleex.xml .idea/scopes/mybatis.xml .idea/scopes/org_springframework.xml
+使用命令：`git checkout -- filename`
+
+```shell script
+git -c core.quotepath=false -c log.showSignature=false checkout HEAD --\
+ .idea/copyright/apache_v2_license.xml\
+ .idea/copyright/company_lic.xml\
+ .idea/copyright/default_lic.xml\
+ .idea/copyright/mit_license.xml\
+ .idea/copyright/profiles_settings.xml\
+ .idea/scopes/com_honeybees.xml\
+ .idea/scopes/company.xml\
+ .idea/scopes/html_files.xml\
+ .idea/scopes/js_css_files.xml\
+ .idea/scopes/me_ijleex.xml\
+ .idea/scopes/mybatis.xml\
+ .idea/scopes/org_springframework.xml
 ```
                                         2018-04-19 09:25:32
 
