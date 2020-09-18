@@ -4,25 +4,36 @@
 
 Git 客户端的配置文件位于用户根目录下，包括 `.gitconfig`（Git 环境配置） 和 `.minttyrc`（Git 客户端 mintty 配置）两个文件。
 
-[~/.gitconfig](.gitconfig) 的配置命令如下：
+[~/.gitconfig](https://git-scm.com/docs/git-config/) 的配置命令如下：
 
 ```shell script
 git config --global user.name liym@com         公司
 git config --global user.name liym@home        家里
 git config --global user.email ijliym@163.com
 
-git config --global core.autocrlf input
+git config --global core.ignoreCase false
+git config --global core.quotePath false
 git config --global core.safecrlf warn
+git config --global core.autocrlf input
+git config --global core.checkRoundtripEncoding UTF-8
 git config --global core.whitespace cr-at-eol
 git config --global core.longpaths true
-git config --global core.quotepath false
-git config --global core.ignorecase false
 
-git config --global i18n.commitencoding utf-8
-git config --global push.default simple
-git config --global svn.pathnameencoding utf-8
+git config --global gui.encoding UTF-8
+git config --global i18n.commitEncoding UTF-8
+git config --global i18n.logOutputEncoding GBK
 git config --global log.date iso-local
-git config --global gui.encoding utf-8
+git config --global pull.rebase true
+git config --global push.default simple
+
+git config --global alias.st status
+git config --global alias.cm commit
+git config --global alias.l log
+git config --global alias.lg "log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(black)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative"
+git config --global alias.lgp "log --pretty=oneline"
+git config --global alias.ck checkout
+git config --global alias.df diff
+git config --global alias.br branch
 ```
 
 其中，`user.name` 是 Git 提交人名称（Committer），`user.email` 是注册 Git 账号时使用的Email地址，请填写正确，否则Git提交日志中会出现重复的提交人。
@@ -113,16 +124,17 @@ ssh -Tv ssh://git@192.168.0.0:8022
 ### 解决 Git 客户端 mintty 的中文乱码问题
 
 解决 Git Bash 运行 MS-Windows 命令（如 ping、ipconfig 等）时的中文乱码问题。
+
 在 Git 安装目录下创建下面兩个文件：
 
- * `/usr/bin/win`
+ * [/usr/bin/win]()
 
 ```shell script
 #!/bin/bash
 $@ |iconv -f gbk -t utf-8
 ```
 
- * `/etc/profile.d/alias.sh`
+ * [/etc/profile.d/alias.sh]()
 
 ```shell script
 alias ls="/bin/ls --color=tty --show-control-chars"
