@@ -21,7 +21,7 @@ git config --global core.longpaths true
 
 git config --global gui.encoding UTF-8
 git config --global i18n.commitEncoding UTF-8
-git config --global i18n.logOutputEncoding GBK
+git config --global i18n.logOutputEncoding UTF-8
 git config --global log.date iso-local
 git config --global pull.rebase true
 git config --global push.default simple
