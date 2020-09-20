@@ -29,7 +29,7 @@ git config --global push.default simple
 git config --global alias.st status
 git config --global alias.cm commit
 git config --global alias.l log
-git config --global alias.lg "log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(black)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative"
+git config --global alias.lg "log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(black)%s%C(reset) %C(cyan)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative"
 git config --global alias.lgp "log --pretty=oneline"
 git config --global alias.ck checkout
 git config --global alias.df diff
