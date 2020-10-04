@@ -14,12 +14,9 @@ MYSQL_HOME
 D:\ProgramFiles\MySQL\mysql-8.0.20-winx64
 (MySQL Community Server: https://mirrors.huaweicloud.com/mysql/Downloads/MySQL-8.0/)
 
-RUBY_HOME   (Ruby: ruby --version)
-D:\ProgramFiles\Ruby\Ruby-2.5.1-2-x64
-
 ---
 PATH        (echo %PATH%)
-%JAVA_HOME%\bin;%MYSQL_HOME%\bin;%RUBY_HOME%\bin;
+%JAVA_HOME%\bin;%MYSQL_HOME%\bin;
 ---
 
 ORACLE_HOME
@@ -31,7 +28,7 @@ SIMPLIFIED CHINESE_CHINA.ZHS16GBK
                                         2017-10-27 22:32:22
 
 Gradle (https://gradle.org/releases/)
-GRADLE_HOME=%USERPROFILE%\.gradle\gradle-4.9
+GRADLE_HOME=%USERPROFILE%\.gradle\gradle-6.6.1
 GRADLE_USER_HOME=%USERPROFILE%\.gradle\repository
 
 										2018-06-13 11:19:42
