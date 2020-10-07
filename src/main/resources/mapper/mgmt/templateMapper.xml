@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.ijleex.dev.boot.mapper.TemplateMapper">
 
-<mapper namespace="me.ijleex.dev.boot.dao.TemplateMapper">
+    <resultMap id="entityResult" type="Entity">
+        <id     property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="type" column="type"/>
+        <result property="content" column="content"/>
+        <result property="status" column="status"/>
+        <result property="creator" column="creator"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updater" column="updater"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
 
-    <!-- 插入 -->
-    <insert id="insert">
-        INSERT INTO t_template (
+    <sql id="getEntityDO">
+        SELECT id,name,type,content,status,creator,create_time,updater,update_time
+        FROM t_tbl
+    </sql>
+
+    <!-- 新增 -->
+    <insert id="insert" parameterType="Entity" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_tbl (
             name,
             type,
-            biz_type,
             content,
             status,
             creator,
@@ -16,7 +31,6 @@
         ) VALUES (
             #{name},
             #{type},
-            #{bizType},
             #{content},
             #{status},
             #{creator},
@@ -24,21 +38,19 @@
         )
     </insert>
 
-    <!-- 批量插入 -->
-    <insert id="insertBatch" parameterType="java.util.List">
-        INSERT INTO t_template (
+    <!-- 新增｜批量新增 -->
+    <insert id="insertBatch" parameterType="Entity">
+        INSERT INTO t_tbl (
             name,
             type,
-            biz_type,
             content,
             status,
             creator,
             create_time
         ) VALUES
-        <foreach item="e" collection="list" index="idx" open="(" separator="),(" close=")">
+        <foreach collection="list" item="e" index="index" open="(" separator="),(" close=")">
             #{e.name},
             #{e.type},
-            #{e.bizType},
             #{e.content},
             #{e.status},
             #{e.creator},
@@ -47,73 +59,50 @@
     </insert>
 
     <!-- 删除 -->
-    <delete id="delete" parameterType="java.util.List">
-        DELETE FROM t_template
-        WHERE id IN
-        <foreach item="id" collection="list" index="idx" open="(" separator="," close=")">
+    <delete id="deleteById" parameterType="Long">
+        DELETE FROM t_tbl WHERE id=#{id}
+    </delete>
+
+    <!-- 删除｜批量删除 -->
+    <delete id="deleteBatch" parameterType="Long">
+        DELETE FROM t_tbl WHERE id IN
+        <foreach collection="array" item="id" open="(" separator="," close=")">
             #{id}
         </foreach>
     </delete>
 
     <!-- 更新 -->
-    <update id="update">
-        UPDATE t_template
+    <update id="update" parameterType="Entity">
+        UPDATE t_tbl
         <trim prefix="SET" suffixOverrides=",">
             <if test="name != null">name = #{name},</if>
             <if test="type != null">type = #{type},</if>
-            <if test="bizType != null">biz_type = #{bizType},</if>
             <if test="content != null">content = #{content},</if>
             <if test="status != null">status = #{status},</if>
             <if test="updater != null">updater = #{updater},</if>
             update_time = NOW()
         </trim>
-        WHERE id = #{id}
+        WHERE id=#{id}
     </update>
 
-    <!-- 根据条件查询 -->
-    <select id="select" resultType="me.ijleex.dev.boot.modules.sys.entity.TemplateEntity">
-        SELECT id,
-            name,
-            type,
-            biz_type,
-            content,
-            status,
-            creator,
-            create_time,
-            updater,
-            update_time
-        FROM t_template
-        <trim prefix="WHERE" prefixOverrides="AND | OR">
-            <if test="name != null and name.trim() != ''">
-                AND name LIKE concat('%',#{name},'%')
-            </if>
-            <if test="type != null and type.trim() != '-1'">
-                AND type = #{type}
-            </if>
-            <if test="bizType != null and bizType.trim() != ''">
-                AND biz_type LIKE concat('%',#{bizType},'%')
-            </if>
-            <if test="status != null and status.trim() != '-1'">
-                AND status = #{status}
-            </if>
+    <!-- 查询｜查询多条，支持分页 -->
+    <select id="selectList" parameterType="Entity" resultMap="entityResult">
+        <include refid="getEntityDO"/>
+        <trim prefix="WHERE" prefixOverrides="AND">
+            <if test="name != null and name.trim() != ''">AND name LIKE concat('%',#{name},'%')</if>
+            <if test="type != null and type.trim() != '-1'">AND type = #{type}</if>
+            <if test="bizType != null and bizType.trim() != ''">AND biz_type LIKE concat('%',#{bizType},'%')</if>
+            <if test="status != null and status.trim() != '-1'">AND status = #{status}</if>
         </trim>
         ORDER BY id DESC
     </select>
 
-    <!-- 根据id查询 -->
-    <select id="selectById" resultType="me.ijleex.dev.boot.modules.sys.entity.TemplateEntity">
-        SELECT id,
-            name,
-            type,
-            biz_type,
-            content,
-            status,
-            creator,
-            create_time,
-            updater,
-            update_time
-        FROM t_template
-        WHERE id = #{id}
+    <!-- 查询｜查询单条 -->
+    <select id="selectById" parameterType="Long" resultMap="entityResult">
+        <include refid="getEntityDO"/>
+        WHERE id=#{id}
     </select>
+
+    <!-- === -->
 
 </mapper>
