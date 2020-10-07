@@ -75,12 +75,12 @@
     <update id="update" parameterType="Entity">
         UPDATE t_tbl
         <trim prefix="SET" suffixOverrides=",">
-            <if test="name != null">name = #{name},</if>
-            <if test="type != null">type = #{type},</if>
-            <if test="content != null">content = #{content},</if>
-            <if test="status != null">status = #{status},</if>
-            <if test="updater != null">updater = #{updater},</if>
-            update_time = NOW()
+            <if test="name != null">name=#{name},</if>
+            <if test="type != null">type=#{type},</if>
+            <if test="content != null">content=#{content},</if>
+            <if test="status != null">status=#{status},</if>
+            <if test="updater != null">updater=#{updater},</if>
+            update_time=NOW()
         </trim>
         WHERE id=#{id}
     </update>
@@ -90,9 +90,9 @@
         <include refid="getEntityDO"/>
         <trim prefix="WHERE" prefixOverrides="AND">
             <if test="name != null and name.trim() != ''">AND name LIKE concat('%',#{name},'%')</if>
-            <if test="type != null and type.trim() != '-1'">AND type = #{type}</if>
-            <if test="bizType != null and bizType.trim() != ''">AND biz_type LIKE concat('%',#{bizType},'%')</if>
-            <if test="status != null and status.trim() != '-1'">AND status = #{status}</if>
+            <if test="type != null and type.trim() != '-1'">AND type=#{type}</if>
+            <if test="status != null and status.trim() != '-1'">AND status=#{status}</if>
+            <if test="creator != null and creator.trim() != '-1'">AND creator=#{creator}</if>
         </trim>
         ORDER BY id DESC
     </select>
