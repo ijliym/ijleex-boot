@@ -15,7 +15,7 @@
  */
 
 /**
- * IntelliJ IDEA Development Project
+ * IntelliJ IDEA Development Project.
  *
  * @author liym
  * @since 2018-04-10 18:15 新建

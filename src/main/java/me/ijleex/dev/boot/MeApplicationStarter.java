@@ -31,7 +31,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MeApplicationStarter {
 
     static {
-        // 指定日志路径
         String path = MeApplicationStarter.class.getProtectionDomain().getCodeSource().getLocation().getPath();
         File file = new File(path);
         System.setProperty("app.path", file.getParent());
@@ -47,7 +46,7 @@ public class MeApplicationStarter {
      * @see SpringApplication#run(Class, String...)
      */
     public static void main(String[] args) {
-        // 禁用重新启动（RestartClassLoader）2016-11-06 15:03
+        // 禁用重新启动（RestartClassLoader）2018-11-06 15:03
         System.setProperty("spring.devtools.restart.enabled", "false");
 
         SpringApplication.run(MeApplicationStarter.class, args);
