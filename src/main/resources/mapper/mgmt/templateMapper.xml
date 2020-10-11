@@ -7,7 +7,7 @@
         <result property="name" column="name"/>
         <result property="type" column="type"/>
         <result property="content" column="content"/>
-        <result property="status" column="status"/>
+        <result property="state" column="state"/>
         <result property="creator" column="creator"/>
         <result property="createTime" column="create_time"/>
         <result property="updater" column="updater"/>
@@ -15,7 +15,7 @@
     </resultMap>
 
     <sql id="getEntityDO">
-        SELECT id,name,type,content,status,creator,create_time,updater,update_time
+        SELECT id,name,type,content,state,creator,create_time,updater,update_time
         FROM t_tbl
     </sql>
 
@@ -25,14 +25,14 @@
             name,
             type,
             content,
-            status,
+            state,
             creator,
             create_time
         ) VALUES (
             #{name},
             #{type},
             #{content},
-            #{status},
+            #{state},
             #{creator},
             NOW()
         )
@@ -44,7 +44,7 @@
             name,
             type,
             content,
-            status,
+            state,
             creator,
             create_time
         ) VALUES
@@ -52,7 +52,7 @@
             #{e.name},
             #{e.type},
             #{e.content},
-            #{e.status},
+            #{e.state},
             #{e.creator},
             NOW()
         </foreach>
@@ -78,7 +78,7 @@
             <if test="name != null">name=#{name},</if>
             <if test="type != null">type=#{type},</if>
             <if test="content != null">content=#{content},</if>
-            <if test="status != null">status=#{status},</if>
+            <if test="state != null">state=#{state},</if>
             <if test="updater != null">updater=#{updater},</if>
             update_time=NOW()
         </trim>
@@ -90,9 +90,9 @@
         <include refid="getEntityDO"/>
         <trim prefix="WHERE" prefixOverrides="AND">
             <if test="name != null and name.trim() != ''">AND name LIKE concat('%',#{name},'%')</if>
-            <if test="type != null and type.trim() != '-1'">AND type=#{type}</if>
-            <if test="status != null and status.trim() != '-1'">AND status=#{status}</if>
-            <if test="creator != null and creator.trim() != '-1'">AND creator=#{creator}</if>
+            <if test="type != null and type != '-1'">AND type=#{type}</if>
+            <if test="state != null and state != '-1'">AND state=#{state}</if>
+            <if test="creator != null and creator.trim() != ''">AND creator=#{creator}</if>
         </trim>
         ORDER BY id DESC
     </select>
