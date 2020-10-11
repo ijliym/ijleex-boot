@@ -2,7 +2,7 @@
   <settings>
     <module2copyright>
       <element module="com.honeybees" copyright="apache-v2-license" />
-      <element module="me.ijleex" copyright="apache-v2-license" />
+      <element module="me.ijleex" copyright="default-lic" />
       <element module="company" copyright="company-lic" />
     </module2copyright>
   </settings>
