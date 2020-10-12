@@ -23,7 +23,8 @@ git commit -m 'Initial commit'
 
 ```shell
 git remote add origin https://github.com/ijliym/ijleex-boot.git
-git push -u origin master
+git branch -M main
+git push -u origin main
 
 git fetch origin
 git remote show origin
