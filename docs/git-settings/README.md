@@ -6,7 +6,7 @@ Git 客户端的配置文件位于用户根目录下，包括 `.gitconfig`（Git
 
 [~/.gitconfig](https://git-scm.com/docs/git-config/) 的配置命令如下：
 
-```shell script
+```shell
 git config --global user.name liym@com        公司
 git config --global user.name liym@home       家里
 git config --global user.email ijliym@163.com
@@ -48,7 +48,7 @@ git config --global alias.br branch
 
 使用`ssh-keygen`命令生成密钥，`ssh-keygen`命令参数说明请见：[ssh-keygen](https://man.openbsd.org/ssh-keygen.1)。
 
-```shell script
+```shell
 ssh-keygen -o -t ed25519 -a 16   -f ~/.ssh/id_ed25519 -C "Ed25519-Key@$(hostname)"
 ssh-keygen -o -t rsa     -b 4096 -f ~/.ssh/id_rsa     -C "RSA-Key@$(hostname)"
 ```
@@ -75,7 +75,7 @@ ssh-keygen -o -t rsa     -b 4096 -f ~/.ssh/id_rsa     -C "RSA-Key@$(hostname)"
 
 ### 将私钥添加到 ssh-agent 高速缓存中
 
-```shell script
+```shell
 # start the ssh-agent in the background
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_ed25519
@@ -88,7 +88,7 @@ ssh-add -D
 
 ### 将公钥（`id_ed25519.pub`）添加到 `Git 服务器`
 
-```shell script
+```shell
 clip < ~/.ssh/id_ed25519.pub
 cat ~/.ssh/id_ed25519.pub | clip
 ```
@@ -101,7 +101,7 @@ cat ~/.ssh/id_ed25519.pub | clip
 
 ### 测试
 
-```shell script
+```shell
 ssh -T git@gitee.com
 ssh -T git@github.com
 ssh -T git@gitlab.com
@@ -129,14 +129,14 @@ ssh -Tv ssh://git@192.168.0.0:8022
 
  * [/usr/bin/win]()
 
-```shell script
+```shell
 #!/bin/bash
 $@ |iconv -f gbk -t utf-8
 ```
 
  * [/etc/profile.d/alias.sh]()
 
-```shell script
+```shell
 alias ls="/bin/ls --color=tty --show-control-chars"
 alias grep="/bin/grep --color"
 alias ll="/bin/ls --color=tty --show-control-chars -l"
@@ -159,7 +159,7 @@ alias ipconfig="/bin/win ipconfig"
 
  - 使用 `ssh-copy-id` 命令将服务器1通过 `ssh-keygen` 生成的公钥复制到服务器2：
 
-```shell script
+```shell
 ssh-copy-id username@hostname
 ssh-copy-id root@192.168.0.2
 ssh-copy-id -i ~/.ssh/id_ed25519.pub -p 22 root@192.168.0.2
@@ -167,7 +167,7 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub -p 22 root@192.168.0.2
 
  - 在服务器1上免密登录服务器2:
 
- ```shell script
+ ```shell
 ssh root@192.168.0.2
 ```
 
@@ -177,21 +177,21 @@ ssh root@192.168.0.2
 
  - 将公钥添加到 `authorized_keys` 文件：
 
-```shell script
+```shell
 cd ~/.ssh
 cat id_ed25519.pub >> authorized_keys
 ```
 
  - 设置权限 - 普通用户
 
-```shell script
+```shell
 cd ~/.ssh
 chmod 600 authorized_keys id_ed25519 id_ed25519.pub
 ```
 
  - 设置权限 - root
 
-```shell script
+```shell
 cd /root/.ssh
 chmod 644 authorized_keys id_ed25519 id_ed25519.pub
 ```

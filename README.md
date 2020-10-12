@@ -13,7 +13,7 @@
 
 ### 初始化提交
 
-```shell script
+```shell
 git init
 git add .
 git commit -m 'Initial commit'
@@ -21,7 +21,7 @@ git commit -m 'Initial commit'
 
 ### 推送到远程仓库
 
-```shell script
+```shell
 git remote add origin https://github.com/ijliym/ijleex-boot.git
 git push -u origin master
 
@@ -35,7 +35,7 @@ git remote show origin
 
 使用命令：`git checkout -- filename`
 
-```shell script
+```shell
 git -c core.quotepath=false -c log.showSignature=false checkout HEAD --\
  .idea/copyright/apache_v2_license.xml\
  .idea/copyright/company_lic.xml\
