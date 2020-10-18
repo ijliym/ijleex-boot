@@ -3,7 +3,7 @@
     <jdk version="2">
       <name value="1.8" />
       <type value="JavaSDK" />
-      <version value="java version &quot;1.8.0_265&quot;" />
+      <version value="version 1.8.0_265" />
       <homePath value="D:/ProgramFiles/Java/jdk1.8.0_265" />
       <roots>
         <annotationsPath>
