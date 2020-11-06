@@ -32,7 +32,7 @@ git remote show origin
 
                                         2018-04-16 17:31:26
 
-### Git 回滚更改
+### 回滚更改
 
 使用命令：`git checkout -- filename`
 
@@ -58,4 +58,3 @@ git -c core.quotepath=false -c log.showSignature=false checkout HEAD --\
 Copyright (c) ijym-lee. All rights reserved.
 
 Licensed under the [Apache License, Version 2.0](LICENSE).
-
