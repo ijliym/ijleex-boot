@@ -17,7 +17,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Java 8 中 Date 与 LocalDateTime、LocalDate、LocalTime 互转

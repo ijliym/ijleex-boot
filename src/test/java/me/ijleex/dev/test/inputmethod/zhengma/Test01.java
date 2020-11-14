@@ -16,8 +16,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import me.ijleex.dev.test.inputmethod.ImeDictAnalyzer;
 import me.ijleex.dev.test.inputmethod.entry.ImeEntry;
@@ -36,7 +36,7 @@ public class Test01 extends ImeDictAnalyzer {
      *
      * @since 2018-04-21 18:08:20
      */
-    @BeforeClass
+    @BeforeAll
     public static void initSetup() {
         dictPath = dictPath + "/[超集郑码]/原始码表/";
 

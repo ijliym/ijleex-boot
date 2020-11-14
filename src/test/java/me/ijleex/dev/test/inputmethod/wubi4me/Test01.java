@@ -10,11 +10,12 @@ package me.ijleex.dev.test.inputmethod.wubi4me;
 import java.io.IOException;
 import java.util.Set;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
 import me.ijleex.dev.test.inputmethod.ImeDictAnalyzer;
 import me.ijleex.dev.test.inputmethod.entry.DDImeEntry;
 import me.ijleex.dev.test.inputmethod.entry.ImeEntry;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
 /**
  * 将多多输入法原始码表文件处理成可以使用 MySQL “LOAD DATA INFILE” 语法加载数据到数据库的文件
@@ -39,7 +40,7 @@ public class Test01 extends ImeDictAnalyzer {
      * @version 2018-03-14 11:17:16 使用 System.getProperty("user.home") 获取用户目录
      * @since 2017-08-09 10:13
      */
-    @BeforeClass
+    @BeforeAll
     public static void initSetup() {
         dictPath = dictPath + "/[新世纪五笔]/原始码表/";
 

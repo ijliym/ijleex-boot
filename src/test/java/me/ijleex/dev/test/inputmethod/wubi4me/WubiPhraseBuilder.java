@@ -16,11 +16,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
 import me.ijleex.dev.test.inputmethod.FormatType;
 import me.ijleex.dev.test.inputmethod.ImeDictAnalyzer;
 import me.ijleex.dev.test.inputmethod.entry.ImeEntry;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
 /**
  * 五笔构词 工具类
@@ -63,7 +64,7 @@ public class WubiPhraseBuilder {
      * @throws java.io.IOException 读/写文件错误
      * @since 2018-03-21 13:44:48
      */
-    @BeforeClass
+    @BeforeAll
     public static void initSetup() throws IOException {
         String userHome = System.getProperty("user.home");
 
