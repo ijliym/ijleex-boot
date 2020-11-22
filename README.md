@@ -55,6 +55,6 @@ git -c core.quotepath=false -c log.showSignature=false checkout HEAD --\
 
 ## License
 
-Copyright (c) ijym-lee. All rights reserved.
+Copyright &copy; ijym-lee. All rights reserved.
 
 Licensed under the [Apache License, Version 2.0](LICENSE).
