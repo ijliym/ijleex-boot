@@ -21,11 +21,10 @@ Host *
   IdentitiesOnly no
   User ijliym@163.com
 
-# Company GitLab instance
+# Company GitLab instance: git@com-git.me
 Host com-git.me
   HostName 192.168.0.0
   Port 8022
   PreferredAuthentications publickey
   IdentityFile ~/.ssh/id_ed25519
   IdentitiesOnly no
-
