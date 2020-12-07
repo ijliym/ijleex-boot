@@ -1,8 +1,8 @@
 
 IntelliJ IDEA 14.1.7 build IU-141.3058.30
 License Key
-	name: 	IDEA
-	 key:	61156-YRN2M-5MNCN-NZ8D2-7B4EW-U12L4
+  name: IDEA
+   key: 61156-YRN2M-5MNCN-NZ8D2-7B4EW-U12L4
 
 ---
 https://www.jetbrains.com/idea/download/
@@ -13,3 +13,4 @@ https://download.jetbrains.8686c.com/webstorm/WebStorm-2020.3.win.zip
 https://download.jetbrains.8686c.com/python/pycharm-professional-2020.3.exe
 ---
 https://www.jetbrains.com/idea/download/other.html
+https://www.jetbrains.com/intellij-repository/releases
