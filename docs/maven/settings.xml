@@ -175,7 +175,7 @@ under the License.
        把请求里的远程 repository 地址，重定向到 mirror 的 url 地址。
     -->
     <mirror>
-      <id>maven-internal</id>
+      <id>maven-aliyun</id>
       <mirrorOf>central</mirrorOf>
       <name>阿里云公共仓库</name>
       <url>http://maven.aliyun.com/repository/public</url>
@@ -250,7 +250,7 @@ under the License.
 
       <repositories>
         <repository>
-          <id>maven-internal</id>
+          <id>maven-aliyun</id>
           <name>阿里云公共仓库</name>
           <url>https://maven.aliyun.com/repository/public</url>
           <layout>default</layout>
@@ -265,7 +265,7 @@ under the License.
       </repositories>
       <pluginRepositories>
         <pluginRepository>
-          <id>maven-internal</id>
+          <id>maven-aliyun</id>
           <name>阿里云公共仓库</name>
           <url>https://maven.aliyun.com/repository/public</url>
           <layout>default</layout>
