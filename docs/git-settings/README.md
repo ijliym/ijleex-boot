@@ -27,7 +27,7 @@ git config --global pull.rebase true
 git config --global push.default simple
 
 git config --global alias.st status
-git config --global alias.cm commit
+git config --global alias.cm "commit -m"
 git config --global alias.l log
 git config --global alias.lg "log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(black)%s%C(reset) %C(cyan)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative"
 git config --global alias.lgp "log --pretty=oneline"
