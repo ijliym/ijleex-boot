@@ -36,6 +36,7 @@ git config --global alias.lgp "log --pretty=oneline"
 git config --global alias.ck checkout
 git config --global alias.df diff
 git config --global alias.br branch
+git config --global alias.rv "remote -v"
 git config --global alias.me "config user.email ijliym@163.com"
 ```
 
