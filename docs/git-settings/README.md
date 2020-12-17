@@ -38,6 +38,7 @@ git config --global alias.df diff
 git config --global alias.br branch
 git config --global alias.rv "remote -v"
 git config --global alias.me "config user.email ijliym@163.com"
+git config --global alias.gcp "gc --aggressive --prune=now"
 ```
 
 其中，`user.name` 是 Git 提交人名称（Committer），`user.email` 是注册 Git 账号时使用的Email地址，请填写正确，否则Git提交日志中会出现重复的提交人。
