@@ -1,7 +1,7 @@
 OpenJDK 8u275
 
 JAVA_HOME
-D:\ProgramFiles\Java\jdk1.8.0_275
+D:\ProgramFiles\Java\jdk8u275-b01
 
 CLASSPATH
 %JAVA_HOME%\jre\lib\rt.jar;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
