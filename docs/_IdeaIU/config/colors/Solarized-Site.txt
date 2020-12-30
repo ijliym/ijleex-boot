@@ -1,3 +1,2 @@
-https://github.com/jkaving/intellij-colors-solarized
-
-                                2018-01-14 21:00:37
+https://plugins.jetbrains.com/plugin/12784-solarized-themes
+                        2020-12-30 16:37:31
