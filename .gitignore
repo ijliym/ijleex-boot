@@ -1,13 +1,13 @@
 *.class
 
-# Package Files #
+# Package Files
 *.jar
 *.war
 *.ear
 /target/
 /classes/
 
-### Eclipse (STS) ###
+### Eclipse (STS)
 .apt_generated
 .classpath
 .factorypath
@@ -16,7 +16,7 @@
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
+### IntelliJ IDEA
 *.iml
 /.idea/*
 !/.idea/copyright
