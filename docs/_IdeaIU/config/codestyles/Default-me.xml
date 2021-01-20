@@ -38,10 +38,10 @@
   <Python>
     <option name="BLANK_LINES_BEFORE_FIRST_METHOD" value="1" />
   </Python>
-  <SqlCodeStyleSettings version="2">
-    <option name="ALIAS_CASE" value="4" />
-    <option name="KEYWORD_CASE" value="0" />
+  <SqlCodeStyleSettings version="5">
     <option name="TYPE_CASE" value="3" />
+    <option name="CUSTOM_TYPE_CASE" value="3" />
+    <option name="ALIAS_CASE" value="4" />
     <option name="QUERY_TRUE_INDENT" value="false" />
     <option name="QUERY_ALIGN_ELEMENTS" value="false" />
     <option name="QUERY_ALIGN_LINE_COMMENTS" value="false" />
@@ -95,7 +95,6 @@
     <option name="EXTENDS_KEYWORD_WRAP" value="1" />
     <option name="THROWS_KEYWORD_WRAP" value="1" />
     <option name="KEEP_SIMPLE_BLOCKS_IN_ONE_LINE" value="true" />
-    <option name="KEEP_SIMPLE_METHODS_IN_ONE_LINE" value="true" />
     <option name="KEEP_SIMPLE_LAMBDAS_IN_ONE_LINE" value="true" />
     <option name="KEEP_SIMPLE_CLASSES_IN_ONE_LINE" value="true" />
     <option name="PARAMETER_ANNOTATION_WRAP" value="1" />

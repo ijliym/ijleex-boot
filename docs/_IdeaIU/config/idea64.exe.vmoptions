@@ -1,7 +1,7 @@
 -Xms128m
 -Xmx1560m
 -XX:ReservedCodeCacheSize=512m
--XX:+UseConcMarkSweepGC
+-XX:+UseG1GC
 -XX:SoftRefLRUPolicyMSPerMB=50
 -XX:CICompilerCount=2
 -XX:+HeapDumpOnOutOfMemoryError
