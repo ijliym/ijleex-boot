@@ -1,7 +1,7 @@
-OpenJDK 8u275
+Java SE 8u281
 
 JAVA_HOME
-D:\ProgramFiles\Java\jdk8u275-b01
+D:\ProgramFiles\Java\jdk8u281-b09
 
 CLASSPATH
 %JAVA_HOME%\jre\lib\rt.jar;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
@@ -52,4 +52,3 @@ PATH=;%GOROOT%\bin;
 https://studygolang.com/dl/golang/go1.10.3.windows-amd64.zip
 
                                         2018-08-11 21:30
-
