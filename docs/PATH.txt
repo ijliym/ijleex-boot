@@ -33,16 +33,14 @@ GRADLE_USER_HOME=%USERPROFILE%\.gradle\repository
 
 										2018-06-13 11:19:42
 
-Red Hat Enterprise Linux 7.5 (or WSL/Debian) Java PATH
-vi /etc/profile
-JAVA_HOME=/opt/Java/jdk1.8.0_231
+Linux (WSL/Debian) Java PATH
+vi ~/.profile
+JAVA_HOME=/usr/local/jdk8u281-b09
 JRE_HOME=$JAVA_HOME/jre
-PATH=$PATH:$JAVA_HOME/bin
-CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-export JAVA_HOME JRE_HOME PATH CLASSPATH
-
-source /etc/profile
-                                        2018-01-21 17:34
+CLASSPATH=$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+PATH=$JAVA_HOME/bin:$PATH
+source ~/.profile
+                                        2021-02-05 18:20:20
 
 Golang 1.10.3
 GOROOT=D:\ProgramFiles\Golang\go
