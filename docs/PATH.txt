@@ -3,20 +3,17 @@ Java SE 8u281
 JAVA_HOME
 D:\ProgramFiles\Java\jdk8u281-b09
 
-CLASSPATH
-%JAVA_HOME%\jre\lib\rt.jar;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
-
 PATH
-%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;
+%JAVA_HOME%\bin
 
 ---
 MYSQL_HOME
 D:\ProgramFiles\MySQL\mysql-8.0.22-winx64
-(MySQL Community Server: https://mirrors.huaweicloud.com/mysql/Downloads/MySQL-8.0/)
+(MySQL: https://mirrors.huaweicloud.com/mysql/Downloads/MySQL-8.0/)
 
 ---
 PATH        (echo %PATH%)
-%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;%MYSQL_HOME%\bin;
+%JAVA_HOME%\bin;%MYSQL_HOME%\bin;
 ---
 
 ORACLE_HOME
@@ -25,22 +22,21 @@ D:\ProgramFiles\Oracle\app\product\11.2.0\dbhome_1
 NLS_LANG
 SIMPLIFIED CHINESE_CHINA.ZHS16GBK
 
-                                        2017-10-27 22:32:22
+                                    2017-10-27 22:32:22
 
 Gradle (https://gradle.org/releases/)
 GRADLE_HOME=%USERPROFILE%\.gradle\gradle-6.6.1
 GRADLE_USER_HOME=%USERPROFILE%\.gradle\repository
 
-										2018-06-13 11:19:42
+                                    2018-06-13 11:19:42
 
 Linux (WSL/Debian) Java PATH
 vi ~/.profile
 JAVA_HOME=/usr/local/jdk8u281-b09
 JRE_HOME=$JAVA_HOME/jre
-CLASSPATH=$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 PATH=$JAVA_HOME/bin:$PATH
 source ~/.profile
-                                        2021-02-05 18:20:20
+                                    2021-02-05 18:20:20
 
 Golang 1.10.3
 GOROOT=D:\ProgramFiles\Golang\go
@@ -49,4 +45,4 @@ PATH=;%GOROOT%\bin;
 
 https://studygolang.com/dl/golang/go1.10.3.windows-amd64.zip
 
-                                        2018-08-11 21:30
+                                    2018-08-11 21:30
