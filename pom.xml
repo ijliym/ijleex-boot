@@ -44,12 +44,12 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot -->
-        <spring-boot.version>2.4.1</spring-boot.version>
+        <spring-boot.version>2.4.3</spring-boot.version>
 
         <!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
         <javassist.version>3.27.0-GA</javassist.version>
         <!-- https://mvnrepository.com/artifact/com.ibm.icu/icu4j -->
-        <icu4j.version>68.1</icu4j.version>
+        <icu4j.version>68.2</icu4j.version>
     </properties>
 
     <!-- 配置子模块 -->
