@@ -34,7 +34,7 @@
             #{content},
             #{state},
             #{creator},
-            NOW()
+            CURRENT_TIMESTAMP
         )
     </insert>
 
@@ -54,7 +54,7 @@
             #{e.content},
             #{e.state},
             #{e.creator},
-            NOW()
+            CURRENT_TIMESTAMP
         </foreach>
     </insert>
 
@@ -80,7 +80,7 @@
             <if test="content != null">content=#{content},</if>
             <if test="state != null">state=#{state},</if>
             <if test="updater != null">updater=#{updater},</if>
-            update_time=NOW()
+            update_time=CURRENT_TIMESTAMP
         </trim>
         WHERE id=#{id}
     </update>
@@ -89,10 +89,10 @@
     <select id="selectList" parameterType="Entity" resultMap="entityResult">
         <include refid="getEntityDO"/>
         <trim prefix="WHERE" prefixOverrides="AND">
-            <if test="name != null and name.trim() != ''">AND name LIKE concat('%',#{name},'%')</if>
+            <if test="name != null">AND name LIKE concat('%',#{name},'%')</if>
             <if test="type != null and type != '-1'">AND type=#{type}</if>
             <if test="state != null and state != '-1'">AND state=#{state}</if>
-            <if test="creator != null and creator.trim() != ''">AND creator=#{creator}</if>
+            <if test="creator != null">AND creator=#{creator}</if>
         </trim>
         ORDER BY id DESC
     </select>
