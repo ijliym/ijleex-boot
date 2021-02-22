@@ -60,4 +60,3 @@ spring:
     default-domain: org.springframework.boot
   beaninfo:
     ignore: false
-

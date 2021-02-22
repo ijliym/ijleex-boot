@@ -68,6 +68,7 @@
     <databaseIdProvider type="DB_VENDOR">
         <property name="MySQL" value="mysql"/>
         <property name="Oracle" value="oracle"/>
+        <property name="PostgreSQL" value="postgres"/>
         <property name="DB2" value="db2"/>
     </databaseIdProvider>
 

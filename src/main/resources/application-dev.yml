@@ -5,8 +5,8 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/db_boot?allowMultiQueries=true&allowPublicKeyRetrieval=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&sslMode=PREFERRED&verifyServerCertificate=false&zeroDateTimeBehavior=CONVERT_TO_NULL
-    username: dev
-    password: temp01
+    username: devel
+    password: 123456
     hikari: # Hikari 连接池配置（https://github.com/brettwooldridge/HikariCP#configuration-knobs-baby）
       auto-commit: true           # 自动提交从池中返回的连接
       connection-timeout: 30000   # 等待来自池中的连接的最大毫秒数，默认 30000，即30秒
@@ -26,4 +26,3 @@ spring:
         cacheServerConfiguration: true
         elideSetAutoCommits: true
         maintainTimeStats: true
-
