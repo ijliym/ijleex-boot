@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2020 the original author or authors.
+ * Copyright 2011-2021 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -27,7 +27,7 @@ public final class RegexTest {
     public void test01() {
         String regex = "(?<timestamp>\\S+ \\S+) (?<pid>\\S+) \\[(?<loglevel>\\S+)] (?<message>.*)";
         Pattern pattern = Pattern.compile(regex);
-        System.out.println("pattern: " + pattern.pattern());
+        System.out.println("Regex: " + pattern.pattern());
 
         String str = "2019-01-03 17:12:47 15752 [Note] InnoDB: 128 rollback segment(s) are active";
         Matcher matcher = pattern.matcher(str);
@@ -46,12 +46,32 @@ public final class RegexTest {
     public void test02() {
         String regex = "(?<=\\{)(.+?)(?=})";
         Pattern pattern = Pattern.compile(regex);
-        System.out.println("pattern: " + pattern.pattern());
+        System.out.println("Regex: " + pattern.pattern());
 
         String str = "%d{yyyy-MM-dd HH:mm:ss.SSS}";
         Matcher matcher = pattern.matcher(str);
         while (matcher.find()) {
             System.out.println(matcher.group(1));
+        }
+    }
+
+    /**
+     * 正则匹配分卷压缩文件名 .z01、.z02、……
+     *
+     * @since 2021-02-25 17:29:21
+     */
+    @Test
+    public void test03() {
+        String regex = "(\\S*)\\.(z\\d*)$"; // "(?<simpleName>\\S*)\\.(?<ext>z\\d*)$"
+        Pattern pattern = Pattern.compile(regex);
+        System.out.println("Regex: " + pattern.pattern());
+
+        String name = "tomcat.z01";
+        Matcher matcher = pattern.matcher(name);
+        while (matcher.find()) {
+            System.out.println(matcher.group(0));
+            System.out.println(matcher.group(1));
+            System.out.println(matcher.group(2));
         }
     }
 
