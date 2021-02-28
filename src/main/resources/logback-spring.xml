@@ -16,13 +16,14 @@
 
     <property name="LOG_PATH" value="${app.path}/logs:-/var/log/ijleex-boot"/>
     <property name="LOG_FILE" value="${LOG_PATH}/ijleex-boot.log"/>
-    <property name="LOG_FILE_MAX_SIZE" value="10MB"/>
-    <property name="LOG_FILE_MAX_HISTORY" value="10"/>
-    <property name="LOG_TOTAL_SIZE_CAP" value="3GB"/>
+    <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
+    <property name="FILE_LOG_CHARSET" value="UTF-8"/>
+    <property name="LOGBACK_ROLLINGPOLICY_CLEAN_HISTORY_ON_START" value="false"/>
+    <property name="LOGBACK_ROLLINGPOLICY_MAX_FILE_SIZE" value="10MB"/>
+    <property name="LOGBACK_ROLLINGPOLICY_TOTAL_SIZE_CAP" value="3GB"/>
+    <property name="LOGBACK_ROLLINGPOLICY_MAX_HISTORY" value="10"/>
 
     <include resource="logback-defaults.xml"/>
-
-    <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
     <!-- 开发、集成测试、验收测试 -->
     <springProfile name="default,dev,sit,uat">

@@ -13,13 +13,8 @@
   -->
 
 <included>
-    <!-- org/springframework/boot/logging/logback/console-appender.xml -->
-    <property name="CONSOLE_LOG_PATTERN"
-              value="%d{HH:mm:ss.SSS} %clr(%5p) %clr(${PID:-}){magenta} %clr(-){faint} %clr([%15.15t]){faint} %clr([%logger{0}]){cyan} %m%n%wEx"/>
 
-    <!-- org/springframework/boot/logging/logback/file-appender.xml -->
-    <property name="FILE_LOG_PATTERN"
-              value="%d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${PID:-} - [%t] [%logger{0}] %m%n%wEx"/>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
     <!-- 按包名区分日志级别 -->
     <logger name="sun.rmi.transport.tcp" level="ERROR"/>
