@@ -6,7 +6,7 @@
   ~ See `LICENSE` in the project root for license information.
   -->
 
-<configuration scan="false" scanPeriod="10 seconds" debug="false">
+<configuration debug="false" packagingData="false" scan="false" scanPeriod="10 seconds">
 
     <property name="LOG_DATEFORMAT_PATTERN" value="HH:mm:ss.SSS"/>
 
