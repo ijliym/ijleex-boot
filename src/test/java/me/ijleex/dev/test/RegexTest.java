@@ -11,6 +11,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * RegexTest
@@ -20,6 +22,8 @@ import org.junit.jupiter.api.Test;
  */
 public final class RegexTest {
 
+    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     /**
      * @since 2019-01-07 15:00 @Test for test02()
      */
@@ -27,15 +31,15 @@ public final class RegexTest {
     public void test01() {
         String regex = "(?<timestamp>\\S+ \\S+) (?<pid>\\S+) \\[(?<loglevel>\\S+)] (?<message>.*)";
         Pattern pattern = Pattern.compile(regex);
-        System.out.println("Regex: " + pattern.pattern());
+        this.logger.info("Regex: {}", pattern.pattern());
 
         String str = "2019-01-03 17:12:47 15752 [Note] InnoDB: 128 rollback segment(s) are active";
         Matcher matcher = pattern.matcher(str);
         while (matcher.find()) {
-            System.out.println("timestamp: " + matcher.group(1));
-            System.out.println("pid: " + matcher.group(2));
-            System.out.println("loglevel: " + matcher.group(3));
-            System.out.println("message: " + matcher.group(4));
+            this.logger.debug("timestamp: {}", matcher.group(1));
+            this.logger.debug("pid: {}", matcher.group(2));
+            this.logger.debug("loglevel: {}", matcher.group(3));
+            this.logger.debug("message: {}", matcher.group(4));
         }
     }
 
@@ -46,12 +50,12 @@ public final class RegexTest {
     public void test02() {
         String regex = "(?<=\\{)(.+?)(?=})";
         Pattern pattern = Pattern.compile(regex);
-        System.out.println("Regex: " + pattern.pattern());
+        this.logger.info("Regex: {}", pattern.pattern());
 
         String str = "%d{yyyy-MM-dd HH:mm:ss.SSS}";
         Matcher matcher = pattern.matcher(str);
         while (matcher.find()) {
-            System.out.println(matcher.group(1));
+            this.logger.debug(matcher.group(1));
         }
     }
 
@@ -64,14 +68,14 @@ public final class RegexTest {
     public void test03() {
         String regex = "(\\S*)\\.(z\\d*)$"; // "(?<simpleName>\\S*)\\.(?<ext>z\\d*)$"
         Pattern pattern = Pattern.compile(regex);
-        System.out.println("Regex: " + pattern.pattern());
+        this.logger.info("Regex: {}", pattern.pattern());
 
         String name = "tomcat.z01";
         Matcher matcher = pattern.matcher(name);
         while (matcher.find()) {
-            System.out.println(matcher.group(0));
-            System.out.println(matcher.group(1));
-            System.out.println(matcher.group(2));
+            this.logger.debug("name: {}", matcher.group(0));
+            this.logger.debug("simpleName: {}", matcher.group(1));
+            this.logger.debug("ext: {}", matcher.group(2));
         }
     }
 
