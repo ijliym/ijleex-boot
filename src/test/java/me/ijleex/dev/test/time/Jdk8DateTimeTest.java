@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
@@ -145,13 +146,28 @@ public class Jdk8DateTimeTest {
      * @since 2018-11-19 11:34
      */
     @Test
-    public void testTimeMillisToLocalTime() {
+    public void testTimeMillisToLocalDateTime() {
         long timeMillis = System.currentTimeMillis();
         Instant instant = Instant.ofEpochMilli(timeMillis);
         ZoneId zone = ZoneId.systemDefault();
 
         LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, zone);
         System.out.println(this.formatter.format(localDateTime));
+    }
+
+    /**
+     * 08. java.time.LocalDateTime --> System.currentTimeMillis()
+     *
+     * @since 2021-03-30 15:50:52
+     */
+    @Test
+    public void testLocalDateTimeToTimeMillis() {
+        long timeMillis = System.currentTimeMillis();
+        LocalDateTime localDateTime = LocalDateTime.now();
+        long epochMillis = localDateTime.toInstant(ZoneOffset.ofHours(8)).toEpochMilli();
+
+        System.out.println(" timeMillis: " + timeMillis);
+        System.out.println("epochMillis: " + epochMillis);
     }
 
 }
