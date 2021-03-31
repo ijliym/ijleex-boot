@@ -28,7 +28,7 @@ import org.junit.jupiter.api.Test;
  * @see java.util.Date#toInstant()
  * @since 2018-11-19 11:17 新建
  */
-public class Jdk8DateTimeTest {
+public final class Jdk8DateTimeTest {
 
     private static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
@@ -40,7 +40,7 @@ public class Jdk8DateTimeTest {
     private final DateTimeFormatter formatter;
     private final SimpleDateFormat format;
 
-    public Jdk8DateTimeTest() {
+    private Jdk8DateTimeTest() {
         this.formatter = DateTimeFormatter.ofPattern(DATE_TIME_FORMAT, Locale.CHINA);
         this.format = new SimpleDateFormat(DATE_TIME_FORMAT);
     }
