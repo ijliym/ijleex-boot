@@ -111,7 +111,7 @@ public class Jdk8DateTimeTest {
     @Test
     public void testLocalDateToDate() {
         LocalDate localDate = LocalDate.now();
-        Instant instant = localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
+        Instant instant = localDate.atTime(LocalTime.MIN).atZone(ZoneId.systemDefault()).toInstant();
 
         Date date = Date.from(instant);
         System.out.println(this.format.format(date));
