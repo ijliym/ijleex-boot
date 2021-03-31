@@ -54,9 +54,8 @@ public class Jdk8DateTimeTest {
     public void testDateToLocalDateTime() {
         Date date = new Date();
         Instant instant = date.toInstant();
-        ZoneId zone = ZoneId.systemDefault();
 
-        LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, zone);
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
         System.out.println(this.formatter.format(localDateTime));
     }
 
@@ -69,9 +68,8 @@ public class Jdk8DateTimeTest {
     public void testDateToLocalDate() {
         Date date = new Date();
         Instant instant = date.toInstant();
-        ZoneId zone = ZoneId.systemDefault();
-        LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, zone);
 
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
         LocalDate localDate = localDateTime.toLocalDate();
         System.out.println(localDate);
     }
@@ -85,9 +83,8 @@ public class Jdk8DateTimeTest {
     public void testDateToLocalTime() {
         Date date = new Date();
         Instant instant = date.toInstant();
-        ZoneId zone = ZoneId.systemDefault();
-        LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, zone);
 
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
         LocalTime localTime = localDateTime.toLocalTime();
         System.out.println(localTime);
     }
@@ -100,8 +97,7 @@ public class Jdk8DateTimeTest {
     @Test
     public void testLocalDateTimeToDate() {
         LocalDateTime localDateTime = LocalDateTime.now();
-        ZoneId zone = ZoneId.systemDefault();
-        Instant instant = localDateTime.atZone(zone).toInstant();
+        Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
 
         Date date = Date.from(instant);
         System.out.println(this.format.format(date));
@@ -115,8 +111,7 @@ public class Jdk8DateTimeTest {
     @Test
     public void testLocalDateToDate() {
         LocalDate localDate = LocalDate.now();
-        ZoneId zone = ZoneId.systemDefault();
-        Instant instant = localDate.atStartOfDay().atZone(zone).toInstant();
+        Instant instant = localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
 
         Date date = Date.from(instant);
         System.out.println(this.format.format(date));
@@ -133,8 +128,7 @@ public class Jdk8DateTimeTest {
         LocalTime localTime = LocalTime.now();
         LocalDateTime localDateTime = LocalDateTime.of(localDate, localTime);
 
-        ZoneId zone = ZoneId.systemDefault();
-        Instant instant = localDateTime.atZone(zone).toInstant();
+        Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
 
         Date date = Date.from(instant);
         System.out.println(this.format.format(date));
@@ -149,9 +143,8 @@ public class Jdk8DateTimeTest {
     public void testTimeMillisToLocalDateTime() {
         long timeMillis = System.currentTimeMillis();
         Instant instant = Instant.ofEpochMilli(timeMillis);
-        ZoneId zone = ZoneId.systemDefault();
 
-        LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, zone);
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
         System.out.println(this.formatter.format(localDateTime));
     }
 
