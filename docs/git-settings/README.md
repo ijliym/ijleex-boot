@@ -54,16 +54,16 @@ git config --global alias.gcp "gc --aggressive --prune=now"
 使用`ssh-keygen`命令生成密钥，`ssh-keygen`命令参数说明请见：[ssh-keygen](https://man.openbsd.org/ssh-keygen.1)。
 
 ```shell
-ssh-keygen -o -t ed25519 -a 16   -f ~/.ssh/id_ed25519 -C "Ed25519-Key@$(hostname)"
-ssh-keygen -o -t rsa     -b 4096 -f ~/.ssh/id_rsa     -C "RSA-Key@$(hostname)"
+ssh-keygen -a 16   -t ed25519 -f ~/.ssh/id_ed25519 -C "Ed25519-Key@$(hostname)"
+ssh-keygen -b 4096 -t rsa     -f ~/.ssh/id_rsa     -C "RSA-Key@$(hostname)"
 ```
 
 参数说明：
 
 - `-o`：使用新格式保存密钥，可不指定，默认为`RFC 4716`；
-- `-t`：指定生成密钥的类型；
 - `-a`：指定密钥导出函数（Key Derivation Function，默认为`bcrypt_pbkdf`）的轮数，默认为`16`；
 - `-b`：指定`RSA`（3072）、`DSA`（1024）、`ECDSA`（256）三种密钥的长度；
+- `-t`：指定生成密钥的类型；
 - `-f`：输出文件名称；
 - `-C`：注释。
 
