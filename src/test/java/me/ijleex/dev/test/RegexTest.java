@@ -86,7 +86,7 @@ public final class RegexTest {
      */
     @Test
     public void test04() {
-        String regex = "(?<!\\d)(?<!\\.)1([38]\\d|4[579]|5[0-35-9]|66|7[0135678]|9[89])\\d{8}(?!\\d)";
+        String regex = "(?<!\\d)(?<!\\.)1([38]\\d|4[01456879]|5[0-35-9]|6[2567]|7[0-8]|8[0-9]|9[0-35-9])\\d{8}(?!\\d)";
         Pattern pattern = Pattern.compile(regex);
         logger.info("Regex: {}", pattern.pattern());
 
