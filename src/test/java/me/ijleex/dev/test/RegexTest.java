@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
  */
 public final class RegexTest {
 
-    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
+    protected final Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
      * @since 2019-01-07 15:00 @Test for test02()
@@ -31,15 +31,15 @@ public final class RegexTest {
     public void test01() {
         String regex = "(?<timestamp>\\S+ \\S+) (?<pid>\\S+) \\[(?<loglevel>\\S+)] (?<message>.*)";
         Pattern pattern = Pattern.compile(regex);
-        this.logger.info("Regex: {}", pattern.pattern());
+        logger.info("Regex: {}", pattern.pattern());
 
         String str = "2019-01-03 17:12:47 15752 [Note] InnoDB: 128 rollback segment(s) are active";
         Matcher matcher = pattern.matcher(str);
         while (matcher.find()) {
-            this.logger.debug("timestamp: {}", matcher.group(1));
-            this.logger.debug("pid: {}", matcher.group(2));
-            this.logger.debug("loglevel: {}", matcher.group(3));
-            this.logger.debug("message: {}", matcher.group(4));
+            logger.debug("timestamp: {}", matcher.group(1));
+            logger.debug("pid: {}", matcher.group(2));
+            logger.debug("loglevel: {}", matcher.group(3));
+            logger.debug("message: {}", matcher.group(4));
         }
     }
 
@@ -50,12 +50,12 @@ public final class RegexTest {
     public void test02() {
         String regex = "(?<=\\{)(.+?)(?=})";
         Pattern pattern = Pattern.compile(regex);
-        this.logger.info("Regex: {}", pattern.pattern());
+        logger.info("Regex: {}", pattern.pattern());
 
         String str = "%d{yyyy-MM-dd HH:mm:ss.SSS}";
         Matcher matcher = pattern.matcher(str);
         while (matcher.find()) {
-            this.logger.debug(matcher.group(1));
+            logger.debug(matcher.group(1));
         }
     }
 
@@ -68,15 +68,32 @@ public final class RegexTest {
     public void test03() {
         String regex = "(\\S*)\\.(z\\d*)$"; // "(?<simpleName>\\S*)\\.(?<ext>z\\d*)$"
         Pattern pattern = Pattern.compile(regex);
-        this.logger.info("Regex: {}", pattern.pattern());
+        logger.info("Regex: {}", pattern.pattern());
 
         String name = "tomcat.z01";
         Matcher matcher = pattern.matcher(name);
         while (matcher.find()) {
-            this.logger.debug("name: {}", matcher.group(0));
-            this.logger.debug("simpleName: {}", matcher.group(1));
-            this.logger.debug("ext: {}", matcher.group(2));
+            logger.debug("name: {}", matcher.group(0));
+            logger.debug("simpleName: {}", matcher.group(1));
+            logger.debug("ext: {}", matcher.group(2));
         }
+    }
+
+    /**
+     * 正则匹配手机号码
+     *
+     * @since 2021-05-18 09:13:53
+     */
+    @Test
+    public void test04() {
+        String regex = "(?<!\\d)(?<!\\.)1([38]\\d|4[579]|5[0-35-9]|66|7[0135678]|9[89])\\d{8}(?!\\d)";
+        Pattern pattern = Pattern.compile(regex);
+        logger.info("Regex: {}", pattern.pattern());
+
+        String mobileNo = "15812345678";
+        Matcher matcher = pattern.matcher(mobileNo);
+        boolean matches = matcher.matches();
+        logger.debug("matches: {}", matches);
     }
 
 }
