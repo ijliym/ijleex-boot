@@ -29,7 +29,6 @@ server:
     threads:
       io: 4
       worker: 32
-  shutdown: graceful  # 支持优雅停止服务（kill -2 <pid>）
 
 spring:
   lifecycle:
