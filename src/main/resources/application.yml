@@ -5,8 +5,8 @@ server:
   max-http-header-size: 8KB
   shutdown: graceful  # 支持优雅停止服务（kill -2 <pid>）
   servlet:
-    application-display-name: ijleex-boot
     context-path: /           # ij-boot
+    application-display-name: ijleex-boot
 
 spring:
   application:
