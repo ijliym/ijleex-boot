@@ -14,7 +14,7 @@
         <result property="updateTime" column="update_time"/>
     </resultMap>
 
-    <sql id="getEntityDO">
+    <sql id="getEntityPO">
         SELECT id,name,type,content,state,creator,create_time,updater,update_time
         FROM t_tbl
     </sql>
@@ -87,7 +87,7 @@
 
     <!-- 查询｜查询多条，支持分页 -->
     <select id="selectList" parameterType="Entity" resultMap="entityResult">
-        <include refid="getEntityDO"/>
+        <include refid="getEntityPO"/>
         <trim prefix="WHERE" prefixOverrides="AND">
             <if test="name != null">AND name LIKE concat('%',#{name},'%')</if>
             <if test="type != null and type != '-1'">AND type=#{type}</if>
@@ -99,7 +99,7 @@
 
     <!-- 查询｜查询单条 -->
     <select id="selectById" parameterType="Long" resultMap="entityResult">
-        <include refid="getEntityDO"/>
+        <include refid="getEntityPO"/>
         WHERE id=#{id}
     </select>
 
