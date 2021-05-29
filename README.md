@@ -49,6 +49,7 @@ git -c core.quotepath=false -c log.showSignature=false checkout HEAD --\
  .idea/scopes/js_css_files.xml\
  .idea/scopes/me_ijleex.xml\
  .idea/scopes/mybatis.xml\
+ .idea/scopes/org_apache.xml\
  .idea/scopes/org_springframework.xml
 ```
                                         2018-04-19 09:25:32
