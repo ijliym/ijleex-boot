@@ -1,7 +1,7 @@
 debug: true
 
 server:
-  port: 8080
+  port: 8088
   max-http-header-size: 8KB
   shutdown: graceful  # 支持优雅停止服务（kill -2 <pid>）
   servlet:
