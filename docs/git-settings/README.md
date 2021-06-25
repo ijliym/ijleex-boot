@@ -7,8 +7,7 @@ Git 客户端的配置文件位于用户根目录下，包括 `.gitconfig`（Git
 [~/.gitconfig](https://git-scm.com/docs/git-config/) 的配置命令如下：
 
 ```shell
-git config --global user.name liym@com        公司
-git config --global user.name liym@home       家里
+git config --global user.name ijliym
 git config --global user.email ijliym@163.com
 
 git config --global core.ignoreCase false
@@ -27,8 +26,6 @@ git config --global pull.rebase true
 git config --global push.default simple
 
 git config --global alias.st status
-git config --global alias.cm "commit -m"
-git config --global alias.l log
 git config --global alias.ll "log --oneline"
 git config --global alias.last "log -1 HEAD --stat"
 git config --global alias.lg "log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(black)%s%C(reset) %C(cyan)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative"
