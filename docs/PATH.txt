@@ -1,7 +1,7 @@
 Java SE 8u291
 
 JAVA_HOME
-D:\ProgramFiles\Java\jdk8u291-b10
+D:\ProgramFiles\Java\jdk8u301-b09
 
 PATH
 %JAVA_HOME%\bin
@@ -16,14 +16,6 @@ PATH        (echo %PATH%)
 %JAVA_HOME%\bin;%MYSQL_HOME%\bin;
 ---
 
-ORACLE_HOME
-D:\ProgramFiles\Oracle\app\product\11.2.0\dbhome_1
-
-NLS_LANG
-SIMPLIFIED CHINESE_CHINA.ZHS16GBK
-
-                                    2017-10-27 22:32:22
-
 Gradle (https://gradle.org/releases/)
 GRADLE_HOME=%USERPROFILE%\.gradle\gradle-6.6.1
 GRADLE_USER_HOME=%USERPROFILE%\.gradle\repository
@@ -32,7 +24,7 @@ GRADLE_USER_HOME=%USERPROFILE%\.gradle\repository
 
 Linux (WSL/Debian) Java PATH
 vi ~/.profile
-JAVA_HOME=/usr/local/jdk8u291-b10
+JAVA_HOME=/usr/local/jdk8u301-b09
 JRE_HOME=$JAVA_HOME/jre
 PATH=$JAVA_HOME/bin:$PATH
 source ~/.profile
