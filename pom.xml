@@ -118,8 +118,8 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <optional>true</optional>
             <scope>test</scope>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 
