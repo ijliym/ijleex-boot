@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2020 the original author or authors.
+ * Copyright 2011-2021 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -23,11 +23,17 @@ public class MeApplicationStarter {
 
     static {
         String path = MeApplicationStarter.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-        File file = new File(path);
-        System.setProperty("app.path", file.getParent());
+        if (path.endsWith("!/BOOT-INF/classes!/")) { // Spring-Boot Fatjar
+            path = new File("").getAbsolutePath();
+            System.setProperty("app.path", path);
+        } else {
+            File file = new File(path);
+            System.setProperty("app.path", file.getParent());
+        }
     }
 
-    public MeApplicationStarter() {}
+    public MeApplicationStarter() {
+    }
 
     /**
      * 启动
@@ -40,7 +46,8 @@ public class MeApplicationStarter {
         // 禁用重新启动（RestartClassLoader）2018-11-06 15:03
         System.setProperty("spring.devtools.restart.enabled", "false");
 
-        SpringApplication.run(MeApplicationStarter.class, args);
+        SpringApplication app = new SpringApplication(MeApplicationStarter.class);
+        app.run(args);
     }
 
 }
