@@ -1,16 +1,18 @@
 debug: true
 
 server:
-  port: 8088
+  port: 8087
   max-http-header-size: 8KB
   shutdown: graceful  # 支持优雅停止服务（kill -2 <pid>）
   servlet:
     context-path: /           # ij-boot
-    application-display-name: ijleex-boot
+    application-display-name: ij-boot
 
 spring:
+  main:
+    web-application-type: servlet
   application:
-    name: ijleex-boot
+    name: ij-boot
     admin:
       enabled: true
       jmx-name: org.springframework.boot:type=Admin,name=SpringApplication

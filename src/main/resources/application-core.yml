@@ -1,7 +1,6 @@
 server:
   servlet:
     encoding:
-      enabled: true
       charset: UTF-8
       force: true
   tomcat:
@@ -17,7 +16,7 @@ server:
     accept-count: 1000
     processor-cache: 2000
     connection-timeout: 20s
-  undertow:    # configure Undertow 2018-01-30 11:10:17
+  undertow: # configure Undertow 2018-01-30 11:10:17
     max-http-post-size: 2MB
     buffer-size: 10KB
     # 是否分配直接内存（NIO直接分配的堆外内存）
@@ -35,7 +34,7 @@ spring:
     timeout-per-shutdown-phase: 30s  # 停止服务等待时间
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
-    property-naming-strategy: LOWER_CAMEL_CASE  # SNAKE_CASE
+    property-naming-strategy: com.fasterxml.jackson.databind.PropertyNamingStrategies.LowerCamelCaseStrategy
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: true
       FAIL_ON_EMPTY_BEANS: true
@@ -45,7 +44,7 @@ spring:
       USE_GETTERS_AS_SETTERS: true
     parser:
       ALLOW_SINGLE_QUOTES: true
-    default-property-inclusion: NON_NULL
+    default-property-inclusion: non_null
     time-zone: Asia/Shanghai    # 使用 GMT+8 需要更多地解析
     locale: zh_CN
   # 设置上传文件大小 MultipartProperties
