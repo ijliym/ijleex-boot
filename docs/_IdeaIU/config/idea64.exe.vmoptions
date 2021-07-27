@@ -12,4 +12,5 @@
 -Djdk.attach.allowAttachSelf=true
 -Djdk.module.illegalAccess.silent=true
 -Dkotlinx.coroutines.debug=off
+-Dsplash=true
 -Dfile.encoding=UTF-8
