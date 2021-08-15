@@ -3,7 +3,7 @@ debug: true
 server:
   port: 8087
   max-http-header-size: 8KB
-  shutdown: graceful  # 支持优雅停止服务（kill -2 <pid>）
+  shutdown: graceful  # 支持优雅停止服务（Ctrl+C，kill -15 <pid>）
   servlet:
     context-path: /           # ij-boot
     application-display-name: ij-boot

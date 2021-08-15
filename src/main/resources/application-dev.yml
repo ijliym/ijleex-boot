@@ -14,8 +14,8 @@ spring:
       max-lifetime: 1800000       # 池中连接最长生命周期，0表示无限生命周期，默认 1800000，即30分钟
       minimum-idle: 10            # 池中维护的最小空闲连接数
       maximum-pool-size: 50       # 池中维护的最大连接数，包括空闲和使用中的连接，默认是10
-      pool-name: hikariCP         # org.spring...DataSourceConfiguration.Hikari#dataSource
-      data-source-properties:     # 数据源属性（用于MySQL）
+      pool-name: hikariCP         # o.s.b.a.j.DataSourceConfiguration.Hikari#dataSource
+      data-source-properties: # 数据源属性（用于MySQL）
         cachePrepStmts: true
         prepStmtCacheSize: 250
         prepStmtCacheSqlLimit: 2048
