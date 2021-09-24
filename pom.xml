@@ -44,7 +44,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot -->
-        <spring-boot.version>2.5.4</spring-boot.version>
+        <spring-boot.version>2.5.5</spring-boot.version>
 
         <!-- https://mvnrepository.com/artifact/com.ibm.icu/icu4j -->
         <icu4j.version>69.1</icu4j.version>
