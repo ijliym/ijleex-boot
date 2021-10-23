@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2020 the original author or authors.
+ * Copyright 2011-2021 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Sample action
+ * Sample action.
  *
  * @author liym
  * @since 2018-04-11 17:00 新建
@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public final class MeAction {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
      * 用于获取当前 Spring-Boot 环境的配置信息
@@ -50,7 +50,7 @@ public final class MeAction {
      */
     @GetMapping(path = "/hello")
     public String hello(HttpServletRequest request) {
-        this.logger.debug("Hello request: {}", request);
+        logger.debug("Hello request: {}", request);
         String version = SpringBootVersion.getVersion();
         return "Hello Spring-Boot v" + version;
     }
@@ -75,13 +75,13 @@ public final class MeAction {
      */
     @GetMapping(path = "/profiles")
     public String getProfiles(HttpServletRequest request) {
-        /// this.logger.debug("getProfiles via Environment: {}", this.env);
+        /// logger.debug("getProfiles via Environment: {}", this.env);
         String myProfile = "default";
         String[] activeProfiles = this.env.getActiveProfiles();
         if (activeProfiles.length > 0) {
             myProfile = Arrays.toString(activeProfiles);
         }
-        this.logger.debug("getProfiles: {}", myProfile);
+        logger.debug("getProfiles: {}", myProfile);
         return myProfile;
     }
 
