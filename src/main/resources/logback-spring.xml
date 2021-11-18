@@ -5,6 +5,7 @@
 
     <!--
         org.springframework.boot.logging.AbstractLoggingSystem#initialize
+        org/springframework/boot/logging/logback/file-appender.xml
         -->
 
     <property name="LOG_PATH" value="${app.path:-target}/logs"/>
