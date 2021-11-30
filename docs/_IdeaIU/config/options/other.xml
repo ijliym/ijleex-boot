@@ -5,6 +5,6 @@
     <property name="Markdown Split EditorLayout" value="Editor only" />
     <property name="decompiler.legal.notice.accepted" value="true" />
     <property name="defaultJdkConfigured" value="true" />
-    <property name="quick.doc.font.size" value="MEDIUM" />
+    <property name="quick.doc.font.size.v3" value="MEDIUM" />
   </component>
 </application>

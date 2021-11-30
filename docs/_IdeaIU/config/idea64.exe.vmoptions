@@ -1,6 +1,7 @@
--Xmx1800m
 -Xms128m
+-Xmx1800m
 -XX:ReservedCodeCacheSize=512m
+-XX:+IgnoreUnrecognizedVMOptions
 -XX:+UseG1GC
 -XX:SoftRefLRUPolicyMSPerMB=50
 -XX:CICompilerCount=2
@@ -12,5 +13,4 @@
 -Djdk.attach.allowAttachSelf=true
 -Djdk.module.illegalAccess.silent=true
 -Dkotlinx.coroutines.debug=off
--Dsplash=true
 -Dfile.encoding=UTF-8
