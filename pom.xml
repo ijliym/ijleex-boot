@@ -44,7 +44,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot -->
-        <spring-boot.version>2.6.0</spring-boot.version>
+        <spring-boot.version>2.6.2</spring-boot.version>
 
         <!-- https://mvnrepository.com/artifact/com.ibm.icu/icu4j -->
         <icu4j.version>70.1</icu4j.version>
@@ -66,7 +66,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-undertow -->
         <!-- 使用 Undertow 作为内嵌的 Servlet 容器 2018-01-30 10:48:28 -->
         <dependency>
