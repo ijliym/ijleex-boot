@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2021 the original author or authors.
+ * Copyright 2011-2022 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -38,6 +38,7 @@ public final class TimeoutTest {
 
         // 处理业务
         try {
+            System.out.println("处理业务……");
             TimeUnit.MINUTES.sleep(1L);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
@@ -47,7 +48,7 @@ public final class TimeoutTest {
         // 判断业务处理是否超时
         long epochMillis = taskTime.toInstant(ZoneOffset.ofHours(8)).toEpochMilli();
         boolean timeout = isTimeout(epochMillis, timeoutSec);
-        System.out.println(timeout);
+        System.out.println("是否超时：" + timeout);
     }
 
 }
