@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2021 the original author or authors.
+ * Copyright 2011-2022 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -21,17 +21,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MeApplicationStarter {
 
-    static {
-        String path = MeApplicationStarter.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-        if (path.endsWith("!/BOOT-INF/classes!/")) { // Spring-Boot Fatjar
-            path = new File("").getAbsolutePath();
-            System.setProperty("app.path", path);
-        } else {
-            File file = new File(path);
-            System.setProperty("app.path", file.getParent());
-        }
-    }
-
     public MeApplicationStarter() {
     }
 
@@ -39,15 +28,24 @@ public class MeApplicationStarter {
      * 启动
      *
      * @param args 参数
-     * @version 2018-11-06 15:03 删除属性值：spring.liveBeansView.mbeanDomain，添加：spring.devtools.restart.enabled=false
      * @see SpringApplication#run(Class, String...)
      */
     public static void main(String[] args) {
-        // 禁用重新启动（RestartClassLoader）2018-11-06 15:03
-        System.setProperty("spring.devtools.restart.enabled", "false");
-
         SpringApplication app = new SpringApplication(MeApplicationStarter.class);
         app.run(args);
     }
 
+    static {
+        final String path = MeApplicationStarter.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+        if (path.endsWith("!/BOOT-INF/classes!/")) { // Spring-Boot Fatjar
+            File file = new File("");
+            System.setProperty("app.path", file.getAbsolutePath());
+        } else {
+            File file = new File(path);
+            System.setProperty("app.path", file.getParent());
+        }
+
+        // 禁用重新启动（RestartClassLoader）2018-11-06 15:03
+        System.setProperty("spring.devtools.restart.enabled", "false");
+    }
 }
