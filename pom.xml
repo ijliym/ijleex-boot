@@ -146,9 +146,10 @@
                     <artifactId>spring-boot-maven-plugin</artifactId>
                     <version>${spring-boot.version}</version>
                     <configuration>
+                        <classifier>exec</classifier>
+                        <finalName>${project.build.finalName}</finalName>
                         <!-- 使 spring-boot-devtools 生效 2018-01-30 16:22:38 -->
                         <fork>true</fork>
-                        <classifier>exec</classifier>
                     </configuration>
                     <executions>
                         <execution>
@@ -175,7 +176,6 @@
 
                         <fork>true</fork>
                         <compilerVersion>${java.version}</compilerVersion>
-                        <executable>${env.JAVA_HOME}/bin/javac</executable>
                         <debug>true</debug>
                         <showDeprecation>true</showDeprecation>
                         <showWarnings>true</showWarnings>
@@ -222,13 +222,13 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.1.0</version>
+                    <version>3.2.0</version>
                 </plugin>
                 <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.0.0-M5</version>
+                    <version>3.0.0-M6</version>
                     <configuration>
                         <!-- Skipping Tests 2018-02-01 16:00:42 -->
                         <skipTests>true</skipTests>
