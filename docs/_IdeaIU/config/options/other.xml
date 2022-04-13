@@ -1,10 +1,11 @@
 <application>
   <!-- 'options.xml' -> 'other.xml' (Since IDEA-2018.3.3)  -->
-  <component name="PropertiesComponent">
-    <property name="DBE.Default.Dialect" value="MySQL" />
-    <property name="Markdown Split EditorLayout" value="Editor only" />
-    <property name="decompiler.legal.notice.accepted" value="true" />
-    <property name="defaultJdkConfigured" value="true" />
-    <property name="quick.doc.font.size.v3" value="MEDIUM" />
-  </component>
+  <component name="PropertyService"><![CDATA[{
+  "keyToString": {
+    "DBE.Default.Dialect": "MySQL",
+    "Markdown Split EditorLayout": "Editor only",
+    "decompiler.legal.notice.accepted": "true",
+    "defaultJdkConfigured": "false"
+  }
+}]]></component>
 </application>

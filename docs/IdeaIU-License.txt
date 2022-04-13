@@ -7,12 +7,10 @@ License Key
 ---
 https://www.jetbrains.com/idea/download/
 https://download.jetbrains.com/idea/ideaIU-14.1.7.zip
-https://download.jetbrains.com.cn/idea/ideaIU-2021.3.1.win.zip
-https://download.jetbrains.com.cn/webstorm/WebStorm-2021.3.1.win.zip
-https://download.jetbrains.com.cn/python/pycharm-professional-2021.3.1.exe
-https://download.jetbrains.com.cn/go/goland-2021.3.1.win.zip
-https://download.jetbrains.com.cn/cpp/CLion-2021.3.1.win.zip
-https://download.jetbrains.com.cn/datagrip/datagrip-2021.3.1.win.zip
+https://download.jetbrains.com.cn/idea/ideaIU-2022.1.win.zip
+https://download.jetbrains.com.cn/webstorm/WebStorm-2022.1.win.zip
+https://download.jetbrains.com.cn/python/pycharm-professional-2022.1.exe
+https://download.jetbrains.com.cn/go/goland-2022.1.win.zip
 ---
 https://www.jetbrains.com/idea/download/other.html
 https://www.jetbrains.com/intellij-repository/releases

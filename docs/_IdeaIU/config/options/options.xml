@@ -1,8 +1,0 @@
-<application>
-  <component name="PropertiesComponent">
-    <property name="DBE.Default.Dialect" value="MySQL" />
-    <property name="decompiler.legal.notice.accepted" value="true" />
-    <property name="defaultJdkConfigured" value="true" />
-    <property name="quick.doc.font.size" value="MEDIUM" />
-  </component>
-</application>
