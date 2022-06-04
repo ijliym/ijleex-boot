@@ -56,5 +56,3 @@ spring:
   jmx:
     enabled: true
     default-domain: org.springframework.boot
-  beaninfo:
-    ignore: false
