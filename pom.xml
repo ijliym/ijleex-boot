@@ -44,7 +44,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot -->
-        <spring-boot.version>2.7.0</spring-boot.version>
+        <spring-boot.version>2.7.1</spring-boot.version>
 
         <!-- https://mvnrepository.com/artifact/com.ibm.icu/icu4j -->
         <icu4j.version>71.1</icu4j.version>
@@ -236,7 +236,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.0.0-M6</version>
+                    <version>3.0.0-M7</version>
                     <configuration>
                         <!-- Skipping Tests 2018-02-01 16:00:42 -->
                         <skipTests>true</skipTests>
