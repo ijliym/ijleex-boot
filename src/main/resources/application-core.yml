@@ -10,14 +10,14 @@ server:
     threads:
       max: 1500
       min-spare: 200
-    max-http-form-post-size: 5MB
+    max-http-form-post-size: 20MB
     uri-encoding: UTF-8
     max-connections: 8192
     accept-count: 1000
     processor-cache: 2000
     connection-timeout: 20s
   undertow: # configure Undertow 2018-01-30 11:10:17
-    max-http-post-size: 2MB
+    max-http-post-size: 20MB
     buffer-size: 10KB
     # 是否分配直接内存（NIO直接分配的堆外内存）
     direct-buffers: true
