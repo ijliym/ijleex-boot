@@ -7,6 +7,7 @@ server:
     accesslog:
       enabled: true
       directory: ${app.path}/logs
+      max-days: 5
     threads:
       max: 1500
       min-spare: 200
