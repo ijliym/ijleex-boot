@@ -1,7 +1,7 @@
 Java SE 8u291
 
 JAVA_HOME
-D:\ProgramFiles\Java\jdk8u301-b09
+D:\ProgramFiles\Java\jdk8u341-b10
 
 PATH
 %JAVA_HOME%\bin
@@ -24,8 +24,7 @@ GRADLE_USER_HOME=%USERPROFILE%\.gradle\repository
 
 Linux (WSL/Debian) Java PATH
 vi ~/.profile
-JAVA_HOME=/usr/local/jdk8u301-b09
-JRE_HOME=$JAVA_HOME/jre
+JAVA_HOME=/usr/local/jdk-8
 PATH=$JAVA_HOME/bin:$PATH
 source ~/.profile
                                     2021-02-05 18:20:20
