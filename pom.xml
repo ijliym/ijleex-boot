@@ -44,7 +44,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot -->
-        <spring-boot.version>2.7.2</spring-boot.version>
+        <spring-boot.version>2.7.4</spring-boot.version>
 
         <!-- https://mvnrepository.com/artifact/com.ibm.icu/icu4j -->
         <icu4j.version>71.1</icu4j.version>
@@ -194,7 +194,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.2.2</version>
+                    <version>3.3.0</version>
                     <configuration>
                         <archive>
                             <manifest>
