@@ -6,7 +6,7 @@ server:
   tomcat:
     accesslog:
       enabled: true
-      directory: ${app.path}/logs
+      directory: ${app.path}/log
       max-days: 5
     threads:
       max: 1500
@@ -25,7 +25,7 @@ server:
     eager-filter-init: true
     accesslog:
       enabled: true
-      dir: ${app.path}/logs
+      dir: ${app.path}/log
     threads:
       io: 4
       worker: 32
