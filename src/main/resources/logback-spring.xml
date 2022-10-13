@@ -8,11 +8,12 @@
         org/springframework/boot/logging/logback/file-appender.xml
         -->
 
-    <property name="LOG_PATH" value="${app.path:-target}/log"/>
-    <property name="LOG_FILE" value="${LOG_PATH}/ij-boot.log"/>
     <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
     <property name="FILE_LOG_CHARSET" value="UTF-8"/>
-    <property name="LOGBACK_ROLLINGPOLICY_CLEAN_HISTORY_ON_START" value="false"/>
+    <property name="LOG_PATH" value="${app.path:-target}/log"/>
+    <property name="LOG_FILE" value="${LOG_PATH}/ij-boot.log"/>
+    <property name="LOGBACK_ROLLINGPOLICY_FILE_NAME_PATTERN" value="${LOG_PATH}/ij-boot.%d{yyyy-MM-dd}.%i.log.gz"/>
+    <property name="LOGBACK_ROLLINGPOLICY_CLEAN_HISTORY_ON_START" value="true"/>
     <property name="LOGBACK_ROLLINGPOLICY_MAX_FILE_SIZE" value="10MB"/>
     <property name="LOGBACK_ROLLINGPOLICY_TOTAL_SIZE_CAP" value="3GB"/>
     <property name="LOGBACK_ROLLINGPOLICY_MAX_HISTORY" value="10"/>
