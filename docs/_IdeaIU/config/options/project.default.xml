@@ -1,6 +1,10 @@
 <application>
   <component name="ProjectManager">
     <defaultProject>
+      <component name="ProjectViewState">
+        <option name="autoscrollFromSource" value="false" />
+        <option name="hideEmptyMiddlePackages" value="true" />
+      </component>
       <component name="RunDashboard">
         <option name="ruleStates">
           <list>
