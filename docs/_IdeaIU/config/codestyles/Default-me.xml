@@ -20,6 +20,7 @@
         <emptyLine />
         <package name="java" withSubpackages="true" static="false" />
         <package name="javax" withSubpackages="true" static="false" />
+        <package name="jakarta" withSubpackages="true" static="false" />
         <emptyLine />
         <package name="org" withSubpackages="true" static="false" />
         <emptyLine />
@@ -38,7 +39,7 @@
   <Python>
     <option name="BLANK_LINES_BEFORE_FIRST_METHOD" value="1" />
   </Python>
-  <SqlCodeStyleSettings version="5">
+  <SqlCodeStyleSettings version="6">
     <option name="TYPE_CASE" value="3" />
     <option name="CUSTOM_TYPE_CASE" value="3" />
     <option name="ALIAS_CASE" value="4" />
