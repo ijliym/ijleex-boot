@@ -1,7 +1,7 @@
-Java SE 8u351-b10
+Java SE 8u361-b09
 
 JAVA_HOME
-D:\ProgramFiles\Java\jdk8u351-b10
+D:\ProgramFiles\Java\jdk8u361-b09
 
 PATH
 %JAVA_HOME%\bin

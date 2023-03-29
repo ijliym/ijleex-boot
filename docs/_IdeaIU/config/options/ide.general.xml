@@ -1,7 +1,7 @@
 <application>
   <component name="GeneralSettings">
-    <option name="reopenLastProject" value="false" />
     <option name="showTipsOnStartup" value="false" />
+    <option name="reopenLastProject" value="false" />
   </component>
   <component name="StatusBar">
     <option name="widgets">
