@@ -1,13 +1,9 @@
 <code_scheme name="Default-me" version="173">
-  <option name="AUTODETECT_INDENTS" value="false" />
   <option name="LINE_SEPARATOR" value="&#10;" />
   <option name="RIGHT_MARGIN" value="135" />
   <GoCodeStyleSettings>
     <option name="ADD_LEADING_SPACE_TO_COMMENTS" value="true" />
   </GoCodeStyleSettings>
-  <HTMLCodeStyleSettings>
-    <option name="HTML_DO_NOT_INDENT_CHILDREN_OF" value="html" />
-  </HTMLCodeStyleSettings>
   <JSCodeStyleSettings version="0">
     <option name="SPACE_BEFORE_FUNCTION_LEFT_PARENTH" value="false" />
   </JSCodeStyleSettings>
@@ -39,49 +35,9 @@
   <Python>
     <option name="BLANK_LINES_BEFORE_FIRST_METHOD" value="1" />
   </Python>
-  <SqlCodeStyleSettings version="6">
-    <option name="TYPE_CASE" value="3" />
-    <option name="CUSTOM_TYPE_CASE" value="3" />
-    <option name="ALIAS_CASE" value="4" />
-    <option name="QUERY_TRUE_INDENT" value="false" />
-    <option name="QUERY_ALIGN_ELEMENTS" value="false" />
-    <option name="QUERY_ALIGN_LINE_COMMENTS" value="false" />
-    <option name="INSERT_EL_COMMA" value="2" />
-    <option name="SET_EL_WRAP" value="0" />
-    <option name="SET_EL_COMMA" value="0" />
-    <option name="WITH_EL_WRAP" value="0" />
-    <option name="WITH_EL_COMMA" value="0" />
-    <option name="SELECT_EL_WRAP" value="3" />
-    <option name="SELECT_EL_COMMA" value="2" />
-    <option name="FROM_EL_WRAP" value="2" />
-    <option name="FROM_EL_COMMA" value="2" />
-    <option name="FROM_PLACE_ON" value="10" />
-    <option name="WHERE_EL_WRAP" value="3" />
-    <option name="WHERE_EL_BOUND" value="2" />
-    <option name="ORDER_EL_COMMA" value="2" />
-    <option name="TABLE_OPENING" value="1" />
-    <option name="TABLE_CONTENT" value="2" />
-    <option name="TABLE_CLOSING" value="3" />
-    <option name="TABLE_ALTER_INSTRUCTION_ALIGN" value="false" />
-    <option name="POST_OPT_WRAP_2" value="false" />
-    <option name="POST_OPT_ALIGN" value="false" />
-    <option name="ROUTINE_ARG_COMMA" value="2" />
-    <option name="ROUTINE_ARG_ALIGN_TYPES" value="true" />
-    <option name="IMP_DECLARE_EL_WRAP" value="1" />
-    <option name="IMP_IF_THEN_WRAP_THEN" value="true" />
-    <option name="CORTEGE_SPACE_BEFORE_L_PAREN" value="false" />
-    <option name="EXPR_CASE_WHEN_WRAP" value="false" />
-    <option name="EXPR_CASE_THEN_WRAP" value="true" />
-    <option name="INDEX_NAME_TEMPLATE" value="idx_{table}_{columns}_{unique?u:}" />
-    <option name="PRIMARY_KEY_NAME_TEMPLATE" value="pk_{table}_{columns}" />
-    <option name="FOREIGN_KEY_NAME_TEMPLATE" value="fk_{table}_{ref_table}_{ref_columns}" />
-  </SqlCodeStyleSettings>
   <XML>
     <option name="XML_KEEP_BLANK_LINES" value="1" />
   </XML>
-  <codeStyleSettings language="HTML">
-    <option name="RIGHT_MARGIN" value="135" />
-  </codeStyleSettings>
   <codeStyleSettings language="JAVA">
     <option name="LINE_COMMENT_AT_FIRST_COLUMN" value="false" />
     <option name="LINE_COMMENT_ADD_SPACE" value="true" />
