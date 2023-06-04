@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2021 the original author or authors.
+ * Copyright 2011-2023 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
  */
 public final class RegexTest {
 
-    protected final Logger logger = LoggerFactory.getLogger(getClass());
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
      * @since 2019-01-07 15:00 @Test for test02()
@@ -92,6 +92,23 @@ public final class RegexTest {
 
         String mobileNo = "15812345678";
         Matcher matcher = pattern.matcher(mobileNo);
+        boolean matches = matcher.matches();
+        logger.debug("matches: {}", matches);
+    }
+
+    /**
+     * <a href="https://manpages.debian.org/bullseye/libcrypt-dev/crypt.5.en.html">yescrypt</a>
+     *
+     * @since 2023-06-04 13:19
+     */
+    @Test
+    public void test05() {
+        String regex = "\\$y\\$[./A-Za-z0-9]+\\$[./A-Za-z0-9]{0,86}\\$[./A-Za-z0-9]{43}";
+        Pattern pattern = Pattern.compile(regex);
+        logger.info("Regex: {}", pattern.pattern());
+
+        String hashPwd = "$y$j9T$xDz8XyZHLyUVAQLF/bwo1.$d/07FzOb7dGbN4t/v1HxI6qxqW7ZxIr1iF3iW3Xdri.";
+        Matcher matcher = pattern.matcher(hashPwd);
         boolean matches = matcher.matches();
         logger.debug("matches: {}", matches);
     }
