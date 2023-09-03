@@ -49,9 +49,9 @@ public class MeApplicationStarter {
                 path = file.getParent();
             } else {
                 path = new File("").getAbsolutePath();
-                System.err.println("app.path=" + path);
             }
             System.setProperty("app.path", path);
+            System.err.println("app.path=" + path);
         } else { // IDE startup
             File file = new File(path);
             System.setProperty("app.path", file.getParent());
