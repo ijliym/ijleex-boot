@@ -2,7 +2,7 @@
 
 ## Git 客户端配置
 
-Git 客户端的配置文件位于用户根目录下，包括 `.gitconfig`（Git 环境配置） 和 `.minttyrc`（Git 客户端 mintty 配置）两个文件。
+Git 客户端的配置文件位于用户根目录（`~`）下，包括 `.gitconfig`（Git 环境配置） 和 `.minttyrc`（虚拟终端 MinTTY 配置）两个文件。
 
 [~/.gitconfig](https://git-scm.com/docs/git-config/) 的配置命令如下：
 
@@ -124,9 +124,9 @@ ssh -Tv ssh://git@192.168.0.0:8022
 
 ---
 
-### 解决 Git 客户端 mintty 的中文乱码问题
+### 解决虚拟终端 MinTTY 的中文乱码问题
 
-解决 Git Bash 运行 MS-Windows 命令（如 ping、ipconfig 等）时的中文乱码问题。
+解决 Git Bash 运行 MS-Windows 命令（如`ping`、`ipconfig`等）时的中文乱码问题。
 
 在 Git 安装目录下创建下面兩个文件：
 
