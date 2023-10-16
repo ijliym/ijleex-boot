@@ -2,7 +2,7 @@
 
 ## Git 客户端配置
 
-Git 客户端的配置文件位于用户根目录（`~`）下，包括 `.gitconfig`（Git 环境配置） 和 `.minttyrc`（虚拟终端 MinTTY 配置）两个文件。
+Git 客户端的配置文件位于用户根目录（`~`）下，包括 `.gitconfig`（Git 环境配置） 和 [.minttyrc](.minttyrc)（虚拟终端 MinTTY 配置）两个文件。
 
 [~/.gitconfig](https://git-scm.com/docs/git-config/) 的配置命令如下：
 
