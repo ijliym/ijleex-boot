@@ -2,6 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.16</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
 
     <groupId>me.ijleex.dev</groupId>
     <artifactId>ijleex-boot</artifactId>
@@ -13,8 +20,10 @@
     <url>https://github.com/ijliym/ijleex-boot</url>
 
     <scm>
-        <url>https://github.com/ijliym/ijleex-boot</url>
         <connection>scm:git:https://github.com/ijliym/ijleex-boot.git</connection>
+        <developerConnection>scm:git:git@github.com:ijliym/ijleex-boot.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/ijliym/ijleex-boot</url>
     </scm>
 
     <developers>
@@ -43,28 +52,19 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot -->
-        <spring-boot.version>2.7.4</spring-boot.version>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+        <!--<spring-framework.version>5.3.30</spring-framework.version>-->
 
         <!-- https://mvnrepository.com/artifact/com.ibm.icu/icu4j -->
-        <icu4j.version>71.1</icu4j.version>
+        <icu4j.version>73.2</icu4j.version>
     </properties>
 
     <!-- 配置子模块 -->
     <modules>
     </modules>
 
-    <!-- 使用 Spring-Boot 的依赖管理 -->
+    <!-- 依赖管理 -->
     <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
     </dependencyManagement>
 
     <dependencies>
@@ -90,11 +90,14 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
+            <scope>provided</scope>
             <optional>true</optional>
         </dependency>
 
@@ -104,8 +107,8 @@
         <!--    <artifactId>spring-boot-starter-jdbc</artifactId>-->
         <!--</dependency>-->
         <!--<dependency>-->
-        <!--    <groupId>mysql</groupId>-->
-        <!--    <artifactId>mysql-connector-java</artifactId>-->
+        <!--    <groupId>com.mysql</groupId>-->
+        <!--    <artifactId>mysql-connector-j</artifactId>-->
         <!--</dependency>-->
 
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis -->
@@ -135,8 +138,38 @@
         </dependency>
     </dependencies>
 
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
     <build>
         <finalName>${project.artifactId}-${project.version}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>**/application-dev.yml</exclude>
+                    <exclude>**/application-dev.yaml</exclude>
+                </excludes>
+            </resource>
+        </resources>
         <!-- This is the parent, so only define pluginManagement, not plugins. -->
         <pluginManagement>
             <plugins>
@@ -144,10 +177,8 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>${spring-boot.version}</version>
                     <configuration>
                         <classifier>exec</classifier>
-                        <finalName>${project.build.finalName}</finalName>
                         <!-- 使 spring-boot-devtools 生效 2018-01-30 16:22:38 -->
                         <fork>true</fork>
                     </configuration>
@@ -164,7 +195,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.10.1</version>
+                    <version>3.11.0</version>
                     <!-- http://maven.apache.org/plugins/maven-compiler-plugin/index.html -->
                     <configuration>
                         <source>${java.version}</source>
@@ -208,7 +239,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
-                    <version>3.2.1</version>
+                    <version>3.3.0</version>
                     <executions>
                         <execution>
                             <!-- 源码打包并发布 2018-11-07 16:41 -->
@@ -224,19 +255,19 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.3.0</version>
+                    <version>3.3.1</version>
                 </plugin>
                 <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-clean-plugin -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.2.0</version>
+                    <version>3.3.1</version>
                 </plugin>
                 <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.0.0-M7</version>
+                    <version>3.1.2</version>
                     <configuration>
                         <!-- Skipping Tests 2018-02-01 16:00:42 -->
                         <skipTests>true</skipTests>
