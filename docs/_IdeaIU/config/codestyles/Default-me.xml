@@ -35,6 +35,11 @@
   <Python>
     <option name="BLANK_LINES_BEFORE_FIRST_METHOD" value="1" />
   </Python>
+  <SqlCodeStyleSettings version="7">
+    <option name="TABLE_OPENING" value="1" />
+    <option name="TABLE_CONTENT" value="2" />
+    <option name="TABLE_CLOSING" value="3" />
+  </SqlCodeStyleSettings>
   <XML>
     <option name="XML_KEEP_BLANK_LINES" value="1" />
   </XML>
