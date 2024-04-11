@@ -9,7 +9,7 @@
     <properties>
     </properties>
 
-    <!-- 配置 mybatis（http://www.mybatis.org/mybatis-3/zh/configuration.html#settings） -->
+    <!-- 配置 mybatis（http://www.mybatis.org/mybatis-3/configuration.html#settings） -->
     <settings>
         <!-- 全局映射器启用缓存 -->
         <setting name="cacheEnabled" value="true"/>

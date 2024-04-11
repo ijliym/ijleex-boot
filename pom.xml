@@ -161,15 +161,6 @@
 
     <build>
         <finalName>${project.artifactId}-${project.version}</finalName>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <excludes>
-                    <exclude>**/application-dev.yml</exclude>
-                    <exclude>**/application-dev.yaml</exclude>
-                </excludes>
-            </resource>
-        </resources>
         <!-- This is the parent, so only define pluginManagement, not plugins. -->
         <pluginManagement>
             <plugins>
@@ -232,6 +223,10 @@
                                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             </manifest>
                         </archive>
+                        <excludes>
+                            <exclude>**/application-dev.yml</exclude>
+                            <exclude>**/application-dev.yaml</exclude>
+                        </excludes>
                         <outputDirectory>${project.build.directory}</outputDirectory>
                     </configuration>
                 </plugin>
