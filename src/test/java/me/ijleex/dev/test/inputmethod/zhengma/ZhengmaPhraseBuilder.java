@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2020 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -11,26 +11,41 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import me.ijleex.dev.test.inputmethod.FormatType;
 import me.ijleex.dev.test.inputmethod.ImeDictAnalyzer;
 import me.ijleex.dev.test.inputmethod.Utils;
+import me.ijleex.dev.test.inputmethod.cncorpus.ExcelFrequencyLoad;
 import me.ijleex.dev.test.inputmethod.entry.ImeEntry;
 
 /**
  * 郑码构词 工具类
  *
+ * <p>
+ * 郑码词组规则：
+ * <li>两字词：取第一个字的首根和次根各 1 码，取第二个字的首根和次根各 1 码（2+2）</li>
+ * <li>三字词：取第一字首根 1 码，取第二字首根和次根各 1 码，取第三字首根 1 码（1+2+1）</li>
+ * <li>四字及四字以上的词组：取第一字首根 1 码，取第二字首根 1 码，取第三字首根 1 码，取第四字首根 1 码（1+1+1+1）</li>
+ * </p>
+ *
  * @author liym
+ * @see #loadStemFile(String, String)
+ * @see #build(Map, Collection)
+ * @see ZhengmaPhraseBuilderTest
  * @since 2018-06-06 09:13:20 新建
+ * @since 2024-05-08 23:00 重构为工具类
  */
-public class ZhengmaPhraseBuilder {
+public final class ZhengmaPhraseBuilder {
 
     /**
      * 输出格式
@@ -39,89 +54,67 @@ public class ZhengmaPhraseBuilder {
      */
     private static final FormatType OUT_FORMAT = FormatType.DuoDuo;
 
-    /**
-     * 构词码表
-     *
-     * @since 2018-03-21 13:43:23 构词用单字编码表，不含一级简码
-     */
-    private static final Map<String, String> CTOR_STEM_CODE = new HashMap<>(27533);
-    /**
-     * 要构词的词组
-     *
-     * @since 2018-06-25 15:53
-     */
-    private static final List<String> CTOR_SRC_PHRASES = new ArrayList<>(1000);
+    private static final Logger logger = LoggerFactory.getLogger(ZhengmaPhraseBuilder.class);
 
-    /**
-     * @since 2018-03-21 16:50 输出词条
-     */
-    private static final String OUT_FILE = "D:/ProgramFiles/MySQL/mysql-8.0.20-winx64/docs/ctor-result.txt";
-
-    /**
-     * 初始化
-     *
-     * @throws java.io.IOException 读/写文件错误
-     * @since 2018-03-21 13:44:48
-     */
-    @BeforeAll
-    public static void initSetup() throws IOException {
-        String userHome = System.getProperty("user.home");
-
-        // 加载构词码
-        String stemFile = "/Documents/InputMethod/[超集郑码]/原始码表/构词码.txt";
-        Path srcPath = Paths.get(userHome, stemFile);
-        List<String> codeList = Files.readAllLines(srcPath);
-        System.out.println("行数：" + codeList.size());
-        for (String line : codeList) {
-            String[] linePair = Utils.tokenizeToStringArray(line, "\t"); // 一	av
-            String han = linePair[0]; // 汉字
-            String code = linePair[1]; // 构词码
-            CTOR_STEM_CODE.put(han, code);
-        }
-        System.out.println("单字数：" + CTOR_STEM_CODE.size());
-
-        // 加载 要构词的词组 2018-06-25 16:08:00
-        String srcPhrasesFile = "/Documents/InputMethod/[超集郑码]/原始码表/构词源.txt";
-        Path filePath = Paths.get(userHome, srcPhrasesFile);
-        List<String> srcPhrasesList = Files.readAllLines(filePath);
-        CTOR_SRC_PHRASES.addAll(srcPhrasesList);
+    private ZhengmaPhraseBuilder() {
+        throw new InstantiationError("No instance");
     }
 
     /**
-     * 郑码构词
+     * 加载构词码
      *
-     * <p>
-     * 郑码词组规则：
-     * <li>两字词：取第一个字的首根和次根各 1 码，取第二个字的首根和次根各 1 码（2+2）</li>
-     * <li>三字词：取第一字首根，第二字的首根、次根，第三字的首根（1+2+1）</li>
-     * <li>四字词：各取每字的第一字根（1+1+1+1）</li>
-     * <li>四字以上词：取前面四字首码（1+1+1+1）</li>
-     * </p>
-     *
-     * @throws java.io.IOException 读/写文件错误
-     * @since 2018-06-06 09:18:14
+     * @param startPath 文件位置
+     * @param stemFile 文件路径
+     * @return 构词码
      */
-    @Test
-    public void buildZhengmaPhrase01() throws IOException {
-        List<ImeEntry> outList = new ArrayList<>(60);
+    public static Map<String, String> loadStemFile(String startPath, String stemFile) {
+        Path srcPath = Paths.get(startPath, stemFile);
+        List<String> lines;
+        try {
+            lines = Files.readAllLines(srcPath);
+        } catch (IOException e) {
+            logger.error("loadStemFile error");
+            return Collections.emptyMap();
+        }
+        logger.info("构词码文件行数：{}", lines.size());
 
-        for (String text : CTOR_SRC_PHRASES) {
+        Map<String, String> stemMap = new HashMap<>(lines.size());
+        for (String line : lines) {
+            String[] linePair = Utils.tokenizeToStringArray(line, "\t"); // 一	av
+            String text = linePair[0]; // 汉字
+            String stem = linePair[1]; // 构词码
+            stemMap.put(text, stem);
+        }
+        logger.info("已加载构词码：{}", stemMap.size());
+        return stemMap;
+    }
+
+    /**
+     * 构建郑码词组
+     *
+     * @param stemMap 构词码
+     * @param srcPhrasesList 构词源
+     * @return 输出构词
+     * @since 2018-06-06 09:18:14
+     * @since 2024-05-08 23:29 重构为工具方法
+     */
+    public static SortedSet<ImeEntry> build(Map<String, String> stemMap, Collection<String> srcPhrasesList) {
+        // 词频
+        final Map<String, Integer> weightMap = new HashMap<>(15000);
+        SortedSet<ImeEntry> resultSet = new TreeSet<>();
+        for (String text : srcPhrasesList) {
             int length = text.length();
             if (length == 2) { // 二字词
-                build2CharsCode(outList, text, OUT_FORMAT);
+                build2CharsCode(text, stemMap, weightMap, resultSet, OUT_FORMAT);
             } else if (length == 3) { // 三字词
-                build3CharsCode(outList, text, OUT_FORMAT);
+                build3CharsCode(text, stemMap, weightMap, resultSet, OUT_FORMAT);
             } else if (length >= 4) { // 四字词及四字以上的词组
-                build4CharsCode(outList, text, OUT_FORMAT);
+                build4CharsCode(text, stemMap, weightMap, resultSet, OUT_FORMAT);
+            } else {
+                logger.warn("不支持构词：{}", text);
             }
         }
-
-        int size = outList.size();
-        System.out.println("词条总数：" + size);
-
-        Path dstPath = Paths.get(OUT_FILE);
-        Files.write(dstPath, outList);
-        System.out.println(dstPath);
+        return resultSet;
     }
 
     /**
@@ -130,56 +123,85 @@ public class ZhengmaPhraseBuilder {
      * <p>构词规则：每个字各打一、二两码（2+2）</p>
      *
      * @param text 词组
+     * @param stemMap 构词码
+     * @param weightMap 词频
+     * @param resultSet 输出构词
+     * @param formatType 输出格式
      * @since 2018-03-21 13:39:49
      */
-    private void build2CharsCode(List<ImeEntry> outList, String text, FormatType formatType) {
+    private static void build2CharsCode(String text, Map<String, String> stemMap, Map<String, Integer> weightMap,
+            SortedSet<ImeEntry> resultSet, FormatType formatType) {
         char[] chars = text.toCharArray();
         String ch1 = String.valueOf(chars[0]); // 第一个字
         String ch2 = String.valueOf(chars[1]); // 第二个字
-        String code1 = getCode(ch1);
-        String code2 = getCode(ch2);
-        String stem1 = code1.substring(0, 2);
-        String stem2 = code2.substring(0, 2);
+        String stem1 = getStem(stemMap, ch1);
+        String stem2 = getStem(stemMap, ch2);
+        String code1 = stem1.substring(0, 2);
+        String code2 = stem2.substring(0, 2);
 
-        String code = stem1 + stem2;
+        String code = code1 + code2;
+        int weight = getWeight(weightMap, text);
 
-        ImeDictAnalyzer.addEntryToList(outList, code, text, "45", "-#类1", formatType);
+        ImeDictAnalyzer.addEntryToList(resultSet, code, text, weight, "-#类1", formatType);
     }
 
     /**
      * 根据汉字获取代码（构词码）
      *
+     * @param stemMap 构词码
      * @param ch 汉字
      * @return 代码
      * @since 2018-03-21 17:39:50
      */
-    private String getCode(String ch) {
-        return CTOR_STEM_CODE.get(ch);
+    private static String getStem(Map<String, String> stemMap, String ch) {
+        return stemMap.get(ch);
+    }
+
+    /**
+     * 获取词频
+     *
+     * @param weightMap 词频集合
+     * @param ch 词语
+     * @return 词频
+     * @since 2024-05-09 00:23
+     */
+    private static int getWeight(Map<String, Integer> weightMap, String ch) {
+        if (weightMap.isEmpty()) {
+            Map<String, Integer> map = ExcelFrequencyLoad.load();
+            weightMap.putAll(map);
+        }
+        return weightMap.getOrDefault(ch, 45);
     }
 
     /**
      * 三字词
      *
-     * <p>构词规则：第一打第一码，第二字打一、二两码，第三字打一码（1+2+1）</p>
+     * <p>构词规则：第一字打第一码，第二字打一、二两码，第三字打一码（1+2+1）</p>
      *
      * @param text 词组
+     * @param stemMap 构词码
+     * @param weightMap 词频
+     * @param resultSet 输出构词
+     * @param formatType 输出格式
      * @since 2018-03-21 14:48:58
      */
-    private void build3CharsCode(List<ImeEntry> outList, String text, FormatType formatType) {
+    private static void build3CharsCode(String text, Map<String, String> stemMap, Map<String, Integer> weightMap,
+            SortedSet<ImeEntry> resultSet, FormatType formatType) {
         char[] chars = text.toCharArray();
         String ch1 = String.valueOf(chars[0]); // 第一个字
         String ch2 = String.valueOf(chars[1]); // 第二个字
         String ch3 = String.valueOf(chars[2]); // 第三个字
-        String code1 = getCode(ch1);
-        String code2 = getCode(ch2);
-        String code3 = getCode(ch3);
-        String stem1 = code1.substring(0, 1);
-        String stem2 = code2.substring(0, 2);
-        String stem3 = code3.substring(0, 1);
+        String stem1 = getStem(stemMap, ch1);
+        String stem2 = getStem(stemMap, ch2);
+        String stem3 = getStem(stemMap, ch3);
+        String code1 = stem1.substring(0, 1);
+        String code2 = stem2.substring(0, 2);
+        String code3 = stem3.substring(0, 1);
 
-        String code = stem1 + stem2 + stem3;
+        String code = code1 + code2 + code3;
+        int weight = getWeight(weightMap, text);
 
-        ImeDictAnalyzer.addEntryToList(outList, code, text, "45", "-#类1", formatType);
+        ImeDictAnalyzer.addEntryToList(resultSet, code, text, weight, "-#类1", formatType);
     }
 
     /**
@@ -188,26 +210,32 @@ public class ZhengmaPhraseBuilder {
      * <p>构词规则：第一、二、三、四字，各打一码（1+1+1+1）</p>
      *
      * @param text 词组
+     * @param stemMap 构词码
+     * @param weightMap 词频
+     * @param resultSet 输出构词
+     * @param formatType 输出格式
      * @since 2018-03-21 14:51:16
      */
-    private void build4CharsCode(List<ImeEntry> outList, String text, FormatType formatType) {
+    private static void build4CharsCode(String text, Map<String, String> stemMap, Map<String, Integer> weightMap,
+            SortedSet<ImeEntry> resultSet, FormatType formatType) {
         char[] chars = text.toCharArray();
         String ch1 = String.valueOf(chars[0]); // 第一个字
         String ch2 = String.valueOf(chars[1]); // 第二个字
         String ch3 = String.valueOf(chars[2]); // 第三个字
         String ch4 = String.valueOf(chars[3]); // 第四个字
-        String code1 = getCode(ch1);
-        String code2 = getCode(ch2);
-        String code3 = getCode(ch3);
-        String code4 = getCode(ch4);
-        String stem1 = code1.substring(0, 1);
-        String stem2 = code2.substring(0, 1);
-        String stem3 = code3.substring(0, 1);
-        String stem4 = code4.substring(0, 1);
+        String stem1 = getStem(stemMap, ch1);
+        String stem2 = getStem(stemMap, ch2);
+        String stem3 = getStem(stemMap, ch3);
+        String stem4 = getStem(stemMap, ch4);
+        String code1 = stem1.substring(0, 1);
+        String code2 = stem2.substring(0, 1);
+        String code3 = stem3.substring(0, 1);
+        String code4 = stem4.substring(0, 1);
 
-        String code = stem1 + stem2 + stem3 + stem4;
+        String code = code1 + code2 + code3 + code4;
+        int weight = getWeight(weightMap, text);
 
-        ImeDictAnalyzer.addEntryToList(outList, code, text, "45", "-#类1", formatType);
+        ImeDictAnalyzer.addEntryToList(resultSet, code, text, weight, "-#类1", formatType);
     }
 
 }

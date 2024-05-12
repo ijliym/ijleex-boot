@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2020 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -29,7 +29,7 @@ public class SQLUpdateEntry extends ImeEntry {
      * @param type 类型
      * @param stem 构词码（用于Rime输入法）
      */
-    public SQLUpdateEntry(String code, String text, String weight, String type, String stem) {
+    public SQLUpdateEntry(String code, String text, int weight, String type, String stem) {
         super(code, text, weight, type, stem);
     }
 
@@ -45,7 +45,7 @@ public class SQLUpdateEntry extends ImeEntry {
     public String toString() {
         String code = getCode();
         String text = getText();
-        String weight = getWeight();
+        int weight = getWeight();
         String type = getType();
         String stem = getStem();
         if (isEmpty(code) || isEmpty(text)) {
@@ -53,7 +53,7 @@ public class SQLUpdateEntry extends ImeEntry {
         }
         StringBuilder sql = new StringBuilder(120);
         sql.append("UPDATE t_ime_dict SET ");
-        if (isNotEmpty(weight) && isInteger(weight)) {
+        if (weight > 0) {
             sql.append("weight=").append(weight);
             sql.append(", ");
         }
@@ -86,28 +86,11 @@ public class SQLUpdateEntry extends ImeEntry {
         return !isEmpty(cs);
     }
 
-    /**
-     * @see Integer#parseInt(java.lang.String)
-     */
-    private static boolean isInteger(final String s) {
-        if (isEmpty(s)) {
-            return false;
-        } else {
-            char[] chars = s.toCharArray();
-            for (char ch : chars) {
-                if ('0' > ch || ch > '9') {
-                    return false;
-                }
-            }
-            return true;
-        }
-    }
-
     public static void main(String[] args) {
-        System.out.println(new SQLUpdateEntry("a", "一", "2048", "-", "av"));
-        System.out.println(new SQLUpdateEntry("a", "一", " ", "-", "av"));
-        System.out.println(new SQLUpdateEntry("a", "一", "2048", "-", null));
-        System.out.println(new SQLUpdateEntry("a", "成", "90６", "-", null));
+        System.out.println(new SQLUpdateEntry("a", "一", 2048, "-", "av"));
+        System.out.println(new SQLUpdateEntry("a", "一", 0, "-", "av"));
+        System.out.println(new SQLUpdateEntry("a", "一", 2048, "-", null));
+        System.out.println(new SQLUpdateEntry("a", "成", -1, "-", null));
     }
 
 }

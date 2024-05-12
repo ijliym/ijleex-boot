@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2020 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -25,7 +25,7 @@ public class SQLInsertEntry extends ImeEntry {
     /**
      * 构建输出格式为 {@value OUT_FORMAT} 的词条
      */
-    public SQLInsertEntry(String code, String text, String weight, String type) {
+    public SQLInsertEntry(String code, String text, int weight, String type) {
         super(code, text, weight, type, null);
     }
 
@@ -41,7 +41,7 @@ public class SQLInsertEntry extends ImeEntry {
     public String toString() {
         String code = getCode();
         String text = getText();
-        String weight = getWeight();
+        int weight = getWeight();
         String type = getType();
         // String stem = getStem();
         return String.format(OUT_FORMAT, code, text, weight, type);

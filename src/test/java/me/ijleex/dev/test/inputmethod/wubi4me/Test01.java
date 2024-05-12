@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2020 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -8,7 +8,6 @@
 package me.ijleex.dev.test.inputmethod.wubi4me;
 
 import java.io.IOException;
-import java.util.Set;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -31,7 +30,14 @@ import me.ijleex.dev.test.inputmethod.entry.ImeEntry;
  * @version 2018-05-17 21:09 extends ImeDictAnalyzer
  * @since 2017-08-06 20:55 新建
  */
-public class Test01 extends ImeDictAnalyzer {
+public class Test01 {
+
+    /**
+     * 输入法词库目录
+     *
+     * <p>~/Documents/InputMethod/[新世纪五笔]/原始码表/</p>
+     */
+    private static final String DICT_PATH = "InputMethod/[新世纪五笔]/原始码表";
 
     /**
      * 初始设置
@@ -42,19 +48,14 @@ public class Test01 extends ImeDictAnalyzer {
      */
     @BeforeAll
     public static void initSetup() {
-        dictPath = dictPath + "/[新世纪五笔]/原始码表/";
-
-        String userHome = System.getProperty("user.home");
-        dictPath = userHome + dictPath;
-
         // 方便使用 VIM 替换（%s/\t-//g） 2017-08-29 21:26:57
-        FILE_TYPE.put("01.五笔-主码-常用字.txt", "-");
-        FILE_TYPE.put("02.五笔-主码-词组.txt", "-#类1");
-        FILE_TYPE.put("03.五笔-主码-快捷符号.txt", "-#类2");
-        FILE_TYPE.put("04.五笔-主码-命令直通车.txt", "-#类3");
-        FILE_TYPE.put("05.五笔-次显-生僻字.txt", "-#次");
-        FILE_TYPE.put("06.五笔-主码-用户词.txt", "-#用");
-        FILE_TYPE.put("07.五笔-辅码-拼音.txt", "#辅");
+        ImeDictAnalyzer.addEntryFile("01.五笔-主码-常用字.txt", "-");
+        ImeDictAnalyzer.addEntryFile("02.五笔-主码-词组.txt", "-#类1");
+        ImeDictAnalyzer.addEntryFile("03.五笔-主码-快捷符号.txt", "-#类2");
+        ImeDictAnalyzer.addEntryFile("04.五笔-主码-命令直通车.txt", "-#类3");
+        ImeDictAnalyzer.addEntryFile("05.五笔-次显-生僻字.txt", "-#次");
+        ImeDictAnalyzer.addEntryFile("06.五笔-主码-用户词.txt", "-#用");
+        ImeDictAnalyzer.addEntryFile("07.五笔-辅码-拼音.txt", "#辅");
 
         // 设置分行符（为 UNIX）2018-03-20 14:50:54
         System.setProperty("line.separator", "\n");
@@ -70,11 +71,13 @@ public class Test01 extends ImeDictAnalyzer {
      */
     @Test
     public void testWubi() throws IOException {
-        Set<String> fileSet = FILE_TYPE.keySet();
-        fileSet.remove("07.五笔-辅码-拼音.txt");
-
-        String[] files = fileSet.toArray(new String[0]);
-        analyzeDict(files, 113440 + 200, "1.t_ime_dict.txt");
+        String[] files = {"01.五笔-主码-常用字.txt",
+                "02.五笔-主码-词组.txt",
+                "03.五笔-主码-快捷符号.txt",
+                "04.五笔-主码-命令直通车.txt",
+                "05.五笔-次显-生僻字.txt",
+                "06.五笔-主码-用户词.txt"};
+        ImeDictAnalyzer.analyzeDict(DICT_PATH, files, "1.t_ime_dict.txt");
     }
 
     /**
@@ -86,7 +89,7 @@ public class Test01 extends ImeDictAnalyzer {
     @Test
     public void testPinyin() throws IOException {
         String[] files = {"07.五笔-辅码-拼音.txt"};
-        analyzeDict(files, 355457 + 10, "2.t_ime_dict_py.txt");
+        ImeDictAnalyzer.analyzeDict(DICT_PATH, files, "2.t_ime_dict_py.txt");
     }
 
     /**
@@ -107,16 +110,16 @@ public class Test01 extends ImeDictAnalyzer {
      * @version 2017-08-23 10:38:53 用来处理拼音词库
      * @version 2018-03-20 11:17:30 从已删除的 Test02.java 类移过来
      * @version 2018-03-20 13:41:42 修改 buildMySQLLoadData() 方法的签名及定义，以适用于该方法
-     * @version 2018-05-17 21:45:56 调用 {@link #reArrangeDict(String, boolean, String)} 方法
+     * @version 2018-05-17 21:45:56 调用 {@link  ImeDictAnalyzer#reArrangeDict} 方法
      * @see DDImeEntry#toString()
      * @see ImeEntry#equals(Object)
-     * @see #reArrangeDict(String, boolean, String)
+     * @see ImeDictAnalyzer#reArrangeDict(String, String, boolean, int)
      * @since 2017-08-09 16:30
      */
     @Test
     public void testRearrange() throws IOException {
         String srcFilename = "07.五笔-辅码-拼音.txt"; // 要处理的文件
-        reArrangeDict(srcFilename, true, "4096");
+        ImeDictAnalyzer.reArrangeDict(DICT_PATH, srcFilename, true, 4096);
     }
 
 }

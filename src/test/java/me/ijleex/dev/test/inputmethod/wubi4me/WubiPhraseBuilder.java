@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2020 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -106,24 +108,24 @@ public class WubiPhraseBuilder {
      */
     @Test
     public void buildWubiPhrase01() throws IOException {
-        List<ImeEntry> outList = new ArrayList<>(60);
+        SortedSet<ImeEntry> resultSet = new TreeSet<>();
 
         for (String text : CTOR_SRC_PHRASES) {
             int length = text.length();
             if (length == 2) { // 二字词
-                build2CharsCode(outList, text, OUT_FORMAT);
+                build2CharsCode(resultSet, text, OUT_FORMAT);
             } else if (length == 3) { // 三字词
-                build3CharsCode(outList, text, OUT_FORMAT);
+                build3CharsCode(resultSet, text, OUT_FORMAT);
             } else if (length >= 4) { // 四字词及四字以上的词组
-                build4CharsCode(outList, text, OUT_FORMAT);
+                build4CharsCode(resultSet, text, OUT_FORMAT);
             }
         }
 
-        int size = outList.size();
+        int size = resultSet.size();
         System.out.println("词条总数：" + size);
 
         Path dstPath = Paths.get(OUT_FILE);
-        Files.write(dstPath, outList);
+        Files.write(dstPath, resultSet);
         System.out.println(dstPath);
     }
 
@@ -135,7 +137,7 @@ public class WubiPhraseBuilder {
      * @param text 词组
      * @since 2018-03-21 13:39:49
      */
-    private void build2CharsCode(List<ImeEntry> outList, String text, FormatType formatType) {
+    private void build2CharsCode(SortedSet<ImeEntry> resultSet, String text, FormatType formatType) {
         char[] chars = text.toCharArray();
         String ch1 = String.valueOf(chars[0]); // 第一个字
         String ch2 = String.valueOf(chars[1]); // 第二个字
@@ -146,7 +148,7 @@ public class WubiPhraseBuilder {
 
         String code = stem1 + stem2;
 
-        ImeDictAnalyzer.addEntryToList(outList, code, text, "4096", "-#类1", formatType);
+        ImeDictAnalyzer.addEntryToList(resultSet, code, text, 4096, "-#类1", formatType);
     }
 
     /**
@@ -168,7 +170,7 @@ public class WubiPhraseBuilder {
      * @param text 词组
      * @since 2018-03-21 14:48:58
      */
-    private void build3CharsCode(List<ImeEntry> outList, String text, FormatType formatType) {
+    private void build3CharsCode(SortedSet<ImeEntry> resultSet, String text, FormatType formatType) {
         char[] chars = text.toCharArray();
         String ch1 = String.valueOf(chars[0]); // 第一个字
         String ch2 = String.valueOf(chars[1]); // 第二个字
@@ -182,7 +184,7 @@ public class WubiPhraseBuilder {
 
         String code = stem1 + stem2 + stem3;
 
-        ImeDictAnalyzer.addEntryToList(outList, code, text, "4096", "-#类1", formatType);
+        ImeDictAnalyzer.addEntryToList(resultSet, code, text, 4096, "-#类1", formatType);
     }
 
     /**
@@ -193,7 +195,7 @@ public class WubiPhraseBuilder {
      * @param text 词组
      * @since 2018-03-21 14:51:16
      */
-    private void build4CharsCode(List<ImeEntry> outList, String text, FormatType formatType) {
+    private void build4CharsCode(SortedSet<ImeEntry> resultSet, String text, FormatType formatType) {
         char[] chars = text.toCharArray();
         String ch1 = String.valueOf(chars[0]); // 第一个字
         String ch2 = String.valueOf(chars[1]); // 第二个字
@@ -210,7 +212,7 @@ public class WubiPhraseBuilder {
 
         String code = stem1 + stem2 + stem3 + stem4;
 
-        ImeDictAnalyzer.addEntryToList(outList, code, text, "4096", "-#类1", formatType);
+        ImeDictAnalyzer.addEntryToList(resultSet, code, text, 4096, "-#类1", formatType);
     }
 
 }

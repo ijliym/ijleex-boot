@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2020 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -67,11 +67,9 @@ public final class Utils {
      * @return 平均值
      * @since 2018-04-21 17:52:28
      */
-    public static String calcAverageValue(String x, String y) {
-        int v1 = safeToInt(x);
-        int v2 = safeToInt(y);
-        int z = v1 + v2;
-        return String.valueOf(z / 2);
+    public static int calcAverageValue(int x, int y) {
+        int z = x + y;
+        return z / 2;
     }
 
     public static void main(String[] args) {

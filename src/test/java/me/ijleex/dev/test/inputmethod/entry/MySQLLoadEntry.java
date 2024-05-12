@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2020 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -20,7 +20,7 @@ public class MySQLLoadEntry extends ImeEntry {
     /**
      * 构建
      */
-    public MySQLLoadEntry(String code, String text, String weight, String type, String stem) {
+    public MySQLLoadEntry(String code, String text, int weight, String type, String stem) {
         super(code, text, weight, type, stem);
     }
 
@@ -33,7 +33,7 @@ public class MySQLLoadEntry extends ImeEntry {
     public String toString() {
         String code = getCode();
         String text = getText();
-        String weight = getWeight();
+        int weight = getWeight();
         String type = getType();
         String stem = getStem();
         if (stem == null || stem.isEmpty()) {

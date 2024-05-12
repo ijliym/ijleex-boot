@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2020 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -9,6 +9,9 @@ package me.ijleex.dev.test.inputmethod.entry;
 
 import java.util.Objects;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * 输入法词条（五笔/郑码）
  *
@@ -16,9 +19,14 @@ import java.util.Objects;
  *
  * @author liym
  * @version 2018-03-20 14:25:26 实现 CharSequence，以便用 Files 中的方法读取、写入文件
+ * @see java.util.SortedSet
+ * @see java.util.TreeSet#add(java.lang.Object)
+ * @see #compareTo(ImeEntry)
  * @since 2017-08-07 15:04 新建
+ * @since 2024-05-09 23:10 实现 Comparable
  */
-public class ImeEntry implements CharSequence {
+@Getter
+public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
 
     /**
      * 编码
@@ -31,7 +39,9 @@ public class ImeEntry implements CharSequence {
     /**
      * 词频（权重），用于词条排序
      */
-    private String weight;
+    @Setter
+    private int weight;
+
     /**
      * 类型（用于多多输入法，如 #类1、#类2、#次、#用 等）
      */
@@ -48,7 +58,19 @@ public class ImeEntry implements CharSequence {
      * @param text 词条，不能为空
      */
     public ImeEntry(String code, String text) {
-        this(code, text, null, null, null);
+        this(code, text, 0);
+    }
+
+    /**
+     * 构建词条
+     *
+     * @param code 代码，不能为空
+     * @param text 词条，不能为空
+     * @param weight 词频
+     * @since 2024-05-09 22:44
+     */
+    public ImeEntry(String code, String text, int weight) {
+        this(code, text, weight, null, null);
     }
 
     /**
@@ -60,36 +82,12 @@ public class ImeEntry implements CharSequence {
      * @param type 类型
      * @param stem 构词码（用于Rime输入法）
      */
-    ImeEntry(String code, String text, String weight, String type, String stem) {
+    ImeEntry(String code, String text, int weight, String type, String stem) {
         this.code = code;
         this.text = text;
         this.weight = weight;
         this.type = type;
         this.stem = stem;
-    }
-
-    public String getCode() {
-        return this.code;
-    }
-
-    public String getText() {
-        return this.text;
-    }
-
-    public String getWeight() {
-        return this.weight;
-    }
-
-    public void setWeight(String weight) {
-        this.weight = weight;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public String getStem() {
-        return this.stem;
     }
 
     @Override
@@ -110,7 +108,7 @@ public class ImeEntry implements CharSequence {
     /**
      * 重写 equals 方法，用于判断两个词条是否相同
      *
-     * @param anObject 对象
+     * @param obj 对象
      * @return true/false
      * @see java.util.List#contains(Object)
      * @see java.util.List#indexOf(Object)
@@ -119,18 +117,16 @@ public class ImeEntry implements CharSequence {
      * 方法中 “entryList.indexOf(entry)” 判断
      */
     @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
         }
-        // 两个词条是否相同，仅判断 编码与汉字 是否相同
-        if (anObject instanceof ImeEntry) {
-            ImeEntry anotherEntry = (ImeEntry) anObject;
-            boolean eq1 = Objects.equals(this.code, anotherEntry.code);
-            boolean eq2 = Objects.equals(this.text, anotherEntry.text);
-            return eq1 && eq2;
+        if (obj == null || this.getClass() != obj.getClass()) {
+            return false;
         }
-        return false;
+        // 两个词条是否相同，仅判断 编码与汉字 是否相同
+        ImeEntry that = (ImeEntry) obj;
+        return Objects.equals(this.code, that.code) && Objects.equals(this.text, that.text);
     }
 
     /**
@@ -142,11 +138,42 @@ public class ImeEntry implements CharSequence {
      */
     @Override
     public int hashCode() {
-        // code、text 不能等于空（空字符串与NULL）
-        int x = this.code.hashCode();
-        int y = this.text.hashCode();
-        // 乘以质数，以避免直接相加产生的偶然相等
-        return x * 17 + y * 19;
+        return Objects.hash(this.code, this.text);
+    }
+
+    /**
+     * 词条排序（基于编码、词频）.
+     *
+     * <p>词条排序：先根据编码（字母）升序排序，再根据词频降序排序。</p>
+     *
+     * @param that 待对比对象
+     * @return 顺序
+     * @see java.util.TreeMap#put(Object, Object)
+     * @since 2024-05-09 22:36
+     */
+    @Override
+    public int compareTo(ImeEntry that) {
+        if (that == null) {
+            return 1;
+        }
+
+        // 先按编码升序排序
+        String thisCode = this.getCode();
+        String thatCode = that.getCode();
+        int result = thisCode.compareTo(thatCode);
+        if (result == 0) {
+            // 再按词频降序排序
+            int thisWeight = this.getWeight();
+            int thatWeight = that.getWeight();
+            result = Integer.compare(thatWeight, thisWeight);
+            if (result == 0) {
+                // 最后按词条的Unicode码升序排序 2018-08-24 17:57
+                String thisText = this.getText();
+                String thatText = that.getText();
+                result = thisText.compareTo(thatText);
+            }
+        }
+        return result;
     }
 
     /**
