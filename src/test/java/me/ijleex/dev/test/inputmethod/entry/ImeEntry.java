@@ -113,7 +113,7 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
      * @see java.util.List#contains(Object)
      * @see java.util.List#indexOf(Object)
      * @see java.util.ArrayList#indexOf(java.lang.Object)
-     * @since 2018-03-22 11:10:07 重写equals方法，用于 {@link me.ijleex.dev.test.inputmethod.wubi4me.Test01#testRearrange()}
+     * @since 2018-03-22 11:10:07 重写equals方法，用于 {@link me.ijleex.dev.test.inputmethod.wubi4me.WubiTest#testRearrange()}
      * 方法中 “entryList.indexOf(entry)” 判断
      */
     @Override

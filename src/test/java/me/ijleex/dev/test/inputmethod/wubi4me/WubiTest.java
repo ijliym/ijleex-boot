@@ -30,7 +30,7 @@ import me.ijleex.dev.test.inputmethod.entry.ImeEntry;
  * @version 2018-05-17 21:09 extends ImeDictAnalyzer
  * @since 2017-08-06 20:55 新建
  */
-public class Test01 {
+public class WubiTest {
 
     /**
      * 输入法词库目录

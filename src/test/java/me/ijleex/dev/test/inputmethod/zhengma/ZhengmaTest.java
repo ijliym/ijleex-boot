@@ -31,7 +31,7 @@ import me.ijleex.dev.test.inputmethod.entry.ImeEntry;
  * @version 2018-05-17 21:58 extends ImeDictAnalyzer
  * @since 2018-04-21 17:05 新建
  */
-public class Test01 {
+public class ZhengmaTest {
 
     /**
      * 输入法词库目录
