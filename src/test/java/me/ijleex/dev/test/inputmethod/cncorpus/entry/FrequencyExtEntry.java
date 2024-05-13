@@ -20,7 +20,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class FrequencyExtEntry {
+public class FrequencyExtEntry implements CharSequence {
 
     /**
      * 词语
@@ -39,6 +39,21 @@ public class FrequencyExtEntry {
     private Integer weight;
 
     public FrequencyExtEntry() {
+    }
+
+    @Override
+    public int length() {
+        return this.text.length();
+    }
+
+    @Override
+    public char charAt(int index) {
+        return this.text.charAt(index);
+    }
+
+    @Override
+    public CharSequence subSequence(int start, int end) {
+        throw new UnsupportedOperationException("subSequence");
     }
 
     @Override

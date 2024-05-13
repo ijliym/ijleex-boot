@@ -39,7 +39,7 @@ public class ExcelFrequencyLoadTest {
     @Test
     public void load1() {
         Path excelFile = Paths.get(getDocPath(), "InputMethod/汉字相关/语料库字词频/现代汉语语料库词频表.xlsx");
-        Map<String, Integer> entryMap = new HashMap<>(14629);
+        Map<String, Integer> entryMap = new HashMap<>(15000);
         EasyExcel.read(excelFile.toFile(), FrequencyEntry.class,
                         new ExcelFrequency1Listener(entryMap))
                 .sheet(0) // 表格#1
@@ -51,30 +51,31 @@ public class ExcelFrequencyLoadTest {
     @Test
     public void load2() {
         Path excelFile = Paths.get(getDocPath(), "InputMethod/汉字相关/语料库字词频/现代汉语语料库词频表.xlsx");
-        Map<String, Integer> entryMap = new HashMap<>(16254);
+        Map<String, Integer> entryMap = new HashMap<>(15000);
         EasyExcel.read(excelFile.toFile(), FrequencyExtEntry.class,
                         new ExcelFrequency2Listener(entryMap))
                 .sheet(1) // 表格#2
                 .headRowNumber(7)
                 .doRead();
         logger.info("词频：为={}", entryMap.get("为"));
+        logger.info("词频：一={}", entryMap.get("一"));
     }
 
     @Test
     public void interPrint() throws IOException {
         Path excelFile = Paths.get(getDocPath(), "InputMethod/汉字相关/语料库字词频/现代汉语语料库词频表.xlsx");
 
-        Map<String, Integer> entry1Map = new HashMap<>(14629);
+        Map<String, Integer> entry1Map = new HashMap<>(15000);
         EasyExcel.read(excelFile.toFile(), FrequencyEntry.class,
                         new ExcelFrequency1Listener(entry1Map))
                 .sheet(0) // 表格#1
                 .headRowNumber(7)
                 .doRead();
 
-        Map<String, Integer> entry2Map = new HashMap<>(16254);
-        List<String> humanNameList = new ArrayList<>(174);
+        Map<String, Integer> entry2Map = new HashMap<>(15000);
+        List<String> ignoreList = new ArrayList<>(200);
         EasyExcel.read(excelFile.toFile(), FrequencyExtEntry.class,
-                        new ExcelFrequency2Listener(entry2Map, humanNameList))
+                        new ExcelFrequency2Listener(entry2Map, ignoreList))
                 .sheet(1) // 表格#2
                 .headRowNumber(7)
                 .doRead();
@@ -86,7 +87,7 @@ public class ExcelFrequencyLoadTest {
         logger.info("现代汉语语料库分词类词频表 中不存在的词语：");
         for (Map.Entry<String, Integer> entry : entry1Map.entrySet()) {
             String text = entry.getKey();
-            if (humanNameList.contains(text)) { // 过滤人名
+            if (ignoreList.contains(text)) { // 过滤人名
                 continue;
             }
             Integer weight = entry.getValue();
@@ -119,17 +120,17 @@ public class ExcelFrequencyLoadTest {
     public void unionFrequency() {
         Path excelFile = Paths.get(getDocPath(), "InputMethod/汉字相关/语料库字词频/现代汉语语料库词频表.xlsx");
 
-        Map<String, Integer> entry1Map = new HashMap<>(14629);
+        Map<String, Integer> entry1Map = new HashMap<>(15000);
         EasyExcel.read(excelFile.toFile(), FrequencyEntry.class,
                         new ExcelFrequency1Listener(entry1Map))
                 .sheet(0) // 表格#1
                 .headRowNumber(7)
                 .doRead();
 
-        Map<String, Integer> entry2Map = new HashMap<>(16254);
-        List<String> humanNameList = new ArrayList<>(174);
+        Map<String, Integer> entry2Map = new HashMap<>(15000);
+        List<String> ignoreList = new ArrayList<>(200);
         EasyExcel.read(excelFile.toFile(), FrequencyExtEntry.class,
-                        new ExcelFrequency2Listener(entry2Map, humanNameList))
+                        new ExcelFrequency2Listener(entry2Map, ignoreList))
                 .sheet(1) // 表格#2
                 .headRowNumber(7)
                 .doRead();
@@ -141,7 +142,7 @@ public class ExcelFrequencyLoadTest {
 
         for (Map.Entry<String, Integer> entry : entry1Map.entrySet()) {
             String text = entry.getKey();
-            if (humanNameList.contains(text)) { // 过滤人名
+            if (ignoreList.contains(text)) { // 过滤人名
                 continue;
             }
             Integer weight1 = entry.getValue();
@@ -155,7 +156,7 @@ public class ExcelFrequencyLoadTest {
 
         for (Map.Entry<String, Integer> entry : entry2Map.entrySet()) {
             String text = entry.getKey();
-            ///if (humanNameList.contains(text)) { // 过滤人名
+            ///if (ignoreList.contains(text)) { // 过滤人名
             ///    continue;
             ///}
             Integer weight1 = entry.getValue();
