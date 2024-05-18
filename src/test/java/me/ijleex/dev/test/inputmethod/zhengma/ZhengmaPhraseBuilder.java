@@ -7,6 +7,7 @@
 
 package me.ijleex.dev.test.inputmethod.zhengma;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -52,7 +53,7 @@ public final class ZhengmaPhraseBuilder {
      *
      * @since 2018-03-21 15:54:38
      */
-    private static final FormatType OUT_FORMAT = FormatType.DuoDuo;
+    private static final FormatType OUT_FORMAT = FormatType.RIME;
 
     private static final Logger logger = LoggerFactory.getLogger(ZhengmaPhraseBuilder.class);
 
@@ -63,11 +64,22 @@ public final class ZhengmaPhraseBuilder {
     /**
      * 加载构词码
      *
+     * @return 构词码
+     * @since 2024-05-14 22:45
+     */
+    public static Map<String, String> loadStemMap() {
+        String stemFile = "InputMethod/[超集郑码]/原始码表/构词码.txt";
+        return loadStemFile(getDocPath(), stemFile);
+    }
+
+    /**
+     * 加载构词码
+     *
      * @param startPath 文件位置
      * @param stemFile 文件路径
      * @return 构词码
      */
-    public static Map<String, String> loadStemFile(String startPath, String stemFile) {
+    private static Map<String, String> loadStemFile(String startPath, String stemFile) {
         Path srcPath = Paths.get(startPath, stemFile);
         List<String> lines;
         try {
@@ -142,7 +154,7 @@ public final class ZhengmaPhraseBuilder {
         String code = code1 + code2;
         int weight = getWeight(weightMap, text);
 
-        ImeDictAnalyzer.addEntryToList(resultSet, code, text, weight, "-#类1", formatType);
+        ImeDictAnalyzer.addEntryToList(resultSet, text, code, weight, null, "类1", formatType);
     }
 
     /**
@@ -201,7 +213,7 @@ public final class ZhengmaPhraseBuilder {
         String code = code1 + code2 + code3;
         int weight = getWeight(weightMap, text);
 
-        ImeDictAnalyzer.addEntryToList(resultSet, code, text, weight, "-#类1", formatType);
+        ImeDictAnalyzer.addEntryToList(resultSet, text, code, weight, null, "类1", formatType);
     }
 
     /**
@@ -235,7 +247,17 @@ public final class ZhengmaPhraseBuilder {
         String code = code1 + code2 + code3 + code4;
         int weight = getWeight(weightMap, text);
 
-        ImeDictAnalyzer.addEntryToList(resultSet, code, text, weight, "-#类1", formatType);
+        ImeDictAnalyzer.addEntryToList(resultSet, text, code, weight, null, "类1", formatType);
+    }
+
+    /**
+     * 获取用户目录下{@code 文档}目标路径（~/Documents）
+     *
+     * @since 2024-05-12 19:23
+     */
+    private static String getDocPath() {
+        String userHome = System.getProperty("user.home");
+        return userHome + File.separatorChar + "Documents";
     }
 
 }

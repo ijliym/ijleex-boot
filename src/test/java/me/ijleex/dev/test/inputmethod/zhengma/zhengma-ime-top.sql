@@ -1,31 +1,38 @@
+/*
+ * Copyright 2011-2024 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0.
+ * See `LICENSE` in the project root for license information.
+ */
+
 -- 郑码 固顶词条 高频字
 
-UPDATE t_ime_dict SET type='-#固' WHERE code='a' AND text='一';
-UPDATE t_ime_dict SET type='-#固' WHERE code='b' AND text='地';
-UPDATE t_ime_dict SET type='-#固' WHERE code='c' AND text='现';
-UPDATE t_ime_dict SET type='-#固' WHERE code='d' AND text='的';
-UPDATE t_ime_dict SET type='-#固' WHERE code='e' AND text='世';
-UPDATE t_ime_dict SET type='-#固' WHERE code='f' AND text='要';
-UPDATE t_ime_dict SET type='-#固' WHERE code='g' AND text='在';
-UPDATE t_ime_dict SET type='-#固' WHERE code='h' AND text='成';
-UPDATE t_ime_dict SET type='-#固' WHERE code='i' AND text='上';
-UPDATE t_ime_dict SET type='-#固' WHERE code='j' AND text='中';
-UPDATE t_ime_dict SET type='-#固' WHERE code='k' AND text='是';
-UPDATE t_ime_dict SET type='-#固' WHERE code='l' AND text='用';
-UPDATE t_ime_dict SET type='-#固' WHERE code='m' AND text='我';
-UPDATE t_ime_dict SET type='-#固' WHERE code='n' AND text='他';
-UPDATE t_ime_dict SET type='-#固' WHERE code='o' AND text='个';
-UPDATE t_ime_dict SET type='-#固' WHERE code='p' AND text='所';
-UPDATE t_ime_dict SET type='-#固' WHERE code='q' AND text='月';
-UPDATE t_ime_dict SET type='-#固' WHERE code='r' AND text='多';
-UPDATE t_ime_dict SET type='-#固' WHERE code='s' AND text='说';
-UPDATE t_ime_dict SET type='-#固' WHERE code='t' AND text='度';
-UPDATE t_ime_dict SET type='-#固' WHERE code='u' AND text='为';
-UPDATE t_ime_dict SET type='-#固' WHERE code='v' AND text='没';
-UPDATE t_ime_dict SET type='-#固' WHERE code='w' AND text='这';
-UPDATE t_ime_dict SET type='-#固' WHERE code='x' AND text='对';
-UPDATE t_ime_dict SET type='-#固' WHERE code='y' AND text='了';
-UPDATE t_ime_dict SET type='-#固' WHERE code='z' AND text='发';
+UPDATE t_ime_dict SET type='#固' WHERE text='一' AND code='a';
+UPDATE t_ime_dict SET type='#固' WHERE text='地' AND code='b';
+UPDATE t_ime_dict SET type='#固' WHERE text='现' AND code='c';
+UPDATE t_ime_dict SET type='#固' WHERE text='的' AND code='d';
+UPDATE t_ime_dict SET type='#固' WHERE text='世' AND code='e';
+UPDATE t_ime_dict SET type='#固' WHERE text='要' AND code='f';
+UPDATE t_ime_dict SET type='#固' WHERE text='在' AND code='g';
+UPDATE t_ime_dict SET type='#固' WHERE text='成' AND code='h';
+UPDATE t_ime_dict SET type='#固' WHERE text='上' AND code='i';
+UPDATE t_ime_dict SET type='#固' WHERE text='中' AND code='j';
+UPDATE t_ime_dict SET type='#固' WHERE text='是' AND code='k';
+UPDATE t_ime_dict SET type='#固' WHERE text='用' AND code='l';
+UPDATE t_ime_dict SET type='#固' WHERE text='我' AND code='m';
+UPDATE t_ime_dict SET type='#固' WHERE text='他' AND code='n';
+UPDATE t_ime_dict SET type='#固' WHERE text='个' AND code='o';
+UPDATE t_ime_dict SET type='#固' WHERE text='所' AND code='p';
+UPDATE t_ime_dict SET type='#固' WHERE text='月' AND code='q';
+UPDATE t_ime_dict SET type='#固' WHERE text='多' AND code='r';
+UPDATE t_ime_dict SET type='#固' WHERE text='说' AND code='s';
+UPDATE t_ime_dict SET type='#固' WHERE text='度' AND code='t';
+UPDATE t_ime_dict SET type='#固' WHERE text='为' AND code='u';
+UPDATE t_ime_dict SET type='#固' WHERE text='没' AND code='v';
+UPDATE t_ime_dict SET type='#固' WHERE text='这' AND code='w';
+UPDATE t_ime_dict SET type='#固' WHERE text='对' AND code='x';
+UPDATE t_ime_dict SET type='#固' WHERE text='了' AND code='y';
+UPDATE t_ime_dict SET type='#固' WHERE text='发' AND code='z';
 
 COMMIT;
 

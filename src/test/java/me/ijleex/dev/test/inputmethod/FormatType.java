@@ -16,26 +16,19 @@ package me.ijleex.dev.test.inputmethod;
 public enum FormatType {
 
     /**
+     * <a href="https://rime.im/">Rime输入法</a>格式
+     *
+     * <p>
+     * 使用<b>Tab</b>分隔的词条列数据格式，各列分别表示：text【文本】、code【编码】、weight【权重】、stem【造词码】。
+     * </p>
+     * <p>如{@code 一	a	81694	av}</p>
+     */
+    RIME,
+
+    /**
      * 符合<a href="https://dev.mysql.com/doc/refman/8.3/en/load-data.html">MySQL “LOAD DATA INFILE”</a>语法格式的字符串
      */
-    MySQL,
-
-    /**
-     * <a href="https://chinput.com/portal.php">多多输入法</a>码表格式
-     *
-     * <p>如{@code 一	a#序81119}，TAB分隔</p>
-     */
-    DuoDuo,
-
-    /**
-     * <a href="https://rime.im/">Rime输入法</a>格式
-     * <p>
-     * 如{@code 一	a	81119}
-     * </p>
-     * Rime 的词条格式不固定，因为可以在定义码表时，定义格式。
-     * 可用的参数有 code、text、weight、stem。
-     */
-    Rime,
+    DB_DATA_LOAD,
 
     /**
      * SQL 插入格式

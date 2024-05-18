@@ -15,31 +15,31 @@ package me.ijleex.dev.test.inputmethod.entry;
  * @author liym
  * @since 2018-04-18 14:43 新建
  */
-public class MySQLLoadEntry extends ImeEntry {
+public class DBLoadEntry extends ImeEntry {
 
     /**
      * 构建
      */
-    public MySQLLoadEntry(String code, String text, int weight, String type, String stem) {
-        super(code, text, weight, type, stem);
+    public DBLoadEntry(String text, String code, int weight, String stem, String type) {
+        super(text, code, weight, stem, type);
     }
 
     /**
      * 输出词条数据为可以导入到 MySQL 数据库的格式的数据
      *
-     * @return TAB 分隔的词条数据，如 “aaaa	工	65535	-”、“aaaa	恭恭敬敬	15744	-#类1”等
+     * @return TAB 分隔的词条数据，如 “aaaa	工	65535	-”、“aaaa	恭恭敬敬	15744	类1”等
      */
     @Override
     public String toString() {
-        String code = getCode();
-        String text = getText();
-        int weight = getWeight();
-        String type = getType();
-        String stem = getStem();
+        String text = this.getText();
+        String code = this.getCode();
+        int weight = this.getWeight();
+        String stem = this.getStem();
+        String type = this.getType();
         if (stem == null || stem.isEmpty()) {
-            return code + '\t' + text + '\t' + weight + '\t' + type;
+            return text + '\t' + code + '\t' + weight + '\t' + '\t' + type;
         } else {
-            return code + '\t' + text + '\t' + weight + '\t' + type + '\t' + stem;
+            return text + '\t' + code + '\t' + weight + '\t' + stem + '\t' + type;
         }
     }
 

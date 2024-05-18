@@ -50,11 +50,11 @@ public class ZhengmaTest {
         // 方便使用 VIM 替换（%s/\t-//g） 2017-08-29 21:26:57
         // 原始码表 2018-04-25 20:31:51
         ImeDictAnalyzer.addEntryFile("01.郑码-主码-常用字.txt", "-");
-        ImeDictAnalyzer.addEntryFile("02.郑码-主码-词组.txt", "-#类1");
-        ImeDictAnalyzer.addEntryFile("03.郑码-主码-快捷符号.txt", "-#类2");
-        ImeDictAnalyzer.addEntryFile("04.郑码-主码-命令直通车.txt", "-#类3");
-        ImeDictAnalyzer.addEntryFile("05.郑码-次显-生僻字.txt", "-#次");
-        ImeDictAnalyzer.addEntryFile("06.郑码-主码-用户词.txt", "-#用");
+        ImeDictAnalyzer.addEntryFile("02.郑码-主码-词组.txt", "类1");
+        ImeDictAnalyzer.addEntryFile("03.郑码-主码-快捷符号.txt", "类2");
+        ImeDictAnalyzer.addEntryFile("04.郑码-主码-命令直通车.txt", "类3");
+        ImeDictAnalyzer.addEntryFile("05.郑码-次显-生僻字.txt", "次");
+        ImeDictAnalyzer.addEntryFile("06.郑码-主码-用户词.txt", "用");
 
         // 设置分行符（为 UNIX）2018-03-20 14:50:54
         System.setProperty("line.separator", "\n");
@@ -103,8 +103,8 @@ public class ZhengmaTest {
         SortedSet<ImeEntry> set1 = new TreeSet<>();
         SortedSet<ImeEntry> set2 = new TreeSet<>();
 
-        ImeDictAnalyzer.loadImeDictData(DICT_PATH, "05.郑码-次显-生僻字.txt", set1, FormatType.DuoDuo);
-        ImeDictAnalyzer.loadImeDictData(DICT_PATH, "../05.郑码-次显-生僻字_删除的编码.txt", set2, FormatType.DuoDuo);
+        ImeDictAnalyzer.loadImeDictData(DICT_PATH, "05.郑码-次显-生僻字.txt", set1, FormatType.RIME);
+        ImeDictAnalyzer.loadImeDictData(DICT_PATH, "../05.郑码-次显-生僻字_删除的编码.txt", set2, FormatType.RIME);
 
         // 构建 词条-编码 对应关系的
         Map<String, List<String>> textMap = ImeDictAnalyzer.convertEntryListToTextMap(set1);

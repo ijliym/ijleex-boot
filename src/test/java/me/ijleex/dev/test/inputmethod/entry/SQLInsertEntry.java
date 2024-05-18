@@ -20,13 +20,13 @@ public class SQLInsertEntry extends ImeEntry {
     /**
      * 输出格式
      */
-    private static final String OUT_FORMAT = "INSERT INTO t_wubi_ime_wb(code,text,weight,type) VALUES('%s', '%s', '%s', '%s');";
+    private static final String OUT_FORMAT = "INSERT INTO t_ime_dict(text,code,weight,stem,type) VALUES('%s', '%s', %s, '%s', '%s');";
 
     /**
      * 构建输出格式为 {@value OUT_FORMAT} 的词条
      */
-    public SQLInsertEntry(String code, String text, int weight, String type) {
-        super(code, text, weight, type, null);
+    public SQLInsertEntry(String text, String code, int weight, String stem, String type) {
+        super(text, code, weight, stem, type);
     }
 
     /**
@@ -34,17 +34,17 @@ public class SQLInsertEntry extends ImeEntry {
      *
      * <p>格式为：{@value OUT_FORMAT}</p>
      *
-     * @return 如 INSERT INTO t_wubi_ime_wb(code,text,weight,type) VALUES('lhbb', '甲子', '4096', '-#类1');
+     * @return 如 INSERT INTO t_ime_dict(text,code,weight,stem,type) VALUES('一', 'a', '81694', 'av', '-');
      * @since 2018-03-21 17:15:28 新建
      */
     @Override
     public String toString() {
-        String code = getCode();
-        String text = getText();
-        int weight = getWeight();
-        String type = getType();
-        // String stem = getStem();
-        return String.format(OUT_FORMAT, code, text, weight, type);
+        String text = this.getText();
+        String code = this.getCode();
+        int weight = this.getWeight();
+        String stem = this.getStem();
+        String type = this.getType();
+        return String.format(OUT_FORMAT, text, code, weight, stem, type);
     }
 
 }

@@ -72,12 +72,4 @@ public final class Utils {
         return z / 2;
     }
 
-    public static void main(String[] args) {
-        String ss = "$ddcmd(config(/do 输出反查),[反查]：<last.1>)\tlookup#序4096";
-        String[] data = Utils.tokenizeToStringArray(ss, "\t#"); // \t #
-        for (String s : data) {
-            System.out.println(s);
-        }
-    }
-
 }

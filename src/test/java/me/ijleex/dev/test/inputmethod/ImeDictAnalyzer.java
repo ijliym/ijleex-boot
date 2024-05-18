@@ -26,12 +26,12 @@ import org.slf4j.LoggerFactory;
 import com.ibm.icu.text.UnicodeSet;
 
 import me.ijleex.dev.test.inputmethod.cncorpus.ExcelFrequencyLoad;
-import me.ijleex.dev.test.inputmethod.entry.DDImeEntry;
+import me.ijleex.dev.test.inputmethod.entry.DBLoadEntry;
 import me.ijleex.dev.test.inputmethod.entry.ImeEntry;
-import me.ijleex.dev.test.inputmethod.entry.MySQLLoadEntry;
 import me.ijleex.dev.test.inputmethod.entry.RimeEntry;
 import me.ijleex.dev.test.inputmethod.entry.SQLInsertEntry;
 import me.ijleex.dev.test.inputmethod.entry.SQLUpdateEntry;
+import me.ijleex.dev.test.inputmethod.zhengma.ZhengmaPhraseBuilder;
 import me.ijleex.dev.test.unihan.CodePointUtil;
 
 /**
@@ -43,9 +43,16 @@ import me.ijleex.dev.test.unihan.CodePointUtil;
 public final class ImeDictAnalyzer {
 
     /**
-     * 设置码表文件中的词条的类型，可用的类型有 <b>类1、类2、类3、次、用、辅</b> 等，用于多多输入法
+     * 设置码表文件中的词条的类型，可用的类型有 <b>{@code -}、{@code 类1}、{@code 类2}、…、{@code 次}、{@code 用}、{@code 辅}</b> 等，用于多多输入法
      */
     private static final Map<String, String> FILE_TYPE = new LinkedHashMap<>(7);
+
+    /**
+     * 构词码
+     *
+     * @since 2024-05-14 00:54
+     */
+    private static final Map<String, String> STEM_MAP = new HashMap<>(27660);
 
     /**
      * CJK E、F及兼容区字
@@ -68,7 +75,7 @@ public final class ImeDictAnalyzer {
     /**
      * 加载输入法词条数据（使用 多多输入法原始码表格式 保存）
      *
-     * <p><b>一个词条的格式为：的 d#序744863</b> （Tab 分隔） </p>
+     * <p><b>一个词条的格式为：{@code 一	a	81694	av}</b> （Tab 分隔） </p>
      *
      * <p>可以输出为用于 MySQL “LOAD DATA INFILE” 命令加载的文件的数据；<br/>
      * 或者输出为多多输入法原始格式数据。</p>
@@ -81,7 +88,6 @@ public final class ImeDictAnalyzer {
      * @param formatType 输出数据的格式
      * @throws IOException 读/写文件错误
      * @see ImeEntry#toString()
-     * @see DDImeEntry#toString()
      * @since 2017-08-07 17:37
      */
     public static void loadImeDictData(String dictPath, String fileName, SortedSet<ImeEntry> entrySet, FormatType formatType)
@@ -98,7 +104,7 @@ public final class ImeDictAnalyzer {
      * @since 2018-05-25 14:16
      */
     private static void parseEntry(List<String> lineList, String type, SortedSet<ImeEntry> outList, FormatType formatType) {
-        for (String line : lineList) { // 一<Tab>a#序81119
+        for (String line : lineList) { // 一	a	81694	av
             // System.out.println(line);
 
             if (line.startsWith("---config@")) {
@@ -106,25 +112,30 @@ public final class ImeDictAnalyzer {
             }
 
             // 修改分隔符为：\t#，即去除空格 2018-06-01 10:22:07
-            String[] data = Utils.tokenizeToStringArray(line, "\t#"); // <Tab>#
-            if (data.length >= 3) {
-                String text = data[0]; // 言
-                String code = data[1]; // yyyy
-                String weight = data[2]; // 序15944
+            String[] data = Utils.tokenizeToStringArray(line, "\t");
+            if (data.length == 4) {
+                String text = data[0]; // 一
+                String code = data[1]; // a
+                String weight = data[2]; // 81694
+                String stem = data[3]; // av
 
-                weight = weight.replace("序", "");
+                addEntryToList(outList, text, code, Integer.parseInt(weight), stem, type, formatType);
+            } else if (data.length == 3) {
+                String text = data[0]; // 一
+                String code = data[1]; // a
+                String weight = data[2]; // 81694
 
-                addEntryToList(outList, code, text, Integer.parseInt(weight), type, formatType);
+                addEntryToList(outList, text, code, Integer.parseInt(weight), null, type, formatType);
             } else if (data.length == 2) {
                 String text = data[0]; // 言
                 String code = data[1]; // yyyy
 
-                addEntryToList(outList, code, text, 0, type, formatType);
+                addEntryToList(outList, text, code, 0, null, type, formatType);
             } else if (data.length == 1) {
                 // 若只有一个元素，则只能是汉字 2018-06-16 09:55:11
                 String text = data[0]; // 言
 
-                addEntryToList(outList, "--", text, 0, type, formatType);
+                addEntryToList(outList, text, null, 0, null, type, formatType);
             }
         }
     }
@@ -133,25 +144,28 @@ public final class ImeDictAnalyzer {
      * Add wubi/zhengma entry to entrySet
      *
      * @param entrySet List
-     * @param code 编码
      * @param text 词条
+     * @param code 编码
      * @param weight 词频
+     * @param stem 造词码
      * @param type 分类
      * @param formatType 输出数据的格式
      * @since 2018-04-21 17:33 从 inputmethod.wubi4me.Test01 类中移过来的
      */
-    public static void addEntryToList(SortedSet<ImeEntry> entrySet, String code, String text, int weight, String type, FormatType formatType) {
-        ImeEntry entry = new ImeEntry(code, text);
-        if (FormatType.DuoDuo == formatType) {
-            entry = new DDImeEntry(code, text, weight, type);
-        } else if (FormatType.Rime == formatType) {
-            entry = new RimeEntry(code, text, weight, type);
-        } else if (FormatType.MySQL == formatType) {
-            entry = new MySQLLoadEntry(code, text, weight, type, null);
+    public static void addEntryToList(SortedSet<ImeEntry> entrySet,
+            String text, String code, int weight, String stem, String type, FormatType formatType) {
+        ImeEntry entry = new ImeEntry(text, code);
+        if (FormatType.RIME == formatType) {
+            if ((stem == null) && "-".equals(type) || "次".equals(type)) {
+                stem = getStem(text);
+            }
+            entry = new RimeEntry(text, code, weight, stem);
+        } else if (FormatType.DB_DATA_LOAD == formatType) {
+            entry = new DBLoadEntry(text, code, weight, stem, type);
         } else if (FormatType.SQL_INSERT == formatType) {
-            entry = new SQLInsertEntry(code, text, weight, type);
+            entry = new SQLInsertEntry(text, code, weight, stem, type);
         } else if (FormatType.SQL_UPDATE == formatType) {
-            entry = new SQLUpdateEntry(code, text, weight, type, null);
+            entry = new SQLUpdateEntry(text, code, weight, stem, type);
         }
         entrySet.add(entry);
     }
@@ -167,7 +181,7 @@ public final class ImeDictAnalyzer {
     public static void analyzeDict(String dictPath, String[] dictFiles, String outFilename) throws IOException {
         SortedSet<ImeEntry> entrySet = new TreeSet<>();
         for (String file : dictFiles) {
-            loadImeDictData(dictPath, file, entrySet, FormatType.MySQL);
+            loadImeDictData(dictPath, file, entrySet, FormatType.DB_DATA_LOAD);
         }
         logger.info("词条总数：{}", entrySet.size());
 
@@ -179,7 +193,7 @@ public final class ImeDictAnalyzer {
     /**
      * 词条重新排序，支持重新设置词条的词频
      *
-     * <p><b>输出格式与读取文件的格式相同（即多多输入法格式）：{@link DDImeEntry#toString()}</b></p>
+     * <p><b>输出格式与读取文件的格式相同（即Rime输入法格式）：{@link RimeEntry#toString()}</b></p>
      *
      * @param dictPath 词库文件路径
      * @param fileName 要處理的文件的名稱
@@ -196,7 +210,7 @@ public final class ImeDictAnalyzer {
             throws IOException {
         SortedSet<ImeEntry> entrySet = new TreeSet<>();
 
-        loadImeDictData(dictPath, fileName, entrySet, FormatType.DuoDuo); // 输出为多多格式 2018-03-20 13:37:20
+        loadImeDictData(dictPath, fileName, entrySet, FormatType.RIME); // 输出为多多格式 2018-03-20 13:37:20
         logger.info("已加载词条总数：{}", entrySet.size());
 
         // 对已排序的词条重新设置编号 2017-08-29 17:50:25
@@ -324,6 +338,21 @@ public final class ImeDictAnalyzer {
      */
     public static void addEntryFile(String fileName, String type) {
         FILE_TYPE.put(fileName, type);
+    }
+
+    /**
+     * 获取郑码单字构词码
+     *
+     * @param text 单字
+     * @return 单字对应的构词破
+     * @since 2024-05-14 00:56
+     */
+    public static String getStem(String text) {
+        if (STEM_MAP.isEmpty()) {
+            Map<String, String> stemMap = ZhengmaPhraseBuilder.loadStemMap();
+            STEM_MAP.putAll(stemMap);
+        }
+        return STEM_MAP.get(text);
     }
 
     /**

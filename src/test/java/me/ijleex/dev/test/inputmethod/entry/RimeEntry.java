@@ -18,31 +18,8 @@ public class RimeEntry extends ImeEntry {
     /**
      * 构建
      */
-    public RimeEntry(String code, String text, int weight, String stem) {
-        super(code, text, weight, null, stem);
-    }
-
-    /**
-     * 输出为符合 Rime dictionary 定义的如下格式的数据：
-     *
-     * <pre>
-     * columns:
-     *   - text
-     *   - code
-     *   - weight
-     *   - stem
-     * </pre>
-     *
-     * @return TAB 分隔的词条数据，如 “一	a	1	av”
-     */
-    @Override
-    public String toString() {
-        String code = getCode();
-        String text = getText();
-        int weight = getWeight();
-        // String type = getType();
-        String stem = getStem();
-        return text + '\t' + code + '\t' + weight + '\t' + stem;
+    public RimeEntry(String text, String code, int weight, String stem) {
+        super(text, code, weight, stem, null);
     }
 
 }

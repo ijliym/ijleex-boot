@@ -29,65 +29,66 @@ import lombok.Setter;
 public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
 
     /**
-     * 编码
-     */
-    private final String code;
-    /**
      * 词条（即要输出的内容）
      */
     private final String text;
+    /**
+     * 编码
+     */
+    private final String code;
+
     /**
      * 词频（权重），用于词条排序
      */
     @Setter
     private int weight;
-
-    /**
-     * 类型（用于多多输入法，如 #类1、#类2、#次、#用 等）
-     */
-    private final String type;
     /**
      * 构词码（用于Rime输入法）
      */
     private final String stem;
 
     /**
+     * 类型（用于多多输入法，如{@code -}、{@code 类1}、{@code 类2}、…、{@code 次}、{@code 用}等）
+     */
+    private final String type;
+
+    /**
      * 构建词条
      *
-     * @param code 代码，不能为空
      * @param text 词条，不能为空
+     * @param code 代码，不能为空
      */
-    public ImeEntry(String code, String text) {
-        this(code, text, 0);
+    public ImeEntry(String text, String code) {
+        this(text, code, 0);
     }
 
     /**
      * 构建词条
      *
-     * @param code 代码，不能为空
      * @param text 词条，不能为空
+     * @param code 代码，不能为空
      * @param weight 词频
      * @since 2024-05-09 22:44
      */
-    public ImeEntry(String code, String text, int weight) {
-        this(code, text, weight, null, null);
+    public ImeEntry(String text, String code, int weight) {
+        this(text, code, weight, null, null);
     }
 
     /**
      * 构建词条
      *
-     * @param code 代码，不能为空
      * @param text 词条，不能为空
+     * @param code 代码，不能为空
      * @param weight 词频（权重）
-     * @param type 类型
      * @param stem 构词码（用于Rime输入法）
+     * @param type 类型
      */
-    ImeEntry(String code, String text, int weight, String type, String stem) {
-        this.code = code;
+    ImeEntry(String text, String code, int weight, String stem, String type) {
         this.text = text;
+        this.code = code;
         this.weight = weight;
-        this.type = type;
         this.stem = stem;
+        this.type = type;
     }
 
     @Override
@@ -113,8 +114,7 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
      * @see java.util.List#contains(Object)
      * @see java.util.List#indexOf(Object)
      * @see java.util.ArrayList#indexOf(java.lang.Object)
-     * @since 2018-03-22 11:10:07 重写equals方法，用于 {@link me.ijleex.dev.test.inputmethod.wubi4me.WubiTest#testRearrange()}
-     * 方法中 “entryList.indexOf(entry)” 判断
+     * @since 2018-03-22 11:10:07 重写equals方法
      */
     @Override
     public boolean equals(Object obj) {
@@ -126,11 +126,11 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
         }
         // 两个词条是否相同，仅判断 编码与汉字 是否相同
         ImeEntry that = (ImeEntry) obj;
-        return Objects.equals(this.code, that.code) && Objects.equals(this.text, that.text);
+        return Objects.equals(this.text, that.text) && Objects.equals(this.code, that.code);
     }
 
     /**
-     * 计算 Hash 值：{@link #code}、{@link #text}
+     * 计算 Hash 值：{@link #text}、{@link #code}
      *
      * @return 对象的 Hash 值
      * @see java.util.HashSet#add
@@ -138,7 +138,7 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(this.code, this.text);
+        return Objects.hash(this.text, this.code);
     }
 
     /**
@@ -177,13 +177,27 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
     }
 
     /**
-     * 将编码（code）与词条（text）按 TAB 分隔输出
+     * 将词条（text）与编码（code）按 TAB 分隔输出
      *
-     * @return TAB 分隔的词条数据，如 “aaaa	工”、“aaaa	恭恭敬敬” 等
+     * <p>默认输出符合<a href="https://rime.im/">RIME</a>输入法格式的词条，格式如下：</p>
+     *
+     * <pre>
+     * columns:
+     *   - text
+     *   - code
+     *   - weight
+     *   - stem
+     * </pre>
+     *
+     * @return TAB 分隔的词条数据，如 “一	a	1	av”、“一下	aa	3182” 等
      */
     @Override
     public String toString() {
-        return this.text + '\t' + this.code;
+        if (this.stem == null || this.stem.isEmpty()) {
+            return this.text + '\t' + this.code + '\t' + this.weight;
+        } else {
+            return this.text + '\t' + this.code + '\t' + this.weight + '\t' + this.stem;
+        }
     }
 
 }

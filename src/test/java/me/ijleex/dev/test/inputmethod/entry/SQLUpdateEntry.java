@@ -18,19 +18,19 @@ public class SQLUpdateEntry extends ImeEntry {
     /**
      * 输出格式
      */
-    private static final String OUT_FORMAT = "UPDATE t_ime_dict SET weight=%s,type='%s',stem='%s' WHERE code='%s' AND text='%s';";
+    private static final String OUT_FORMAT = "UPDATE t_ime_dict SET weight=%s, stem='%s', type='%s' WHERE text='%s' AND code='%s';";
 
     /**
      * 构建输出格式为 {@value OUT_FORMAT} 的词条
      *
-     * @param code 代码，不能为空
      * @param text 词条，不能为空
+     * @param code 代码，不能为空
      * @param weight 词频（权重）
-     * @param type 类型
      * @param stem 构词码（用于Rime输入法）
+     * @param type 类型
      */
-    public SQLUpdateEntry(String code, String text, int weight, String type, String stem) {
-        super(code, text, weight, type, stem);
+    public SQLUpdateEntry(String text, String code, int weight, String stem, String type) {
+        super(text, code, weight, stem, type);
     }
 
     /**
@@ -43,13 +43,13 @@ public class SQLUpdateEntry extends ImeEntry {
      */
     @Override
     public String toString() {
-        String code = getCode();
         String text = getText();
+        String code = getCode();
         int weight = getWeight();
-        String type = getType();
         String stem = getStem();
-        if (isEmpty(code) || isEmpty(text)) {
-            return "代码或词条为空，不能更新。";
+        String type = getType();
+        if (isEmpty(text) || isEmpty(code)) {
+            return "词条或代码为空，不能更新。";
         }
         StringBuilder sql = new StringBuilder(120);
         sql.append("UPDATE t_ime_dict SET ");
@@ -57,22 +57,22 @@ public class SQLUpdateEntry extends ImeEntry {
             sql.append("weight=").append(weight);
             sql.append(", ");
         }
-        if (isNotEmpty(type)) {
-            sql.append("type='").append(type).append("'");
-            sql.append(", ");
-        }
         if (isNotEmpty(stem)) {
             sql.append("stem='").append(stem).append("'");
             sql.append(", ");
         }
+        if (isNotEmpty(type)) {
+            sql.append("type='").append(type).append("'");
+            sql.append(", ");
+        }
         int idx = sql.lastIndexOf(", ");
         // System.out.println("idx: " + idx);
-        sql = sql.replace(idx, idx + 1, "");
+        sql.replace(idx, idx + 1, "");
         if (sql.length() == 22) { // "UPDATE t_ime_dict SET " 的长度为 22
             return "没有可更新的属性：" + super.toString();
         } else {
-            String whereFormat = "WHERE code='%s' AND text='%s';";
-            String where = String.format(whereFormat, code, text);
+            String whereFormat = "WHERE text='%s' AND code='%s';";
+            String where = String.format(whereFormat, text, code);
             sql.append(where);
         }
         return sql.toString();
@@ -87,10 +87,11 @@ public class SQLUpdateEntry extends ImeEntry {
     }
 
     public static void main(String[] args) {
-        System.out.println(new SQLUpdateEntry("a", "一", 2048, "-", "av"));
-        System.out.println(new SQLUpdateEntry("a", "一", 0, "-", "av"));
-        System.out.println(new SQLUpdateEntry("a", "一", 2048, "-", null));
-        System.out.println(new SQLUpdateEntry("a", "成", -1, "-", null));
+        System.out.println(new SQLUpdateEntry("一", "a", 2048, "av", "-"));
+        System.out.println(new SQLUpdateEntry("一", "a", 0, "av", "-"));
+        System.out.println(new SQLUpdateEntry("一", "a", 2048, null, "-"));
+        System.out.println(new SQLUpdateEntry("成", "a", -1, null, "-"));
+        System.out.println(new SQLUpdateEntry("一下", "aa", 3182, null, "类1"));
     }
 
 }

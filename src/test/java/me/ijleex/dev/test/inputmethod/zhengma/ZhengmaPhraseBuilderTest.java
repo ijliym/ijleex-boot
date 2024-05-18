@@ -51,12 +51,11 @@ public class ZhengmaPhraseBuilderTest {
     public void build01() throws IOException {
         // 加载构词码
         String userHome = System.getProperty("user.home");
-        String stemFile = "/Documents/InputMethod/[超集郑码]/原始码表/构词码.txt";
-        Map<String, String> stemMap = ZhengmaPhraseBuilder.loadStemFile(userHome, stemFile);
+        Map<String, String> stemMap = ZhengmaPhraseBuilder.loadStemMap();
 
         // 加载构词源（要构词的词组） 2024-05-08 23:05:25
-        String srcPhrasesFile = "/Documents/InputMethod/[超集郑码]/原始码表/构词源.txt";
-        Path filePath = Paths.get(userHome, srcPhrasesFile);
+        String srcPhrasesFile = "构词源.txt";
+        Path filePath = Paths.get(userHome, DICT_PATH, srcPhrasesFile);
         List<String> srcPhrasesList = Files.readAllLines(filePath);
 
         SortedSet<ImeEntry> resultSet = ZhengmaPhraseBuilder.build(stemMap, srcPhrasesList);
@@ -78,7 +77,7 @@ public class ZhengmaPhraseBuilderTest {
         Map<String, Integer> freqMap = ExcelFrequencyLoad.load();
 
         SortedSet<ImeEntry> entrySet = new TreeSet<>();
-        ImeDictAnalyzer.loadImeDictData(DICT_PATH, "02.郑码-主码-词组.txt", entrySet, FormatType.DuoDuo);
+        ImeDictAnalyzer.loadImeDictData(DICT_PATH, "02.郑码-主码-词组.txt", entrySet, FormatType.RIME);
         logger.info("已加载词组：{}", entrySet.size());
 
         // 得到原始码表中的词组
@@ -102,9 +101,7 @@ public class ZhengmaPhraseBuilderTest {
         }
 
         // 加载构词码
-        String userHome = System.getProperty("user.home");
-        String stemFile = "/Documents/InputMethod/[超集郑码]/原始码表/构词码.txt";
-        Map<String, String> stemMap = ZhengmaPhraseBuilder.loadStemFile(userHome, stemFile);
+        Map<String, String> stemMap = ZhengmaPhraseBuilder.loadStemMap();
 
         SortedSet<ImeEntry> resultSet = ZhengmaPhraseBuilder.build(stemMap, toBuildWordSet);
         logger.info("已构建词组：{}", resultSet.size());
