@@ -159,7 +159,7 @@ public final class ImeDictAnalyzer {
             if ((stem == null) && "-".equals(type) || "次".equals(type)) {
                 stem = getStem(text);
             }
-            entry = new RimeEntry(text, code, weight, stem);
+            entry = new RimeEntry(text, code, weight, stem, type);
         } else if (FormatType.DB_DATA_LOAD == formatType) {
             entry = new DBLoadEntry(text, code, weight, stem, type);
         } else if (FormatType.SQL_INSERT == formatType) {

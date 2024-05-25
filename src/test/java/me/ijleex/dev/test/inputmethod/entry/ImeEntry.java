@@ -48,7 +48,7 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
     private final String stem;
 
     /**
-     * 类型（用于多多输入法，如{@code -}、{@code 类1}、{@code 类2}、…、{@code 次}、{@code 用}等）
+     * 类型（用于多多输入法，如{@code -}、{@code 类1}、{@code 类2}、{@code 类3}、…、{@code 次}、{@code 用}等）
      */
     private final String type;
 
@@ -83,7 +83,7 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
      * @param stem 构词码（用于Rime输入法）
      * @param type 类型
      */
-    ImeEntry(String text, String code, int weight, String stem, String type) {
+    protected ImeEntry(String text, String code, int weight, String stem, String type) {
         this.text = text;
         this.code = code;
         this.weight = weight;
@@ -104,6 +104,16 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
     @Override
     public CharSequence subSequence(int start, int end) {
         throw new UnsupportedOperationException("subSequence");
+    }
+
+    /**
+     * 判断当前词条是否为词组
+     *
+     * @return true/false
+     * @since 2024-05-25 16:26
+     */
+    private boolean isPhrase() {
+        return "类1".equals(this.type);
     }
 
     /**
@@ -160,17 +170,26 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
         // 先按编码升序排序
         String thisCode = this.getCode();
         String thatCode = that.getCode();
-        int result = thisCode.compareTo(thatCode);
+        boolean isPhrase = this.isPhrase();
+        int result = 0;
+        if (isPhrase) { // 使词组的二字词排在前面
+            int thisLen = thisCode.length();
+            int thatLen = thatCode.length();
+            result = Integer.compare(thisLen, thatLen);
+        }
         if (result == 0) {
-            // 再按词频降序排序
-            int thisWeight = this.getWeight();
-            int thatWeight = that.getWeight();
-            result = Integer.compare(thatWeight, thisWeight);
+            result = thisCode.compareTo(thatCode);
             if (result == 0) {
-                // 最后按词条的Unicode码升序排序 2018-08-24 17:57
-                String thisText = this.getText();
-                String thatText = that.getText();
-                result = thisText.compareTo(thatText);
+                // 再按词频降序排序
+                int thisWeight = this.getWeight();
+                int thatWeight = that.getWeight();
+                result = Integer.compare(thatWeight, thisWeight);
+                if (result == 0) {
+                    // 最后按词条的Unicode码升序排序 2018-08-24 17:57
+                    String thisText = this.getText();
+                    String thatText = that.getText();
+                    result = thisText.compareTo(thatText);
+                }
             }
         }
         return result;

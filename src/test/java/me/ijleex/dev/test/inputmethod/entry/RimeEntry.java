@@ -18,8 +18,8 @@ public class RimeEntry extends ImeEntry {
     /**
      * 构建
      */
-    public RimeEntry(String text, String code, int weight, String stem) {
-        super(text, code, weight, stem, null);
+    public RimeEntry(String text, String code, int weight, String stem, String type) {
+        super(text, code, weight, stem, type);
     }
 
 }
