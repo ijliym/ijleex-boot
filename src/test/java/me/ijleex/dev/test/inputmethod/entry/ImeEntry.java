@@ -13,12 +13,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * 输入法词条（五笔/郑码）
- *
- * <p>通过 {@link #toString()} 方法输出为符合 MySQL “LOAD DATA INFILE” 语法格式的字符串 </p>
+ * 输入法词条（五笔/郑码）.
  *
  * @author liym
  * @version 2018-03-20 14:25:26 实现 CharSequence，以便用 Files 中的方法读取、写入文件
+ * @see #toString()
  * @see java.util.SortedSet
  * @see java.util.TreeSet#add(java.lang.Object)
  * @see #compareTo(ImeEntry)
@@ -91,6 +90,12 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
         this.type = type;
     }
 
+    /**
+     * 获取当前词条长度（返回编码长度）
+     *
+     * @return 词条编码长度
+     * @since 2024-05-26 10:25
+     */
     @Override
     public int length() {
         return this.code.length();
@@ -131,7 +136,7 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
         if (this == obj) {
             return true;
         }
-        if (obj == null || this.getClass() != obj.getClass()) {
+        if (!(obj instanceof ImeEntry)) {
             return false;
         }
         // 两个词条是否相同，仅判断 编码与汉字 是否相同
@@ -159,6 +164,7 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
      * @param that 待对比对象
      * @return 顺序
      * @see java.util.TreeMap#put(Object, Object)
+     * @see java.util.SortedSet#contains(Object)
      * @since 2024-05-09 22:36
      */
     @Override
@@ -167,16 +173,16 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
             return 1;
         }
 
+        boolean isPhrase = this.isPhrase();
+        int result = 0;
+        if (isPhrase) { // 使词组中的二字词排在前面
+            int thisLen = this.length();
+            int thatLen = that.length();
+            result = Integer.compare(thisLen, thatLen);
+        }
         // 先按编码升序排序
         String thisCode = this.getCode();
         String thatCode = that.getCode();
-        boolean isPhrase = this.isPhrase();
-        int result = 0;
-        if (isPhrase) { // 使词组的二字词排在前面
-            int thisLen = thisCode.length();
-            int thatLen = thatCode.length();
-            result = Integer.compare(thisLen, thatLen);
-        }
         if (result == 0) {
             result = thisCode.compareTo(thatCode);
             if (result == 0) {
