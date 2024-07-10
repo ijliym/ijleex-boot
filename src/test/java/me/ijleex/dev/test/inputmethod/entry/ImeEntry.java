@@ -149,7 +149,7 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
      *
      * @return 对象的 Hash 值
      * @see java.util.HashSet#add
-     * @since 2018-03-27 21:51:07 重复hashCode方法，用于 HashSet 判断重复对象
+     * @since 2018-03-27 21:51:07 重写hashCode方法，用于 HashSet 判断重复对象
      */
     @Override
     public int hashCode() {
