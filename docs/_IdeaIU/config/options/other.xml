@@ -6,6 +6,8 @@
     "Markdown Split EditorLayout": "Editor only",
     "decompiler.legal.notice.accepted": "true",
     "defaultJdkConfigured": "false"
+    "experimental.ui.on.first.startup": "true",
+    "ide.memory.adjusted": "true"
   }
 }]]></component>
 </application>
