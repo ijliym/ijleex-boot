@@ -28,4 +28,6 @@
 
     <logger name="org.springframework.data.redis" level="WARN"/>
 
+    <logger name="io.undertow.request.security" level="WARN"/>
+
 </included>

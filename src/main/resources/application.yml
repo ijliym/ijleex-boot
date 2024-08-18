@@ -2,7 +2,7 @@ debug: true
 
 server:
   port: 8087
-  max-http-header-size: 8KB
+  max-http-request-header-size: 8KB
   shutdown: graceful  # 支持优雅停止服务（Ctrl+C，kill -15 <pid>）
   servlet:
     context-path: /           # ij-boot
@@ -18,5 +18,5 @@ spring:
       jmx-name: org.springframework.boot:type=Admin,name=SpringApplication
   # 运行环境：dev-开发环境、sit-集成测试、prod-生成环境
   profiles:
-    #active: dev
+    active: dev
     include: core

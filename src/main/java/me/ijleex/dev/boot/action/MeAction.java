@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2021 the original author or authors.
+ * Copyright 2011-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -8,7 +8,7 @@
 package me.ijleex.dev.boot.action;
 
 import java.util.Arrays;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
