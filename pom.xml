@@ -6,7 +6,7 @@
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.4</version>
+        <version>3.3.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -53,10 +53,10 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
-        <!--<spring-framework.version>6.1.13</spring-framework.version>-->
+        <!--<spring-framework.version>6.1.14</spring-framework.version>-->
 
         <!-- https://mvnrepository.com/artifact/com.ibm.icu/icu4j -->
-        <icu4j.version>75.1</icu4j.version>
+        <icu4j.version>76.1</icu4j.version>
         <snakeyaml.version>2.3</snakeyaml.version>
     </properties>
 
@@ -279,7 +279,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.5.0</version>
+                    <version>3.5.1</version>
                     <configuration>
                         <!-- Skipping Tests 2018-02-01 16:00:42 -->
                         <skipTests>true</skipTests>
