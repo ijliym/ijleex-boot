@@ -24,10 +24,13 @@ GRADLE_USER_HOME=%USERPROFILE%\.gradle\repository
 
 Linux (WSL/Debian) Java PATH
 vi ~/.profile
-JAVA_HOME=/usr/local/jdk-8
+JAVA_HOME=/usr/local/openjdk-17
 PATH=$JAVA_HOME/bin:$PATH
 source ~/.profile
                                     2021-02-05 18:20:20
+
+curl -fLSs https://download.bell-sw.com/java/17.0.13+12/bellsoft-jdk17.0.13+12-linux-amd64.tar.gz \
+ | sudo tar -zxv --directory "$JAVA_HOME" --strip-components 1 --no-same-owner
 
 Golang 1.10.3
 GOROOT=D:\ProgramFiles\Golang\go
