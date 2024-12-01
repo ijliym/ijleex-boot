@@ -6,7 +6,7 @@
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.5</version>
+        <version>3.4.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -15,7 +15,7 @@
     <version>2.0.0</version>
     <packaging>jar</packaging>
 
-    <name>ijleex-boot</name>
+    <name>${project.artifactId}</name>
     <description>IntelliJ IDEA Project :: Spring-Boot 3.x</description>
     <url>https://github.com/ijliym/ijleex-boot</url>
 
@@ -53,7 +53,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
-        <!--<spring-framework.version>6.1.14</spring-framework.version>-->
+        <!--<spring-framework.version>6.2.0</spring-framework.version>-->
 
         <!-- https://mvnrepository.com/artifact/com.ibm.icu/icu4j -->
         <icu4j.version>76.1</icu4j.version>
@@ -85,11 +85,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-undertow</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-websocket -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator -->

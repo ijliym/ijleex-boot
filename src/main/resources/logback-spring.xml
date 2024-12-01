@@ -40,7 +40,7 @@
     <logger name="me.ijleex.dev" level="DEBUG"/>
 
     <!-- root logger 默认级别 -->
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
     </root>

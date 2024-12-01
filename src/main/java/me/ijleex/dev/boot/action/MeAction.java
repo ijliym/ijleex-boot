@@ -14,8 +14,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringBootVersion;
 import org.springframework.core.env.Environment;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -48,7 +48,7 @@ public final class MeAction {
      * @param request 当前请求
      * @return msg
      */
-    @GetMapping(path = "/hello")
+    @RequestMapping(path = "/hello", method = RequestMethod.GET)
     public String hello(HttpServletRequest request) {
         logger.debug("Hello request: {}", request);
         String version = SpringBootVersion.getVersion();
@@ -73,7 +73,7 @@ public final class MeAction {
      * @return application.yml 中 spring.profiles.active 对应的值，没有设置，则返回 default
      * @since 2018-04-12 12:36
      */
-    @GetMapping(path = "/profiles")
+    @RequestMapping(path = "/profiles", method = RequestMethod.GET)
     public String getProfiles(HttpServletRequest request) {
         /// logger.debug("getProfiles via Environment: {}", this.env);
         String myProfile = "default";
