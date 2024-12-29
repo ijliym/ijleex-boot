@@ -58,16 +58,14 @@ public final class MeAction {
     /**
      * 获取当前 Spring-Boot 运行环境的配置文件
      *
-     * <p>spring.profiles.active</p>
-     * <p>spring.profiles.include</p>
-     * <p/>
-     * <p>
-     * 也可以使用如下方式获取：
-     * <pre>
-     * &#64;Value("${spring.profiles.active}")
-     * private String profile;
+     * <pre> {@code
+     * @Value("${spring.profiles.active}")
+     * private String activeProfile;
+     *
+     * @Value("${spring.profiles.include}")
+     * private String includeProfile;
+     * }
      * </pre>
-     * </p>
      *
      * @param request 当前请求
      * @return application.yml 中 spring.profiles.active 对应的值，没有设置，则返回 default
