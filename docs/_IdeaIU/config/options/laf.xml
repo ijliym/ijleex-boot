@@ -1,5 +1,5 @@
 <application>
   <component name="LafManager">
-    <laf class-name="com.intellij.laf.win10.WinIntelliJLaf" />
+      <laf themeId="ExperimentalLightWithLightHeader"/>
   </component>
 </application>
