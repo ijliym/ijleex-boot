@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2024 the original author or authors.
+ * Copyright 2011-2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -58,7 +58,7 @@ public final class ZhengmaPhraseBuilder {
     private static final Logger logger = LoggerFactory.getLogger(ZhengmaPhraseBuilder.class);
 
     private ZhengmaPhraseBuilder() {
-        throw new InstantiationError("No instance");
+        throw new IllegalAccessError("No instance");
     }
 
     /**
