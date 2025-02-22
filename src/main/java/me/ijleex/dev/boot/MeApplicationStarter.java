@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 the original author or authors.
+ * Copyright 2011-2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -43,17 +43,18 @@ public class MeApplicationStarter {
     static {
         ProtectionDomain protectionDomain = MeApplicationStarter.class.getProtectionDomain();
         String path = protectionDomain.getCodeSource().getLocation().getPath();
-        if (path.endsWith("!/BOOT-INF/classes!/")) { // Spring-Boot FatJar
+        if (path.endsWith("/!BOOT-INF/classes/!/")) { // Spring-Boot FatJar
             File file = getFatJarFile(protectionDomain);
             if (file != null) {
                 path = file.getParent();
             } else {
                 path = new File("").getAbsolutePath();
             }
-            System.setProperty("app.path", path);
             System.err.println("app.path=" + path);
+            System.setProperty("app.path", path);
         } else { // IDE startup
             File file = new File(path);
+            System.err.println("app.path=" + file.getParent());
             System.setProperty("app.path", file.getParent());
         }
 
