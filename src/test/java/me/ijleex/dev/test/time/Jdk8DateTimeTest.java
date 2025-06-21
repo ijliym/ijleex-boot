@@ -30,7 +30,7 @@ import org.junit.jupiter.api.Test;
  */
 public final class Jdk8DateTimeTest {
 
-    private static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    private static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss.SSS";
 
     /**
      * Pattern: 2018-11-19T11:39:21.371

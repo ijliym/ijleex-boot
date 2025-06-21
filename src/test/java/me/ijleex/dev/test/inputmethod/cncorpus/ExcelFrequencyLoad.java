@@ -15,8 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.alibaba.excel.EasyExcel;
-
+import cn.idev.excel.EasyExcel;
 import me.ijleex.dev.test.inputmethod.cncorpus.entry.FrequencyEntry;
 import me.ijleex.dev.test.inputmethod.cncorpus.entry.FrequencyExtEntry;
 

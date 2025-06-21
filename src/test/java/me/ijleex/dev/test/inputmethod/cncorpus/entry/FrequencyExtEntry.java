@@ -7,8 +7,7 @@
 
 package me.ijleex.dev.test.inputmethod.cncorpus.entry;
 
-import com.alibaba.excel.annotation.ExcelProperty;
-
+import cn.idev.excel.annotation.ExcelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
