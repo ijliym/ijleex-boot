@@ -13,7 +13,8 @@ git config --global user.email ijliym@163.com
 git config --global core.ignoreCase false
 git config --global core.quotePath false
 git config --global core.safecrlf warn
-git config --global core.autocrlf input
+git config --global core.autocrlf false
+git config --global core.eol lf
 git config --global core.checkRoundtripEncoding UTF-8
 git config --global core.whitespace cr-at-eol
 git config --global core.longpaths true
