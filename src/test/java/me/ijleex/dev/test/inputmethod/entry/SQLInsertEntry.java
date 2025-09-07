@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2024 the original author or authors.
+ * Copyright 2011-2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -34,7 +34,7 @@ public class SQLInsertEntry extends ImeEntry {
      *
      * <p>格式为：{@value OUT_FORMAT}</p>
      *
-     * @return 如 INSERT INTO t_ime_dict(text,code,weight,stem,type) VALUES('一', 'a', '81694', 'av', '-');
+     * @return 如 INSERT INTO t_ime_dict(text,code,weight,stem,type) VALUES('一', 'a', 81694, 'av', '-');
      * @since 2018-03-21 17:15:28 新建
      */
     @Override

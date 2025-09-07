@@ -59,12 +59,14 @@ public final class ImeDictAnalyzer {
      *
      * @since 2019-08-26 17:21
      */
-    private static final UnicodeSet CJK_E_F_COMP = new UnicodeSet();
+    private static final UnicodeSet CJK_EXT_COMP_SET = new UnicodeSet();
+
+    private static final UnicodeSet GB2312_SET = new UnicodeSet();
 
     /**
      * @since 2018-03-20 14:09:40 MySQL 临时目录
      */
-    private static final String OUT_PATH = "D:/ProgramFiles/MySQL/mysql-8.3.0-winx64/docs/";
+    private static final String OUT_PATH = "D:/ProgramFiles/MySQL/mysql-8.4.2-winx64/docs/";
 
     private static final Logger logger = LoggerFactory.getLogger(ImeDictAnalyzer.class);
 
@@ -154,6 +156,12 @@ public final class ImeDictAnalyzer {
      */
     public static void addEntryToList(SortedSet<ImeEntry> entrySet,
             String text, String code, int weight, String stem, String type, FormatType formatType) {
+        if ("类1".equals(type) && !GB2312_SET.isEmpty()) { // 词组
+            if (isContainsNotGB2312Chars(text)) {
+                return;
+            }
+        }
+
         ImeEntry entry = new ImeEntry(text, code);
         if (FormatType.RIME == formatType) {
             if ((stem == null) && "-".equals(type) || "次".equals(type)) {
@@ -168,6 +176,9 @@ public final class ImeDictAnalyzer {
             entry = new SQLUpdateEntry(text, code, weight, stem, type);
         }
         entrySet.add(entry);
+        // if ("-".equals(type)) {
+        //     GB2312_SET.add(text);
+        // }
     }
 
     /**
@@ -250,6 +261,9 @@ public final class ImeDictAnalyzer {
             if (isCJKEFCompChar(text)) {
                 weight = 0;
             }
+            if (CodePointUtil.isPhrase(text)) {
+                weight = defaultWeight;
+            }
         } else {
             if (weight != entry.getWeight()) {
                 logger.warn("词频不相等：text={}、获取词频={}", entry, weight);
@@ -259,34 +273,55 @@ public final class ImeDictAnalyzer {
     }
 
     /**
-     * 是否是 CJK E、F及兼容区字
+     * 是否是 CJK E、F、G、H、I等扩展区及兼容区字
      *
      * @since 2019-08-26 17:08
      */
     private static boolean isCJKEFCompChar(String ch) {
-        if (CJK_E_F_COMP.isEmpty()) {
-            // CJK Unified Ideographs Extension E
-            CJK_E_F_COMP.add(0x2B820, 0x2CEA1); // 5,762
+        if (CJK_EXT_COMP_SET.isEmpty()) {
+            // CJK Unified Ideographs Extension E  U+2B820..U+2CEAF
+            CJK_EXT_COMP_SET.add(0x2B820, 0x2CEA1); // 5,762
 
-            // CJK Unified Ideographs Extension F
-            CJK_E_F_COMP.add(0x2CEB0, 0x2EBE0); // 7,473
+            // CJK Unified Ideographs Extension F  U+2CEB0..U+2EBEF
+            CJK_EXT_COMP_SET.add(0x2CEB0, 0x2EBE0); // 7,473
 
-            // CJK Compatibility Ideographs (中日韩兼容表意文字)
-            CJK_E_F_COMP.add(0xFA0E); // 12 Unified
-            CJK_E_F_COMP.add(0xFA0F);
-            CJK_E_F_COMP.add(0xFA11);
-            CJK_E_F_COMP.add(0xFA13);
-            CJK_E_F_COMP.add(0xFA14);
-            CJK_E_F_COMP.add(0xFA1F);
-            CJK_E_F_COMP.add(0xFA21);
-            CJK_E_F_COMP.add(0xFA23);
-            CJK_E_F_COMP.add(0xFA24);
-            CJK_E_F_COMP.add(0xFA27);
-            CJK_E_F_COMP.add(0xFA28);
-            CJK_E_F_COMP.add(0xFA29);
+            // CJK Unified Ideographs Extension G  U+30000..U+3134F
+            CJK_EXT_COMP_SET.add(0x30000, 0x3134A); // 4,939
+
+            // CJK Unified Ideographs Extension H  U+31350..U+323AF
+            CJK_EXT_COMP_SET.add(0x31350, 0x323AF); // 4,192
+
+            // CJK Unified Ideographs Extension I  U+2EBF0..U+2EE5F
+            CJK_EXT_COMP_SET.add(0x2EBF0, 0x2EE5D); // 4,192
+
+            // CJK Compatibility Ideographs (中日韩兼容表意文字)  U+F900..U+FAFF
+            CJK_EXT_COMP_SET.add(0xFA0E); // 12 Unified
+            CJK_EXT_COMP_SET.add(0xFA0F);
+            CJK_EXT_COMP_SET.add(0xFA11);
+            CJK_EXT_COMP_SET.add(0xFA13);
+            CJK_EXT_COMP_SET.add(0xFA14);
+            CJK_EXT_COMP_SET.add(0xFA1F);
+            CJK_EXT_COMP_SET.add(0xFA21);
+            CJK_EXT_COMP_SET.add(0xFA23);
+            CJK_EXT_COMP_SET.add(0xFA24);
+            CJK_EXT_COMP_SET.add(0xFA27);
+            CJK_EXT_COMP_SET.add(0xFA28);
+            CJK_EXT_COMP_SET.add(0xFA29);
         }
 
-        return CJK_E_F_COMP.contains(ch);
+        return CJK_EXT_COMP_SET.contains(ch);
+    }
+
+    private static boolean isContainsNotGB2312Chars(String text) {
+        char[] chars = text.toCharArray();
+        boolean result = false;
+        for (char ch : chars) {
+            if (!GB2312_SET.contains(ch)) {
+                result = true;
+                break;
+            }
+        }
+        return result;
     }
 
     /**

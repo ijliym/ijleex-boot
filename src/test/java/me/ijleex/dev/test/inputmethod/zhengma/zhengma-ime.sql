@@ -1,7 +1,14 @@
+/*
+ * Copyright 2011-2025 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0.
+ * See `LICENSE` in the project root for license information.
+ */
 
-USE db_ime_dict;
+--
+-- https://www.postgresql.org/docs/current/sql-copy.html
+--
 
--- ----------------------------------------------------------
 TRUNCATE TABLE t_ime_dict;
 
 -- 加载词条（https://dev.mysql.com/doc/refman/5.7/en/load-data.html）
@@ -25,29 +32,4 @@ SELECT code,text,weight,stem FROM t_ime_dict ORDER BY code,weight DESC
 INTO OUTFILE 'D:/ProgramFiles/MySQL/mysql-8.0.20-winx64/docs/1.t_ime_dict-zm-rime.txt'
 FIELDS TERMINATED BY '\t' ENCLOSED BY '' ESCAPED BY '\\'
 LINES  STARTING BY '' TERMINATED BY '\n';
-
--- ----------------------------------------------------------
-
-TRUNCATE TABLE t_ime_dict_py;
-
--- 加载拼音词条
-LOAD DATA INFILE 'D:/ProgramFiles/MySQL/mysql-8.0.20-winx64/docs/2.t_ime_dict_py.txt'
-INTO TABLE t_ime_dict_py
-FIELDS TERMINATED BY '\t' ENCLOSED BY '' ESCAPED BY '\\'
-LINES  STARTING BY '' TERMINATED BY '\n'
-(code,text,weight,type);
-
--- 导出拼音词条（可直接导入到多多输入法）
-SELECT text,code FROM t_ime_dict_py ORDER BY code,weight DESC
-INTO OUTFILE 'D:/ProgramFiles/MySQL/mysql-8.0.20-winx64/docs/2.t_ime_dict_py-dd.txt'
-FIELDS TERMINATED BY '\t' ENCLOSED BY '' ESCAPED BY '\\'
-LINES  STARTING BY '' TERMINATED BY '\n';
-
--- 导出拼音词条（用于 Rime输入法 2017-09-06 12:45:49）
-SELECT code,text,weight FROM t_ime_dict_py ORDER BY code,weight DESC
-INTO OUTFILE 'D:/ProgramFiles/MySQL/mysql-8.0.20-winx64/docs/2.t_ime_dict_py-rime.txt'
-FIELDS TERMINATED BY '\t' ENCLOSED BY '' ESCAPED BY '\\'
-LINES  STARTING BY '' TERMINATED BY '\n';
-
--- ----------------------------------------------------------
 

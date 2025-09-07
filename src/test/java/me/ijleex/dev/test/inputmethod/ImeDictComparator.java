@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2020 the original author or authors.
+ * Copyright 2011-2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -62,7 +62,7 @@ public class ImeDictComparator {
         List<String> chars = Files.readAllLines(path);
         chars.forEach(dictSet::add);
 
-        UnicodeSet cjkSet = CodePointUtil.buildCJKUnifiedIdeographsSet();
+        UnicodeSet cjkSet = CodePointUtil.getCJKUnifiedIdeographsSet();
         cjkSet.forEach(ch -> {
             if (!dictSet.contains(ch)) {
                 System.out.println("> " + ch);

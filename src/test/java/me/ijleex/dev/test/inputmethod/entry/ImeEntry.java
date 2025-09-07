@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2024 the original author or authors.
+ * Copyright 2011-2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -181,9 +181,9 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
             result = Integer.compare(thisLen, thatLen);
         }
         // 先按编码升序排序
-        String thisCode = this.getCode();
-        String thatCode = that.getCode();
         if (result == 0) {
+            String thisCode = this.getCode();
+            String thatCode = that.getCode();
             result = thisCode.compareTo(thatCode);
             if (result == 0) {
                 // 再按词频降序排序
