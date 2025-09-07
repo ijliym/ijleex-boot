@@ -1,6 +1,3 @@
-const url = "";
-const params = {}
-
 /**
  * 下载文件
  * @param url 下载文件地址
@@ -38,6 +35,9 @@ async function download(url, params) {
         console.error('Error: ', error.message);
     }
 }
+
+const url = "";
+const params = {}
 
 download(url, params).then(r => {
 })
