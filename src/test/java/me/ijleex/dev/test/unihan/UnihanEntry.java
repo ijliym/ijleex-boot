@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2020 the original author or authors.
+ * Copyright 2011-2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -16,14 +16,8 @@ import java.util.Objects;
  * @version 2018-03-20 14:58:15 实现 CharSequence，因为 {@link java.nio.file.Files#write}
  * @since 2017-09-07 11:12 新建
  */
-public class UnihanEntry implements CharSequence {
-
-    private final String hanChar;
-
-    private final int codePoint;
-    private final String codePointHex;
-
-    private final String unicodeBlock;
+public record UnihanEntry(String hanChar, int codePoint, String codePointHex, String unicodeBlock)
+        implements CharSequence {
 
     /**
      * 构建
@@ -34,27 +28,7 @@ public class UnihanEntry implements CharSequence {
      * @param unicodeBlock 所属的 Unicode 分块
      * @since 2019-09-18 13:36
      */
-    public UnihanEntry(String hanChar, int codePoint, String codePointHex, String unicodeBlock) {
-        this.hanChar = hanChar;
-        this.codePoint = codePoint;
-        this.codePointHex = codePointHex;
-        this.unicodeBlock = unicodeBlock;
-    }
-
-    public String getHanChar() {
-        return this.hanChar;
-    }
-
-    public int getCodePoint() {
-        return this.codePoint;
-    }
-
-    public String getCodePointHex() {
-        return this.codePointHex;
-    }
-
-    public String getUnicodeBlock() {
-        return this.unicodeBlock;
+    public UnihanEntry {
     }
 
     @Override
@@ -64,7 +38,7 @@ public class UnihanEntry implements CharSequence {
 
     @Override
     public char charAt(int index) {
-        return 0;
+        throw new UnsupportedOperationException("charAt");
     }
 
     @Override
@@ -75,22 +49,16 @@ public class UnihanEntry implements CharSequence {
     /**
      * {@inheritDoc}
      *
-     * @param anObject 对象
+     * @param o 对象
      * @return true/false
      * @since 2018-04-25 09:31 重写 equals(Object) 方法
      */
     @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
+    public boolean equals(Object o) {
+        if (!(o instanceof UnihanEntry that)) {
+            return false;
         }
-        if (anObject instanceof UnihanEntry) {
-            UnihanEntry anotherEntry = (UnihanEntry) anObject;
-            boolean eq1 = Objects.equals(this.hanChar, anotherEntry.hanChar);
-            boolean eq2 = (this.codePoint == anotherEntry.codePoint);
-            return eq1 && eq2;
-        }
-        return false;
+        return Objects.equals(this.hanChar, that.hanChar) && this.codePoint == that.codePoint;
     }
 
     /**
@@ -102,8 +70,7 @@ public class UnihanEntry implements CharSequence {
     @Override
     public int hashCode() {
         // hanChar 不能等于空（空字符串与NULL）
-        int hash = this.hanChar.hashCode();
-        return hash * 17 + this.codePoint * 19;
+        return Objects.hash(this.hanChar, this.codePoint);
     }
 
     /**
@@ -113,7 +80,7 @@ public class UnihanEntry implements CharSequence {
      */
     @Override
     public String toString() {
-        return this.hanChar + '\t' + this.codePoint + '\t' + this.codePointHex + '\t' + this.unicodeBlock;
+        return this.hanChar + "\t" + this.codePoint + "\t" + this.codePointHex + "\t" + this.unicodeBlock;
     }
 
 }

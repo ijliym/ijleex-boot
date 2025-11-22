@@ -1,8 +1,4 @@
 server:
-  servlet:
-    encoding:
-      charset: UTF-8
-      force: true
   tomcat:
     accesslog:
       enabled: true
@@ -35,16 +31,21 @@ spring:
     timeout-per-shutdown-phase: 30s  # 停止服务等待时间
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
-    property-naming-strategy: com.fasterxml.jackson.databind.PropertyNamingStrategies.LowerCamelCaseStrategy
+    property-naming-strategy: tools.jackson.databind.PropertyNamingStrategies.LowerCamelCaseStrategy
     serialization:
-      WRITE_DATES_AS_TIMESTAMPS: true
-      FAIL_ON_EMPTY_BEANS: true
+      fail-on-empty-beans: true
     deserialization:
-      FAIL_ON_UNKNOWN_PROPERTIES: false
+      fail-on-unknown-properties: false
     mapper:
-      USE_GETTERS_AS_SETTERS: true
-    parser:
-      ALLOW_SINGLE_QUOTES: true
+      use-getters-as-setters: true
+    json:
+      read:
+        # 允许出现单引号
+        allow-single-quotes: true
+        # 允许出现特殊字符和转义符
+        allow-unescaped-control-chars: true
+        # 自动处理反斜线
+        allow-backslash-escaping-any-character: true
     default-property-inclusion: non_null
     time-zone: Asia/Shanghai    # 使用 GMT+8 需要更多地解析
     locale: zh_CN
@@ -54,6 +55,9 @@ spring:
       enabled: true
       max-file-size: 2MB
       max-request-size: 20MB
+    encoding:
+      charset: UTF-8
+      force: true
   jmx:
     enabled: true
     default-domain: org.springframework.boot

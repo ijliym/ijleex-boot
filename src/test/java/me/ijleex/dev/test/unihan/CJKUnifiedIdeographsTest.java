@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2020 the original author or authors.
+ * Copyright 2011-2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -74,7 +74,7 @@ public class CJKUnifiedIdeographsTest {
         int size = unicodeSet.size();
         List<UnihanEntry> list = new ArrayList<>(size);
 
-        unicodeSet.forEach(hanChar -> addTo(list, hanChar, unicodeBlock));
+        unicodeSet.forEach(hanChar -> this.addTo(list, hanChar, unicodeBlock));
 
         return list;
     }

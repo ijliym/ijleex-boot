@@ -6,7 +6,7 @@
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.5</version>
+        <version>4.0.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -53,10 +53,10 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
-        <!--<spring-framework.version>6.2.10</spring-framework.version>-->
+        <!--<spring-framework.version>7.0.1</spring-framework.version>-->
 
         <!-- https://mvnrepository.com/artifact/com.ibm.icu/icu4j -->
-        <icu4j.version>77.1</icu4j.version>
+        <icu4j.version>78.1</icu4j.version>
         <snakeyaml.version>2.5</snakeyaml.version>
     </properties>
 
@@ -73,18 +73,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-undertow -->
-        <!-- 使用 Undertow 作为内嵌的 Servlet 容器 2018-01-30 10:48:28 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator -->
@@ -140,7 +128,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.40</version>
+            <version>1.18.42</version>
             <scope>provided</scope>
         </dependency>
 
@@ -209,12 +197,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.14.0</version>
+                    <version>3.14.1</version>
                     <!-- http://maven.apache.org/plugins/maven-compiler-plugin/index.html -->
                     <configuration>
-                        <encoding>${project.build.sourceEncoding}</encoding>
                         <source>${maven.compiler.source}</source>
                         <target>${maven.compiler.target}</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
 
                         <meminitial>256m</meminitial>
                         <maxmem>1024m</maxmem>
@@ -238,7 +226,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.4.2</version>
+                    <version>3.5.0</version>
                     <configuration>
                         <archive>
                             <manifest>
@@ -262,7 +250,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
-                    <version>3.8.1</version>
+                    <version>3.9.0</version>
                     <executions>
                         <execution>
                             <id>copy-dependencies</id>
@@ -329,7 +317,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.5.3</version>
+                    <version>3.5.4</version>
                     <configuration>
                         <!-- Skipping Tests 2018-02-01 16:00:42 -->
                         <skipTests>true</skipTests>
