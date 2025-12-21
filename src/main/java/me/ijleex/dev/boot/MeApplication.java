@@ -24,9 +24,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 2018-04-10 18:14 新建
  */
 @SpringBootApplication
-public class MeApplicationStarter {
+public class MeApplication {
 
-    public MeApplicationStarter() {
+    public MeApplication() {
     }
 
     /**
@@ -36,12 +36,12 @@ public class MeApplicationStarter {
      * @see SpringApplication#run(Class, String...)
      */
     public static void main(String[] args) {
-        SpringApplication app = new SpringApplication(MeApplicationStarter.class);
+        SpringApplication app = new SpringApplication(MeApplication.class);
         app.run(args);
     }
 
     static {
-        ProtectionDomain protectionDomain = MeApplicationStarter.class.getProtectionDomain();
+        ProtectionDomain protectionDomain = MeApplication.class.getProtectionDomain();
         String path = protectionDomain.getCodeSource().getLocation().getPath();
         if (path.endsWith("/!BOOT-INF/classes/!/")) { // Spring-Boot FatJar
             File file = getFatJarFile(protectionDomain);
