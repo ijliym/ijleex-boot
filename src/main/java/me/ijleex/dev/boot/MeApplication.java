@@ -8,11 +8,7 @@
 package me.ijleex.dev.boot;
 
 import java.io.File;
-import java.io.FilePermission;
-import java.security.Permission;
-import java.security.PermissionCollection;
 import java.security.ProtectionDomain;
-import java.util.Enumeration;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -43,8 +39,8 @@ public class MeApplication {
     static {
         ProtectionDomain protectionDomain = MeApplication.class.getProtectionDomain();
         String path = protectionDomain.getCodeSource().getLocation().getPath();
-        if (path.endsWith("/!BOOT-INF/classes/!/")) { // Spring-Boot FatJar
-            File file = getFatJarFile(protectionDomain);
+        if (path.startsWith("nested:") && path.endsWith("/!BOOT-INF/classes/!/")) { // Spring-Boot FatJar
+            File file = getFatJarFile(path);
             if (file != null) {
                 path = file.getParent();
             } else {
@@ -63,31 +59,18 @@ public class MeApplication {
     }
 
     /**
-     * 根据{@link ProtectionDomain}获取启动Spring-Boot服务的FatJar文件.
+     * 获取启动Spring-Boot服务的FatJar文件.
      *
-     * <p>当使用Linux系统 {@code cron} 服务启动 Spring-Boot 项目时，{@code path = new File("").getAbsolutePath()}
-     * 会获取到当前用户的根目录路径（/home/xxx），致使依赖 {@code ${app.path}/log} 的日志目录会出现在用户根目录下，而不是项目目录下。</p>
-     *
-     * @param protectionDomain {@link ProtectionDomain}
+     * @param path {@link java.security.CodeSource}类加载器加载的代码来源路径
      * @return Spring-Boot FatJar 文件
      * @author liym
-     * @since 2023-02-17 11:08
+     * @since 2025-12-27 22:25:27
      */
-    private static File getFatJarFile(ProtectionDomain protectionDomain) {
-        PermissionCollection permissions = protectionDomain.getPermissions();
-        Enumeration<Permission> elements = permissions.elements();
-        File file = null;
-        while (elements.hasMoreElements()) {
-            Permission permission = elements.nextElement();
-            if (permission instanceof FilePermission) {
-                String fileName = permission.getName();
-                file = new File(fileName);
-                if (file.canRead()) {
-                    break;
-                }
-            }
-        }
-        return file;
+    private static File getFatJarFile(String path) {
+        // nested:/path/to/spring-boot-x.x.x-exec.jar/!BOOT-INF/classes/!/
+        path = path.replaceAll("nested:", "").replaceAll("/!BOOT-INF/classes/!/", "");
+        File file = new File(path);
+        return (file.canRead() && file.isFile()) ? file : null;
     }
 
 }
