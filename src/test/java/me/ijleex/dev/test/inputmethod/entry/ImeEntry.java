@@ -9,9 +9,6 @@ package me.ijleex.dev.test.inputmethod.entry;
 
 import java.util.Objects;
 
-import lombok.Getter;
-import lombok.Setter;
-
 /**
  * 输入法词条（五笔/郑码）.
  *
@@ -24,7 +21,6 @@ import lombok.Setter;
  * @since 2017-08-07 15:04 新建
  * @since 2024-05-09 23:10 实现 Comparable
  */
-@Getter
 public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
 
     /**
@@ -39,7 +35,6 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
     /**
      * 词频（权重），用于词条排序
      */
-    @Setter
     private int weight;
     /**
      * 构词码（用于Rime输入法）
@@ -90,6 +85,30 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
         this.type = type;
     }
 
+    public String getText() {
+        return this.text;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public int getWeight() {
+        return this.weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public String getStem() {
+        return this.stem;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
     /**
      * 获取当前词条长度（返回编码长度）
      *
@@ -112,16 +131,6 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
     }
 
     /**
-     * 判断当前词条是否为词组
-     *
-     * @return true/false
-     * @since 2024-05-25 16:26
-     */
-    private boolean isPhrase() {
-        return "类1".equals(this.type);
-    }
-
-    /**
      * 重写 equals 方法，用于判断两个词条是否相同
      *
      * @param obj 对象
@@ -136,11 +145,10 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
         if (this == obj) {
             return true;
         }
-        if (!(obj instanceof ImeEntry)) {
+        if (!(obj instanceof ImeEntry that)) {
             return false;
         }
         // 两个词条是否相同，仅判断 编码与汉字 是否相同
-        ImeEntry that = (ImeEntry) obj;
         return Objects.equals(this.text, that.text) && Objects.equals(this.code, that.code);
     }
 
@@ -199,6 +207,16 @@ public class ImeEntry implements CharSequence, Comparable<ImeEntry> {
             }
         }
         return result;
+    }
+
+    /**
+     * 判断当前词条是否为词组
+     *
+     * @return true/false
+     * @since 2024-05-25 16:26
+     */
+    private boolean isPhrase() {
+        return "类1".equals(this.type);
     }
 
     /**
