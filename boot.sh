@@ -12,7 +12,8 @@ HALF_MEM=$((MEM / 2))
 MIN_MEM=$((HALF_MEM / 3))
 # which java
 JAVA_EXEC="java"
-JAVA_OPTS="-server -Xms${HALF_MEM}m -Xmx${HALF_MEM}m -Xmn${MIN_MEM}m -Xss1m"
+# java --help-extra
+JAVA_OPTS="-server -Xmn${MIN_MEM}m -Xms${HALF_MEM}m -Xmx${HALF_MEM}m -Xss1m"
 DEBUG_OPTS=""
 
 DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -31,17 +32,19 @@ start() {
 
   PID=$(pgrep -fn "${APP_FILE}")
   if [ -z "${PID}" ]; then
-    echo "[INFO] Starting App: java ${DEBUG_OPTS} ${JAVA_OPTS} -jar ${APP_FILE} ${APP_ARGS}" >>"${DIR}/boot.log"
+    echo "[INFO] Starting App: java ${DEBUG_OPTS} ${JAVA_OPTS} -jar ${APP_FILE} ${APP_ARGS}  $(date +"%F %T")" >>"${DIR}/boot.log"
+    # java -XX:+PrintFlagsFinal -version
     nohup $JAVA_EXEC $DEBUG_OPTS $JAVA_OPTS -XX:+UseG1GC \
-      -XX:InitialCodeCacheSize=240m -XX:ReservedCodeCacheSize=240m -XX:MaxMetaspaceSize=256m \
+      -XX:InitialCodeCacheSize=2m -XX:ReservedCodeCacheSize=240m \
+      -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=256m \
       -XX:+AlwaysPreTouch -XX:ParallelGCThreads=8 \
       -Djava.awt.headless=true -Duser.timezone=Asia/Shanghai -Dfile.encoding=UTF-8 \
       -jar $APP_FILE $APP_ARGS >/dev/null 2>&1 &
 
     PID=$!
-    echo "[SUCCESS] App started... (PID: ${PID})"
+    echo "[SUCCESS] App started... (PID: ${PID})  $(date +"%F %T")"
   else
-    echo "[WARN] App is running... (PID: ${PID})"
+    echo "[WARN] App is running... (PID: ${PID})  $(date +"%F %T")"
   fi
   return 0
 }
@@ -52,15 +55,15 @@ stop() {
 
   PID=$(pgrep -fn "${APP_FILE}")
   if [ -z "${PID}" ]; then
-    echo "[WARN] App is not running"
+    echo "[WARN] App is not running  $(date +"%F %T")"
   else
-    echo "[INFO] Stopping App... (PID: ${PID})"
+    echo "[INFO] Stopping App... (PID: ${PID})  $(date +"%F %T")"
     if [ "${RESTART}" = "restart" ]; then
       kill -9 "${PID}"
     else
       kill -15 "${PID}"
     fi
-    echo "[SUCCESS] App stopped"
+    echo "[SUCCESS] App stopped  $(date +"%F %T")"
   fi
   return 0
 }
@@ -78,9 +81,9 @@ restart() {
 status() {
   PID=$(pgrep -fn "${APP_FILE}")
   if [ -z "${PID}" ]; then
-    echo "[WARN] App is not running"
+    echo "[WARN] App is not running  $(date +"%F %T")"
   else
-    echo "[INFO] App is running... (PID: ${PID})"
+    echo "[INFO] App is running... (PID: ${PID})  $(date +"%F %T")"
   fi
   return 0
 }
@@ -95,7 +98,7 @@ usage() {
 main() {
   # 启动命令：start/stop/restart/status/...
   CMD="$1" DEBUG="$2"
-  echo "[INFO] sh $0 $1 $2" >>"${DIR}/boot.log"
+  echo "[INFO] sh $0 $1 $2  $(date +"%F %T")" >>"${DIR}/boot.log"
 
   case "${CMD}" in
   start) start "${DEBUG}" ;;
