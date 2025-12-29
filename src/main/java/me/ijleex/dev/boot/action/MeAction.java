@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2024 the original author or authors.
+ * Copyright 2011-2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -74,10 +74,12 @@ public final class MeAction {
     @RequestMapping(path = "/profiles", method = RequestMethod.GET)
     public String getProfiles(HttpServletRequest request) {
         /// logger.debug("getProfiles via Environment: {}", this.env);
-        String myProfile = "default";
         String[] activeProfiles = this.env.getActiveProfiles();
+        String myProfile;
         if (activeProfiles.length > 0) {
             myProfile = Arrays.toString(activeProfiles);
+        } else {
+            myProfile = "default";
         }
         logger.debug("getProfiles: {}", myProfile);
         return myProfile;
