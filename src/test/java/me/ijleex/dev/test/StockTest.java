@@ -28,7 +28,7 @@ public final class StockTest {
 
     public static void main(String[] args) {
         // 每月涨幅
-        List<? extends Number> incRates = List.of(
+        List<? extends Number> incrRates = List.of(
                 84.49d,   //  1月，冀东装备
                 226.65d,  //  2月，万达轴承
                 135.41d,  //  3月，中毅达
@@ -45,9 +45,9 @@ public final class StockTest {
         double x = 10000.0d; // 本金，1万
         String n = Double.toString(x);
         System.out.println(" 本金：" + n);
-        for (int i = 0, s = incRates.size(); i < s; i++) {
-            Number incRate = incRates.get(i);
-            n = calcMarketValue(n, incRate.toString());
+        for (int i = 0, s = incrRates.size(); i < s; i++) {
+            Number incrRate = incrRates.get(i);
+            n = calcMarketValue(n, incrRate.toString());
             System.out.println(StringUtils.leftPad(Integer.toString(i + 1), 2) + "月：" + n);
         }
     }
@@ -56,13 +56,13 @@ public final class StockTest {
      * 根据本金与涨幅计算股票盈亏，并得到市值
      *
      * @param principal 本金
-     * @param incRate 涨幅（不含百分比）
-     * @return 股票市值：{@code principal + (principal * incRate / 100)}
+     * @param incrRate 涨幅（不含百分比）
+     * @return 股票市值：{@code principal + (principal * incrRate / 100)}
      * @since 2025-12-31 19:51
      */
-    private static String calcMarketValue(String principal, String incRate) {
+    private static String calcMarketValue(String principal, String incrRate) {
         BigDecimal n = new BigDecimal(principal);
-        BigDecimal profit = n.multiply(new BigDecimal(incRate)).divide(ONE_HUNDRED, RoundingMode.HALF_EVEN); // 盈亏金额
+        BigDecimal profit = n.multiply(new BigDecimal(incrRate)).divide(ONE_HUNDRED, RoundingMode.HALF_EVEN); // 盈亏金额
         return n.add(profit).toPlainString();
     }
 
