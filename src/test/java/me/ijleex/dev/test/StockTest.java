@@ -8,7 +8,6 @@
 package me.ijleex.dev.test;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -21,7 +20,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public final class StockTest {
 
-    private static final BigDecimal ONE_HUNDRED = new BigDecimal("100.0");
+    private static final BigDecimal INVERSE_HUNDRED = new BigDecimal("0.01"); // 1/100
 
     private StockTest() {
     }
@@ -43,8 +42,8 @@ public final class StockTest {
                 223.39d); // 12月，胜通能源
 
         double x = 10000.0d; // 本金，1万
+        System.out.println(" 本金：" + x);
         String n = Double.toString(x);
-        System.out.println(" 本金：" + n);
         for (int i = 0, s = incrRates.size(); i < s; i++) {
             Number incrRate = incrRates.get(i);
             n = calcMarketValue(n, incrRate.toString());
@@ -55,6 +54,8 @@ public final class StockTest {
     /**
      * 根据本金与涨幅计算股票盈亏，并得到市值
      *
+     * <p>{@code principal * (1 + incrRate / 100)}</p>
+     *
      * @param principal 本金
      * @param incrRate 涨幅（不含百分比）
      * @return 股票市值：{@code principal + (principal * incrRate / 100)}
@@ -62,8 +63,9 @@ public final class StockTest {
      */
     private static String calcMarketValue(String principal, String incrRate) {
         BigDecimal n = new BigDecimal(principal);
-        BigDecimal profit = n.multiply(new BigDecimal(incrRate)).divide(ONE_HUNDRED, RoundingMode.HALF_EVEN); // 盈亏金额
-        return n.add(profit).toPlainString();
+        BigDecimal incrFactor = BigDecimal.ONE.add(new BigDecimal(incrRate).multiply(INVERSE_HUNDRED)); // 增长因子（如 1.05 表示增长 5%）
+        // System.out.println("增长因子：" + incrFactor);
+        return n.multiply(incrFactor).toPlainString();
     }
 
 }
