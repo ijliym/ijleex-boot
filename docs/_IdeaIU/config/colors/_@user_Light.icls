@@ -7,6 +7,6 @@
     <property name="pluginId">com.intellij</property>
   </metaInfo>
   <colors>
-    <option name="DOCUMENTATION_COLOR" value="f7f7f7" />
+    <option name="DOCUMENTATION_COLOR" value="F7F7F7" />
   </colors>
 </scheme>

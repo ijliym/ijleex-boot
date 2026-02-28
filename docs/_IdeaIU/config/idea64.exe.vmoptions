@@ -1,2 +1,6 @@
 -Xmx1800m
 -Dfile.encoding=UTF-8
+
+--add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
+--add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
+-javaagent:C:\Users\Admin\AppData\Roaming\JetBrains\ja-netfilter-20251031\ja-netfilter.jar=jetbrains
