@@ -6,7 +6,7 @@
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.0</version>
+        <version>4.0.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -16,7 +16,7 @@
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
-    <description>IntelliJ IDEA Project :: Spring-Boot 3.x</description>
+    <description>IntelliJ IDEA Project :: Spring-Boot 4.x</description>
     <url>https://github.com/ijliym/ijleex-boot</url>
 
     <scm>
@@ -53,11 +53,11 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
-        <!--<spring-framework.version>7.0.1</spring-framework.version>-->
+        <!--<spring-framework.version>7.0.6</spring-framework.version>-->
 
         <!-- https://mvnrepository.com/artifact/com.ibm.icu/icu4j -->
-        <icu4j.version>78.1</icu4j.version>
-        <snakeyaml.version>2.5</snakeyaml.version>
+        <icu4j.version>78.3</icu4j.version>
+        <snakeyaml.version>2.6</snakeyaml.version>
     </properties>
 
     <!-- 配置子模块 -->
@@ -190,7 +190,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.14.1</version>
+                    <version>3.15.0</version>
                     <!-- http://maven.apache.org/plugins/maven-compiler-plugin/index.html -->
                     <configuration>
                         <source>${maven.compiler.source}</source>
@@ -243,7 +243,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
-                    <version>3.9.0</version>
+                    <version>3.10.0</version>
                     <executions>
                         <execution>
                             <id>copy-dependencies</id>
@@ -265,7 +265,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
-                    <version>3.3.1</version>
+                    <version>3.4.0</version>
                     <executions>
                         <execution>
                             <!-- 源码打包并发布 2018-11-07 16:41 -->
@@ -281,7 +281,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.3.1</version>
+                    <version>3.5.0</version>
                     <executions>
                         <execution>
                             <id>copy-resources</id>
@@ -310,7 +310,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.5.4</version>
+                    <version>3.5.5</version>
                     <configuration>
                         <!-- Skipping Tests 2018-02-01 16:00:42 -->
                         <skipTests>true</skipTests>
