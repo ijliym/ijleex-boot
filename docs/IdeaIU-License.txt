@@ -7,11 +7,11 @@ License Key
 ---
 https://www.jetbrains.com/idea/download/
 https://download.jetbrains.com/idea/ideaIU-14.1.7.zip
-https://download.jetbrains.com/idea/idea-2025.3.3.win.zip
-https://download.jetbrains.com/webstorm/WebStorm-2025.3.3.win.zip
-https://download.jetbrains.com/cpp/CLion-2025.3.3.win.zip
-https://download.jetbrains.com/python/pycharm-2025.3.3.win.zip
-https://download.jetbrains.com/go/goland-2025.3.3.win.zip
+https://download.jetbrains.com/idea/idea-2026.1.win.zip
+https://download.jetbrains.com/webstorm/WebStorm-2026.1.win.zip
+https://download.jetbrains.com/cpp/CLion-2026.1.win.zip
+https://download.jetbrains.com/python/pycharm-2026.1.win.zip
+https://download.jetbrains.com/go/goland-2026.1.win.zip
 
 ---
 https://www.jetbrains.com/idea/download/other.html
