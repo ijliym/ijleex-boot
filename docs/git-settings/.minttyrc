@@ -35,8 +35,8 @@ BoldAsColour=no
 Locale=zh_CN
 Charset=UTF-8
 
-Columns=105
-Rows=25
+Columns=118
+Rows=28
 Language=zh_CN
 
 Term=xterm-256color

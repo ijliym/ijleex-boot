@@ -172,19 +172,22 @@ under the License.
       <url>http://192.168.0.0:8081/nexus/content/groups/public/</url>
     </mirror>
     <mirror>
-      <id>maven-default-http-blocker</id>
+      <id>maven-default-http-blocker-???</id>
       <mirrorOf>external:http:*</mirrorOf>
       <name>Pseudo repository to mirror external repositories initially using HTTP.</name>
       <url>http://192.168.0.0:8081/nexus/content/groups/public/</url>
       <blocked>false</blocked>
     </mirror>
     -->
+
     <!-- mirror 相当于一个拦截器，它会拦截 maven 对远程 repository 的请求，
-       把请求里的远程 repository 地址，重定向到 mirror 的 url 地址。
+       把请求里的远程 repository 地址，重定向到 mirror 的 url 地址
     -->
+
+    <!-- 精确匹配中央仓库 -->
     <mirror>
-      <id>maven-internal</id>
-      <mirrorOf>central</mirrorOf>
+      <id>maven-aliyun</id>
+      <mirrorOf>central</mirrorOf> <!-- 覆盖中央仓库 https://repo.maven.apache.org/maven2/ -->
       <name>阿里云公共仓库</name>
       <url>https://maven.aliyun.com/repository/public</url>
     </mirror>
@@ -288,11 +291,11 @@ under the License.
     </profile>
 
     <profile>
-      <id>jdk-17</id>
+      <id>jdk-25</id>
 
       <activation>
         <activeByDefault>false</activeByDefault>
-        <jdk>17</jdk>
+        <jdk>25</jdk>
       </activation>
 
       <properties>
