@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="dev.ijleex" pattern="src:dev.ijleex..*||test:dev.ijleex..*||lib:dev.ijleex..*||src:me.ijleex..*||test:me.ijleex..*||lib:me.ijleex..*" />
+</component>
