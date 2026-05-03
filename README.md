@@ -31,6 +31,14 @@ git remote show origin
 
                                         2018-04-16 17:31:26
 
+### 克隆仓库
+
+```shell
+git clone --depth=10 git@gitee.com:ijliym/ijleex-boot.git
+```
+
+                                        2026-05-03 23:14:20
+
 ### 回滚更改
 
 使用命令：`git checkout -- filename`
