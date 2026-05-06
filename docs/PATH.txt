@@ -1,7 +1,7 @@
-Java SE 8u371-b11
+Java SE 8u491-b10
 
 JAVA_HOME
-D:\ProgramFiles\Java\jdk8u371-b11
+D:\ProgramFiles\Java\jdk8u491-b10
 
 PATH
 %JAVA_HOME%\bin
@@ -23,14 +23,14 @@ GRADLE_USER_HOME=%USERPROFILE%\.gradle\repository
                                     2018-06-13 11:19:42
 
 Linux (WSL/Debian) Java PATH
-vi ~/.profile
+vi /etc/profile
 JAVA_HOME=/usr/local/openjdk-25
 PATH=$JAVA_HOME/bin:$PATH
-source ~/.profile
+source /etc/profile
                                     2021-02-05 18:20:20
 
 sudo mkdir -p $JAVA_HOME
-curl -fLSs https://download.bell-sw.com/java/25.0.1+13/bellsoft-jdk25.0.1+13-linux-amd64.tar.gz \
+curl -fLSs https://download.bell-sw.com/java/25.0.3+11/bellsoft-jdk25.0.3+11-linux-amd64.tar.gz \
  | sudo tar -zxv --directory "$JAVA_HOME" --strip-components 1 --no-same-owner
 
 Golang 1.10.3
