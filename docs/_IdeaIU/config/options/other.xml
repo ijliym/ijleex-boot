@@ -1,13 +1,22 @@
 <application>
   <!-- 'options.xml' -> 'other.xml' (Since IDEA-2018.3.3)  -->
+  <component name="FileEditorProviderManager"><![CDATA[{}]]></component>
+  <component name="LangManager">
+    <option name="languageName" value="JAVA" />
+  </component>
+  <component name="NotRoamableUiSettings">
+    <option name="fontSize" value="12.0" />
+  </component>
   <component name="PropertyService"><![CDATA[{
   "keyToString": {
     "DBE.Default.Dialect": "MySQL",
     "Markdown Split EditorLayout": "Editor only",
     "decompiler.legal.notice.accepted": "true",
-    "defaultJdkConfigured": "false"
+    "defaultJdkConfigured": "false",
     "experimental.ui.on.first.startup": "true",
     "ide.memory.adjusted": "true"
   }
 }]]></component>
+  <component name="ReworkedTerminalUsage"><![CDATA[{}]]></component>
+  <component name="TerminalAgentsState"><![CDATA[{}]]></component>
 </application>
