@@ -39,6 +39,8 @@ spring:
       fail-on-unknown-properties: false
     mapper:
       use-getters-as-setters: true
+      # 使对象的字段按照在类中定义的顺序进行序列化
+      sort-properties-alphabetically: false
     json:
       read:
         # 允许出现单引号
