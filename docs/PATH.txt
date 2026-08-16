@@ -1,7 +1,7 @@
-Java SE 8u491-b10
+Java SE 8u501-b08
 
 JAVA_HOME
-D:\ProgramFiles\Java\jdk8u491-b10
+D:\ProgramFiles\Java\jdk8u501-b08
 
 PATH
 %JAVA_HOME%\bin
@@ -30,7 +30,7 @@ source /etc/profile
                                     2021-02-05 18:20:20
 
 sudo mkdir -p $JAVA_HOME
-curl -fLSs https://download.bell-sw.com/java/25.0.3+11/bellsoft-jdk25.0.3+11-linux-amd64.tar.gz \
+curl -fLSs https://download.bell-sw.com/java/25.0.4+9/bellsoft-jdk25.0.4+9-linux-amd64.tar.gz \
  | sudo tar -zxv --directory "$JAVA_HOME" --strip-components 1 --no-same-owner
 
 Golang 1.10.3
@@ -41,3 +41,4 @@ PATH=;%GOROOT%\bin;
 https://studygolang.com/dl/golang/go1.10.3.windows-amd64.zip
 
                                     2018-08-11 21:30
+
