@@ -1,5 +1,5 @@
 <application>
-    <component name="DontShowAgainFeedbackService"><![CDATA[{
+  <component name="DontShowAgainFeedbackService"><![CDATA[{
   "dontShowAgainIdeVersions": [
     "2024.1",
     "2024.2",
