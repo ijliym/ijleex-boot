@@ -18,7 +18,7 @@ ServerAliveInterval 6
 
 # github.com / gitee.com / gitlab.com / bitbucket.org
 Host *
-  IdentitiesOnly no
+  IdentitiesOnly yes
   IdentityFile ~/.ssh/id_ed25519
   PreferredAuthentications publickey
   User ijliym@163.com
@@ -27,7 +27,7 @@ Host *
 Host com-git.me
   HostName 192.168.0.0
   Port 8022
-  IdentitiesOnly no
+  IdentitiesOnly yes
   IdentityFile ~/.ssh/id_ed25519
   PreferredAuthentications publickey
 
