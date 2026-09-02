@@ -9,7 +9,7 @@
   </component>
   <component name="PropertyService"><![CDATA[{
   "keyToString": {
-    "DBE.Default.Dialect": "MySQL",
+    "DBE.Default.Dialect": "PostgreSQL",
     "Markdown Split EditorLayout": "Editor only",
     "decompiler.legal.notice.accepted": "true",
     "defaultJdkConfigured": "false",
