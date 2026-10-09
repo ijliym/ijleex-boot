@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2024 the original author or authors.
+ * Copyright © 2011-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -66,7 +66,7 @@ public class SQLUpdateEntry extends ImeEntry {
             sql.append(", ");
         }
         int idx = sql.lastIndexOf(", ");
-        // System.out.println("idx: " + idx);
+        // logger.info("idx: {}", idx);
         sql.replace(idx, idx + 1, "");
         if (sql.length() == 22) { // "UPDATE t_ime_dict SET " 的长度为 22
             return "没有可更新的属性：" + super.toString();
@@ -84,14 +84,6 @@ public class SQLUpdateEntry extends ImeEntry {
 
     private static boolean isNotEmpty(final String cs) {
         return !isEmpty(cs);
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new SQLUpdateEntry("一", "a", 2048, "av", "-"));
-        System.out.println(new SQLUpdateEntry("一", "a", 0, "av", "-"));
-        System.out.println(new SQLUpdateEntry("一", "a", 2048, null, "-"));
-        System.out.println(new SQLUpdateEntry("成", "a", -1, null, "-"));
-        System.out.println(new SQLUpdateEntry("一下", "aa", 3182, null, "类1"));
     }
 
 }

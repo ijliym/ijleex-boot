@@ -48,23 +48,23 @@ class LettuceClusterFactory {
         RedisURI uri = RedisURI.create("127.0.0.1", 6379);
         RedisClusterClient client = RedisClusterClient.create(uri);
         StatefulRedisClusterConnection<String, String> conn = client.connect();
-        System.out.println(conn);
+        logger.info("conn: {}", conn);
 
         Partitions partitions = client.getPartitions();
-        System.out.println("Nodes: " + partitions);
+        logger.info("Nodes: {}", partitions);
 
         RedisAdvancedClusterAsyncCommands<String, String> commands = conn.async();
         String name = commands.get("name").get();
-        System.out.println("get result: " + name);
+        logger.info("get result: {}", name);
 
         String done = commands.set("name", "ijleex@com").get();
-        System.out.println("set result: " + done);
+        logger.info("set result: {}", done);
 
         Long count = commands.del("name", "age").get();
-        System.out.println("del count: " + count);
+        logger.info("del count: {}", count);
 
         List<String> keys = commands.keys("d*").get();
-        System.out.println("keys: " + keys);
+        logger.info("keys: {}", keys);
     }
 
 }

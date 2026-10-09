@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2024 the original author or authors.
+ * Copyright © 2011-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -37,7 +37,7 @@ public class ExcelFrequency2Listener extends AnalysisEventListener<FrequencyExtE
      */
     private static final char[] CN_DIGIT = "一二三四五六七八九十百千万０".toCharArray();
 
-    protected final Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger logger = LoggerFactory.getLogger(ExcelFrequency2Listener.class);
 
     private final Map<String, Integer> entryMap;
     private final List<String> ignoreList;
@@ -106,12 +106,12 @@ public class ExcelFrequency2Listener extends AnalysisEventListener<FrequencyExtE
 
     public static void main(String[] args) {
         ExcelFrequency2Listener listener = new ExcelFrequency2Listener(new HashMap<>());
-        System.out.println(listener.shouldIgnoreNumeric("二十八"));  // true
-        System.out.println(listener.shouldIgnoreNumeric("第六"));   // false
-        System.out.println(listener.shouldIgnoreNumeric("八百"));   // true
-        System.out.println(listener.shouldIgnoreNumeric("几万"));   // false
-        System.out.println(listener.shouldIgnoreNumeric("第六"));   // false
-        System.out.println(listener.shouldIgnoreNumeric("一九八０"));   // true
+        logger.info("{}", listener.shouldIgnoreNumeric("二十八"));  // true
+        logger.info("{}", listener.shouldIgnoreNumeric("第六"));   // false
+        logger.info("{}", listener.shouldIgnoreNumeric("八百"));   // true
+        logger.info("{}", listener.shouldIgnoreNumeric("几万"));   // false
+        logger.info("{}", listener.shouldIgnoreNumeric("第六"));   // false
+        logger.info("{}", listener.shouldIgnoreNumeric("一九八０"));   // true
     }
 
     static {

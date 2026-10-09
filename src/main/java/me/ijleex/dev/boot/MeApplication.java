@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2025 the original author or authors.
+ * Copyright © 2011-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -68,7 +68,7 @@ public class MeApplication {
      */
     private static File getFatJarFile(String path) {
         // nested:/path/to/spring-boot-x.x.x-exec.jar/!BOOT-INF/classes/!/
-        path = path.replaceAll("nested:", "").replaceAll("/!BOOT-INF/classes/!/", "");
+        path = path.replace("nested:", "").replace("/!BOOT-INF/classes/!/", "");
         File file = new File(path);
         return (file.canRead() && file.isFile()) ? file : null;
     }

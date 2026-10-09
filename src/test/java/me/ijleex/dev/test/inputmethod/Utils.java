@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2024 the original author or authors.
+ * Copyright © 2011-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -25,7 +25,7 @@ public final class Utils {
         try {
             val = Integer.parseInt(ss);
         } catch (NumberFormatException ignored) {
-            // System.err.println("safeToInt error: " + str);
+            // logger.error("safeToInt error: {}", str);
         }
         return val;
     }

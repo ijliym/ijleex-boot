@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2025 the original author or authors.
+ * Copyright © 2011-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -50,7 +50,7 @@ public final class MeAction {
      */
     @RequestMapping(path = "/hello", method = RequestMethod.GET)
     public String hello(HttpServletRequest request) {
-        logger.debug("Hello request: {}", request);
+        logger.info("Hello request: {}", request);
         String version = SpringBootVersion.getVersion();
         return "Hello Spring-Boot v" + version;
     }
@@ -73,7 +73,7 @@ public final class MeAction {
      */
     @RequestMapping(path = "/profiles", method = RequestMethod.GET)
     public String getProfiles(HttpServletRequest request) {
-        /// logger.debug("getProfiles via Environment: {}", this.env);
+        logger.info("getProfiles via Environment: {}", this.env);
         String[] activeProfiles = this.env.getActiveProfiles();
         String myProfile;
         if (activeProfiles.length > 0) {
@@ -81,7 +81,7 @@ public final class MeAction {
         } else {
             myProfile = "default";
         }
-        logger.debug("getProfiles: {}", myProfile);
+        logger.info("getProfiles: {}", myProfile);
         return myProfile;
     }
 

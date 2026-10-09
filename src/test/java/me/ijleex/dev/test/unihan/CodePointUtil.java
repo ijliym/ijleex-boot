@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2025 the original author or authors.
+ * Copyright © 2011-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -165,15 +165,16 @@ public final class CodePointUtil {
         CJK_UNIFIED_IDEOGRAPHS_UNICODE_SET.add(0xFA29);
 
         // int size = CJK_UNIFIED_IDEOGRAPHS_UNICODE_SET.size(); // 97,680
-        // System.out.println("中日韩统一表意文字 字数：" + size);
+        // logger.info("中日韩统一表意文字 字数：{}", size);
     }
 
     /**
-     * @param str
-     * @return
+     * 判断一个字符串是否为短语
+     *
+     * @param str 字符串
+     * @return 字符串是短语，返回 true，否则，返回 false
      * @since 2025-09-07 17:11
      */
-    // com.ibm.icu.text.UnicodeSet#getSingleCP
     public static boolean isPhrase(String str) {
         int codePoint = getSingleCP(str);
         return codePoint == -1;
@@ -184,11 +185,14 @@ public final class CodePointUtil {
      * See the public UTF16.getSingleCodePoint() (which returns -1 for null rather than throwing NPE).
      *
      * @param s to test
-     * @return a code point IF the string consists of a single one.
-     * otherwise returns -1.
+     * @return a code point IF the string consists of a single one. otherwise returns -1.
+     * @see com.ibm.icu.text.UnicodeSet#getSingleCP(CharSequence)
+     * @since 2025-09-07 17:11
      */
     private static int getSingleCP(CharSequence s) {
-        if (s.length() == 1) return s.charAt(0);
+        if (s.length() == 1) {
+            return s.charAt(0);
+        }
         if (s.length() == 2) {
             int cp = Character.codePointAt(s, 0);
             if (cp > 0xFFFF) { // is surrogate pair
@@ -196,15 +200,6 @@ public final class CodePointUtil {
             }
         }
         return -1;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(getCodePoint("𤳳"));
-        System.out.println(isCJKUnifiedIdeographicChar("𤳳"));
-        System.out.println(CJK_UNIFIED_IDEOGRAPHS_UNICODE_SET.contains("\uD853\uDC38")); // 𤰸
-        System.out.println(isPhrase("六十四"));
-        System.out.println(isPhrase("六十"));
-        System.out.println(isPhrase("六"));
     }
 
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2025 the original author or authors.
+ * Copyright © 2011-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.VersionInfo;
@@ -40,6 +42,11 @@ public class CJKUnifiedIdeographsTest {
 
     private static final String PATH = "D:/ProgramFiles/MySQL/mysql-8.0.20-winx64/docs/";
 
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
+    private CJKUnifiedIdeographsTest() {
+    }
+
     /**
      * CJK Unified Ideographs (中日韩统一表意文字)
      *
@@ -54,7 +61,7 @@ public class CJKUnifiedIdeographsTest {
         UnicodeSet unicodeSet = new UnicodeSet(0x4E00, 0x9FEF);
 
         int size = unicodeSet.size();
-        System.out.println("字数：" + size);
+        logger.info("字数：{}", size);
 
         String blockId = "cjk-unified-ideographs";
 
@@ -111,7 +118,7 @@ public class CJKUnifiedIdeographsTest {
 
         Path dstPath = Paths.get(PATH, filename + ".txt");
         Files.write(dstPath, list);
-        System.out.println(dstPath);
+        logger.info("写入文件：{}", dstPath);
     }
 
     /**
@@ -128,7 +135,7 @@ public class CJKUnifiedIdeographsTest {
         UnicodeSet unicodeSet = new UnicodeSet(0x3400, 0x4DB5);
 
         int size = unicodeSet.size();
-        System.out.println("字数：" + size);
+        logger.info("字数：{}", size);
 
         String blockId = "cjk-unified-ideographs-extension-a";
 
@@ -152,7 +159,7 @@ public class CJKUnifiedIdeographsTest {
         UnicodeSet unicodeSet = new UnicodeSet(0x20000, 0x2A6D6);
 
         int size = unicodeSet.size();
-        System.out.println("字数：" + size);
+        logger.info("字数：{}", size);
 
         String blockId = "cjk-unified-ideographs-extension-b";
 
@@ -174,7 +181,7 @@ public class CJKUnifiedIdeographsTest {
         UnicodeSet unicodeSet = new UnicodeSet(0x2A700, 0x2B734);
 
         int size = unicodeSet.size();
-        System.out.println("字数：" + size);
+        logger.info("字数：{}", size);
 
         String blockId = "cjk-unified-ideographs-extension-c";
 
@@ -196,7 +203,7 @@ public class CJKUnifiedIdeographsTest {
         UnicodeSet unicodeSet = new UnicodeSet(0x2B740, 0x2B81D);
 
         int size = unicodeSet.size();
-        System.out.println("字数：" + size);
+        logger.info("字数：{}", size);
 
         String blockId = "cjk-unified-ideographs-extension-d";
 
@@ -218,7 +225,7 @@ public class CJKUnifiedIdeographsTest {
         UnicodeSet unicodeSet = new UnicodeSet(0x2B820, 0x2CEA1);
 
         int size = unicodeSet.size();
-        System.out.println("字数：" + size);
+        logger.info("字数：{}", size);
 
         String blockId = "cjk-unified-ideographs-extension-e";
 
@@ -241,7 +248,7 @@ public class CJKUnifiedIdeographsTest {
         UnicodeSet unicodeSet = new UnicodeSet(0x2CEB0, 0x2EBE0);
 
         int size = unicodeSet.size();
-        System.out.println("字数：" + size);
+        logger.info("字数：{}", size);
 
         String blockId = "cjk-unified-ideographs-extension-f";
 
@@ -277,7 +284,7 @@ public class CJKUnifiedIdeographsTest {
         unicodeSet.add(0xFA29);
 
         int size = unicodeSet.size();
-        System.out.println("字数：" + size);
+        logger.info("字数：{}", size);
 
         String blockId = "cjk-compatibility-ideographs";
 
@@ -301,7 +308,7 @@ public class CJKUnifiedIdeographsTest {
         unicodeSet.remove(0x2E9A); // 空闲 2018-05-06 17:03:27
 
         int size = unicodeSet.size();
-        System.out.println("字数：" + size);
+        logger.info("字数：{}", size);
 
         String blockId = "cjk-radicals-supplement";
 
@@ -324,7 +331,7 @@ public class CJKUnifiedIdeographsTest {
         UnicodeSet unicodeSet = new UnicodeSet(0x31C0, 0x31E3); // 0x31EF
 
         int size = unicodeSet.size();
-        System.out.println("字数：" + size);
+        logger.info("字数：{}", size);
 
         String blockId = "cjk-strokes";
 
@@ -346,7 +353,7 @@ public class CJKUnifiedIdeographsTest {
         UnicodeSet unicodeSet = new UnicodeSet(0x3000, 0x303F);
 
         int size = unicodeSet.size();
-        System.out.println("字数：" + size);
+        logger.info("字数：{}", size);
 
         String blockId = "cjk-symbols-and-punctuation";
 
@@ -371,7 +378,7 @@ public class CJKUnifiedIdeographsTest {
         UnicodeSet unicodeSet = new UnicodeSet(0x2FF0, 0x2FFB); // 0x2FFF
 
         int size = unicodeSet.size();
-        System.out.println("字数：" + size);
+        logger.info("字数：{}", size);
 
         String blockId = "ideographic-description-characters";
 
@@ -393,7 +400,7 @@ public class CJKUnifiedIdeographsTest {
         UnicodeSet unicodeSet = new UnicodeSet(0x3300, 0x33FF);
 
         int size = unicodeSet.size();
-        System.out.println("字数：" + size);
+        logger.info("字数：{}", size);
 
         String blockId = "cjk-compatibility";
 
@@ -414,7 +421,7 @@ public class CJKUnifiedIdeographsTest {
         UnicodeSet unicodeSet = new UnicodeSet(0xFE30, 0xFE4F);
 
         int size = unicodeSet.size();
-        System.out.println("字数：" + size);
+        logger.info("字数：{}", size);
 
         String blockId = "cjk-compatibility-forms";
 
@@ -442,7 +449,7 @@ public class CJKUnifiedIdeographsTest {
         UnicodeSet unicodeSet = new UnicodeSet(0x2F800, 0x2FA1D); // 0x2FA1F
 
         int size = unicodeSet.size();
-        System.out.println("字数：" + size); // 542
+        logger.info("字数：{}", size); // 542
 
         String blockId = "cjk-compatibility-ideographs-supplement";
 
@@ -471,7 +478,7 @@ public class CJKUnifiedIdeographsTest {
         unicodeSet.remove(0x32FF); // Reserved
 
         int size = unicodeSet.size();
-        System.out.println("字数：" + size);
+        logger.info("字数：{}", size);
 
         String blockId = "enclosed-cjk-letters-and-months";
 
@@ -505,7 +512,7 @@ public class CJKUnifiedIdeographsTest {
         unicodeSet.add(0x1F260, 0x1F265); // Symbols for Chinese folk religion
 
         int size = unicodeSet.size();
-        System.out.println("字数：" + size);
+        logger.info("字数：{}", size);
 
         String blockId = "enclosed-ideographic-supplement";
 
@@ -539,7 +546,7 @@ public class CJKUnifiedIdeographsTest {
         UnicodeSet unicodeSet = new UnicodeSet(0x2F00, 0x2FD5); //  0x2FDF
 
         int size = unicodeSet.size();
-        System.out.println("字数：" + size);
+        logger.info("字数：{}", size);
 
         String blockId = "kangxi-radicals";
 
@@ -557,9 +564,9 @@ public class CJKUnifiedIdeographsTest {
         unicodeSet.add(0x32FF); // The new character added to Version 12.1
 
         int size = unicodeSet.size();
-        System.out.println("字数：" + size);
+        logger.info("字数：{}", size);
 
-        unicodeSet.forEach(System.out::println);
+        unicodeSet.forEach(logger::info);
     }
 
     /**
@@ -569,10 +576,10 @@ public class CJKUnifiedIdeographsTest {
      */
     @Test
     public void test20() {
-        System.out.println(CodePointUtil.isCJKUnifiedIdeographicChar("火"));
-        System.out.println(CodePointUtil.isCJKUnifiedIdeographicChar("𤳳"));
-        System.out.println(CodePointUtil.isCJKUnifiedIdeographicChar("©"));
-        System.out.println(CodePointUtil.isCJKUnifiedIdeographicChar("〇"));
+        logger.info("火: {}", CodePointUtil.isCJKUnifiedIdeographicChar("火"));
+        logger.info("𤳳: {}", CodePointUtil.isCJKUnifiedIdeographicChar("𤳳"));
+        logger.info("©: {}", CodePointUtil.isCJKUnifiedIdeographicChar("©"));
+        logger.info("〇: {}", CodePointUtil.isCJKUnifiedIdeographicChar("〇"));
     }
 
     /**

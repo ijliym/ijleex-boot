@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 the original author or authors.
+ * Copyright © 2011-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -36,10 +36,10 @@ public final class RegexTest {
         String str = "2019-01-03 17:12:47 15752 [Note] InnoDB: 128 rollback segment(s) are active";
         Matcher matcher = pattern.matcher(str);
         while (matcher.find()) {
-            logger.debug("timestamp: {}", matcher.group(1));
-            logger.debug("pid: {}", matcher.group(2));
-            logger.debug("loglevel: {}", matcher.group(3));
-            logger.debug("message: {}", matcher.group(4));
+            logger.info("timestamp: {}", matcher.group(1));
+            logger.info("pid: {}", matcher.group(2));
+            logger.info("loglevel: {}", matcher.group(3));
+            logger.info("message: {}", matcher.group(4));
         }
     }
 
@@ -55,7 +55,7 @@ public final class RegexTest {
         String str = "%d{yyyy-MM-dd HH:mm:ss.SSS}";
         Matcher matcher = pattern.matcher(str);
         while (matcher.find()) {
-            logger.debug(matcher.group(1));
+            logger.info("format: {}", matcher.group(1));
         }
     }
 
@@ -73,9 +73,9 @@ public final class RegexTest {
         String name = "tomcat.z01";
         Matcher matcher = pattern.matcher(name);
         while (matcher.find()) {
-            logger.debug("name: {}", matcher.group(0));
-            logger.debug("simpleName: {}", matcher.group(1));
-            logger.debug("ext: {}", matcher.group(2));
+            logger.info("name: {}", matcher.group(0));
+            logger.info("simpleName: {}", matcher.group(1));
+            logger.info("ext: {}", matcher.group(2));
         }
     }
 
@@ -93,7 +93,7 @@ public final class RegexTest {
         String mobileNo = "15812345678";
         Matcher matcher = pattern.matcher(mobileNo);
         boolean matches = matcher.matches();
-        logger.debug("matches: {}", matches);
+        logger.info("matches: {}", matches);
     }
 
     /**
@@ -110,7 +110,7 @@ public final class RegexTest {
         String hashPwd = "$y$j9T$xDz8XyZHLyUVAQLF/bwo1.$d/07FzOb7dGbN4t/v1HxI6qxqW7ZxIr1iF3iW3Xdri.";
         Matcher matcher = pattern.matcher(hashPwd);
         boolean matches = matcher.matches();
-        logger.debug("matches: {}", matches);
+        logger.info("matches: {}", matches);
     }
 
 }

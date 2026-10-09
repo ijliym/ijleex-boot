@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2020 the original author or authors.
+ * Copyright © 2011-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -12,6 +12,8 @@ import java.util.Properties;
 import java.util.Set;
 
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 系统 “环境变量”
@@ -20,6 +22,11 @@ import org.junit.jupiter.api.Test;
  * @since 2018-09-26 11:20 新建
  */
 public class SystemPropsTest {
+
+    protected final Logger logger = LoggerFactory.getLogger(getClass());
+
+    private SystemPropsTest() {
+    }
 
     /**
      * 打印系统环境变量
@@ -33,7 +40,7 @@ public class SystemPropsTest {
         for (Map.Entry<String, String> entry : entrySet) {
             String key = entry.getKey();
             String value = entry.getValue();
-            System.out.println(key + "\t\t" + value);
+            logger.info("{}\t\t{}", key, value);
         }
     }
 
@@ -49,7 +56,7 @@ public class SystemPropsTest {
         for (Map.Entry<Object, Object> entry : entrySet) {
             Object key = entry.getKey();
             Object value = entry.getValue();
-            System.out.println(key + "\t\t" + value);
+            logger.info("{}\t\t{}", key, value);
         }
     }
 

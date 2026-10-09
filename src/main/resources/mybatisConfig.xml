@@ -62,8 +62,8 @@
     </settings>
 
     <!-- 配置拦截器，如分页查询拦截器等。 -->
-    <!--    <plugins>-->
-    <!--    </plugins>-->
+    <!--<plugins>-->
+    <!--</plugins>-->
 
     <databaseIdProvider type="DB_VENDOR">
         <property name="MySQL" value="mysql"/>

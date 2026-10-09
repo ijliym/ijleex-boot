@@ -1,11 +1,15 @@
 /*
- * Copyright 2011-2020 the original author or authors.
+ * Copyright © 2011-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
  */
 
 package me.ijleex.dev.test.unihan;
+
+import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.ibm.icu.text.UnicodeSet;
 
@@ -17,7 +21,13 @@ import com.ibm.icu.text.UnicodeSet;
  */
 final class Icu4jTest {
 
-    public static void main(String[] args) {
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
+    private Icu4jTest() {
+    }
+
+    @Test
+    public void icu4jTest() {
         UnicodeSet unicodeSet = new UnicodeSet();
         unicodeSet.add(0xFA0E);
         unicodeSet.add(0xFA0F);
@@ -33,13 +43,13 @@ final class Icu4jTest {
         unicodeSet.add(0xFA29);
 
         int size = unicodeSet.size();
-        System.out.println(size);
+        logger.info("size: {}", size);
 
-        unicodeSet.forEach(System.out::println);
+        unicodeSet.forEach(logger::info);
 
         int codePoint = CodePointUtil.getCodePoint("\uD869\uDC1A");
-        System.out.println(codePoint);
-        System.out.println(CodePointUtil.intAsHex(codePoint));
+        logger.info("codePoint: {}", codePoint);
+        logger.info("codePointAsHex: {}", CodePointUtil.intAsHex(codePoint));
     }
 
 }

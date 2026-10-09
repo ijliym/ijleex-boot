@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2021 the original author or authors.
+ * Copyright © 2011-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -19,6 +19,8 @@ import java.util.Date;
 import java.util.Locale;
 
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Java 8 中 Date 与 LocalDateTime、LocalDate、LocalTime 互转
@@ -31,6 +33,8 @@ import org.junit.jupiter.api.Test;
 public final class Jdk8DateTimeTest {
 
     private static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss.SSS";
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
      * Pattern: 2018-11-19T11:39:21.371
@@ -56,7 +60,7 @@ public final class Jdk8DateTimeTest {
         Instant instant = date.toInstant();
 
         LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
-        System.out.println(this.formatter.format(localDateTime));
+        logger.info("dateTime: {}", this.formatter.format(localDateTime));
     }
 
     /**
@@ -71,7 +75,7 @@ public final class Jdk8DateTimeTest {
 
         LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
         LocalDate localDate = localDateTime.toLocalDate();
-        System.out.println(localDate);
+        logger.info("date: {}", localDate);
     }
 
     /**
@@ -86,7 +90,7 @@ public final class Jdk8DateTimeTest {
 
         LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
         LocalTime localTime = localDateTime.toLocalTime();
-        System.out.println(localTime);
+        logger.info("time: {}", localTime);
     }
 
     /**
@@ -100,7 +104,7 @@ public final class Jdk8DateTimeTest {
         Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
 
         Date date = Date.from(instant);
-        System.out.println(this.format.format(date));
+        logger.info("date: {}", this.format.format(date));
     }
 
     /**
@@ -114,7 +118,7 @@ public final class Jdk8DateTimeTest {
         Instant instant = localDate.atTime(LocalTime.MIN).atZone(ZoneId.systemDefault()).toInstant();
 
         Date date = Date.from(instant);
-        System.out.println(this.format.format(date));
+        logger.info("date: {}", this.format.format(date));
     }
 
     /**
@@ -131,7 +135,7 @@ public final class Jdk8DateTimeTest {
         Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
 
         Date date = Date.from(instant);
-        System.out.println(this.format.format(date));
+        logger.info("date: {}", this.format.format(date));
     }
 
     /**
@@ -145,7 +149,7 @@ public final class Jdk8DateTimeTest {
         Instant instant = Instant.ofEpochMilli(timeMillis);
 
         LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
-        System.out.println(this.formatter.format(localDateTime));
+        logger.info("dateTime: {}", this.formatter.format(localDateTime));
     }
 
     /**
@@ -159,8 +163,8 @@ public final class Jdk8DateTimeTest {
         LocalDateTime localDateTime = LocalDateTime.now();
         long epochMillis = localDateTime.toInstant(ZoneOffset.ofHours(8)).toEpochMilli();
 
-        System.out.println(" timeMillis: " + timeMillis);
-        System.out.println("epochMillis: " + epochMillis);
+        logger.info(" timeMillis: {}", timeMillis);
+        logger.info("epochMillis: {}", epochMillis);
     }
 
 }

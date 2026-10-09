@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2024 the original author or authors.
+ * Copyright © 2011-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -19,6 +19,8 @@ import java.util.TreeSet;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import me.ijleex.dev.test.inputmethod.FormatType;
 import me.ijleex.dev.test.inputmethod.ImeDictAnalyzer;
@@ -39,6 +41,11 @@ public class ZhengmaTest {
      * <p>~/Documents/InputMethod/[超集郑码]/原始码表/</p>
      */
     private static final String DICT_PATH = "InputMethod/[超集郑码]/原始码表";
+
+    protected final Logger logger = LoggerFactory.getLogger(getClass());
+
+    public ZhengmaTest() {
+    }
 
     /**
      * 初始设置
@@ -118,28 +125,28 @@ public class ZhengmaTest {
             List<String> codeList = textMap.get(text);
             if (codeList == null) {
                 // 该词条在“原始码表/05.郑码-次显-生僻字.txt”文件中不存在
-                //System.out.println("不存在的词条：" + entry);
+                // logger.warn("不存在的词条：{}", entry);
                 toRetainedList.add(entry);
                 continue;
             }
             codeList.forEach(inUseCode -> {
                 // For debug
                 if ("\uD855\uDE8A".equals(text)) {
-                    System.out.println("Debug ==> " + entry);
+                    logger.info("Debug ==> {}", entry);
                 }
                 if (inUseCode.startsWith(code) || code.startsWith(inUseCode)) {
                     // 过滤三简或相同编码的词条
-                    System.out.println("重复的词条：" + entry);
+                    logger.warn("重复的词条：{}", entry);
                 } else {
                     toRetainedList.add(entry);
                 }
             });
         }
-        System.out.println("toRetainedList size: " + toRetainedList.size());
+        logger.info("toRetainedList size: {}", toRetainedList.size());
 
         Path dstPath = Paths.get("D:/to-retained-entry.txt");
         Files.write(dstPath, toRetainedList);
-        System.out.println("已写入文件：\n" + dstPath);
+        logger.info("已写入文件：{}", dstPath);
     }
 
 }

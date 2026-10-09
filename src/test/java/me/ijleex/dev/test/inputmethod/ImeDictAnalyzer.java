@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2025 the original author or authors.
+ * Copyright © 2011-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -107,7 +107,7 @@ public final class ImeDictAnalyzer {
      */
     private static void parseEntry(List<String> lineList, String type, SortedSet<ImeEntry> outList, FormatType formatType) {
         for (String line : lineList) { // 一	a	81694	av
-            // System.out.println(line);
+            // logger.info("line: {}", line);
 
             if (line.startsWith("---config@")) {
                 continue;
@@ -198,7 +198,7 @@ public final class ImeDictAnalyzer {
 
         Path dstPath = Paths.get(OUT_PATH, outFilename);
         Files.write(dstPath, entrySet);
-        System.out.println(dstPath);
+        logger.info("已写入文件：{}", dstPath);
     }
 
     /**

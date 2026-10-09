@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2025 the original author or authors.
+ * Copyright © 2011-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0.
  * See `LICENSE` in the project root for license information.
@@ -14,6 +14,8 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.ibm.icu.text.UnicodeSet;
 
@@ -25,7 +27,12 @@ import me.ijleex.dev.test.unihan.CodePointUtil;
  * @author liym
  * @since 2019-08-25 20:38 新建
  */
-public class ImeDictComparator {
+public class ImeDictComparatorTest {
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
+    private ImeDictComparatorTest() {
+    }
 
     /**
      * 找出郑码单字中不是 CJK 统一表意文字的字
@@ -41,7 +48,7 @@ public class ImeDictComparator {
         List<String> chars = Files.readAllLines(path);
         chars.forEach(ch -> {
             if (!CodePointUtil.isCJKUnifiedIdeographicChar(ch)) {
-                System.out.println("> " + ch);
+                logger.info("> {}", ch);
             }
         });
     }
@@ -65,7 +72,7 @@ public class ImeDictComparator {
         UnicodeSet cjkSet = CodePointUtil.getCJKUnifiedIdeographsSet();
         cjkSet.forEach(ch -> {
             if (!dictSet.contains(ch)) {
-                System.out.println("> " + ch);
+                logger.info("> {}", ch);
             }
         });
     }
