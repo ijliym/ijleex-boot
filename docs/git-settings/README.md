@@ -78,6 +78,13 @@ ssh-keygen -b 4096 -t rsa     -f ~/.ssh/id_rsa     -C "RSA-Key@$(hostname)"
 
 - https://ubuntu.com/server/docs/service-openssh
 
+### 计算公钥的 SHA256 指纹
+
+```shell
+ssh-keygen -l -E SHA256 -f ~/.ssh/id_ed25519.pub
+ssh-keygen -l -E SHA256 -f ~/.ssh/id_rsa.pub
+```
+
 ### 将私钥添加到 ssh-agent 高速缓存中
 
 ```shell

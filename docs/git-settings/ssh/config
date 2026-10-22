@@ -16,7 +16,7 @@ ControlPersist 8h
 ServerAliveCountMax 20
 ServerAliveInterval 6
 
-# github.com / gitee.com / gitlab.com / bitbucket.org
+# github.com | gitee.com | gitlab.com | bitbucket.org
 Host *
   IdentitiesOnly yes
   IdentityFile ~/.ssh/id_ed25519
