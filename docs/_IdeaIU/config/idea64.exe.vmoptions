@@ -1,3 +1,6 @@
+# custom IDEA VM options (expand/override 'bin\idea64.exe.vmoptions')
+
+
 -Dfile.encoding=UTF-8
 
--javaagent:C:\Users\Admin\AppData\Roaming\JetBrains\ja-netfilter-20251031\ja-netfilter.jar=jetbrains
+-javaagent:C:\Users\Admin\AppData\Roaming\JetBrains\ja-netfilter-20260914\ja-netfilter.jar=jetbrains
