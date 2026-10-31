@@ -13,7 +13,7 @@
 ### 初始化提交
 
 ```shell
-git init
+git init --object-format=sha1 --initial-branch=main
 git add .
 git commit -m 'Initial commit'
 ```
@@ -21,7 +21,7 @@ git commit -m 'Initial commit'
 ### 推送到远程仓库
 
 ```shell
-git remote add origin https://github.com/ijliym/ijleex-boot.git
+git remote add origin git@github.com:ijliym/ijleex-boot.git
 git branch -M main
 git push -u origin main
 
@@ -34,7 +34,7 @@ git remote show origin
 ### 克隆仓库
 
 ```shell
-git clone --depth=10 git@gitee.com:ijliym/ijleex-boot.git
+git clone --branch=main --depth=50 git@gitee.com:ijliym/ijleex-boot.git
 ```
 
                                         2026-05-03 23:14:20
@@ -44,7 +44,7 @@ git clone --depth=10 git@gitee.com:ijliym/ijleex-boot.git
 使用命令：`git checkout -- filename`
 
 ```shell
-git -c credential.helper= -c core.quotepath=false -c log.showSignature=false checkout HEAD -- \
+git -c core.quotepath=false -c log.showSignature=false checkout HEAD -- \
   .idea/copyright/apache_v2_license.xml \
   .idea/copyright/company_lic.xml \
   .idea/copyright/default_lic.xml \
