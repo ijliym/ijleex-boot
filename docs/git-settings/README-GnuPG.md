@@ -23,16 +23,16 @@ gpg --armor --export <密钥ID>
 ### 设置全局签名
 
 ```bash
-git config --global commit.gpgsign true
 git config --global user.signingkey <密钥ID>
+git config --global commit.gpgsign true
 git config --global tag.gpgsign true
 ```
 
 ### 设置项目签名
 
 ```bash
-git config --local commit.gpgsign true
 git config --local user.signingkey <密钥ID>
+git config --local commit.gpgsign true
 git config --local tag.gpgsign true
 ```
 
