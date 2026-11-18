@@ -23,14 +23,14 @@ GRADLE_USER_HOME=%USERPROFILE%\.gradle\repository
                                     2018-06-13 11:19:42
 
 Linux (WSL/Debian) Java PATH
-vi /etc/profile
+sudo vi /etc/profile
 JAVA_HOME=/usr/local/openjdk-25
 PATH=$JAVA_HOME/bin:$PATH
 source /etc/profile
                                     2021-02-05 18:20:20
 
 sudo mkdir -p $JAVA_HOME
-curl -fLSs https://download.bell-sw.com/java/25.0.4+9/bellsoft-jdk25.0.4+9-linux-amd64.tar.gz \
+curl -fLSs https://download.bell-sw.com/java/25.0.5.0.3+5/bellsoft-jdk25.0.5.0.3+5-linux-amd64.tar.gz \
  | sudo tar -zxv --directory "$JAVA_HOME" --strip-components 1 --no-same-owner
 
 Golang 1.10.3

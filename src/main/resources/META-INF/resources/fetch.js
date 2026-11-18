@@ -1,7 +1,7 @@
 /**
  * 下载文件
  * @param url 下载文件地址
- * @param params 下载文件参数
+ * @param params 下载文件参数  JSON.stringify(params), | new URLSearchParams(params),
  * @returns {Promise<void>}
  */
 async function download(url, params) {
