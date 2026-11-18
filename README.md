@@ -4,7 +4,7 @@
 - 基于 Spring-Boot 2.x 框架 [Spring Boot Reference Guide](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
 - 相关技术：Spring-Boot、MyBatis、jQuery、Bootstrap、Vue.js、ElementUI 等
 
-                                       2020-07-04 21:08:17
+                                    2020-07-04 21:08:17
 
 ## 使用 Git 进行项目版本管理
 
@@ -29,15 +29,15 @@ git fetch origin
 git remote show origin
 ```
 
-                                        2018-04-16 17:31:26
+                                    2018-04-16 17:31:26
 
 ### 克隆仓库
 
 ```shell
-git clone --branch=main --depth=50 git@gitee.com:ijliym/ijleex-boot.git
+git clone --branch=main --depth=50 git@github.com:ijliym/ijleex-boot.git
 ```
 
-                                        2026-05-03 23:14:20
+                                    2026-05-03 23:14:20
 
 ### 回滚更改
 
@@ -60,10 +60,10 @@ git -c core.quotepath=false -c log.showSignature=false checkout HEAD -- \
   .idea/scopes/org_springframework.xml
 ```
 
-                                        2018-04-19 09:25:32
+                                    2018-04-19 09:25:32
 
 ## License
 
-Copyright &copy; ijliym. All rights reserved.
+Copyright © ijliym. All rights reserved.
 
 Licensed under the [Apache License, Version 2.0](LICENSE).
