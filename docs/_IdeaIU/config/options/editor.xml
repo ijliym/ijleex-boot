@@ -3,6 +3,7 @@
     <option name="REFORMAT_ON_PASTE" value="1" />
     <option name="USE_INSTANCEOF_ON_EQUALS_PARAMETER" value="true" />
     <option name="ADD_UNAMBIGIOUS_IMPORTS_ON_THE_FLY" value="true" />
+    <EXCLUDED_PACKAGE NAME="com.sun.org" />
     <EXCLUDED_PACKAGE NAME="org.junit.platform.commons.logging" />
     <EXCLUDED_PACKAGE NAME="org.mybatis.logging" />
     <EXCLUDED_PACKAGE NAME="org.sqlite.util" />
